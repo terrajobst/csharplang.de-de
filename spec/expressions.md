@@ -125,12 +125,12 @@ In der folgende Tabelle sind alle Operatoren in der Reihenfolge der Rangfolge vo
 | [Relational and type-testing operators (Relationale und Typtestoperatoren)](expressions.md#relational-and-type-testing-operators) | Gleichheit                    | `==`  `!=`    | 
 | [Logical operators (Logische Operatoren)](expressions.md#logical-operators)                                         | Logisches AND                 | `&`           | 
 | [Logical operators (Logische Operatoren)](expressions.md#logical-operators)                                         | Logisches XOR                 | `^`           | 
-| [Logical operators (Logische Operatoren)](expressions.md#logical-operators)                                         | Logisches OR                  | `|`           |
+| [Logical operators (Logische Operatoren)](expressions.md#logical-operators)                                         | Logisches OR                  | <code>&#124;</code>           |
 | [Conditional logical operators (Bedingte logische Operatoren)](expressions.md#conditional-logical-operators)                 | Bedingtes AND             | `&&`          | 
-| [Conditional logical operators (Bedingte logische Operatoren)](expressions.md#conditional-logical-operators)                 | Bedingtes OR              | `||`          | 
+| [Conditional logical operators (Bedingte logische Operatoren)](expressions.md#conditional-logical-operators)                 | Bedingtes OR              | <code>&#124;&#124;</code>          | 
 | [The null coalescing operator (Der NULL-Sammeloperator)](expressions.md#the-null-coalescing-operator)                   | NULL-Sammeloperator             | `??`          | 
 | [Conditional operator (Bedingte Operatoren)](expressions.md#conditional-operator)                                   | Bedingt                 | `?:`          | 
-| [Zuweisungsoperatoren](expressions.md#assignment-operators), [anonyme Funktionsausdrücke](expressions.md#anonymous-function-expressions)  | Zuweisungs- und Lambda-Ausdrücke | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  `|=`  `=>` | 
+| [Zuweisungsoperatoren](expressions.md#assignment-operators), [anonyme Funktionsausdrücke](expressions.md#anonymous-function-expressions)  | Zuweisungs- und Lambda-Ausdrücke | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  <code>&#124;=</code>  `=>` | 
 
 Tritt ein Operand zwischen zwei Operatoren mit gleicher Rangfolge auf, steuert die Assoziativität der Operatoren die Reihenfolge, in der die Vorgänge ausgeführt werden:
 
@@ -3503,7 +3503,7 @@ bool? operator |(bool? x, bool? y);
 
 Die folgende Tabelle enthält die Ergebnisse dieser Operatoren für den Werten aller Kombinationen von `true`, `false`, und `null`.
 
-| `x`     | `y`     | `x & y` | "X | y " |
+| `x`     | `y`     | `x & y` | <code>x &#124; y</code> |
 |:-------:|:-------:|:-------:|:-------:|
 | `true`  | `true`  | `true`  | `true`  | 
 | `true`  | `false` | `false` | `true`  | 

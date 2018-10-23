@@ -277,13 +277,13 @@ Die folgende Tabelle enthält die # Operatoren, die Auflistungskategorien "Opera
 |                                  | `x != y`          | Ungleich |
 | Logisches AND                      | `x & y`           | Ganzzahliges bitweises AND, boolesches logisches AND |
 | Logisches XOR                      | `x ^ y`           | Ganzzahliges bitweises XOR, boolesches logisches XOR |
-| Logisches OR                       | "X | y "           | Ganzzahliges bitweises OR, boolesches logisches OR |
+| Logisches OR                       | <code>x &#124; y</code> | Ganzzahliges bitweises OR, boolesches logisches OR |
 | Bedingtes AND                  | `x && y`          | Wertet `y` nur, wenn `x` ist `true` |
-| Bedingtes OR                   | "X || y "          | Wertet `y` nur, wenn `x` ist `false` |
+| Bedingtes OR                   | <code>x &#124;&#124; y</code> | Wertet `y` nur, wenn `x` ist `false` |
 | NULL-Sammeloperator                  | `X ?? y`          | Ergibt `y` Wenn `x` ist `null`zu `x` andernfalls |
 | Bedingt                      | `x ? y : z`       | Wertet `y` Wenn `x` ist `true`, `z` Wenn `x` ist `false` |
 | Zuweisung oder anonyme Funktion | `x = y`           | Zuweisung |
-|                                  | `x op= y`         | Zusammengesetzte Zuweisung; Operatoren werden unterstützt `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` `|=` |
+|                                  | `x op= y`         | Zusammengesetzte Zuweisung; Operatoren werden unterstützt `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
 |                                  | `(T x) => y`      | Anonyme Funktion (Lambda-Ausdruck) |
 
 ## <a name="statements"></a>Anweisungen
