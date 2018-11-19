@@ -366,7 +366,7 @@ class X<T>
 }
 ```
 
-Wenn die direkte explizite Konvertierung `t` zu `int` erteilt wurden, wird einfach erwartet, `X<int>.F(7)` zurück `7L`. Es wäre jedoch nicht der Fall, da die standardmäßigen numerischen Konvertierungen nur gelten, wenn die Typen bekannt ist, dass zum Zeitpunkt der Bindung numerisch sein. Um die Semantik machen muss klare und im obige Beispiel stattdessen geschrieben werden:
+Wenn die direkte explizite Konvertierung `t` zu `int` erteilt wurden, wird einfach erwartet, `X<int>.F(7)` zurück `7L`. Es wäre jedoch nicht der Fall, da die standardmäßigen numerischen Konvertierungen nur gelten, wenn die Typen bekannt ist, dass zum Zeitpunkt der Bindung numerisch sein. Um die Semantik machen muss klare und im obige Beispiel stattdessen geschrieben werden:
 ```csharp
 class X<T>
 {
@@ -738,7 +738,7 @@ Die Anwendung während der Kompilierung einer Konvertierung von einer Methodengr
 *  Die ausgewählte Methode `M` kompatibel sein muss ([delegieren Kompatibilität](delegates.md#delegate-compatibility)) mit dem Delegattyp `D`, oder andernfalls ein Kompilierungsfehler tritt auf.
 *  Wenn die ausgewählte Methode `M` ist eine Instanzmethode, die zugeordneten Instanzausdruck `E` bestimmt das Zielobjekt des Delegaten.
 *  Wenn die ausgewählte Methode M eine Erweiterungsmethode die durch einen Elementzugriff auf ein Instanzenausdruck gekennzeichnet ist ist, bestimmt dieser Instanzausdruck das Zielobjekt des Delegaten.
-*  Das Ergebnis der Konvertierung ist ein Wert vom Typ `D`, d. h. ein neu erstellter Delegat, der auf dem ausgewählten Methode und die Ziel-Objekt verweist.
+*  Das Ergebnis der Konvertierung ist ein Wert vom Typ `D`, d. h. ein neu erstellter Delegat, der auf dem ausgewählten Methode und die Ziel-Objekt verweist.
 *  Beachten Sie, die diesen Prozess für die Erstellung eines Delegaten an eine Erweiterungsmethode führen können, wenn der Algorithmus des [Methodenaufrufe](expressions.md#method-invocations) finden Sie eine Instanzmethode jedoch erfolgreich ausgeführt wird, bei der Verarbeitung des Aufrufs `E(A)` als Erweiterung Methodenaufruf ([Erweiterung Methodenaufrufe](expressions.md#extension-method-invocations)). Ein Delegat, die so erstellte erfasst die Erweiterungsmethode als auch als erstes Argument.
 
 Das folgende Beispiel zeigt die Gruppe Konvertierungen:
@@ -770,7 +770,7 @@ class Test
 
 Die Zuweisung zu `d1` implizit konvertiert die Methodengruppe `F` auf einen Wert vom Typ `D1`.
 
-Die Zuweisung zu `d2` zeigt, wie es möglich, einen Delegaten an eine Methode zu erstellen, dass weniger Parametertypen (kontravariant abgeleiteten) und eine (covariant)-Rückgabetyp abgeleitete ist.
+Die Zuweisung zu `d2` zeigt, wie es ist möglich, einen Delegaten an eine Methode erstellen, die über weniger abgeleitete (Contravariant) Typen verfügt und eine abgeleitete (covariant)-Rückgabetyp.
 
 Die Zuweisung zu `d3` zeigt wie keine Konvertierung möglich ist, wenn die Methode nicht anwendbar ist.
 
