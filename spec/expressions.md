@@ -20,7 +20,7 @@ Ein Ausdruck ist eines der folgenden Elemente:
 
 Das Endergebnis eines Ausdrucks ist nie ein Namespace, Typ, Methodengruppe oder Ereigniszugriff. Stattdessen sind diese Kategorien von Ausdrücken wie oben erwähnt, intermediate-Konstrukte, die nur in bestimmten Kontexten zulässig sind.
 
-Eine Eigenschaft oder Indexzugriff ist immer neu klassifiziert als Wert durch Aufrufen von der *get-Accessor* oder *set-Accessor*. Die bestimmte Zugriffsmethode richtet sich nach den Kontext der Eigenschaft oder der Indexer Access: Wenn der Zugriff auf das Ziel einer Zuweisung, ist die *set-Accessor* wird aufgerufen, um einen neuen Wert zuzuweisen ([einfache Zuweisung](expressions.md#simple-assignment)) . Andernfalls die *get-Accessor* wird aufgerufen, um den aktuellen Wert zu erhalten ([Werte Ausdrücke](expressions.md#values-of-expressions)).
+Eine Eigenschaft oder Indexzugriff ist immer neu klassifiziert als Wert durch Aufrufen von der *get-Accessor* oder *set-Accessor*. Die bestimmte Zugriffsmethode richtet sich nach der im Rahmen der Eigenschaft oder der Indexer-Zugriff: Wenn der Zugriff auf das Ziel einer Zuweisung, ist die *set-Accessor* wird aufgerufen, um einen neuen Wert zuzuweisen ([einfache Zuweisung](expressions.md#simple-assignment)). Andernfalls die *get-Accessor* wird aufgerufen, um den aktuellen Wert zu erhalten ([Werte Ausdrücke](expressions.md#values-of-expressions)).
 
 ### <a name="values-of-expressions"></a>Werte der Ausdrücke
 
@@ -141,7 +141,7 @@ Rangfolge und Assoziativität können mit Klammern gesteuert werden. In `x + y *
 
 ### <a name="operator-overloading"></a>Überladen von Operatoren
 
-Alle unären und binären Operatoren sind Implementierungen vordefiniert, die in jedem Ausdruck automatisch verfügbar sind. Zusätzlich zu den vordefinierten Implementierungen können benutzerdefinierte Implementierungen dazu eingeleitet werden `operator` Deklarationen in Klassen und Strukturen ([Operatoren](classes.md#operators)). Benutzerdefinierte Implementierungen immer Vorrang vor vordefinierte operatorimplementierungen: Wenn keine Implementierungen der entsprechenden benutzerdefinierten Operator wird vorhanden sind die vordefinierten operatorimplementierungen gelten nur werden Siehe ,[ Unäroperator überladungsauflösung](expressions.md#unary-operator-overload-resolution) und [binärer Operator überladungsauflösung](expressions.md#binary-operator-overload-resolution).
+Alle unären und binären Operatoren sind Implementierungen vordefiniert, die in jedem Ausdruck automatisch verfügbar sind. Zusätzlich zu den vordefinierten Implementierungen können benutzerdefinierte Implementierungen dazu eingeleitet werden `operator` Deklarationen in Klassen und Strukturen ([Operatoren](classes.md#operators)). Benutzerdefinierte Implementierungen haben immer Vorrang vor vordefinierte operatorimplementierungen: Nur bei der keine Implementierungen der entsprechenden benutzerdefinierten Operator wird vorhanden sind die vordefinierten operatorimplementierungen berücksichtigt werden wie in beschrieben, [unäroperator überladungsauflösung](expressions.md#unary-operator-overload-resolution) und [binärer Operator-Überladung Auflösung](expressions.md#binary-operator-overload-resolution).
 
 Die ***überladbarer Unäroperatoren*** sind:
 ```csharp
@@ -304,14 +304,14 @@ Wenn ein Member eine Methode oder ein Ereignis ist, oder wenn es sich um Konstan
 
 Suche nach Membern berücksichtigt nicht nur den Namen der ein Element, sondern auch die Anzahl von Typparametern, die das Element und gibt an, ob der Member zugegriffen werden. Für die Zwecke der Suche nach Membern generische Methoden und geschachtelten generischen Typen haben die Anzahl von Typparametern, die in ihren jeweiligen Deklarationen angegeben, und alle anderen Elemente haben keine Typparameter.
 
-Eine Suche nach Membern des Namens eines `N` mit `K` Typ von Parametern in einem Typ `T` wird wie folgt verarbeitet:
+Eine Suche nach Membern des Namens eines `N` mit `K`  Typ von Parametern in einem Typ `T` wird wie folgt verarbeitet:
 
-*  Zuerst, eine Reihe von zugängliche Member, die mit dem Namen `N` bestimmt wird:
-    * Wenn `T` Typparameter ist ein, und klicken Sie dann die Gruppe der Union der Sätze von zugängliche Member, die mit dem Namen ist `N` in jedem der Typen, die als sekundäre Einschränkung oder primary-Einschränkung angegeben ([Geben Sie die Einschränkungen für Typparameter](classes.md#type-parameter-constraints)) für `T`, sowie die zugängliche Member, die mit dem Namen `N` in `object`.
-    * Andernfalls der Satz besteht aus allen zugegriffen werden kann ([Memberzugriff](basic-concepts.md#member-access)) Elemente, die mit dem Namen `N` in `T`, einschließlich der geerbte Member und den zugängliche Member mit dem Namen `N` in `object`. Wenn `T` ein konstruierter Typ ist, wird die Menge der Elemente wird abgerufen, indem Typargumente ersetzen, wie in beschrieben [Mitglieder der konstruierte Typen](classes.md#members-of-constructed-types). Elemente, die enthalten eine `override` Modifizierer aus der Gruppe ausgeschlossen werden.
+*  Zuerst, eine Reihe von zugängliche Member, die mit dem Namen `N` bestimmt wird:
+    * Wenn `T` Typparameter ist ein, und klicken Sie dann die Gruppe der Union der Sätze von zugängliche Member, die mit dem Namen ist `N` in jedem der Typen, die als sekundäre Einschränkung oder primary-Einschränkung angegeben ([Geben Sie die Einschränkungen für Typparameter](classes.md#type-parameter-constraints)) für  `T`, sowie die zugängliche Member, die mit dem Namen `N` in `object`.
+    * Andernfalls der Satz besteht aus allen zugegriffen werden kann ([Memberzugriff](basic-concepts.md#member-access)) Elemente, die mit dem Namen `N` in `T`, einschließlich der geerbte Member und den zugängliche Member mit dem Namen `N` in `object`. Wenn `T` ein konstruierter Typ ist, wird die Menge der Elemente wird abgerufen, indem Typargumente ersetzen, wie in beschrieben [Mitglieder der konstruierte Typen](classes.md#members-of-constructed-types). Elemente, die enthalten eine `override` Modifizierer aus der Gruppe ausgeschlossen werden.
 *  Als Nächstes If `K` ist 0 (null), alle geschachtelten Typen, deren Deklarationen enthalten die Typparameter, werden entfernt. Wenn `K` nicht gleich NULL ist, alle Elemente mit einer anderen Anzahl von Parametern entfernt werden, Typ. Hinweis: Wenn `K` ist NULL, Methoden mit einem Typ, die Parameter nicht werden, da durch die Herleitung Typ entfernt werden ([Typrückschluss](expressions.md#type-inference)) möglicherweise die Typargumente abzuleiten.
 *  Weiter, wenn der Member ist *aufgerufen*, allen nicht-*aufrufbare* Mitglieder aus dem Satz entfernt werden.
-*  Als Nächstes werden die Elemente, die durch andere Member ausgeblendet werden aus der Gruppe entfernt. Für jedes Element `S.M` in der Gruppe, in denen `S` ist der Typ, in dem das Element `M` deklariert ist, werden die folgenden Regeln angewendet:
+*  Als Nächstes werden die Elemente, die durch andere Member ausgeblendet werden aus der Gruppe entfernt. Für jedes Element `S.M` in der Gruppe, in denen `S` ist der Typ, in dem das Element `M` deklariert ist, werden die folgenden Regeln angewendet:
     * Wenn `M` ist eine Konstante, ein Feld, Eigenschaft, Ereignis oder -Enumerationsmember, alle Elemente in dem Basistyp deklariert `S` aus der Gruppe entfernt werden.
     * Wenn `M` ist eine Typdeklaration, dann alle nicht-Typen, die deklariert in einem Basistyp von `S` werden aus der Gruppe, entfernt und alle Typdeklarationen sind mit der gleichen Anzahl von Typparametern als `M` , die in dem Basistyp deklariert `S` werden entfernt aus dem Satz.
     * Wenn `M` ist eine Methode, alle Nichtmethode-Member in dem Basistyp deklariert `S` aus der Gruppe entfernt werden.
@@ -556,7 +556,7 @@ Bei der Ableitung der einzelnen Typparameter `Xi` ist entweder *festen* auf eine
 
 Typrückschluss erfolgt in mehreren Phasen. Jede Phase versucht, die Typargumente für weitere basierten auf die Ergebnisse der vorherigen Phase Variablen abzuleiten. In der erste Phase macht einige anfängliche Rückschlüsse ziehen, der den angegebenen Begrenzungen, während die zweite Phase Typvariablen auf bestimmte Typen korrigiert und weiter Grenzen leitet. Die zweite Phase möglicherweise werden eine Anzahl von Malen wiederholt.
 
-*Hinweis:* Typ Typrückschluss erfolgt nicht nur, wenn eine generische Methode aufgerufen wird. Typrückschluss für die Konvertierung von Methodengruppen finden Sie im [Typrückschluss für die Konvertierung von Methodengruppen](expressions.md#type-inference-for-conversion-of-method-groups) und suchen den besten common-Typ, der einen Satz von Ausdrücken finden Sie im [Suchen des beste allgemeine Typs einer Gruppe Ausdrücke](expressions.md#finding-the-best-common-type-of-a-set-of-expressions).
+*Hinweis*: Typ erfolgt Typrückschluss nicht nur, wenn eine generische Methode aufgerufen wird. Typrückschluss für die Konvertierung von Methodengruppen finden Sie im [Typrückschluss für die Konvertierung von Methodengruppen](expressions.md#type-inference-for-conversion-of-method-groups) und suchen den besten common-Typ, der einen Satz von Ausdrücken finden Sie im [Suchen des beste allgemeine Typs einer Gruppe Ausdrücke](expressions.md#finding-the-best-common-type-of-a-set-of-expressions).
 
 #### <a name="the-first-phase"></a>Die erste phase
 
@@ -675,7 +675,7 @@ Ein *Obergrenze Typrückschluss* *aus* ein `U` *zu* ein `V` erfolgt wie folgt:
 Ein *unfixed* Variablen vom Typ `Xi` ist mit einem Satz von Grenzen *festen* wie folgt:
 
 *  Der Satz von *potenzieller Typen* `Uj` als Satz aller Typen in den Satz von Grenzen für beginnt `Xi`.
-*  Untersuchen wir dann jede Grenze für `Xi` wiederum: für jede genau gebundene `U` von `Xi` alle Typen `Uj` die sind nicht identisch mit `U` werden aus dem Satz von Kandidaten entfernt. Für jede untere Grenze `U` von `Xi` alle Typen `Uj` ist auf die dort *nicht* eine implizite Konvertierung von `U` werden aus dem Satz von Kandidaten entfernt. Für jede Obergrenze `U` von `Xi` alle Typen `Uj` wird die dort *nicht* eine implizite Konvertierung in `U` werden aus dem Satz von Kandidaten entfernt.
+*  Klicken Sie dann untersuchen wir jede Grenze für `Xi` wiederum: Für jede genau gebundene `U` von `Xi` alle Typen `Uj` die sind nicht identisch mit `U` werden aus dem Satz von Kandidaten entfernt. Für jede untere Grenze `U` von `Xi` alle Typen `Uj` ist auf die dort *nicht* eine implizite Konvertierung von `U` werden aus dem Satz von Kandidaten entfernt. Für jede Obergrenze `U` von `Xi` alle Typen `Uj` wird die dort *nicht* eine implizite Konvertierung in `U` werden aus dem Satz von Kandidaten entfernt.
 *  If zu den Typen der verbleibenden Candidate `Uj` es ist ein eindeutiger Typ `V` von dem es eine implizite Konvertierung auf alle anderen möglichen Typen, klicken Sie dann `Xi` ist fest in `V`.
 *  Andernfalls schlägt die Typrückschluss fehl.
 
@@ -740,7 +740,7 @@ Der Typrückschluss für den Aufruf:
 ```csharp
 double seconds = F("1:15:30", s => TimeSpan.Parse(s), t => t.TotalSeconds);
 ```
-wird wie folgt: zunächst das Argument `"1:15:30"` bezieht sich auf die `value` Parameter Ableiten von `X` sein `string`. Klicken Sie dann, den Parameter der ersten anonymen Funktion `s`, erhält den abgeleiteten Typ `string`, und der Ausdruck `TimeSpan.Parse(s)` bezieht sich auf den Rückgabetyp der `f1`, ableiten von `Y` sein `System.TimeSpan`. Abschließend den Parameter der zweiten anonyme Funktion `t`, erhält den abgeleiteten Typ `System.TimeSpan`, und der Ausdruck `t.TotalSeconds` bezieht sich auf den Rückgabetyp der `f2`, ableiten von `Z` sein `double`. Daher ist das Ergebnis des Aufrufs, vom Typ `double`.
+wird wie folgt: Zunächst wird das Argument `"1:15:30"` bezieht sich auf die `value` Parameter Ableiten von `X` sein `string`. Klicken Sie dann, den Parameter der ersten anonymen Funktion `s`, erhält den abgeleiteten Typ `string`, und der Ausdruck `TimeSpan.Parse(s)` bezieht sich auf den Rückgabetyp der `f1`, ableiten von `Y` sein `System.TimeSpan`. Abschließend den Parameter der zweiten anonyme Funktion `t`, erhält den abgeleiteten Typ `System.TimeSpan`, und der Ausdruck `t.TotalSeconds` bezieht sich auf den Rückgabetyp der `f2`, ableiten von `Z` sein `double`. Daher ist das Ergebnis des Aufrufs, vom Typ `double`.
 
 #### <a name="type-inference-for-conversion-of-method-groups"></a>Typrückschluss für die Konvertierung von Methodengruppen
 
@@ -820,7 +820,7 @@ Eine Argumentliste `A` mit einem Satz von Argumentausdrücken `{E1, E2, ..., En}
 
 Beim Ausführen dieser Evaluierung Wenn `Mp` oder `Mq` gilt in der erweiterten Form dann `Px` oder `Qx` bezieht sich auf einen Parameter in die erweiterte Form der Parameterliste.
 
-Für den Fall, dass der Typparameter Sequenzen `{P1, P2, ..., Pn}` und `{Q1, Q2, ..., Qn}` äquivalent sind (d. h. jede `Pi` verfügt über eine identitätskonvertierung in den entsprechenden `Qi`), die folgenden Regeln für die aktuelle Verbindung angewendet werden, in der Reihenfolge, um zu bestimmen, desto besser Funktionsmember.
+Für den Fall, dass der Typparameter Sequenzen `{P1, P2, ..., Pn}` und `{Q1, Q2, ..., Qn}` äquivalent sind (d. h. jede `Pi` verfügt über eine identitätskonvertierung in den entsprechenden `Qi`), die folgenden Regeln für die aktuelle Verbindung angewendet werden, in der Reihenfolge, um zu bestimmen, desto besser Funktionsmember.
 
 *  Wenn `Mp` ist eine nicht generische Methode und `Mq` ist eine generische Methode `Mp` ist besser als `Mq`.
 *  Andernfalls gilt: Wenn `Mp` gilt in seiner normalen Form und `Mq` verfügt über eine `params` array und gilt nur in der erweiterten Form dann `Mp` ist besser als `Mq`.
@@ -913,7 +913,7 @@ Für die meisten dynamisch gebundene Vorgänge ist der Satz von möglichen Kandi
 
 In diesen Fällen wird eine begrenzte Überprüfung der während der Kompilierung ausgeführt, bei jedem Kandidaten aus, um festzustellen, ob diese möglicherweise zur Laufzeit anwenden könnten. Diese Überprüfung umfasst die folgenden Schritte aus:
 
-*  Partielle Typrückschluss: Typ Any-Argument, das nicht direkt oder indirekt auf ein Argument vom Typ abhängt `dynamic` abgeleitet wird, wobei die Regeln der [Typrückschluss](expressions.md#type-inference). Die verbleibenden Typargumente sind unbekannt.
+*  Partielle Typrückschluss: Jeder Typ Argument, das nicht direkt oder indirekt auf ein Argument vom Typ abhängt `dynamic` abgeleitet wird, wobei die Regeln der [Typrückschluss](expressions.md#type-inference). Die verbleibenden Typargumente sind unbekannt.
 *  Partielle anwendbarkeitsprüfung: Anwendbarkeit wird überprüft, gemäß [Anwendbarer Funktionsmember](expressions.md#applicable-function-member), aber der Parameter, deren Typen unbekannt sind, werden ignoriert.
 *  Wenn kein Kandidat dieser Test erfolgreich ist, tritt ein Fehler während der Kompilierung.
 
@@ -1075,26 +1075,26 @@ simple_name
 
 Ein *Simple_name* ist entweder der Form `I` oder des Formulars `I<A1,...,Ak>`, wobei `I` ist eine einmalige Kennung und `<A1,...,Ak>` ist eine optionale *Type_argument_list*. Wenn kein *Type_argument_list* wird angegeben, sollten Sie `K` 0 (null). Die *Simple_name* ausgewertet und wie folgt klassifiziert:
 
-*  Wenn `K` ist 0 (null) und die *Simple_name* Teil einer *Block* und, wenn die *Block*des (oder einer einschließenden *Block*des) lokalen Variablendeklaration-Speicherplatz ([Deklarationen](basic-concepts.md#declarations)) enthält lokale Variablen, Parameter oder Konstante mit dem Namen `I`, und klicken Sie dann die *Simple_name* bezieht sich auf dieser lokalen Variablen verwenden, Parameter oder Konstanten und wird als eine Variable oder einem Wert klassifiziert.
-*  Wenn `K` ist 0 (null) und die *Simple_name* erscheint im Text der Deklaration einer generischen Methode und wenn dieser Deklaration einen Typparameter mit dem Namen enthält `I`, und klicken Sie dann die *Simple_name*bezieht sich auf den Typparameter.
-*  Für jeden Instanztyp andernfalls `T` ([den Instanztyp](classes.md#the-instance-type)), beginnend mit dem Instanztyp der Deklaration des unmittelbar einschließenden und mit dem Instanztyp jeden einschließenden Klasse oder Struktur Deklaration (sofern vorhanden):
-   *  Wenn `K` ist 0 (null) und die Deklaration von `T` enthält einen Typparameter mit dem Namen `I`, und klicken Sie dann die *Simple_name* bezieht sich auf den Typparameter.
-   *  Andernfalls, wenn eine Suche nach Membern ([Membersuche](expressions.md#member-lookup)) der `I` in `T` mit `K` Typargumente eine Übereinstimmung ergibt:
+*  Wenn `K` ist 0 (null) und die *Simple_name* Teil einer *Block* und, wenn die *Block*des (oder einer einschließenden *Block*des) lokalen Variablendeklaration-Speicherplatz ([Deklarationen](basic-concepts.md#declarations)) enthält lokale Variablen, Parameter oder Konstante mit dem Namen `I`, und klicken Sie dann die *Simple_name* bezieht sich auf dieser lokalen Variablen verwenden, Parameter oder Konstanten und wird als eine Variable oder einem Wert klassifiziert.
+*  Wenn `K` ist 0 (null) und die *Simple_name* erscheint im Text der Deklaration einer generischen Methode und wenn dieser Deklaration einen Typparameter mit dem Namen enthält `I`, und klicken Sie dann die *Simple_name*bezieht sich auf den Typparameter.
+*  Für jeden Instanztyp andernfalls `T` ([den Instanztyp](classes.md#the-instance-type)), beginnend mit dem Instanztyp der Deklaration des unmittelbar einschließenden und mit dem Instanztyp jeden einschließenden Klasse oder Struktur Deklaration (sofern vorhanden):
+   *  Wenn `K` ist 0 (null) und die Deklaration von `T` enthält einen Typparameter mit dem Namen `I`, und klicken Sie dann die *Simple_name* bezieht sich auf den Typparameter.
+   *  Andernfalls, wenn eine Suche nach Membern ([Membersuche](expressions.md#member-lookup)) der `I` in `T` mit `K`  Typargumente eine Übereinstimmung ergibt:
       * Wenn `T` ist die Instanztyp des unmittelbar umschließende Klasse oder Struktur und die Suche nach identifiziert einen oder mehrere Methoden, die das Ergebnis ist eine Methodengruppe mit einem zugeordneten Instanzausdruck von `this`. Wenn eine Liste der Typargumente angegeben wurde, wird es verwendet eine generische Methode aufzurufen ([Methodenaufrufe](expressions.md#method-invocations)).
       * Andernfalls gilt: Wenn `T` der Instanztyp der unmittelbar umschließende Klasse oder Struktur-Typ ist, wenn die Suche auf einen Instanzmember identifiziert und der Verweis innerhalb eines Texts der Instanzkonstruktor, eine Instanzmethode oder einem Instanzaccessor auftritt, die Ergebnis ist identisch mit Memberzugriff ([Memberzugriff](expressions.md#member-access)) des Formulars `this.I`. Dies kann nur, wenn `K` ist 0 (null).
       * Andernfalls das Ergebnis ist identisch mit Memberzugriff ([Memberzugriff](expressions.md#member-access)) des Formulars `T.I` oder `T.I<A1,...,Ak>`. In diesem Fall es ist ein Fehler während der Bindung für die *Simple_name* zum Verweisen auf ein Instanzmember.
 
-*  Für jeden Namespace, andernfalls `N`, beginnend mit dem Namespace, in dem die *Simple_name* wird mit jeder einschließenden Namespace (sofern vorhanden) und bis hin zu den globalen Namespace, weiterhin werden die folgenden Schritte aus ausgewertet, bis eine Entität befindet:
-   *  Wenn `K` ist 0 (null) und `I` ist der Name eines Namespace im `N`, klicken Sie dann:
-      * Wenn der Speicherort, in dem die *Simple_name* tritt auf, steht eine Namespace-Deklaration für `N` und die Namespacedeklaration enthält eine *Extern_alias_directive* oder  *Using_alias_directive* , die den Namen zuordnet `I` mit einem Namespace oder Typ, der *Simple_name* ist mehrdeutig und ein Fehler während der Kompilierung auftritt.
+*  Für jeden Namespace, andernfalls `N`, beginnend mit dem Namespace, in dem die *Simple_name* wird mit jeder einschließenden Namespace (sofern vorhanden) und bis hin zu den globalen Namespace, weiterhin werden die folgenden Schritte aus ausgewertet, bis eine Entität befindet:
+   *  Wenn `K` ist 0 (null) und `I` ist der Name eines Namespace im `N`, klicken Sie dann:
+      * Wenn der Speicherort, in dem die *Simple_name* tritt auf, steht eine Namespace-Deklaration für `N` und die Namespacedeklaration enthält eine *Extern_alias_directive* oder  *Using_alias_directive* , die den Namen zuordnet `I` mit einem Namespace oder Typ, der *Simple_name* ist mehrdeutig und ein Fehler während der Kompilierung auftritt.
       * Andernfalls die *Simple_name* verweist auf den Namespace mit dem Namen `I` in `N`.
-   *  Andernfalls gilt: Wenn `N` enthält einen zugreifbarer Typ, der mit Namen `I` und `K` Typparameter, klicken Sie dann:
-      * Wenn `K` ist 0 (null) und den Speicherort, in denen die *Simple_name* tritt auf, wird durch eine Namespacedeklaration zur eingeschlossen `N` und die Namespacedeklaration enthält eine *Extern_alias_directive*oder *Using_alias_directive* , die den Namen zuordnet `I` mit einem Namespace oder Typ, der *Simple_name* ist mehrdeutig und ein Fehler während der Kompilierung auftritt.
+   *  Andernfalls gilt: Wenn `N` enthält einen zugreifbarer Typ, der mit Namen `I` und `K`  Typparameter, klicken Sie dann:
+      * Wenn `K` ist 0 (null) und den Speicherort, in denen die *Simple_name* tritt auf, wird durch eine Namespacedeklaration zur eingeschlossen `N` und die Namespacedeklaration enthält eine *Extern_alias_directive*oder *Using_alias_directive* , die den Namen zuordnet `I` mit einem Namespace oder Typ, der *Simple_name* ist mehrdeutig und ein Fehler während der Kompilierung auftritt.
       * Andernfalls die *Namespace_or_type_name* verweist auf den Typ mit den Argumenten angegebenen Typs erstellt.
-   *  Andernfalls gilt: Wenn der Speicherort, in dem die *Simple_name* tritt auf, wird durch eine Namespacedeklaration zur eingeschlossen `N`:
-      * Wenn `K` ist 0 (null) und die Namespacedeklaration enthält eine *Extern_alias_directive* oder *Using_alias_directive* , die den Namen verknüpft `I` mit einem importierten Namespace oder Der Typ, und klicken Sie dann die *Simple_name* bezieht sich auf diesen Namespace oder Typ.
-      * Andernfalls, wenn die Deklarationen für Namespaces und importiert die *Using_namespace_directive*s und *Using_static_directive*s der Namespacedeklaration enthalten genau ein zugreifbarer Typ oder ohne Erweiterung statischen Member mit Namen `I` und `K` Typparameter, und klicken Sie dann die *Simple_name* bezieht sich auf den Typ oder Member, die mit den Argumenten angegebenen Typs erstellt.
-      * Andernfalls, wenn die Namespaces und Typen von importiert die *Using_namespace_directive*s der Namespacedeklaration enthalten mehr als ein zugreifbarer Typ oder nicht-Erweiterungsmethode statischen Member mit Namen `I` und `K` Typparameter, und klicken Sie dann die *Simple_name* ist mehrdeutig und ein Fehler auftritt.
+   *  Andernfalls gilt: Wenn der Speicherort, in dem die *Simple_name* tritt auf, wird durch eine Namespacedeklaration zur eingeschlossen `N`:
+      * Wenn `K` ist 0 (null) und die Namespacedeklaration enthält eine *Extern_alias_directive* oder *Using_alias_directive* , die den Namen verknüpft `I` mit einem importierten Namespace oder Der Typ, und klicken Sie dann die *Simple_name* bezieht sich auf diesen Namespace oder Typ.
+      * Andernfalls, wenn die Deklarationen für Namespaces und importiert die *Using_namespace_directive*s und *Using_static_directive*s der Namespacedeklaration enthalten genau ein zugreifbarer Typ oder ohne Erweiterung statischen Member mit Namen `I` und `K`  Typparameter, und klicken Sie dann die *Simple_name* bezieht sich auf den Typ oder Member, die mit den Argumenten angegebenen Typs erstellt.
+      * Andernfalls, wenn die Namespaces und Typen von importiert die *Using_namespace_directive*s der Namespacedeklaration enthalten mehr als ein zugreifbarer Typ oder nicht-Erweiterungsmethode statischen Member mit Namen `I` und `K`  Typparameter, und klicken Sie dann die *Simple_name* ist mehrdeutig und ein Fehler auftritt.
 
    Beachten Sie, dass dieser gesamte Schritt genau mit dem entsprechenden Schritt bei der Verarbeitung von parallelen ist eine *Namespace_or_type_name* ([Namespace und Typnamen](basic-concepts.md#namespace-and-type-names)).
 
@@ -1138,37 +1138,37 @@ Ein *Member_access* mit einem *Primary_expression* des Typs `dynamic` dynamisch 
 
 Die *Member_access* ausgewertet und wie folgt klassifiziert:
 
-*  Wenn `K` ist 0 (null) und `E` ist ein Namespace und `E` enthält einen geschachtelten Namespace mit dem Namen `I`, lautet das Ergebnis dieses Namespace.
-*  Andernfalls gilt: Wenn `E` ist ein Namespace und `E` enthält einen zugreifbarer Typ, der mit Namen `I` und `K` Typparameter, und klicken Sie dann das Ergebnis dieses Typs mit den Argumenten angegebenen Typs erstellt wird.
-*  Wenn `E` ist eine *Predefined_type* oder *Primary_expression* als Typ klassifiziert werden, wenn `E` ist es sich nicht um ein Typparameter, und wenn eine Suche nach Membern ([Membersuche](expressions.md#member-lookup)) der `I` in `E` mit `K` Typparameter erzeugt eine Übereinstimmung, `E.I` ausgewertet und wie folgt klassifiziert:
+*  Wenn `K` ist 0 (null) und `E` ist ein Namespace und `E` enthält einen geschachtelten Namespace mit dem Namen `I`, lautet das Ergebnis dieses Namespace.
+*  Andernfalls gilt: Wenn `E` ist ein Namespace und `E` enthält einen zugreifbarer Typ, der mit Namen `I` und `K`  Typparameter, und klicken Sie dann das Ergebnis dieses Typs mit den Argumenten angegebenen Typs erstellt wird.
+*  Wenn `E` ist eine *Predefined_type* oder *Primary_expression* als Typ klassifiziert werden, wenn `E` ist es sich nicht um ein Typparameter, und wenn eine Suche nach Membern ([Membersuche](expressions.md#member-lookup)) der `I` in `E` mit `K`  Typparameter erzeugt eine Übereinstimmung, `E.I` ausgewertet und wie folgt klassifiziert:
    *  Wenn `I` identifiziert einen Typ, lautet das Ergebnis dieses Typs mit den Argumenten angegebenen Typs erstellt.
    *  Wenn `I` eine oder mehrere Methoden, identifiziert, und klicken Sie dann das Ergebnis einer Methodengruppe ohne zugeordneten Instanzausdruck ist. Wenn eine Liste der Typargumente angegeben wurde, wird es verwendet eine generische Methode aufzurufen ([Methodenaufrufe](expressions.md#method-invocations)).
    *  Wenn `I` identifiziert eine `static` -Eigenschaft, und klicken Sie dann auf das Ergebnis ist ein Eigenschaftenzugriff ohne zugeordneten Instanzausdruck.
    *  Wenn `I` identifiziert eine `static` Feld:
-      * Wenn das Feld `readonly` der Verweis findet im statischen Konstruktor der Klasse oder Struktur, die in der das Feld deklariert wird, und das Ergebnis ist ein Wert, d. h. der Wert des statischen Felds `I` in `E`.
-      * Andernfalls ist das Ergebnis einer Variablen, d. h. das statische Feld `I` in `E`.
+      * Wenn das Feld `readonly` der Verweis findet im statischen Konstruktor der Klasse oder Struktur, die in der das Feld deklariert wird, und das Ergebnis ist ein Wert, d. h. der Wert des statischen Felds `I` in `E`.
+      * Andernfalls ist das Ergebnis einer Variablen, d. h. das statische Feld `I` in `E`.
    *  Wenn `I` identifiziert eine `static` Ereignis:
       * Im Falle der Verweis innerhalb der Klasse oder Struktur, die in der das Ereignis deklariert ist, und das Ereignis deklariert wurde, ohne *Event_accessor_declarations* ([Ereignisse](classes.md#events)), klicken Sie dann `E.I` genau verarbeitet wird als ob `I` wurden von ein statischen Feld.
       * Andernfalls ist das Ergebnis ein Ereigniszugriff ohne zugeordneten Instanzausdruck.
    *  Wenn `I` eine Konstante ist, identifiziert, und klicken Sie dann das Ergebnis ein Wert, nämlich den Wert dieser Konstanten ist.
     * Wenn `I` einen Enumerationsmember identifiziert, und klicken Sie dann das Ergebnis ein Wert, nämlich der Wert dieses Elements der Enumeration ist.
     * Andernfalls `E.I` ist ein ungültiger Memberverweis, und ein Fehler während der Kompilierung auftritt.
-*  Wenn `E` ist ein Zugriff auf Eigenschaften, Indexerzugriff, Variable oder -Wert, dessen Typ von `T`, und eine Suche nach Membern ([Membersuche](expressions.md#member-lookup)) der `I` in `T` mit `K` Typargumente erzeugt eine Übereinstimmung, `E.I` ausgewertet und wie folgt klassifiziert:
+*  Wenn `E` ist ein Zugriff auf Eigenschaften, Indexerzugriff, Variable oder -Wert, dessen Typ von `T`, und eine Suche nach Membern ([Membersuche](expressions.md#member-lookup)) der `I` in `T` mit `K`  Typargumente erzeugt eine Übereinstimmung, `E.I` ausgewertet und wie folgt klassifiziert:
    *  Wenn zunächst `E` ist eine Eigenschaft oder Indexerzugriff, und klicken Sie dann den Wert der Eigenschaft oder Indexerzugriff abgerufen ([Werte Ausdrücke](expressions.md#values-of-expressions)) und `E` ist, die als Wert neu klassifiziert.
    *  Wenn `I` eine oder mehrere Methoden, identifiziert, ist das Ergebnis einer Methodengruppe mit einem zugeordneten Instanzausdruck von `E`. Wenn eine Liste der Typargumente angegeben wurde, wird es verwendet eine generische Methode aufzurufen ([Methodenaufrufe](expressions.md#method-invocations)).
    *  Wenn `I` identifiziert eine Instance-Eigenschaft
       * Wenn `E` ist `this`, `I` identifiziert eine automatisch implementierte Eigenschaft ([automatisch implementierten Eigenschaften](classes.md#automatically-implemented-properties)) ohne einen Setter und der Verweis erfolgt innerhalb eines Instanzkonstruktors für einen Klassen-oder Strukturtyp `T`, lautet das Ergebnis einer Variablen, d. h. das ausgeblendete Unterstützungsfeld für den Auto-Eigenschaft vom `I` in der Instanz von `T` von bestimmten `this`.
-      * Andernfalls ist das Ergebnis ein Eigenschaftszugriff mit einem zugeordneten Instanzausdruck von `E`.
+      * Andernfalls ist das Ergebnis ein Eigenschaftszugriff mit einem zugeordneten Instanzausdruck von `E`.
    *  Wenn `T` ist eine *Class_type* und `I` identifiziert ein Instanzenfeld, *Class_type*:
       * Wenn der Wert des `E` ist `null`, ein `System.NullReferenceException` ausgelöst.
-      * Wenn das Feld ist, andernfalls `readonly` der Verweis findet keinen Instanzenkonstruktor der Klasse in der das Feld deklariert wird, und das Ergebnis ist ein Wert, nämlich der Wert des Felds `I` in das Objekt, das auf `E`.
-      * Andernfalls ist das Ergebnis einer Variablen, d. h. das Feld `I` in das Objekt, das auf `E`.
+      * Wenn das Feld ist, andernfalls `readonly` der Verweis findet keinen Instanzenkonstruktor der Klasse in der das Feld deklariert wird, und das Ergebnis ist ein Wert, nämlich der Wert des Felds `I` in das Objekt, das auf `E`.
+      * Andernfalls ist das Ergebnis einer Variablen, d. h. das Feld `I` in das Objekt, das auf `E`.
    *  Wenn `T` ist eine *Struct_type* und `I` identifiziert ein Instanzenfeld, *Struct_type*:
-      * Wenn `E` ist ein Wert, oder wenn das Feld `readonly` der Verweis findet keinen Instanzenkonstruktor der Struktur in der das Feld deklariert wird, und das Ergebnis ist ein Wert, nämlich der Wert des Felds `I` in der Strukturinstanz, die vom `E`.
-      * Andernfalls ist das Ergebnis einer Variablen, d. h. das Feld `I` in der Strukturinstanz, die vom `E`.
+      * Wenn `E` ist ein Wert, oder wenn das Feld `readonly` der Verweis findet keinen Instanzenkonstruktor der Struktur in der das Feld deklariert wird, und das Ergebnis ist ein Wert, nämlich der Wert des Felds `I` in der Strukturinstanz, die vom  `E`.
+      * Andernfalls ist das Ergebnis einer Variablen, d. h. das Feld `I` in der Strukturinstanz, die vom `E`.
    *  Wenn `I` bezeichnet ein Instanzereignis:
       * Im Falle der Verweis innerhalb der Klasse oder Struktur, die in der das Ereignis deklariert ist, und das Ereignis deklariert wurde, ohne *Event_accessor_declarations* ([Ereignisse](classes.md#events)), und der Verweis findet nicht statt, als die linke Seite des eine `+=` oder `-=` Operator an, klicken Sie dann `E.I` verarbeitet wird, genau wie `I` wurde ein Instanzfeld.
-      * Das Ergebnis ist, andernfalls ein Ereigniszugriff mit einem zugeordneten Instanzausdruck von `E`.
+      * Das Ergebnis ist, andernfalls ein Ereigniszugriff mit einem zugeordneten Instanzausdruck von `E`.
 *  Es wird versucht, andernfalls verarbeitet `E.I` als ein Aufruf der Erweiterungsmethode ([Erweiterung Methodenaufrufe](expressions.md#extension-method-invocations)). Wenn dies fehlschlägt, `E.I` ist ein ungültiger Memberverweis, und beim Auftreten eines Laufzeitfehlers-Bindung.
 
 #### <a name="identical-simple-names-and-type-names"></a>Identische einfache Namen und Typ
@@ -1204,7 +1204,7 @@ Die Produktionen für *Simple_name* ([einfache Namen](expressions.md#simple-name
 ```
 F(G<A,B>(7));
 ```
-interpretiert werden konnte, wie ein Aufruf von `F` mit zwei Argumenten `G < A` und `B > (7)`. Alternativ dazu, wie ein Aufruf von interpretiert werden konnte `F` mit einem Argument, das einen Aufruf einer generischen Methode ist `G` mit zwei Typargumente und eine reguläre Argument.
+interpretiert werden konnte, wie ein Aufruf von `F` mit zwei Argumenten `G < A` und `B > (7)`. Alternativ dazu, wie ein Aufruf von interpretiert werden konnte `F` mit einem Argument, das einen Aufruf einer generischen Methode ist `G` mit zwei Typargumente und eine reguläre Argument.
 
 Wenn eine Folge von Token (in Kontext) kann als analysiert werden eine *Simple_name* ([einfache Namen](expressions.md#simple-names)), *Member_access* ([Memberzugriff](expressions.md#member-access)), oder *Pointer_member_access* ([Zeigermemberzugriff](unsafe-code.md#pointer-member-access)) endet mit einem *Type_argument_list* ([Typargumente](types.md#type-arguments)), wird die Token, die direkt nach dem schließenden `>` Token wird untersucht. Wenn einer der
 ```csharp
@@ -1271,16 +1271,16 @@ Die Bindung-Time-Verarbeitung eines Methodenaufrufs des Formulars `M(A)`, wobei 
    *  Wenn `F` ist generisch und `M` enthält eine Liste der Typargumente, `F` ist ein Kandidat bei:
       * `F` die gleiche Anzahl von Methodentypparametern aufweist, wie in der Liste der Typargumente, bereitgestellt wurden und
       * Sobald die Typargumente für die entsprechende Methode Typparameter ersetzt werden, erfüllen alle konstruierte Typen in der Parameterliste von F deren Einschränkungen ([Einschränkungen erfüllen](types.md#satisfying-constraints)), und der Liste der Parameter `F` gilt in Bezug auf `A` ([Anwendbarer Funktionsmember](expressions.md#applicable-function-member)).
-*  Die Gruppe der möglichen Methoden reduziert, um nur die Methoden aus den am stärksten abgeleiteten Typen enthalten: für jede Methode `C.F` in der Gruppe, in dem `C` ist der Typ in der die Methode `F` deklariert ist, werden alle Methoden deklariert werden, in einem Basistyp von `C`aus der Gruppe entfernt werden. Darüber hinaus Wenn `C` ist ein Klassentyp außer `object`, alle Methoden, die in einen Schnittstellentyp deklariert werden aus der Gruppe entfernt. (Diese zweite Regel hat nur Auswirkungen, wenn die Methodengruppe das Ergebnis einer Suche nach Membern für einen Typparameter mit einer effektiven Klasse als Objekt und eine effektive nicht leere-Schnittstelle festgelegt ist.)
+*  Die Gruppe der möglichen Methoden werden reduziert, um nur die Methoden aus den am stärksten abgeleiteten Typen enthalten: Für jede Methode `C.F` in der Gruppe, in denen `C` ist der Typ, in dem die Methode `F` deklariert ist, werden alle Methoden deklariert werden, in dem Basistyp `C` aus der Gruppe entfernt werden. Darüber hinaus Wenn `C` ist ein Klassentyp außer `object`, alle Methoden, die in einen Schnittstellentyp deklariert werden aus der Gruppe entfernt. (Diese zweite Regel hat nur Auswirkungen, wenn die Methodengruppe das Ergebnis einer Suche nach Membern für einen Typparameter mit einer effektiven Klasse als Objekt und eine effektive nicht leere-Schnittstelle festgelegt ist.)
 *  Wenn die resultierende Menge der möglichen Methoden leer ist, klicken Sie dann auf die folgenden Schritte aus weiteren Verarbeitung abgebrochen werden, und stattdessen wird versucht, den Aufruf als ein Aufruf der Erweiterungsmethode verarbeiten ([Erweiterung Methodenaufrufe](expressions.md#extension-method-invocations)). Wenn dies fehlschlägt, klicken Sie dann keine anwendbaren Methoden vorhanden, und beim Auftreten eines Laufzeitfehlers-Bindung.
 *  Die beste Methode, der den Satz von möglichen Methoden wird mit den Regeln der überladungsauflösung des identifiziert [Überladungsauflösung](expressions.md#overload-resolution). Wenn eine einzelne bewährten Methode kann nicht identifiziert werden, der Methodenaufruf ist mehrdeutig, und beim Auftreten eines Laufzeitfehlers-Bindung. Bei der Auflösung von funktionsüberladungen durchführen zu können, die Parameter einer generischen Methode gelten nach und Ersetzen Sie dabei die Typargumente (angegeben oder abgeleitet) für die entsprechenden Typparameter der Methode.
 *  Abschließende Überprüfung von der gewählten bewährte Methode wird ausgeführt:
-   * Überprüft die Methode im Kontext der Gruppe "Methode": ist die beste Methode über eine statische Methode, muss die Methodengruppe zurückzuführen sein, aus einer *Simple_name* oder *Member_access* über einen Typ. Wenn die beste Methode eine Instanzmethode ist, muss die Methodengruppe zurückzuführen sein, aus einer *Simple_name*, eine *Member_access* durch eine Variable oder ein Wert, oder ein *Base_access*. Wenn keine dieser Anforderungen auf "true" ist, tritt ein Fehler während der Bindung.
+   * Die Methode wird im Rahmen der Methodengruppe überprüft: Wenn die beste Methode, eine statische Methode handelt, muss die Methodengruppe zurückzuführen sein, aus einer *Simple_name* oder ein *Member_access* über einen Typ. Wenn die beste Methode eine Instanzmethode ist, muss die Methodengruppe zurückzuführen sein, aus einer *Simple_name*, eine *Member_access* durch eine Variable oder ein Wert, oder ein *Base_access*. Wenn keine dieser Anforderungen auf "true" ist, tritt ein Fehler während der Bindung.
    * Wenn die bewährte Methode eine generische Methode ist, werden die Typargumente (angegeben oder abgeleitet) für die Einschränkungen überprüft ([Einschränkungen erfüllen](types.md#satisfying-constraints)) für die generische Methode deklariert. Wenn jedes Typargument der entsprechenden Einschränkung(en): für den Typparameter nicht erfüllt, tritt ein Fehler während der Bindung.
 
 Sobald eine Methode ausgewählt und zum Zeitpunkt der Bindung durch die oben genannten Schritte überprüft wurde, wird der tatsächlichen Laufzeit-Aufruf verarbeitet, gemäß den Regeln von der Members-Funktionsaufruf in beschrieben [Überprüfungen zur Kompilierzeit der dynamischen überladungsauflösung ](expressions.md#compile-time-checking-of-dynamic-overload-resolution).
 
-Die Auswirkung der oben beschriebenen Regeln intuitivere wird wie folgt: finden bestimmte Methode aufgerufen, indem der Aufruf einer Methode beginnen Sie mit der von den Methodenaufruf angegebene Typ-entlang der Vererbungskette fortgesetzt, bis mindestens eine zutreffend, die Deklaration zugegriffen werden kann, nicht-Override-Methode wurde gefunden. Klicken Sie dann führen Sie den Typrückschluss, und der überladungsauflösung, auf den Satz von anwendbar, zugegriffen werden kann, nicht-Override-Methoden, die in diesem Typ deklariert, und rufen die Methode so ausgewählt. Wenn keine Methode gefunden wurde, versuchen Sie es stattdessen den Aufruf als ein Aufruf der Erweiterungsmethode zu verarbeiten.
+Die Auswirkung der oben beschriebenen Regeln intuitivere lautet wie folgt aus: Zum Suchen von bestimmten Methode durch Aufruf einer Methode aufgerufen, beginnen Sie mit der durch Aufruf der Methode angegebenen Typ und entlang der Vererbungskette fortgesetzt, bis mindestens ein anwendbar, zugegriffen werden kann, nicht-Override-Methodendeklaration gefunden werden. Klicken Sie dann führen Sie den Typrückschluss, und der überladungsauflösung, auf den Satz von anwendbar, zugegriffen werden kann, nicht-Override-Methoden, die in diesem Typ deklariert, und rufen die Methode so ausgewählt. Wenn keine Methode gefunden wurde, versuchen Sie es stattdessen den Aufruf als ein Aufruf der Erweiterungsmethode zu verarbeiten.
 
 #### <a name="extension-method-invocations"></a>Extension-Methodenaufrufe
 
@@ -2089,7 +2089,7 @@ comma
     ;
 ```
 
-Die erste Form der *Typeof_expression* besteht aus einem `typeof` Schlüsselwort, gefolgt von einer in Klammern gesetzte *Typ*. Das Ergebnis eines Ausdrucks, der diese Form ist die `System.Type` -Objekt für den angegebenen Typ. Es gibt nur ein `System.Type` Objekt für jeden angegebenen Typ. Dies bedeutet, dass für einen Typ `T`, `typeof(T) == typeof(T)` ist immer "true". Die *Typ* nicht `dynamic`.
+Die erste Form der *Typeof_expression* besteht aus einem `typeof` Schlüsselwort, gefolgt von einer in Klammern gesetzte *Typ*. Das Ergebnis eines Ausdrucks, der diese Form ist die `System.Type` -Objekt für den angegebenen Typ. Es gibt nur ein `System.Type` Objekt für jeden angegebenen Typ. Dies bedeutet, dass für einen Typ `T`, `typeof(T) == typeof(T)` ist immer "true". Die *Typ* nicht `dynamic`.
 
 Die zweite Form der *Typeof_expression* besteht aus einem `typeof` Schlüsselwort, gefolgt von einer in Klammern gesetzte *Unbound_type_name*. Ein *Unbound_type_name* ähnelt sehr einer *Type_name* ([Namespace und Typnamen](basic-concepts.md#namespace-and-type-names)) mit dem Unterschied, dass ein *Unbound_type_name* enthält *Generic_dimension_specifier*s, in denen eine *Type_name* enthält *Type_argument_list*s. Wenn der Operand des eine *Typeof_expression* ist eine Folge von Token, das die Grammatiken beider erfüllt *Unbound_type_name* und *Type_name*, es nämlich Wenn enthält weder ein *Generic_dimension_specifier* noch ein *Type_argument_list*, die Abfolge der Token gilt ein *Type_name*. Die Bedeutung des einen *Unbound_type_name* wird wie folgt bestimmt:
 
@@ -2426,7 +2426,7 @@ und vorausgesetzt, dass der Typ des letzten Aufrufs kein Typ NULL-Werte ist, ent
 ```csharp
 var x = (a.b == null) ? null : (a.b[0] == null) ? null : a.b[0].c();
 ```
-mit dem Unterschied, dass `a.b` und `a.b[0]` werden nur einmal ausgewertet.
+Mit dem Unterschied, dass `a.b` und `a.b[0]` werden nur einmal ausgewertet.
 
 #### <a name="null-conditional-expressions-as-projection-initializers"></a>NULL-bedingte Ausdrücke als Projektionsinitialisierer
 
@@ -2511,7 +2511,7 @@ Für einen Vorgang des Formulars `!x`, Auflösen der Überladung unäroperator (
 bool operator !(bool x);
 ```
 
-Dieser Operator berechnet die logische Negation des Operanden: Wenn der Operand ist `true`, das Ergebnis ist `false`. Wenn der Operand ist `false`, das Ergebnis ist `true`.
+Dieser Operator wird die logische Negation des Operanden berechnet: Wenn der Operand ist `true`, das Ergebnis ist `false`. Wenn der Operand ist `false`, das Ergebnis ist `true`.
 
 ### <a name="bitwise-complement-operator"></a>Bitweiser Komplementoperator
 
@@ -2583,7 +2583,7 @@ Ein *Cast_expression* des Formulars `(T)E`, wobei `T` ist eine *Typ* und `E` ist
 
 Die Grammatik für eine *Cast_expression* führt zu einer bestimmten syntaktischen Mehrdeutigkeiten. Beispielsweise der Ausdruck `(x)-y` entweder als interpretiert werden konnte eine *Cast_expression* (eine Umwandlung von `-y` eingeben `x`) oder als ein *Additive_expression* in Kombination mit einer *Parenthesized_expression* (die den Wert berechnet `x - y)`.
 
-Auflösen *Cast_expression* Mehrdeutigkeiten, die folgende Regel vorhanden ist: eine Sequenz einer oder mehreren *token*s ([Leerraum](lexical-structure.md#white-space)) eingeschlossen in Klammern wird als Anfang betrachtet von einem *Cast_expression* nur dann, wenn mindestens eine der folgenden erfüllt sind:
+Auflösen *Cast_expression* Mehrdeutigkeiten, die folgende Regel vorhanden ist: Eine Sequenz einer oder mehreren *token*s ([Leerraum](lexical-structure.md#white-space)) eingeschlossen in Klammern wird als Anfang betrachtet eine *Cast_expression* nur dann, wenn mindestens eine der folgenden erfüllt sind:
 
 *  Die Sequenz von Token ist richtig Grammatik für eine *Typ*, aber nicht für eine *Ausdruck*.
 *  Die Sequenz von Token ist richtig Grammatik für eine *Typ*, und das Token direkt nach der schließenden Klammer des Tokens "`~`", das Token "`!`", das Token "`(`", wird eine  *Bezeichner* ([Unicode-Escape-Zeichensequenzen](lexical-structure.md#unicode-character-escape-sequences)), ein *literal* ([Literale](lexical-structure.md#literals)), oder ein beliebiges *Schlüsselwort*([Schlüsselwörter](lexical-structure.md#keywords)) mit Ausnahme von `as` und `is`.
@@ -2913,7 +2913,7 @@ Die vordefinierten Additionsoperatoren sind unten aufgeführt. Für die numerisc
    D operator +(D x, D y);
    ```
 
-   Die Binärdatei `+` Operator führt Delegatkombination aus, wenn beide Operanden vom Delegattyp sind `D`. (Wenn die Operanden unterschiedliche Delegattypen aufweisen, tritt ein Fehler während der Bindung.) Wenn der erste Operand `null`, das Ergebnis des Vorgangs ist der Wert des zweiten Operanden (selbst wenn das auch ist `null`). Wenn der zweite Operand ist, andernfalls `null`, lautet das Ergebnis des Vorgangs der Wert des ersten Operanden. Andernfalls ist das Ergebnis des Vorgangs ein neuer Delegaten Instanz, die, wenn aufgerufen wird, ruft der erste Operand und ruft dann den zweiten Operanden auf. Beispiele für Delegatkombination, finden Sie unter [Subtraktionsoperator](expressions.md#subtraction-operator) und [Delegataufruf](delegates.md#delegate-invocation). Da `System.Delegate` ist es sich nicht um ein Delegattyp, `operator` `+` ist nicht definiert.
+   Die Binärdatei `+` Operator führt Delegatkombination aus, wenn beide Operanden vom Delegattyp sind `D`. (Wenn die Operanden unterschiedliche Delegattypen aufweisen, tritt ein Fehler während der Bindung.) Wenn der erste Operand `null`, das Ergebnis des Vorgangs ist der Wert des zweiten Operanden (selbst wenn das auch ist `null`). Wenn der zweite Operand ist, andernfalls `null`, lautet das Ergebnis des Vorgangs der Wert des ersten Operanden. Andernfalls ist das Ergebnis des Vorgangs ein neuer Delegaten Instanz, die, wenn aufgerufen wird, ruft der erste Operand und ruft dann den zweiten Operanden auf. Beispiele für Delegatkombination, finden Sie unter [Subtraktionsoperator](expressions.md#subtraction-operator) und [Delegataufruf](delegates.md#delegate-invocation). Da `System.Delegate` ist es sich nicht um ein Delegattyp, `operator`  `+` ist nicht definiert.
 
 ### <a name="subtraction-operator"></a>Subtraktionsoperator
 
@@ -3212,9 +3212,9 @@ bool operator ==(bool x, bool y);
 bool operator !=(bool x, bool y);
 ```
 
-Das Ergebnis des `==` ist `true` sowohl `x` und `y` sind `true` oder wenn beide `x` und `y` sind `false`. Andernfalls das Ergebnis ist `false`.
+Das Ergebnis des `==` ist `true` sowohl `x` und `y` sind `true` oder wenn beide `x` und `y` sind `false`. Andernfalls ist das Ergebnis `false`.
 
-Das Ergebnis des `!=` ist `false` sowohl `x` und `y` sind `true` oder wenn beide `x` und `y` sind `false`. Andernfalls das Ergebnis ist `true`. Wenn die Operanden sind vom Typ `bool`, `!=` Operator erzeugt das gleiche Ergebnis wie die `^` Operator.
+Das Ergebnis des `!=` ist `false` sowohl `x` und `y` sind `true` oder wenn beide `x` und `y` sind `false`. Andernfalls ist das Ergebnis `true`. Wenn die Operanden sind vom Typ `bool`, `!=` Operator erzeugt das gleiche Ergebnis wie die `^` Operator.
 
 ### <a name="enumeration-comparison-operators"></a>Enumeration-Vergleichsoperatoren
 
@@ -3486,11 +3486,11 @@ bool operator |(bool x, bool y);
 bool operator ^(bool x, bool y);
 ```
 
-Das Ergebnis des `x & y` ist `true` sowohl `x` und `y` sind `true`. Andernfalls das Ergebnis ist `false`.
+Das Ergebnis von `x & y` ist `true`, wenn sowohl `x` als auch `y` zu `true` ausgewertet werden. Andernfalls ist das Ergebnis `false`.
 
-Das Ergebnis des `x | y` ist `true` Wenn `x` oder `y` ist `true`. Andernfalls das Ergebnis ist `false`.
+Das Ergebnis des `x | y` ist `true` Wenn `x` oder `y` ist `true`. Andernfalls ist das Ergebnis `false`.
 
-Das Ergebnis des `x ^ y` ist `true` Wenn `x` ist `true` und `y` ist `false`, oder `x` ist `false` und `y` ist `true`. Andernfalls das Ergebnis ist `false`. Wenn die Operanden sind vom Typ `bool`, `^` -Operator berechnet das gleiche Ergebnis wie die `!=` Operator.
+Das Ergebnis des `x ^ y` ist `true` Wenn `x` ist `true` und `y` ist `false`, oder `x` ist `false` und `y` ist `true`. Andernfalls ist das Ergebnis `false`. Wenn die Operanden sind vom Typ `bool`, `^` -Operator berechnet das gleiche Ergebnis wie die `!=` Operator.
 
 ### <a name="nullable-boolean-logical-operators"></a>Auf NULL festlegbaren booleschen logischen Operatoren
 
@@ -3629,7 +3629,7 @@ Die Run-Time-Verarbeitung von einem bedingten Ausdruck der Form `b ? x : y` umfa
 
 ## <a name="anonymous-function-expressions"></a>Anonyme Funktionsausdrücke
 
-Ein ***anonyme Funktion*** ist ein Ausdruck, der eine "inline" Methodendefinition darstellt. Eine anonyme Funktion verfügt nicht über einen Wert oder einen Typ in und von sich selbst, aber in einen kompatiblen Delegat- oder ausdrucksbaumtyp konvertierbar ist. Die Auswertung einer anonymen Funktion Konvertierung hängt von den Zieltyp der Konvertierung: Wenn es ein Delegattyp ist, ergibt die Konvertierung eines Delegatwerts verweisen auf die Methode, die die anonyme Funktion definiert. Wenn sie einen Typ für die Ausdrucksbaumstruktur ist, ergibt sich die Konvertierung in eine Ausdrucksbaumstruktur, die die Struktur der Methode, wie eine Objektstruktur darstellt.
+Ein ***anonyme Funktion*** ist ein Ausdruck, der eine "inline" Methodendefinition darstellt. Eine anonyme Funktion verfügt nicht über einen Wert oder einen Typ in und von sich selbst, aber in einen kompatiblen Delegat- oder ausdrucksbaumtyp konvertierbar ist. Die Auswertung einer anonymen Funktion Konvertierung hängt von den Zieltyp der Konvertierung ab: Wenn sie einen Delegattyp ist, ergibt die Konvertierung eines Delegatwerts verweisen auf die Methode, die die anonyme Funktion definiert. Wenn sie einen Typ für die Ausdrucksbaumstruktur ist, ergibt sich die Konvertierung in eine Ausdrucksbaumstruktur, die die Struktur der Methode, wie eine Objektstruktur darstellt.
 
 Aus Verlaufsgründen es gibt zwei syntaktische Varianten von anonymen Funktionen, d. h. *Lambda_expression*s und *Anonymous_method_expression*s. Fast alle Gründen *Lambda_expression*s sind präziser und ausdrucksbasierte als *Anonymous_method_expression*s, die in der Sprache für die Abwärtskompatibilität Kompatibilität bleiben.
 

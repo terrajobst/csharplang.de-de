@@ -4,7 +4,7 @@ Ein Array ist eine Datenstruktur, die eine Reihe von Variablen enthält, die üb
 
 Ein Array verfügt über einen Rang, der die Anzahl der Indizes, die jedes Arrayelement zugeordnet bestimmt. Der Rang eines Arrays ist auch als Dimensionen des Arrays bezeichnet. Ein Array mit dem Rang eins wird aufgerufen, eine ***eindimensionales Array***. Ein Array mit einem Rang größer als eine aufgerufen wird eine ***mehrdimensionales Array***. Bestimmte Größe mehrdimensionale Arrays werden häufig als zweidimensionale Arrays, dreidimensionale Arrays usw. bezeichnet.
 
-Jeder Dimension eines Arrays verfügt über eine zugeordnete Länge eine ganzzahlige Anzahl größer als oder gleich 0 (null) handelt. Die Längen der Dimension sind nicht Teil des Typs des Arrays, aber eingerichtet, wenn eine Instanz des Arraytyps zur Laufzeit erstellt wird. Die Länge einer Dimension bestimmt des gültigen Bereichs von Indizes für diese Dimension: für eine Dimension der Länge `N`, Indizes Prioritätswerte liegen zwischen `0` zu `N - 1` inklusive. Die Gesamtanzahl der Elemente in einem Array ist das Produkt der Längen der in jeder Dimension im Array. Wenn eine oder mehrere der Dimensionen eines Arrays eine Länge von 0 (null) haben, hört das Array leer sein.
+Jeder Dimension eines Arrays verfügt über eine zugeordnete Länge eine ganzzahlige Anzahl größer als oder gleich 0 (null) handelt. Die Längen der Dimension sind nicht Teil des Typs des Arrays, aber eingerichtet, wenn eine Instanz des Arraytyps zur Laufzeit erstellt wird. Die Länge einer Dimension bestimmt des gültigen Bereichs von Indizes für diese Dimension: Für eine Dimension der Länge `N`, Indizes Prioritätswerte liegen zwischen `0` zu `N - 1` inklusive. Die Gesamtanzahl der Elemente in einem Array ist das Produkt der Längen der in jeder Dimension im Array. Wenn eine oder mehrere der Dimensionen eines Arrays eine Länge von 0 (null) haben, hört das Array leer sein.
 
 Ein Array kann einen beliebigen Elementtyp verwenden, einschließlich eines Arraytyps. 
 
@@ -32,7 +32,7 @@ dim_separator
 
 Ein *Non_array_type* ist "any" *Typ* , nicht selbst eine *Array_type*.
 
-Der Rang eines Arraytyps wird angegeben, durch die am weitesten links stehende *Rank_specifier* in die *Array_type*: ein *Rank_specifier* gibt an, dass das Array ein Array mit dem Rang eins plus dem Anzahl von "`,`" Token in der *Rank_specifier*.
+Der Rang eines Arraytyps wird angegeben, durch die am weitesten links stehende *Rank_specifier* in die *Array_type*: Ein *Rank_specifier* gibt an, dass das Array ein Array mit Rang eins plus die Anzahl der "`,`" Token in der *Rank_specifier*.
 
 Der Elementtyp des Arraytyps ist der Typ, der ergibt, der am weitesten links stehende löschen *Rank_specifier*:
 

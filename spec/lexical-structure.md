@@ -28,7 +28,7 @@ Jede Quelldatei in einem C#-Programm entsprechen den *Eingabe* Produktion der le
 
 Die syntaktische Grammatik der C# -Code wird angezeigt, in den Kapiteln und Anhänge, die diesem Kapitel nachvollziehen können. Die terminal-Symbole der syntaktischen Grammatik sind die Token, die durch die lexikalische Grammatik definiert, und die syntaktische Grammatik gibt an, wie Token C#-Programme kombiniert werden.
 
-Jede Quelldatei in einem C#-Programm entsprechen den *Compilation_unit* Produktion der syntaktischen Grammatik ([Kompilierungseinheiten](namespaces.md#compilation-units)).
+Jede Quelldatei in einen C# Programm entsprechen den *Compilation_unit* Produktion der syntaktischen Grammatik ([Kompilierungseinheiten](namespaces.md#compilation-units)).
 
 ## <a name="lexical-analysis"></a>Lexikalische Analyse
 
@@ -55,7 +55,7 @@ input_element
     ;
 ```
 
-Fünf grundlegenden Elemente bilden die lexikalische Struktur einer C#-Quelldatei: Zeilenabschlüssen ([Zeilenabschlüssen](lexical-structure.md#line-terminators)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), Token ([Token](lexical-structure.md#tokens)), und Präprozessordirektiven ([Präprozessordirektiven](lexical-structure.md#pre-processing-directives)). Diese grundlegenden Elementen, nur Token sind von Bedeutung, in der syntaktischen Grammatik eines C#-Programms ([syntaktischen Grammatik](lexical-structure.md#syntactic-grammar)).
+Die lexikalische Struktur besteht aus fünf grundlegenden Elementen eine C# Quelldatei: Zeilenabschlüssen ([Zeilenabschlüssen](lexical-structure.md#line-terminators)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), Token ([Token](lexical-structure.md#tokens)), und Präprozessordirektiven ([Präprozessordirektiven](lexical-structure.md#pre-processing-directives)). Diese grundlegenden Elementen, nur Token sind von Bedeutung, in der syntaktischen Grammatik eines C#-Programms ([syntaktischen Grammatik](lexical-structure.md#syntactic-grammar)).
 
 Reduzieren Sie die Datei in eine Folge von Token, die die Eingabe für die syntaktischen Analyse wird, besteht die lexikalische Verarbeitung einer C#-Quelldatei aus. Zeilenabschlusszeichen, Leerzeichen und Kommentare dienen zum Trennen von Tokens, und Präprozessordirektiven können dazu führen, dass Teile der Quelldatei, die übersprungen werden, aber andernfalls diese lexikalischen Elemente haben keine Auswirkung auf die syntaktische Struktur eines C#-Programms.
 
@@ -321,7 +321,7 @@ Zwei Bezeichner gelten als identisch, wenn sie identisch sind, nachdem Sie die f
 
 Bezeichner mit zwei aufeinander folgende Unterstriche (`U+005F`) für die Verwendung durch die Implementierung reserviert sind. Beispielsweise kann eine Implementierung erweiterter Schlüsselwörter bereitstellen, die mit zwei unterstrichen beginnen.
 
-### <a name="keywords"></a>Stichwörter
+### <a name="keywords"></a>Schlüsselwörter
 
 Ein ***Schlüsselwort*** ist eine Bezeichner-ähnliche Folge von Zeichen, das ist reserviert und kann nicht als Bezeichner außer bei vorangestelltem verwendet werden die `@` Zeichen.
 

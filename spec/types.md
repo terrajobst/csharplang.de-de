@@ -146,7 +146,7 @@ string s = i.ToString();        // System.Int32.ToString() instance method
 string t = 123.ToString();      // System.Int32.ToString() instance method
 ```
 
-Die einfachen Typen unterscheiden sich von anderen Strukturtypen, da sie bestimmte zusätzliche Vorgänge ermöglichen:
+Die einfachen Typen unterscheiden sich von anderen Strukturtypen dadurch, dass sie bestimmte zusätzliche Vorgänge ermöglichen:
 
 *  Die meisten einfachen Typen ermöglichen, Werte für das Schreiben von zu erstellenden *Literale* ([Literale](lexical-structure.md#literals)). Z. B. `123` ist ein Literal vom Typ `int` und `'a'` ist ein Literal vom Typ `char`. In c# keine Bereitstellung für Literale der Strukturtypen im Allgemeinen wird, und nicht standardmäßigen Werten anderer Strukturtypen sind letztendlich immer über Instanzkonstruktoren dieser Struct-Typen erstellt.
 *  Wenn die Operanden eines Ausdrucks auf alle einfache Typkonstanten sind, ist es möglich, dass der Compiler zum Auswerten des Ausdrucks während der Kompilierung. Ein solcher Ausdruck wird als bezeichnet ein *Constant_expression* ([Konstante Ausdrücke](expressions.md#constant-expressions)). Ausdrücke, die im Zusammenhang mit anderen Strukturtypen definierten Operatoren sind nicht als Konstante Ausdrücke sein.
@@ -177,7 +177,7 @@ Der vom integralen Typ unären und binären Operatoren setzen immer mit 32-Bit-P
 Die `char` Typ wird als ein ganzzahliger Typ klassifiziert, aber es unterscheidet sich von anderen ganzzahligen Typen gibt es zwei Möglichkeiten:
 
 *  Es gibt keine impliziten Konvertierungen anderen Typen in der `char` Typ. Insbesondere, obwohl die `sbyte`, `byte`, und `ushort` aufweisen Wertebereiche, die vollständig auf darstellbar mithilfe der `char` eingeben, implizite Konvertierungen von `sbyte`, `byte`, oder `ushort` auf `char` nicht vorhanden sind.
-*  Die Konstanten der `char` Typ geschrieben werden muss, als *Character_literal*s oder als *Integer_literal*s in Kombination mit einer Umwandlung in den Typ `char`. `(char)10` entspricht beispielsweise `'\x000A'`.
+*  Die Konstanten der `char` Typ geschrieben werden muss, als *Character_literal*s oder als *Integer_literal*s in Kombination mit einer Umwandlung in den Typ `char`. Beispielsweise hat `(char)10` die gleiche Wirkung wie `'\x000A'`.
 
 Die `checked` und `unchecked` Operatoren und Anweisungen werden verwendet, um überlaufprüfung für arithmetische Operationen für ganzzahlige Typen und Konvertierungen zu steuern ([checked und unchecked Operatoren](expressions.md#the-checked-and-unchecked-operators)). In einem `checked` Kontext ist ein Überlauf erzeugt einen Fehler während der Kompilierung oder bewirkt, dass eine `System.OverflowException` ausgelöst wird. In einer `unchecked` Kontext Überläufe ignoriert, und alle höherwertigen Bits, die nicht in den Zieltyp passen werden verworfen.
 
@@ -188,11 +188,11 @@ C# unterstützt zwei Gleitkommatypen: `float` und `double`. Die `float` und `dou
 *  Positive Nullen und negative 0 (null). In den meisten Fällen, positive und Negative 0 (null) Verhalten sich identisch, der einfachen Wert 0 (null), aber bestimmte Vorgänge, die zwischen den beiden unterscheiden ([Divisionsoperator](expressions.md#division-operator)).
 *  Plus unendlich und negativ unendlich. Unendliche Werte werden durch Vorgänge wie dividiert eine Zahl ungleich NULL durch 0 (null) erstellt. Z. B. `1.0 / 0.0` plus unendlich ergibt und `-1.0 / 0.0` negative Unendlichkeit.
 *  Die ***Not-a-Number*** Wert, häufig abgekürzt als NaN. NaN-Werte werden durch ungültige Gleitkommaoperationen, z. B. Division von 0 (null) von 0 (null) erstellt.
-*  Die begrenzte Menge von Werten ungleich Null des Formulars `s * m * 2^e`, wobei `s` 1 oder-1 ist, und `m` und `e` hängen von den entsprechenden Gleitkommatyp: für `float`, `0 < m < 2^24` und `-149 <= e <= 104`, und für `double`, `0 < m < 2^53` und `1075 <= e <= 970`. Denormalisierte Gleitkommazahlen gelten als gültige nicht-NULL-Werte.
+*  Die begrenzte Menge von Werten ungleich Null des Formulars `s * m * 2^e`, wobei `s` 1 oder-1 ist, und `m` und `e` hängen von den entsprechenden Gleitkommatyp: Für `float`, `0 < m < 2^24` und `-149 <= e <= 104`, und für `double`, `0 < m < 2^53` und `1075 <= e <= 970`. Denormalisierte Gleitkommazahlen gelten als gültige nicht-NULL-Werte.
 
-Die `float` Typ kann Werte im Bereich von ungefähr darstellen `1.5 * 10^-45` zu `3.4 * 10^38` mit einer Genauigkeit von 7 Stellen.
+Die `float` Typ kann Werte im Bereich von ungefähr darstellen `1.5 * 10^-45` zu `3.4 * 10^38` mit einer Genauigkeit von 7 Stellen.
 
-Die `double` Typ kann Werte im Bereich von ungefähr darstellen `5.0 * 10^-324` zu `1.7 × 10^308` mit einer Genauigkeit von 15 – 16 Stellen.
+Die `double` Typ kann Werte im Bereich von ungefähr darstellen `5.0 * 10^-324` zu `1.7 × 10^308` mit einer Genauigkeit von 15 – 16 Stellen.
 
 Wenn einer der Operanden des binären Operators ein Gleitkommatyp ist, dann muss der andere Operand ein ganzzahliger Typ oder Gleitkommatyp sein, und der Vorgang wird wie folgt ausgewertet:
 
@@ -211,15 +211,15 @@ Gleitkommaoperationen können mit einer höheren Genauigkeit als der Ergebnistyp
 
 ### <a name="the-decimal-type"></a>Der decimal-Typ
 
-Der `decimal`-Typ ist ein für Finanz-und Währungsberechnungen geeigneter 128-Bit-Datentyp. Die `decimal` Typ kann im Bereich von Werten darstellen `1.0 * 10^-28` auf ungefähr `7.9 * 10^28` mit 28 bis 29 signifikanten Stellen.
+Der `decimal`-Typ ist ein für Finanz-und Währungsberechnungen geeigneter 128-Bit-Datentyp. Die `decimal` Typ kann im Bereich von Werten darstellen `1.0 * 10^-28` auf ungefähr `7.9 * 10^28` mit 28 bis 29 signifikanten Stellen.
 
-Die begrenzte Menge von Werten des Typs `decimal` weisen folgendes Format `(-1)^s * c * 10^-e`, wobei das Vorzeichen `s` gleich 0 oder 1, den Koeffizienten `c` , angegeben durch `0 <= *c* < 2^96`, und der Skala `e` ist so, dass `0 <= e <= 28`. Die `decimal` Typ unterstützt nicht mit Nullen, unendliche und NaN. Ein `decimal` wird als eine 96-Bit-Ganzzahl, die durch eine Potenz von 10 skaliert dargestellt. Für `decimal`s mit einem absoluten Wert kleiner als `1.0m`, der Wert ist genau auf die 28. Dezimalstelle, aber nicht weiter. Für `decimal`s mit einem absoluten Wert größer als oder gleich `1.0m`, der Wert ist auf 28 oder 29 Stellen genau. Gattungsbezeichnung der `float` und `double` -Datentypen, wie z. B. 0,1 Dezimalzahlen dargestellt werden können in genau der `decimal` Darstellung. In der `float` und `double` Darstellungen, diese Zahlen sind häufig unendliche Brüche angegeben, wodurch die Darstellung anfälliger für runden Fehler.
+Die begrenzte Menge von Werten des Typs `decimal` weisen folgendes Format `(-1)^s * c * 10^-e`, wobei das Vorzeichen `s` gleich 0 oder 1, den Koeffizienten `c` , angegeben durch `0 <= *c* < 2^96`, und der Skala `e` ist so, dass `0 <= e <= 28`. Die `decimal` Typ unterstützt nicht mit Nullen, unendliche und NaN. Ein `decimal` wird als eine 96-Bit-Ganzzahl, die durch eine Potenz von 10 skaliert dargestellt. Für `decimal`s mit einem absoluten Wert kleiner als `1.0m`, der Wert ist genau auf die 28. Dezimalstelle, aber nicht weiter. Für `decimal`s mit einem absoluten Wert größer als oder gleich `1.0m`, der Wert ist auf 28 oder 29 Stellen genau. Gattungsbezeichnung der `float` und `double` -Datentypen, wie z. B. 0,1 Dezimalzahlen dargestellt werden können in genau der `decimal` Darstellung. In der `float` und `double` Darstellungen, diese Zahlen sind häufig unendliche Brüche angegeben, wodurch die Darstellung anfälliger für runden Fehler.
 
 Wenn einer der Operanden des binären Operators vom Typ `decimal`, muss der andere Operand ein ganzzahliger Typ oder vom Typ werden `decimal`. Wenn ein Operand integralen Typ vorhanden ist, wird eine Konvertierung in `decimal` , bevor der Vorgang ausgeführt wird.
 
 Das Ergebnis eines Vorgangs für Werte vom Typ `decimal` besteht darin, dass die Berechnung eines genauen Ergebnis (Staffelung beibehalten, wie für die einzelnen Operatoren definiert), und klicken Sie dann entsprechend die Darstellung runden entstehen würden. Ergebnisse werden gerundet, um den nächsten darstellbaren Wert und, wenn ein Ergebnis gleichmäßig in der Nähe zwei Werte dargestellt werden kann, auf den Wert, der eine gerade Anzahl an der Position der am wenigsten signifikanten Ziffern verfügt (Dies ist bekannt als "unverzerrte Rundung der"). Ein NULL-Ergebnis hat immer ein Vorzeichen 0 und einer Skala von 0.
 
-Wenn eine dezimale arithmetische Operation auf einen Wert kleiner als oder gleich erzeugt `5 * 10^-29` in absoluten Wert wird das Ergebnis des Vorgangs 0 (null). Wenn eine `decimal` arithmetische Operation führt zu einem Ergebnis, das für zu groß ist die `decimal` -Format eine `System.OverflowException` ausgelöst.
+Wenn eine dezimale arithmetische Operation auf einen Wert kleiner als oder gleich erzeugt `5 * 10^-29` in absoluten Wert wird das Ergebnis des Vorgangs 0 (null). Wenn eine `decimal` arithmetische Operation führt zu einem Ergebnis, das für zu groß ist die `decimal` -Format eine `System.OverflowException` ausgelöst.
 
 Die `decimal` Typ verfügt über höhere Genauigkeit aber kleineren Bereich als das Gleitkomma-Datentypen. Daher Konvertierungen von Gleitkommatypen auf `decimal` Stapelüberlauf-Ausnahmen und Konvertierungen von erzeugen möglicherweise `decimal` auf die Gleitkomma-Datentypen möglicherweise zu Genauigkeitsverlust führen. Aus diesen Gründen werden keine impliziten Konvertierungen zwischen Gleitkommatypen vorhanden und `decimal`, und ohne explizite Umwandlungen ist es nicht möglich, Gleitkomma mischen und `decimal` Operanden in dem gleichen Ausdruck.
 

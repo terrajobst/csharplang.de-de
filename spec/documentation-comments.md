@@ -597,13 +597,13 @@ Der Dokumentations-Generator verwendet die folgenden Regeln beim Generieren der 
 *  Der zweite Teil der Zeichenfolge ist der vollqualifizierte Name des Elements im Stammverzeichnis des Namespace ab. Der Name des Elements, dessen einschließenden Typen und Namespace sind durch Punkte getrennt. Wenn der Name des Elements selbst Punkte enthält, werden sie durch ersetzt `#(U+0023)` Zeichen. (Es wird vorausgesetzt, dass kein Element dieses Zeichen im Namen hat.)
 *  Listen Sie für die Methoden und Eigenschaften mit Argumenten das Argument folgt in Klammern eingeschlossen. Für diejenigen ohne Argumente werden keine Klammern verwendet. Die Argumente werden durch Kommas voneinander getrennt. Die Codierung jedes Arguments ist identisch mit einer CLI-Signatur wie folgt:
    *  Argumente werden anhand des Namens Dokumentation dargestellt, basierend auf dem vollqualifizierten Namen, die wie folgt geändert:
-      * Argumente, die generische Typen darstellen müssen ein angefügtes "'" Zeichens, gefolgt von der Anzahl von Typparametern
+      * Argumente, die generische Typen darstellen müssen ein angefügtes `` ` `` (Gravis)-Zeichens, gefolgt von der Anzahl von Typparametern
       * Argumente, die mit der `out` oder `ref` -Modifizierer aufweisen. eine `@` nach ihren Namen eingeben. Argumente zu übergeben, als Wert oder über `params` haben keine besondere Schreibweise.
-      * Argumente, die Arrays werden als dargestellt `[lowerbound:size, ... , lowerbound:size]` , in dem die Anzahl von Kommas ist der Rang minus 1, und die unteren Grenzen und die Größe jeder Dimension, sofern bekannt, Dezimal dargestellt werden. Wenn die untere Grenze oder die Größe nicht angegeben ist, wird es weggelassen. Wenn die untere Grenze und die Größe für eine bestimmte Dimension ausgelassen werden, die "`:`" ebenfalls ausgelassen werden. Verzweigte Arrays werden von einem dargestellt "`[]`" pro Ebene.
+      * Argumente, die Arrays werden als dargestellt `[lowerbound:size, ... , lowerbound:size]` , in dem die Anzahl von Kommas ist der Rang minus 1, und die unteren Grenzen und die Größe jeder Dimension, sofern bekannt, Dezimal dargestellt werden. Wenn die untere Grenze oder die Größe nicht angegeben ist, wird es weggelassen. Wenn die untere Grenze und die Größe für eine bestimmte Dimension ausgelassen werden, die `:` ebenfalls ausgelassen werden. Verzweigte Arrays werden von einem dargestellt `[]` pro Ebene.
       * Argumente, die Zeiger als "void" aufweisen, werden mit dargestellt eine `*` nach dem Typnamen. Ein void-Zeiger wird dargestellt, verwenden den Typnamen `System.Void`.
-      * Argumente, die die generischen Typparametern definierten Typen finden Sie codiert werden, mithilfe der "'" Zeichens, gefolgt von der nullbasierte Index des Typparameters.
-      * Generischen Typparametern in Methoden definiert mithilfe von Argumenten verwenden ein Double-Wert-Hochkomma "\`\`" anstelle von der "\`" für Typen verwendet.
-      * Argumente, die konstruierte generische Typen verweisen, codiert werden, verwenden den generischen Typ an, gefolgt von "{", gefolgt von einer durch Trennzeichen getrennte Liste der Argumente des Typs, gefolgt von "}".
+      * Argumente, die die generischen Typparametern definierten Typen finden Sie codiert werden, mithilfe der `` ` `` (Gravis)-Zeichens, gefolgt von der nullbasierte Index des Typparameters.
+      * Generischen Typparametern in Methoden definiert mithilfe von Argumenten verwenden ein Double-Wert-Hochkomma ``` `` ``` statt der `` ` `` für Typen verwendet.
+      * Argumente, die konstruierte generische Typen verweisen, codiert werden, verwenden den generischen Typ an, gefolgt von `{`, gefolgt von einer durch Trennzeichen getrennte Liste der Argumente des Typs, gefolgt von `}`.
 
 ### <a name="id-string-examples"></a>Beispiele für die ID-Zeichenfolge
 
@@ -850,7 +850,7 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
    "M:Acme.Widget.op_Implicit(Acme.Widget)~System.Int64"
    ```
 
-## <a name="an-example"></a>Ein Beispiel für
+## <a name="an-example"></a>Beispiel
 
 ### <a name="c-source-code"></a>C#-Quellcode
 

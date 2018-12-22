@@ -202,7 +202,7 @@ gültig ist und verwendet den Namen des `x` als Parameter und eine Bezeichnung.
 
 Ausführung einer Anweisung mit Bezeichnung entspricht der Ausführung der Anweisung nach der Bezeichnung.
 
-Zusätzlich zu der Erreichbarkeit von normalen ablaufsteuerung bereitgestellt wird, ist eine Anweisung mit Bezeichnung erreichbar, wenn die Bezeichnung einen erreichbaren verweist `goto` Anweisung. (Ausnahme: Wenn eine `goto` -Anweisung ist innerhalb einer `try` , enthält eine `finally` Block und der Anweisung mit Bezeichnung befindet sich außerhalb der `try`, und den Endpunkt des der `finally` Block ist nicht erreichbar, und klicken Sie dann die Anweisung mit Bezeichnung ist nicht erreichbar, `goto` Anweisung.)
+Zusätzlich zu der Erreichbarkeit von normalen ablaufsteuerung bereitgestellt wird, ist eine Anweisung mit Bezeichnung erreichbar, wenn die Bezeichnung einen erreichbaren verweist `goto` Anweisung. (Ausnahme: Wenn eine `goto` -Anweisung ist innerhalb einer `try` , enthält eine `finally` Block und der Anweisung mit Bezeichnung befindet sich außerhalb der `try`, und den Endpunkt des der `finally` Block ist nicht erreichbar, und klicken Sie dann die Anweisung mit Bezeichnung ist nicht erreichbar `goto` Anweisung.)
 
 ## <a name="declaration-statements"></a>Deklarationsanweisungen
 
@@ -801,7 +801,7 @@ Der Hauptteil der Block wird schließlich anhand der folgenden Schritte erstellt
 
    Die lokale Variable `d` ist nicht sichtbar bzw. Benutzercode zugegriffen werden kann. Es vor allem keine Konflikte mit einer anderen Variablen, deren Bereich umfasst, die finally-block.
 
-Die Reihenfolge, in der `foreach` durchläuft die Elemente eines Arrays, lautet wie folgt: für eindimensionale Arrays von Elementen in aufsteigender Indexreihenfolge durchlaufen werden, beginnend mit dem Index `0` und endend mit Index `Length - 1`. Für mehrdimensionale Arrays werden Elemente durchlaufen, sodass die Indizes von die Dimension ganz rechts erhöhte zuerst, dann weiter linken Dimension, und so weiter auf der linken Seite sind.
+Die Reihenfolge, in der `foreach` durchläuft die Elemente eines Arrays, lautet wie folgt: Für eindimensionale Arrays von Elementen in aufsteigender Indexreihenfolge durchlaufen werden, beginnend mit dem Index `0` und endend mit Index `Length - 1`. Für mehrdimensionale Arrays werden Elemente durchlaufen, sodass die Indizes von die Dimension ganz rechts erhöhte zuerst, dann weiter linken Dimension, und so weiter auf der linken Seite sind.
 
 Das folgende Beispiel gibt jeden Wert in ein zweidimensionales Array, in der Reihenfolge der Elemente:
 ```csharp

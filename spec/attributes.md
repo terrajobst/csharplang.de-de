@@ -821,7 +821,7 @@ Aufrufe, die auftreten, in den Deklarationen von Instanzkonstruktoren, statische
 
 ## <a name="attributes-for-interoperation"></a>Attribute für die Interoperation
 
-Hinweis: Dieser Abschnitt gilt nur für die Microsoft .NET Implementierung von c#.
+Hinweis: Dieser Abschnitt gilt nur für die Microsoft .NET Implementierung C#.
 
 ### <a name="interoperation-with-com-and-win32-components"></a>Interoperation mit COM- und Win32-Komponenten
 

@@ -4,7 +4,7 @@ C# (Aussprache „C Sharp“) ist eine einfache, moderne, objektorientierte und 
 
 C# ist eine objektorientierte Sprache, umfasst allerdings auch Unterstützung für eine ***komponentenorientierte*** Programmierung. Die Softwareentwicklung von heute beruht zunehmend auf Softwarekomponenten in Form von eigenständigen und selbstbeschreibenden Funktionspaketen. Wichtig bei solchen Komponenten ist, dass sie für ein Programmiermodell mit Eigenschaften, Methoden und Ereignissen stehen. Sie verfügen über Attribute, die deklarative Informationen zur Komponente bereitstellen, und lassen sich in ihre eigene Dokumentation integrieren. C# bietet Sprachkonstrukte zur direkten Unterstützung für diese Konzepte, wodurch c# zu einer sehr natürlichen Sprache, in denen zum Erstellen und Verwenden der Software-Komponenten.
 
-Mehrere C#-Funktionen zu unterstützen, die zur Erstellung der stabile und permanente Anwendungen: ***speicherbereinigung*** von nicht verwendeten Objekte belegten Arbeitsspeicher automatisch freigibt ***Ausnahmebehandlung*** bietet einen strukturierten und erweiterbaren Ansatz für die fehlererkennung und Wiederherstellung und die ***typsichere*** Aufbau der Sprache macht es unmöglich, die von nicht initialisierten lesen Variablen, für Index-Arrays über die Grenzen oder um deaktiviert Typumwandlungen durchzuführen.
+Mehrere C# bietet Hilfe bei der Erstellung der stabile und permanente Anwendungen: ***Die automatische speicherbereinigung*** von nicht verwendeten Objekte belegten Arbeitsspeicher automatisch freigibt ***Ausnahmebehandlung*** bietet einen strukturierten und erweiterbaren Ansatz für die fehlererkennung und Wiederherstellung und die ***typsichere*** Aufbau der Sprache macht es unmöglich, nicht initialisierte Variablen gelesen werden soll. Geben Sie zum Indizieren Umwandlungen Arrays über die Grenzen oder führen Sie deaktiviert.
 
 C# verfügt über ein ***einheitliches Typsystem***. Alle C#-Typen, einschließlich primitiver Typen wie `int` und `double`, erben von einem einzelnen `object`-Stammtyp. Daher verwenden alle Typen einen Satz allgemeiner Vorgänge, und Werte eines beliebigen Typs können gespeichert, übertragen und konsistent ausgeführt werden. Darüber hinaus unterstützt C# benutzerdefinierte Verweistypen und Werttypen und ermöglicht so die dynamische Zuordnung von Objekten sowie die Inlinespeicherung einfacher Strukturen.
 
@@ -1437,7 +1437,7 @@ control.Paint();                        // Ok
 
 ## <a name="enums"></a>Enumerationen
 
-Ein ***Enumerationstyp*** ist ein unverwechselbarer Werttyp mit einem Satz benannter Konstanten. Das folgende Beispiel deklariert und verwendet einen Enumerationstyp, der mit dem Namen `Color` mit drei Konstanten Werten `Red`, `Green`, und `Blue`.
+Ein ***Enumerationstyp*** ist ein eindeutiger Werttyp mit einem Satz benannter Konstanten. Das folgende Beispiel deklariert und verwendet einen Enumerationstyp, der mit dem Namen `Color` mit drei Konstanten Werten `Red`, `Green`, und `Blue`.
 
 ```csharp
 using System;

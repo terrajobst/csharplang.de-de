@@ -276,7 +276,7 @@ Verschiedene Konstrukte stehen in einem unsicheren Kontext für den Betrieb für
 
 ## <a name="fixed-and-moveable-variables"></a>Feste und verschiebbare Variablen
 
-Der Address-of-Operator ([Address-of-Operators](unsafe-code.md#the-address-of-operator)) und die `fixed` Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) Variablen in zwei Kategorien unterteilen: ***festen der Variablen***und ***verschiebbare Variablen***.
+Der Address-of-Operator ([Address-of-Operators](unsafe-code.md#the-address-of-operator)) und die `fixed` Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) Variablen in zwei Kategorien unterteilen: ***Variablen fester*** und ***verschiebbare Variablen***.
 
 Feste Variablen befinden sich in die Speicherorte, die von den Vorgang der Garbage Collection nicht betroffen sind. (Beispiele für feste Variablen sind lokale Variablen, Parameter und Variablen, die durch die Dereferenzierung von Zeigern erstellt.) Befinden auf der anderen Seite verschiebbare Variablen an externen Speicherorten, die vom Garbage Collector verschoben oder verworfen werden. (Beispiele für bewegliche Variablen sind die Felder in Objekte und Elemente des Arrays an.)
 

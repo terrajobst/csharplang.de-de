@@ -561,22 +561,22 @@ Ein *Qualified_alias_member* verfügt über einen von zwei Formen:
 Diese Notation, die Bedeutung des einen *Qualified_alias_member* wird wie folgt bestimmt:
 
 *  Wenn `N` ist der Bezeichner `global`, und klicken Sie dann der globale Namespace gesucht wird `I`:
-   * Wenn der globale Namespace ein Namespace, der mit dem Namen enthält `I` und `K` ist 0 (null), und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Namespace.
-   * Wenn der globale Namespace einen nicht generischen Typ mit dem Namen enthält, andernfalls `I` und `K` ist 0 (null), und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Typ.
-   * Wenn der globale Namespace einen Typ, der mit dem Namen enthält, andernfalls `I` , bei dem `K` Typparameter, und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Typ mit den Argumenten angegebenen Typs erstellt.
+   * Wenn der globale Namespace ein Namespace, der mit dem Namen enthält `I` und `K` ist 0 (null), und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Namespace.
+   * Wenn der globale Namespace einen nicht generischen Typ mit dem Namen enthält, andernfalls `I` und `K` ist 0 (null), und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Typ.
+   * Wenn der globale Namespace einen Typ, der mit dem Namen enthält, andernfalls `I` , bei dem `K`  Typparameter, und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Typ mit den Argumenten angegebenen Typs erstellt.
    * Andernfalls die *Qualified_alias_member* ist nicht definiert und ein Fehler während der Kompilierung auftritt.
 
 *  Dabei ist, andernfalls die Namespacedeklaration ([Namespace-Deklarationen](namespaces.md#namespace-declarations)) sofort mit der *Qualified_alias_member* (sofern vorhanden), ausgehend mit jeder einschließenden Namespacedeklaration (falls vorhanden), und endet mit der Kompilierungseinheit, enthält die *Qualified_alias_member*, die folgenden Schritte werden ausgewertet, bis eine Entität befindet:
 
    * Wenn die Namespace-Deklaration oder Kompilierung Einheit enthält eine *Using_alias_directive* zuordnet, die `N` mit einem Typ, die *Qualified_alias_member* ist nicht definiert und Kompilierzeit Fehler tritt auf.
    * Andernfalls, wenn die Namespace-Deklaration oder Kompilierung Einheit enthält eine *Extern_alias_directive* oder *Using_alias_directive* zuordnet, die `N` mit einem Namespace, dann:
-     * Wenn der Namespace zugeordnete `N` enthält einen Namespace mit dem Namen `I` und `K` NULL ist, wird die *Qualified_alias_member* bezieht sich auf diesen Namespace.
-     * Andernfalls, wenn der Namespace zugeordnete `N` enthält einen nicht generischen Typ mit dem Namen `I` und `K` ist 0 (null), und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Typ.
-     * Andernfalls, wenn der Namespace zugeordnete `N` enthält einen Typ mit dem Namen `I` , bei dem `K` Typparameter, und klicken Sie dann die *Qualified_alias_member* bezieht sich auf, mit dem angegebenen Typ erstellter Typ Argumente.
+     * Wenn der Namespace zugeordnete `N` enthält einen Namespace mit dem Namen `I` und `K` NULL ist, wird die *Qualified_alias_member* bezieht sich auf diesen Namespace.
+     * Andernfalls, wenn der Namespace zugeordnete `N` enthält einen nicht generischen Typ mit dem Namen `I` und `K` ist 0 (null), und klicken Sie dann die *Qualified_alias_member* bezieht sich auf diesen Typ.
+     * Andernfalls, wenn der Namespace zugeordnete `N` enthält einen Typ mit dem Namen `I` , bei dem `K`  Typparameter, und klicken Sie dann die *Qualified_alias_member* bezeichnet, dass der Typ mit erstellt die angegebenen Typargumente.
      * Andernfalls die *Qualified_alias_member* ist nicht definiert und ein Fehler während der Kompilierung auftritt.
 *  Andernfalls die *Qualified_alias_member* ist nicht definiert und ein Fehler während der Kompilierung auftritt.
 
-Beachten Sie, dass bewirkt, einen Fehler während der Kompilierung mit der Namespacealias-Qualifizierer, die einen Alias, der auf einen Typ verweist dass. Beachten Sie, dass bei den Bezeichner `N` ist `global`, und klicken Sie dann in den globalen Namespace Suche durchgeführt wird, auch wenn es ein alias zuordnen mit `global` mit einem Typ oder Namespace.
+Beachten Sie, dass bewirkt, einen Fehler während der Kompilierung mit der Namespacealias-Qualifizierer, die einen Alias, der auf einen Typ verweist dass. Beachten Sie, dass bei den Bezeichner `N` ist `global`, und klicken Sie dann in den globalen Namespace Suche durchgeführt wird, auch wenn es ein alias zuordnen mit `global` mit einem Typ oder Namespace.
 
 ### <a name="uniqueness-of-aliases"></a>Die Eindeutigkeit von Aliasen
 
