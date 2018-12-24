@@ -512,7 +512,7 @@ Im Rahmen der Kürze halber wird in diesem Abschnitt die Kurzform für die Taskt
 
 Ein Lambda-Ausdruck `F` ist kompatibel mit einem Typ für die Ausdrucksbaumstruktur `Expression<D>` Wenn `F` ist kompatibel mit dem Delegattyp `D`. Beachten Sie, dass dies nicht für anonyme Methoden, Lambda-Ausdrücke gelten.
 
-Bestimmte Lambda-Ausdrücke nicht in ausdrucksbaumstrukturtypen konvertiert werden: auch wenn die Konvertierung *vorhanden*, zum Zeitpunkt der Kompilierung ein Fehler auftritt. Dies ist der Fall, wenn der Lambda-Ausdruck:
+Bestimmte Lambda-Ausdrücke können nicht in ausdrucksbaumstrukturtypen konvertiert werden: Auch wenn die Konvertierung *vorhanden*, zum Zeitpunkt der Kompilierung ein Fehler auftritt. Dies ist der Fall, wenn der Lambda-Ausdruck:
 
 *  Verfügt über eine *Block* Text
 *  Enthält einfache oder zusammengesetzte Zuweisungsoperatoren
@@ -723,7 +723,7 @@ class Test
 }
 ```
 
-Das gleiche Verfahren, die hier angewendet werden, um die lokale Variablen erfassen kann auch verwendet werden, wenn anonyme Funktionen in Ausdrucksbaumstrukturen konvertiert: Verweise auf die vom Compiler generierten Objekte können in der Ausdrucksbaumstruktur gespeichert werden, und kann den Zugriff auf die lokalen Variablen sein. dargestellt als Feld für die folgenden Objekte zugreift. Der Vorteil dieses Ansatzes ist, dass die "transformierten" lokalen Variablen von Delegaten und Ausdrucksbaumstrukturen gemeinsam genutzt werden können.
+Das gleiche Verfahren, die hier angewendet werden, um die lokale Variablen erfassen kann auch verwendet werden, wenn anonyme Funktionen in Ausdrucksbaumstrukturen konvertiert: Verweise auf die vom Compiler generierten Objekte können in der Ausdrucksbaumstruktur gespeichert werden, und den Zugriff auf die lokalen Variablen dargestellt werden kann, wie das Feld für die folgenden Objekte zugreift. Der Vorteil dieses Ansatzes ist, dass die "transformierten" lokalen Variablen von Delegaten und Ausdrucksbaumstrukturen gemeinsam genutzt werden können.
 
 ## <a name="method-group-conversions"></a>Konvertierungen für Gruppe
 

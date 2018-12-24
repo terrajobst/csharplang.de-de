@@ -601,7 +601,7 @@ Partielle Methoden in einem Teil einer Typdeklaration definiert, und in einem an
 
 Partielle Methoden können keine Zugriffsmodifizierer definieren, jedoch handelt es sich implizit `private`. Ihren Rückgabetyp muss `void`, und ihre Parameter darf keine der `out` Modifizierer. Der Bezeichner `partial` wird als eine spezielle Schlüsselwort in einer Methodendeklaration erkannt, nur, wenn Sie anscheinend direkt vor der `void` geben; andernfalls kann es als ein normaler Bezeichner verwendet werden. Eine partielle Methode kann keine Schnittstellenmethoden explizit implementieren.
 
-Es gibt zwei Arten von Deklarationen der partiellen Methode: Wenn der Hauptteil der Deklaration der Methode ein Semikolon ist, die Deklaration wird als eine ***definierende Deklaration der partiellen Methode***. Wenn Text, als angegeben wird eine *Block*, die Deklaration wird als ein ***implementierende Deklaration der partiellen Methode***. Für die Teile einer Typdeklaration es kann nur eine definierende Deklaration der partiellen Methode mit einem angegebenen Signatur-, und es kann nur eine implementierende Deklaration der partiellen Methode mit einer bestimmten Signatur. Wenn eine implementierende Deklaration der partiellen Methode angegeben, eine entsprechende definierende Deklaration der partiellen Methode vorhanden sein muss und müssen die Deklarationen als übereinstimmen, die in der folgenden angegeben werden:
+Es gibt zwei Arten von Deklarationen der partiellen Methode ein: Wenn der Hauptteil der Deklaration der Methode ein Semikolon ist, die Deklaration wird als eine ***definierende Deklaration der partiellen Methode***. Wenn Text, als angegeben wird eine *Block*, die Deklaration wird als ein ***implementierende Deklaration der partiellen Methode***. Für die Teile einer Typdeklaration es kann nur eine definierende Deklaration der partiellen Methode mit einem angegebenen Signatur-, und es kann nur eine implementierende Deklaration der partiellen Methode mit einer bestimmten Signatur. Wenn eine implementierende Deklaration der partiellen Methode angegeben, eine entsprechende definierende Deklaration der partiellen Methode vorhanden sein muss und müssen die Deklarationen als übereinstimmen, die in der folgenden angegeben werden:
 
 * Die Deklarationen müssen die gleichen Modifizierer (obwohl nicht unbedingt in der gleichen Reihenfolge), Methodennamen, der Anzahl von Typparametern und der Anzahl von Parametern.
 * Entsprechende Parameter in den Deklarationen müssen die gleichen Modifizierer (obwohl nicht unbedingt in der gleichen Reihenfolge) und den gleichen Typ (modulo Unterschiede bei Typparameternamen).
@@ -2114,7 +2114,7 @@ Die Unterschiede zwischen statischen und Instanzmember finden Sie weiter unten i
 
 Wenn eine Instanzmethodendeklaration enthält eine `virtual` -Modifizierer ist, wird diese Methode wird als eine virtuelle Methode sein. Wenn kein `virtual` Modifizierer vorhanden ist, wird die Methode ist eine nicht virtuelle Methode bezeichnet.
 
-Die Implementierung einer nicht virtuellen Methode unveränderlich ist: die Implementierung ist identisch, ob die Methode, auf einer Instanz der Klasse in aufgerufen wird der sie deklariert ist, oder eine Instanz einer abgeleiteten Klasse. Im Gegensatz dazu kann die Implementierung einer virtuellen Methode durch abgeleitete Klassen abgelöst werden. Der Prozess der Implementierung einer geerbten virtuellen Methode heißt ***überschreiben*** diese Methode ([Methoden außer Kraft setzen](classes.md#override-methods)).
+Die Implementierung einer nicht virtuellen Methode ist unveränderlich: Die Implementierung ist identisch, ob die Methode, auf einer Instanz der Klasse in aufgerufen wird der sie deklariert ist, oder eine Instanz einer abgeleiteten Klasse. Im Gegensatz dazu kann die Implementierung einer virtuellen Methode durch abgeleitete Klassen abgelöst werden. Der Prozess der Implementierung einer geerbten virtuellen Methode heißt ***überschreiben*** diese Methode ([Methoden außer Kraft setzen](classes.md#override-methods)).
 
 Im Aufruf einer virtuellen Methode die ***Laufzeittyp*** der Instanz, die diesen Aufruf benötigt, direkten legt fest, die Implementierung der tatsächlichen Methode aufrufen. Im Aufruf einer nicht virtuellen Methode die ***Kompilierzeittyp*** der Instanz ist der bestimmende Faktor. Genau bedeutet dies, wenn eine Methode namens `N` wird aufgerufen, mit einer Argumentliste `A` auf einer Instanz mit einem Typ während der Kompilierung `C` und einen Laufzeittyp `R` (, in dem `R` ist entweder `C` oder eine abgeleitete Klasse von `C`), der Aufruf wird wie folgt verarbeitet:
 
@@ -2207,7 +2207,7 @@ class Test
     }
 }
 ```
-die `C` und `D` Klassen enthalten, zwei virtuelle Methoden, mit der gleichen Signatur: der eingeschleuste `A` und der eingeschleuste `C`. Die Methode, die von eingeführte `C` Blendet die geerbte Methode `A`. Daher die außer Kraft setzen-Deklaration in `D` überschreibt die Methode, die von eingeführt `C`, und es ist nicht möglich, dass `D` , die Methode eingeführt, durch Überschreiben `A`. Das Beispiel erzeugt die Ausgabe:
+die `C` und `D` Klassen enthalten, zwei virtuelle Methoden, mit der gleichen Signatur: Der eingeschleuste `A` und der eingeschleuste `C`. Die Methode, die von eingeführte `C` Blendet die geerbte Methode `A`. Daher die außer Kraft setzen-Deklaration in `D` überschreibt die Methode, die von eingeführt `C`, und es ist nicht möglich, dass `D` , die Methode eingeführt, durch Überschreiben `A`. Das Beispiel erzeugt die Ausgabe:
 ```
 B.F
 B.F
@@ -2694,7 +2694,7 @@ public class Button: Control
     }
 }
 ```
-die `Button` Steuerelement deklariert ein öffentliches `Caption` Eigenschaft. Die `get` Accessor die `Caption` Eigenschaft gibt die Zeichenfolge, die in der privaten gespeicherten `caption` Feld. Die `set` Accessor überprüft, ob der neue Wert unterscheidet sich von den aktuellen Wert aus, und wenn dies der Fall ist, es den neuen Wert speichert und wird neu aufgebaut, das Steuerelement. Eigenschaften häufig das folgende Namensgebungsmuster oben: die `get` Accessor gibt einfach einen Wert, der in einem privaten Feld gespeichert und die `set` Accessor ändert das private Feld und führt dann zusätzlichen Aktionen erforderlich, um den Status zu aktualisieren des Objekts.
+die `Button` Steuerelement deklariert ein öffentliches `Caption` Eigenschaft. Die `get` Accessor die `Caption` Eigenschaft gibt die Zeichenfolge, die in der privaten gespeicherten `caption` Feld. Die `set` Accessor überprüft, ob der neue Wert unterscheidet sich von den aktuellen Wert aus, und wenn dies der Fall ist, es den neuen Wert speichert und wird neu aufgebaut, das Steuerelement. Eigenschaften führen Sie oft auf das oben gezeigte Muster aus: Die `get` Accessor gibt einfach einen Wert, der in einem privaten Feld gespeichert und die `set` Accessor ändert das private Feld und führt dann zusätzlichen Aktionen erforderlich, um den Zustand des Objekts vollständig zu aktualisieren.
 
 Erhält die `Button` oben gezeigte Klasse, die folgenden ist ein Beispiel mit der `Caption` Eigenschaft:
 ```csharp
@@ -3532,7 +3532,7 @@ binary_operator_declarator
 
 overloadable_binary_operator
     : '+'   | '-'   | '*'   | '/'   | '%'   | '&'   | '|'   | '^'   | '<<'
-    | 'right_shift' | '=='  | '!='  | '>'   | '<'   | '>='  | '<='
+    | right_shift | '=='  | '!='  | '>'   | '<'   | '>='  | '<='
     ;
 
 conversion_operator_declarator
@@ -3547,7 +3547,7 @@ operator_body
     ;
 ```
 
-Es gibt drei Kategorien von Überladbare Operatoren: unäre Operatoren ([unäre Operatoren](classes.md#unary-operators)), binäre Operatoren ([binären Operatoren](classes.md#binary-operators)), und Konvertierungsoperatoren ([Konvertierungsoperatoren ](classes.md#conversion-operators)).
+Es gibt drei Kategorien von Überladbare Operatoren: Unäre Operatoren ([unäre Operatoren](classes.md#unary-operators)), binäre Operatoren ([binären Operatoren](classes.md#binary-operators)), und Konvertierungsoperatoren ([Konvertierungsoperatoren](classes.md#conversion-operators)).
 
 Die *Operator_body* ist entweder ein Semikolon, ein ***Anweisungstext*** oder ***ausdruckskörper***. Eine-Anweisungstext besteht aus einem *Block*, die angibt, dass die Anweisungen, die ausgeführt werden, wenn der Operator aufgerufen wird. Die *Block* entsprechen den Regeln für die Wertrückgabe beschriebenen Methoden [Methodentext](classes.md#method-body). Ein ausdruckskörper besteht aus `=>` gefolgt von einem Ausdruck und ein Semikolon, und gibt einen einzelnen Ausdruck ausführen, wenn der Operator aufgerufen wird.
 
@@ -4115,7 +4115,7 @@ erzeugt die Ausgabe
 X = 1, Y = 2
 ```
 
-Zum Ausführen der `Main` -Methode, führt das System zunächst den Initialisierer für `B.Y`vor der Klasse `B`des statischen Konstruktor. `Y`die führt dazu, dass der Initialisierer `A`des statischen Konstruktor verfügt, ausgeführt werden, da der Wert des `A.X` verwiesen wird. Der statische Konstruktor des `A` wiederum geht, der Berechnung des Werts der `X`, und dies der Fall ist, ruft des Standardwerts von `Y`, d.h. 0 (null). `A.X` 1 wird so initialisiert werden. Der Prozess zur Ausführung `A`des statischen Feldinitialisierer und statischen Konstruktor, und klicken Sie dann abgeschlossen ist, und die Berechnung des Anfangswerts der `Y`, deren Ergebnis ist 2.
+Zum Ausführen der `Main` -Methode, führt das System zunächst den Initialisierer für `B.Y`vor der Klasse `B`des statischen Konstruktor. `Y`die führt dazu, dass der Initialisierer `A`des statischen Konstruktor verfügt, ausgeführt werden, da der Wert des `A.X` verwiesen wird. Der statische Konstruktor des `A` wiederum geht, der Berechnung des Werts der `X`, und dies der Fall ist, ruft des Standardwerts von `Y`, d.h. 0 (null). `A.X` 1 wird so initialisiert werden. Der Prozess zur Ausführung `A`des statischen Feldinitialisierer und statischen Konstruktor, und klicken Sie dann abgeschlossen ist, und die Berechnung des Anfangswerts der `Y`, deren Ergebnis ist 2.
 
 Da der statische Konstruktor genau einmal ausgeführt wird, für jede erstellte Klassentyp geschlossen, es ist eine bequeme Möglichkeit, Überprüfungen zur Laufzeit für den Typparameter zu erzwingen, die zum Zeitpunkt der Kompilierung über die Einschränkungen nicht überprüft werden kann ([Typparameter Einschränkungen](classes.md#type-parameter-constraints)). Beispielsweise verwendet der folgende Typ einen statischen Konstruktor erzwingen, dass das Typargument eine Enumeration ist:
 ```csharp
@@ -4272,7 +4272,7 @@ Die `MoveNext` Methode eines Enumerators-Objekts kapselt den Code der Iteratorbl
 *  Wenn der Status des Enumeratorobjekts ist ***nach***, wird durch Aufrufen `MoveNext` gibt `false`.
 
 
-Bei der `MoveNext` Iteratorblock führt können auf vier Arten unterbrochen werden: durch eine `yield return` Anweisung, eine `yield break` Anweisung, durch das Ende der Iteratorblocks auftreten und eine Ausnahme wird ausgelöst, und Übertragen von der Iteratorblock.
+Wenn `MoveNext` Iteratorblock führt auf vier Arten unterbrochen werden können: Durch eine `yield return` Anweisung, durch eine `yield break` Anweisung, durch das Ende der Iteratorblocks auftreten und eine Ausnahme ausgelöst und aus dem Iteratorblock übertragen wird.
 
 *  Wenn eine `yield return` -Anweisung gefunden ([die Yield-Anweisung](statements.md#the-yield-statement)):
    * Die in der Anweisung angegebene Ausdruck wird ausgewertet, implizit in den Typ "yield" konvertiert und zugewiesen der `Current` Eigenschaft des Enumeratorobjekts.
@@ -4734,6 +4734,6 @@ Wenn der Hauptteil der Async-Funktion beendet wird, wird die return-Aufgabe been
 
 ### <a name="evaluation-of-a-void-returning-async-function"></a>Auswertung einer "void" zurückgebende asynchrone-Funktion
 
-Wenn der Rückgabetyp der asynchronen Funktion `void`, Auswertung unterscheidet sich von den oben genannten auf folgende Weise: Da kein Task zurückgegeben wird, kommuniziert die Funktion Vervollständigung und Ausnahmen für des aktuellen Threads stattdessen ***Synchronisierung Kontext***. Die genaue Definition von Synchronisierungskontext ist implementierungsabhängig, aber es ist eine Darstellung des "where" der aktuelle Thread ausgeführt wird. Der Synchronisierungskontext wird benachrichtigt, wenn es sich bei Auswertung einer "void" zurückgebende asynchrone Funktion beginnt, wird erfolgreich abgeschlossen oder führt dazu, dass eine nicht abgefangene Ausnahme ausgelöst wird.
+Wenn der Rückgabetyp der asynchronen Funktion `void`, Auswertung unterscheidet sich von den oben genannten auf folgende Weise: Da keine Aufgabe zurückgegeben wird, kommuniziert die Funktion Vervollständigung und Ausnahmen für des aktuellen Threads stattdessen ***Synchronisierungskontext***. Die genaue Definition von Synchronisierungskontext ist implementierungsabhängig, aber es ist eine Darstellung des "where" der aktuelle Thread ausgeführt wird. Der Synchronisierungskontext wird benachrichtigt, wenn es sich bei Auswertung einer "void" zurückgebende asynchrone Funktion beginnt, wird erfolgreich abgeschlossen oder führt dazu, dass eine nicht abgefangene Ausnahme ausgelöst wird.
 
 Dadurch wird den Kontext, behalten Sie verfolgen, wie viele "void" zurückgebende asynchrone Funktionen, darunter ausgeführt werden, und klicken Sie, wie Ausnahmen, die sie stammenden weitergegeben werden soll.
