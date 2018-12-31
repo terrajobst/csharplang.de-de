@@ -189,7 +189,7 @@ public interface IStringList
     string this[int index] { get; set; }
 }
 ```
-deklariert eine Schnittstelle, die jeweils eine der möglichen Arten von Member enthält: eine Methode, eine Eigenschaft, ein Ereignis und einen Indexer.
+deklariert eine Schnittstelle, die jeweils eine der möglichen Arten von Member enthält: Eine Methode, eine Eigenschaft, ein Ereignis und einen Indexer.
 
 Ein *Interface_declaration* erstellt einen neuen Deklarationsabschnitt ([Deklarationen](basic-concepts.md#declarations)), und die *Interface_member_declaration*s sofort die enthaltenen*Interface_declaration* neue Elemente in diesen Deklarationsabschnitt einführen. Die folgenden Regeln gelten für *Interface_member_declaration*s:
 
@@ -295,7 +295,7 @@ Der Typ eines Indexers Schnittstelle muss die Ausgabe-Safe, falls ein Get-Access
 
 Schnittstellenmember erfolgt über den Memberzugriff ([Memberzugriff](expressions.md#member-access)) und Indexerzugriff ([Indexerzugriff](expressions.md#indexer-access)) Ausdrücken der Form `I.M` und `I[A]`, wobei `I` ist ein Schnittstellentyp `M` ist eine Methode, Eigenschaft oder das Ereignis, der diesen Schnittstellentyp und `A` ist eine Liste der Indexer-Argument.
 
-Für Schnittstellen, die streng sind einzelne Vererbung (jede Schnittstelle in der Vererbungskette hat genau 0 (null) oder eine direkte Basisschnittstelle), die Auswirkungen der Suche nach Membern ([Membersuche](expressions.md#member-lookup)), Methodenaufruf ([ Methodenaufrufe](expressions.md#method-invocations)), und Indexerzugriff ([Indexerzugriff](expressions.md#indexer-access)) Regeln sind genau die gleichen wie für Klassen und Strukturen: stärker abgeleiteten Elemente ausblenden weniger abgeleiteten Elemente mit demselben Namen bzw. derselben Signatur. Für mehrfache Vererbung Schnittstellen jedoch Mehrdeutigkeiten auftreten, wenn zwei oder mehr nicht verknüpfte Basisschnittstellen deklariert Member mit demselben Namen bzw. derselben Signatur. Dieser Abschnitt zeigt einige Beispiele für solche Situationen. In allen Fällen können explizite Umwandlungen verwendet werden, um die Mehrdeutigkeiten aufzulösen.
+Für Schnittstellen, die streng sind einzelne Vererbung (jede Schnittstelle in der Vererbungskette hat genau 0 (null) oder eine direkte Basisschnittstelle), die Auswirkungen der Suche nach Membern ([Membersuche](expressions.md#member-lookup)), Methodenaufruf ([ Methodenaufrufe](expressions.md#method-invocations)), und Indexerzugriff ([Indexerzugriff](expressions.md#indexer-access)) Regeln sind genau die gleichen wie für Klassen und Strukturen: Stärker abgeleiteten Elemente ausblenden weniger abgeleiteten Elemente mit demselben Namen oder derselben Signatur. Für mehrfache Vererbung Schnittstellen jedoch Mehrdeutigkeiten auftreten, wenn zwei oder mehr nicht verknüpfte Basisschnittstellen deklariert Member mit demselben Namen bzw. derselben Signatur. Dieser Abschnitt zeigt einige Beispiele für solche Situationen. In allen Fällen können explizite Umwandlungen verwendet werden, um die Mehrdeutigkeiten aufzulösen.
 
 Im Beispiel
 ```csharp
@@ -380,7 +380,7 @@ class A
 ```
 die `IBase.F` Element wird ausgeblendet, indem die `ILeft.F` Member. Der Aufruf `d.F(1)` daher wählt `ILeft.F`, auch wenn `IBase.F` angezeigt wird, nicht in den Zugriffspfad ausgeblendet werden, das durch führt `IRight`.
 
-Die Faustregel für das Ausblenden in mehrere Vererbungen Schnittstellen ist dies: Wenn ein Element in einem Zugriffspfad ausgeblendet ist, wird Sie in der alle Zugriffspfade ausgeblendet. Da Zugriffspfad aus `IDerived` zu `ILeft` zu `IBase` blendet `IBase.F`, das Element wird auch in den Zugriffspfad aus ausgeblendet `IDerived` zu `IRight` zu `IBase`.
+Die Faustregel für das Ausblenden in Schnittstellen für mehrfache Vererbung ist folgende: Wenn ein Element in einem Zugriffspfad ausgeblendet ist, wird es in alle Zugriffspfade ausgeblendet. Da Zugriffspfad aus `IDerived` zu `ILeft` zu `IBase` blendet `IBase.F`, das Element wird auch in den Zugriffspfad aus ausgeblendet `IDerived` zu `IRight` zu `IBase`.
 
 ## <a name="fully-qualified-interface-member-names"></a>Den vollqualifizierten Namen von Schnittstellenmembern
 
