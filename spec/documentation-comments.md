@@ -37,7 +37,7 @@ public class Point
 }
 ```
 
-Der Text innerhalb von Dokumentationskommentaren muss wohlgeformt sein und gemäß den Regeln des XML-Codes (http://www.w3.org/TR/REC-xml). Wenn der XML-Code fehlerhaft formuliert ist, formatiert, wird eine Warnung generiert, und die Dokumentationsdatei enthält einen Kommentar, der besagt, dass ein Fehler aufgetreten ist.
+Der Text innerhalb von Dokumentationskommentaren muss wohlgeformt sein und gemäß den Regeln des XML-Codes (https://www.w3.org/TR/REC-xml). Wenn der XML-Code fehlerhaft formuliert ist, formatiert, wird eine Warnung generiert, und die Dokumentationsdatei enthält einen Kommentar, der besagt, dass ein Fehler aufgetreten ist.
 
 Obwohl Entwickler können ihren eigenen Satz von Tags zu erstellen sind, ist eine empfohlene Sammlung in definiert [empfohlene Tags](documentation-comments.md#recommended-tags). Einige der empfohlenen Tags haben eine besondere Bedeutung:
 
