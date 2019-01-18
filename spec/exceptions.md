@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 75fcd5b00ea5cac218a9f7809c53b179df97825c
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229656"
+---
 # <a name="exceptions"></a>Ausnahmen
 
 Ausnahmen in c# bieten eine strukturierte, einheitliche und typsichere Möglichkeit, sowohl auf Systemebene und auf Anwendungsebene Behandeln von fehlerbedingungen. Der Ausnahmemechanismus in c# ist vergleichbar mit C++, mit einigen wichtigen Unterschieden:

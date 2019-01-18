@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c3b716e6eb331be2ee33fffeb42c1e2406cd3a5c
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229668"
+---
 # <a name="enums"></a>Enumerationen
 
 Ein ***Enumerationstyp*** ist ein unverwechselbarer Werttyp ([Werttypen](types.md#value-types)), die einen Satz benannter Konstanten deklariert.

@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c9f8417dc68153f02ceb72bb1d51f3615f3c4961
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54272045"
+---
 # <a name="documentation-comments"></a>Kommentare zur Dokumentation
 
 C# bietet einen Mechanismus für Programmierer, dokumentieren ihren Code mit einer besonderen Kommentarsyntax, die XML-Text enthält. In Quellcodedateien können Kommentare, die einem bestimmten Format aufweisen verwendet werden, leiten Sie ein Tool zum Erstellen von XML aus diesen Kommentaren und die Quellcodeelemente, die sie vor. Diese Syntax heißen-Kommentaren mit ***Dokumentationskommentare***. Sie müssen unmittelbar vor einem benutzerdefinierten Typ (z. B. eine Klasse, Delegat oder Schnittstelle) oder ein Element (z. B. ein Feld, Ereignis, Eigenschaft oder Methode) stehen. Das Tool zum Generieren von XML-wird aufgerufen, die ***Dokumentations-Generator***. (Dieses Generators könnte sein, aber muss nicht sein, die c#-Compiler selbst.) Die Ausgabe der Dokumentations-Generator wird aufgerufen, die ***Dokumentationsdatei***. Eine Dokumentationsdatei dient als Eingabe für eine ***Dokumentations-Viewer***ein Tool soll eine Art visuelle Darstellung der Typinformationen und die zugehörige Dokumentation zu erzeugen.

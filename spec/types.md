@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a28397b1ce97dbead6d5014e2b20e108a1018502
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229641"
+---
 # <a name="types"></a>Typen
 
 Die Typen von c#-Sprache sind in zwei Hauptkategorien unterteilt: ***Werttypen*** und ***Verweistypen***. Werttypen und Verweistypen möglicherweise ***generische Typen***, dies dauern mindestens ***Typparameter***. Typparameter können bestimmen sowohl Werttypen und Verweistypen.

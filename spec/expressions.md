@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 75454072a5137b3044f78bb896317fd88a29e336
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "49640911"
+---
 # <a name="expressions"></a>Ausdrücke
 
 Ein Ausdruck ist eine Sequenz von Operatoren und Operanden. In diesem Kapitel wird die Syntax, die Reihenfolge der Auswertung von Operanden und Operatoren und Bedeutung von Ausdrücken definiert.
@@ -2700,9 +2708,9 @@ Der vordefinierte Multiplikationsoperatoren sind unten aufgeführt. Alle Operato
 
    |      |      |      |     |     |      |      |     |
    |:----:|-----:|:----:|:---:|:---:|:----:|:----:|:----|
-   |      | + y   | / y   | +0  | -0  | +inf | -inf | NaN | 
-   | +x   | + z   | -z   | +0  | -0  | +inf | -inf | NaN | 
-   | -x   | -z   | + z   | -0  | +0  | -inf | +inf | NaN | 
+   |      | +y   | -y   | +0  | -0  | +inf | -inf | NaN | 
+   | +x   | +z   | -z   | +0  | -0  | +inf | -inf | NaN | 
+   | -x   | -z   | +z   | -0  | +0  | -inf | +inf | NaN | 
    | +0   | +0   | -0   | +0  | -0  | NaN  | NaN  | NaN | 
    | -0   | -0   | +0   | -0  | +0  | NaN  | NaN  | NaN | 
    | +inf | +inf | -inf | NaN | NaN | +inf | -inf | NaN | 
@@ -2752,9 +2760,9 @@ Der vordefinierte Divisionsoperatoren sind unten aufgeführt. Alle Operatoren be
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | + y   | / y   | +0   | -0   | +inf | -inf | NaN  | 
-   | +x   | + z   | -z   | +inf | -inf | +0   | -0   | NaN  | 
-   | -x   | -z   | + z   | -inf | +inf | -0   | +0   | NaN  | 
+   |      | +y   | -y   | +0   | -0   | +inf | -inf | NaN  | 
+   | +x   | +z   | -z   | +inf | -inf | +0   | -0   | NaN  | 
+   | -x   | -z   | +z   | -inf | +inf | -0   | +0   | NaN  | 
    | +0   | +0   | -0   | NaN  | NaN  | +0   | -0   | NaN  | 
    | -0   | -0   | +0   | NaN  | NaN  | -0   | +0   | NaN  | 
    | +inf | +inf | -inf | +inf | -inf | NaN  | NaN  | NaN  | 
@@ -2802,8 +2810,8 @@ Der vordefinierte restoperatoren sind unten aufgeführt. Alle Operatoren berechn
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | + y   | / y   | +0   | -0   | +inf | -inf | NaN  | 
-   | +x   | + z   | + z   | NaN  | NaN  | w    | w    | NaN  | 
+   |      | +y   | -y   | +0   | -0   | +inf | -inf | NaN  | 
+   | +x   | +z   | +z   | NaN  | NaN  | w    | w    | NaN  | 
    | -x   | -z   | -z   | NaN  | NaN  | -x   | -x   | NaN  | 
    | +0   | +0   | +0   | NaN  | NaN  | +0   | +0   | NaN  | 
    | -0   | -0   | -0   | NaN  | NaN  | -0   | -0   | NaN  | 
@@ -2945,8 +2953,8 @@ Die vordefinierten Subtraktionsoperatoren sind unten aufgeführt. Die Operatoren
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
    | NaN  | y    | +0   | -0   | +inf | -inf | NaN | 
    | w    | z    | w    | w    | -inf | +inf | NaN | 
-   | +0   | / y   | +0   | +0   | -inf | +inf | NaN | 
-   | -0   | / y   | -0   | +0   | -inf | +inf | NaN | 
+   | +0   | -y   | +0   | +0   | -inf | +inf | NaN | 
+   | -0   | -y   | -0   | +0   | -inf | +inf | NaN | 
    | +inf | +inf | +inf | +inf | NaN  | +inf | NaN | 
    | -inf | -inf | -inf | -inf | -inf | NaN  | NaN | 
    | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN | 
@@ -3074,7 +3082,7 @@ Verschiebevorgänge nie lösen Überläufe und erzeugen identische Ergebnisse im
 
 Wenn der linke Operand des der `>>` Operator einen ganzzahligen Typ mit Vorzeichen, der Operator führt eine arithmetische Verschiebung nach rechts in dem der Wert, der das höchstwertige Bit (das signierte Bit) des Operanden weitergegeben wird, das höherwertige leere Bitpositionen. Wenn der linke Operand des der `>>` Operator ein Integraltyp ohne Vorzeichen, der Operator führt eine logische Verschiebung nach rechts in der höherwertige leere Bitpositionen immer auf 0 (null) festgelegt werden. Um den umgekehrten Vorgang aus, die von der Operandentyp abgeleitet auszuführen, können die explizite Umwandlungen verwendet werden. Z. B. wenn `x` ist eine Variable vom Typ `int`, den Vorgang `unchecked((int)((uint)x >> y))` führt eine logische Verschiebung rechts `x`.
 
-## <a name="relational-and-type-testing-operators"></a>Relational und Typtest Operatoren
+## <a name="relational-and-type-testing-operators"></a>Relationale und Typtestoperatoren
 
 Die `==`, `!=`, `<`, `>`, `<=`, `>=`, `is` und `as` Operatoren werden als relationalen und Typtest Operatoren bezeichnet.
 

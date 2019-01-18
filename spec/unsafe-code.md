@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 90001cf3d48f216787fc65e59166ec57c5d0ca34
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229620"
+---
 # <a name="unsafe-code"></a>Unsicherer Code
 
 Der Kern von c#-Sprache unterscheidet sich gemäß der in den vorangegangenen Kapiteln, insbesondere von C- und C++ in Auslassen von Zeigern als Datentyp. Stattdessen bietet C#-Verweise und die Möglichkeit zum Erstellen von Objekten, die von einem Garbage Collector verwaltet werden. Aufgrund dieses Designs, zusammen mit anderen Funktionen sind c# eine viel sicherere Sprache als C- oder C++. In der Kernsprache c# ist es einfach nicht möglich, dass eine nicht initialisierte Variable, eine "verwaiste" Zeiger oder ein Ausdruck, der ein Array außerhalb ihrer Grenzen indiziert. Gesamte Kategorien von Fehlern kämpfen, routinemäßig C und C++-Programme werden somit entfernt.

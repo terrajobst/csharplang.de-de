@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229617"
+---
 # <a name="variables"></a>Variablen
 
 Variablen stellen Speicherorte dar. Jede Variable hat einen Typ, der bestimmt, welche Werte können in der Variablen gespeichert. C# ist eine typsichere-Sprache, und der C#-Compiler garantiert, dass in Variablen gespeicherten Werte immer des entsprechenden Typs. Der Wert einer Variablen kann geändert werden, über die Zuweisung oder durch die `++` und `--` Operatoren.

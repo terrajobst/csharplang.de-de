@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 08c14d9ef2afe30580f456995066c141653ede92
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229650"
+---
 # <a name="delegates"></a>Delegaten
 
 Delegaten ermöglichen von Szenarien, die von anderen Sprachen, z. B. C++, Pascal-Schreibweise und Modula – mit Funktionszeigern behoben haben. Im Gegensatz zu C++-Funktionszeigern allerdings Delegaten sind vollständig objektorientiert, und im Gegensatz zu C++-Zeiger auf Member-Funktionen Delegaten sowohl eine Objektinstanz und eine Methode kapseln.
