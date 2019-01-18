@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 61eeae6173eaa19f9cf6d6e985f3dc107d4c3ac9
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50245525"
+---
 # <a name="conversions"></a>Konvertierungen
 
 Ein ***Konvertierung*** ermöglicht einem Ausdruck als einen bestimmten Typ behandelt werden soll. Eine Konvertierung möglicherweise dazu führen, dass einen Ausdruck eines bestimmten Typs als einen anderen Typ behandelt werden soll, oder es kann dazu führen, dass einen Ausdruck ohne einen Typ um einen Typ zu erhalten. Konvertierungen möglich ***implizite*** oder ***explizite***, dadurch wird bestimmt, ob eine explizite Umwandlung erforderlich ist. Z. B. die Konvertierung von Typ `int` eingeben `long` ist implizit, also Ausdrücke vom Typ `int` kann implizit als Typ behandelt werden `long`. Die umgekehrte Konvertierung von Typ `long` eingeben `int`, explizite und damit eine explizite Umwandlung erforderlich ist.

@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: af7af574814dc04ee3ece0396b7ae5f86b3ec8eb
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229644"
+---
 # <a name="classes"></a>Klassen
 
 Eine Klasse ist eine Datenstruktur, die Daten Mitglieder (Konstanten und Feldern), Funktionsmember (Methoden, Eigenschaften, Ereignisse, Indexer, Operatoren, Instanzkonstruktoren, Destruktoren und statische Konstruktoren) und geschachtelte Typen enthalten kann. Klassentypen unterstützen die Vererbung, einen Mechanismus, bei dem eine abgeleitete Klasse erweitern und spezialisiert eine Basisklasse kann.
@@ -1827,7 +1835,7 @@ Ein *Fixed_parameter* mit einer *Default_argument* heißt ein ***Optionaler Para
 
 Ein `ref` oder `out` sind keine Parameter ein *Default_argument*. Die *Ausdruck* in einem *Default_argument* muss eine der folgenden sein:
 
-*  eine *Constant_expression*
+*  a *constant_expression*
 *  Ein Ausdruck der Form `new S()` , in denen `S` ist ein Werttyp.
 *  Ein Ausdruck der Form `default(S)` , in denen `S` ist ein Werttyp.
 
