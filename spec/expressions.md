@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 75454072a5137b3044f78bb896317fd88a29e336
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
-ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "49640911"
----
 # <a name="expressions"></a>Ausdrücke
 
 Ein Ausdruck ist eine Sequenz von Operatoren und Operanden. In diesem Kapitel wird die Syntax, die Reihenfolge der Auswertung von Operanden und Operatoren und Bedeutung von Ausdrücken definiert.
@@ -92,7 +84,7 @@ In den folgenden Abschnitten beschreiben für jedes Konstrukt in der Sprache, ge
 
 ### <a name="types-of-constituent-expressions"></a>Typen von einzelnen Ausdrücken
 
-Wenn ein Vorgang statisch gebunden ist, gilt der Typ eines einzelnen Ausdrucks (z. B. einem Empfänger und Argument, einen Index oder ein Operand) immer der Kompilierzeit-Typ dieses Ausdrucks sein.
+Wenn ein Vorgang statisch gebunden ist, gilt der Typ eines einzelnen Ausdrucks (z. B. einen Empfänger, ein Argument, einen Index oder ein Operand) immer der Kompilierzeit-Typ dieses Ausdrucks sein.
 
 Wenn ein Vorgang dynamisch gebunden ist, wird der Typ eines einzelnen Ausdrucks auf unterschiedliche Weise abhängig vom Zeitpunkt der Kompilierung der enthaltenen Ausdruck bestimmt:
 
@@ -388,7 +380,7 @@ Die folgende Tabelle enthält die Verarbeitung, die findet in Konstrukten, die i
 |                   | `T.E -= value` | Die `remove` Accessor des Ereignisses `E` in der Klasse oder Struktur `T` aufgerufen wird. Ein Fehler während der Datenbindung tritt auf, wenn `E` ist nicht statisch. | 
 |                   | `e.E += value` | Die `add` Accessor des Ereignisses `E` in der Klasse, Struktur oder Schnittstelle, die durch den Typ des angegebenen `e` wird aufgerufen, mit dem Instanzausdruck `e`. Ein Fehler während der Datenbindung tritt auf, wenn `E` ist statisch. | 
 |                   | `e.E -= value` | Die `remove` Accessor des Ereignisses `E` in der Klasse, Struktur oder Schnittstelle, die durch den Typ des angegebenen `e` wird aufgerufen, mit dem Instanzausdruck `e`. Ein Fehler während der Datenbindung tritt auf, wenn `E` ist statisch. | 
-| Indexzugriff    | `e[x,y]`       | Auflösung von funktionsüberladungen wird angewendet, um den besten Indexer in der-Klasse, Struktur oder Schnittstelle erhalten durch den Typ des e auszuwählen. Die `get` Accessor des Indexers aufgerufen, mit dem Instanzausdruck `e` und deren Argumentliste `(x,y)`. Ein Fehler während der Datenbindung tritt auf, wenn der Indexer nur Schreibzugriff ist. | 
+| Indexerzugriff    | `e[x,y]`       | Auflösung von funktionsüberladungen wird angewendet, um den besten Indexer in der-Klasse, Struktur oder Schnittstelle erhalten durch den Typ des e auszuwählen. Die `get` Accessor des Indexers aufgerufen, mit dem Instanzausdruck `e` und deren Argumentliste `(x,y)`. Ein Fehler während der Datenbindung tritt auf, wenn der Indexer nur Schreibzugriff ist. | 
 |                   | `e[x,y] = value` | Auflösung von funktionsüberladungen zur angewendet wird, wählen Sie den besten Indexer in der Klasse, Struktur oder Schnittstelle, die durch den Typ des angegebenen `e`. Die `set` Accessor des Indexers aufgerufen, mit dem Instanzausdruck `e` und deren Argumentliste `(x,y,value)`. Ein Fehler während der Datenbindung tritt auf, wenn der Indexer schreibgeschützt ist. | 
 | Operator-Aufruf | `-x`         | Auflösung von funktionsüberladungen zur angewendet wird, wählen Sie den besten unäroperator in der Klasse oder Struktur, die durch den Typ des angegebenen `x`. Der ausgewählte Operator wird aufgerufen, mit der Argumentliste `(x)`. | 
 |                     | `x + y`      | Auflösung von funktionsüberladungen zur angewendet wird, wählen Sie den am besten binären Operator in Klassen oder Strukturen, die von den Typen der angegebenen `x` und `y`. Der ausgewählte Operator wird aufgerufen, mit der Argumentliste `(x,y)`. | 
@@ -1462,7 +1454,7 @@ Die Verarbeitung zur Laufzeit ein Arrayzugriff verfügt der Form `P[A]`, wobei `
 *  Der Wert der einzelnen Ausdrücke aus der *Argument_list* aktiviert ist, für die eigentlichen Grenzen jeder Arraydimension der Arrayinstanz verweist `P`. Wenn eine oder mehrere Werte außerhalb des gültigen Bereichs, sind ein `System.IndexOutOfRangeException` wird ausgelöst, und keine weiteren Schritte ausgeführt werden.
 *  Der Speicherort des Array-Elements vom Index-Ausdrücke wird berechnet, und Hier wird das Ergebnis der Arrayzugriff.
 
-#### <a name="indexer-access"></a>Indexzugriff
+#### <a name="indexer-access"></a>Indexerzugriff
 
 Indexzugriff die *Primary_no_array_creation_expression* von der *Element_access* muss eine Variable oder ein Wert, der eine Klasse, Struktur oder der Schnittstellentyp, und dieser Typ muss eine oder mehrere implementieren Indexer, die in Bezug auf gelten die *Argument_list* von der *Element_access*.
 
@@ -2306,7 +2298,7 @@ named_entity_target
     ;
 ```
 
-Grammatisch gesehen die *Named_entity* Operand ist immer ein Ausdruck. Da `nameof` ist kein reserviertes Schlüsselwort, ein Nameof-Ausdruck ist immer mit einem Aufruf der der einfache Name syntaktisch mehrdeutig `nameof`. Aus Kompatibilitätsgründen, wenn einer Namenssuche ([einfache Namen](expressions.md#simple-names)) mit dem Namen `nameof` erfolgreich ist, wird der Ausdruck als behandelt eine *Invocation_expression* – unabhängig davon, ob der Aufruf ist zulässig ist. Andernfalls ist es eine *Nameof_expression*.
+Grammatisch gesehen die *Named_entity* Operand ist immer ein Ausdruck. Da `nameof` ist kein reserviertes Schlüsselwort, ein Nameof-Ausdruck ist immer mit einem Aufruf der der einfache Name syntaktisch mehrdeutig `nameof`. Aus Kompatibilitätsgründen, wenn einer Namenssuche ([einfache Namen](expressions.md#simple-names)) mit dem Namen `nameof` erfolgreich ist, wird der Ausdruck als behandelt eine *Invocation_expression* – unabhängig davon, ob der Aufruf ist Rechtlich. Andernfalls ist es eine *Nameof_expression*.
 
 Die Bedeutung von der *Named_entity* von eine *Nameof_expression* ändert sich die Bedeutung des Zertifikats als ein Ausdruck, also entweder als eine *Simple_name*, *Base_access*  oder *Member_access*. Jedoch, in dem die Suche in beschrieben [einfache Namen](expressions.md#simple-names) und [Memberzugriff](expressions.md#member-access) führt zu einem Fehler, da ein Instanzmember in einem statischen Kontext gefunden wurde ein *Nameof_expression*keine derartigen Fehler erzeugt.
 
