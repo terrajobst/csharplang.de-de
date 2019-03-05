@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 67019511d49a786a5d6edf6fea442f745fc40f3f
+ms.sourcegitcommit: 0a80f26b8e455c4f09843a10e11e29c24d2d922e
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347273"
+---
 # <a name="expressions"></a>Ausdrücke
 
 Ein Ausdruck ist eine Sequenz von Operatoren und Operanden. In diesem Kapitel wird die Syntax, die Reihenfolge der Auswertung von Operanden und Operatoren und Bedeutung von Ausdrücken definiert.
@@ -2943,7 +2951,7 @@ Die vordefinierten Subtraktionsoperatoren sind unten aufgeführt. Die Operatoren
 
    |      |      |      |      |      |      |     |
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
-   | NaN  | y    | +0   | -0   | +inf | -inf | NaN | 
+   |      | y    | +0   | -0   | +inf | -inf | NaN | 
    | w    | z    | w    | w    | -inf | +inf | NaN | 
    | +0   | -y   | +0   | +0   | -inf | +inf | NaN | 
    | -0   | -y   | -0   | +0   | -inf | +inf | NaN | 
