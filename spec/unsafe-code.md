@@ -8,9 +8,9 @@ ms.locfileid: "47229620"
 ---
 # <a name="unsafe-code"></a>Unsicherer Code
 
-Der Kern von c#-Sprache unterscheidet sich gemäß der in den vorangegangenen Kapiteln, insbesondere von C- und C++ in Auslassen von Zeigern als Datentyp. Stattdessen bietet C#-Verweise und die Möglichkeit zum Erstellen von Objekten, die von einem Garbage Collector verwaltet werden. Aufgrund dieses Designs, zusammen mit anderen Funktionen sind c# eine viel sicherere Sprache als C- oder C++. In der Kernsprache c# ist es einfach nicht möglich, dass eine nicht initialisierte Variable, eine "verwaiste" Zeiger oder ein Ausdruck, der ein Array außerhalb ihrer Grenzen indiziert. Gesamte Kategorien von Fehlern kämpfen, routinemäßig C und C++-Programme werden somit entfernt.
+Der Kern von C#-Sprache unterscheidet sich gemäß der in den vorangegangenen Kapiteln, insbesondere von C- und C++ in Auslassen von Zeigern als Datentyp. Stattdessen bietet C#-Verweise und die Möglichkeit zum Erstellen von Objekten, die von einem Garbage Collector verwaltet werden. Aufgrund dieses Designs, zusammen mit anderen Funktionen sind C# eine viel sicherere Sprache als C- oder C++. In der Kernsprache C# ist es einfach nicht möglich, dass eine nicht initialisierte Variable, eine "verwaiste" Zeiger oder ein Ausdruck, der ein Array außerhalb ihrer Grenzen indiziert. Gesamte Kategorien von Fehlern kämpfen, routinemäßig C und C++-Programme werden somit entfernt.
 
-Praktisch jeder Zeiger-Typ-Konstrukt in C oder C++ eine Verweis-Typ-Entsprechung in C# geschrieben wurde, sind jedoch trotzdem, gibt es Situationen, in denen Zugriff auf Zeigertypen notwendig wird. Z. B. eine Schnittstelle mit dem zugrunde liegenden Betriebssystem, den Zugriff auf ein Gerät mit zugewiesenem Speicher oder einen zeitkritischen Algorithmus implementieren möglich oder praktikabel ist, ohne Zugriff auf die Zeiger möglicherweise nicht. Um diesem Erfordernis entgegenzukommen, c# bietet die Möglichkeit zum Schreiben ***unsicheren Code***.
+Praktisch jeder Zeiger-Typ-Konstrukt in C oder C++ eine Verweis-Typ-Entsprechung in C# geschrieben wurde, sind jedoch trotzdem, gibt es Situationen, in denen Zugriff auf Zeigertypen notwendig wird. Z. B. eine Schnittstelle mit dem zugrunde liegenden Betriebssystem, den Zugriff auf ein Gerät mit zugewiesenem Speicher oder einen zeitkritischen Algorithmus implementieren möglich oder praktikabel ist, ohne Zugriff auf die Zeiger möglicherweise nicht. Um diesem Erfordernis entgegenzukommen, C# bietet die Möglichkeit zum Schreiben ***unsicheren Code***.
 
 In unsicherem Code ist es möglich, deklarieren und Arbeiten mit Zeigern, die zum Durchführen von Konvertierungen zwischen Zeigern und ganzzahligen Typen, für die Adresse der Variablen, und so weiter. In gewisser Hinsicht ähnelt das Schreiben von unsicherem Code Schreiben von C#-Code in einem C#-Programm.
 
@@ -18,7 +18,7 @@ Unsicherer Code ist in der Tat ein "sicher" Feature aus Sicht der Entwickler und
 
 ## <a name="unsafe-contexts"></a>Nicht sicheren Kontexten
 
-Die unsichere Funktionen von c# sind nur in einem unsicheren Kontext verfügbar. Ein unsicherer Kontext wird eingeführt, durch Einschließen einer `unsafe` Modifizierer in der Deklaration eines Typs oder Members oder durch den Einsatz einer *Unsafe_statement*:
+Die unsichere Funktionen von C# sind nur in einem unsicheren Kontext verfügbar. Ein unsicherer Kontext wird eingeführt, durch Einschließen einer `unsafe` Modifizierer in der Deklaration eines Typs oder Members oder durch den Einsatz einer *Unsafe_statement*:
 
 *  Eine Deklaration einer Klasse, Struktur, Schnittstelle oder Delegaten eventuell eine `unsafe` Modifizierer, die in der Groß-und Kleinschreibung der gesamte Text Wertebereich diese Typdeklaration (einschließlich des Texts der Klasse, Struktur oder Schnittstelle) einen unsicheren Kontext berücksichtigt wird.
 *  Eine Deklaration eines Felds, Methode, Eigenschaft, Ereignis, Indexer, Operator, Instanzenkonstruktor, Destruktor oder statischen Konstruktor enthalten möglicherweise eine `unsafe` Modifizierer verwenden, in dem Fall der gesamte Text Wertebereich, Memberdeklaration eine unsichere gilt Kontext.
@@ -205,7 +205,7 @@ Einige Beispiele für Zeigertypen werden in der folgenden Tabelle angegeben:
 
 Für eine bestimmte Implementierung müssen alle Zeigertypen gleicher Größe und Darstellung.
 
-Im Gegensatz zu C und C++, wenn mehrere Zeiger, in der gleichen Deklaration in c# deklariert werden die `*` wird zusammen mit dem zugrunde liegenden Typ, nicht als ein Präfix Punctuator für jeden Zeigernamen geschrieben. Beispiel:
+Im Gegensatz zu C und C++, wenn mehrere Zeiger, in der gleichen Deklaration in C# deklariert werden die `*` wird zusammen mit dem zugrunde liegenden Typ, nicht als ein Präfix Punctuator für jeden Zeigernamen geschrieben. Beispiel:
 
 ```csharp
 int* pi, pj;    // NOT as int *pi, *pj;
@@ -1042,7 +1042,7 @@ eine `stackalloc` Initialisierer werden in der `IntToString` Methode, um einen P
 
 ## <a name="dynamic-memory-allocation"></a>Dynamische speicherbelegung
 
-Mit Ausnahme der `stackalloc` Operator c# bietet keine vordefinierten Konstrukte für die Verwaltung von erfassten nicht-Garbage-Speicher. Diese Dienste werden in der Regel durch die Unterstützung von Klassenbibliotheken bereitgestellt oder direkt aus dem zugrunde liegenden Betriebssystem importiert. Z. B. die `Memory` nachstehenden Klasse veranschaulicht, wie die Heapfunktionen eines zugrunde liegenden Betriebssystems aus c# zugegriffen werden können:
+Mit Ausnahme der `stackalloc` Operator C# bietet keine vordefinierten Konstrukte für die Verwaltung von erfassten nicht-Garbage-Speicher. Diese Dienste werden in der Regel durch die Unterstützung von Klassenbibliotheken bereitgestellt oder direkt aus dem zugrunde liegenden Betriebssystem importiert. Z. B. die `Memory` nachstehenden Klasse veranschaulicht, wie die Heapfunktionen eines zugrunde liegenden Betriebssystems aus C# zugegriffen werden können:
 
 ```csharp
 using System;

@@ -12,7 +12,7 @@ Strukturen sind ähnlich wie Klassen, Datenstrukturen dar, die Datenmember und F
 
 Strukturen sind besonders nützlich für kleine Datenstrukturen, die über Wertsemantik verfügen. Komplexe Zahlen, Punkte in einem Koordinatensystem oder Schlüssel-Wert-Paare im Wörterbuch sind gute Beispiele für Strukturen. Schlüssel für diese Datenstrukturen ist, dass sie einige Datenmember, das, dass keine Verwendung von Vererbung und referenzieller Identität erforderlich ist und sie problemlos implementiert werden können über Wertsemantik, in der Zuweisung des Werts anstelle des Verweises kopiert haben.
 
-Siehe [einfache Typen](types.md#simple-types), die einfachen Typen wie z. B. von c# bereitgestellten `int`, `double`, und `bool`, tatsächlich alle Strukturtypen sind. Genau wie diese vordefinierten Typen Strukturen sind, ist es auch möglich, Strukturen und Überladen von Operatoren zum Implementieren der neuer "Grundtypen" in der C#-Sprache verwenden. Zwei Beispiele für solche Typen werden am Ende dieses Kapitels erhalten ([Struct Examples](structs.md#struct-examples)).
+Siehe [einfache Typen](types.md#simple-types), die einfachen Typen wie z. B. von C# bereitgestellten `int`, `double`, und `bool`, tatsächlich alle Strukturtypen sind. Genau wie diese vordefinierten Typen Strukturen sind, ist es auch möglich, Strukturen und Überladen von Operatoren zum Implementieren der neuer "Grundtypen" in der C#-Sprache verwenden. Zwei Beispiele für solche Typen werden am Ende dieses Kapitels erhalten ([Struct Examples](structs.md#struct-examples)).
 
 ## <a name="struct-declarations"></a>Strukturdeklarationen
 

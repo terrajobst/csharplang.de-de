@@ -8,7 +8,7 @@ ms.locfileid: "54272045"
 ---
 # <a name="documentation-comments"></a>Kommentare zur Dokumentation
 
-C# bietet einen Mechanismus für Programmierer, dokumentieren ihren Code mit einer besonderen Kommentarsyntax, die XML-Text enthält. In Quellcodedateien können Kommentare, die einem bestimmten Format aufweisen verwendet werden, leiten Sie ein Tool zum Erstellen von XML aus diesen Kommentaren und die Quellcodeelemente, die sie vor. Diese Syntax heißen-Kommentaren mit ***Dokumentationskommentare***. Sie müssen unmittelbar vor einem benutzerdefinierten Typ (z. B. eine Klasse, Delegat oder Schnittstelle) oder ein Element (z. B. ein Feld, Ereignis, Eigenschaft oder Methode) stehen. Das Tool zum Generieren von XML-wird aufgerufen, die ***Dokumentations-Generator***. (Dieses Generators könnte sein, aber muss nicht sein, die c#-Compiler selbst.) Die Ausgabe der Dokumentations-Generator wird aufgerufen, die ***Dokumentationsdatei***. Eine Dokumentationsdatei dient als Eingabe für eine ***Dokumentations-Viewer***ein Tool soll eine Art visuelle Darstellung der Typinformationen und die zugehörige Dokumentation zu erzeugen.
+C# bietet einen Mechanismus für Programmierer, dokumentieren ihren Code mit einer besonderen Kommentarsyntax, die XML-Text enthält. In Quellcodedateien können Kommentare, die einem bestimmten Format aufweisen verwendet werden, leiten Sie ein Tool zum Erstellen von XML aus diesen Kommentaren und die Quellcodeelemente, die sie vor. Diese Syntax heißen-Kommentaren mit ***Dokumentationskommentare***. Sie müssen unmittelbar vor einem benutzerdefinierten Typ (z. B. eine Klasse, Delegat oder Schnittstelle) oder ein Element (z. B. ein Feld, Ereignis, Eigenschaft oder Methode) stehen. Das Tool zum Generieren von XML-wird aufgerufen, die ***Dokumentations-Generator***. (Dieses Generators könnte sein, aber muss nicht sein, die C#-Compiler selbst.) Die Ausgabe der Dokumentations-Generator wird aufgerufen, die ***Dokumentationsdatei***. Eine Dokumentationsdatei dient als Eingabe für eine ***Dokumentations-Viewer***ein Tool soll eine Art visuelle Darstellung der Typinformationen und die zugehörige Dokumentation zu erzeugen.
 
 Diese Spezifikation empfiehlt einen Satz von Tags in Dokumentationskommentare, verwendet werden, aber mithilfe dieser Tags ist nicht erforderlich und andere Tags können verwendet werden, wenn gewünscht, wie lange die Regeln für wohlgeformte XML-eingehalten werden.
 
@@ -615,7 +615,7 @@ Der Dokumentations-Generator verwendet die folgenden Regeln beim Generieren der 
 
 ### <a name="id-string-examples"></a>Beispiele für die ID-Zeichenfolge
 
-Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit der ID-Zeichenfolge, die von jedem Quellelement für einen Dokumentationskommentar erstellt:
+Die folgenden Beispiele wird jeder zeigen ein Fragment des C#-Code zusammen mit der ID-Zeichenfolge, die von jedem Quellelement für einen Dokumentationskommentar erstellt:
 
 *  Typen werden unter Verwendung des vollqualifizierten Namens, getragenen allgemeine Informationen dargestellt:
 
