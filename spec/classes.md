@@ -601,7 +601,7 @@ partial class A
 }
 ```
 
-Die Reihenfolge der Elemente in einem Typ wird nur selten relevant, für die c#-Code, aber kann erheblich sein, wenn für die Kommunikation mit anderen Sprachen und Umgebungen. In diesen Fällen ist es nicht definiert, die Reihenfolge der Member innerhalb eines Typs, die in mehreren Teilen deklariert.
+Die Reihenfolge der Elemente in einem Typ wird nur selten relevant, für die C#-Code, aber kann erheblich sein, wenn für die Kommunikation mit anderen Sprachen und Umgebungen. In diesen Fällen ist es nicht definiert, die Reihenfolge der Member innerhalb eines Typs, die in mehreren Teilen deklariert.
 
 ### <a name="partial-methods"></a>Partielle Methoden
 
@@ -1389,7 +1389,7 @@ class A
 
 ### <a name="static-and-instance-fields"></a>Statische und Felder
 
-Wenn eine Felddeklaration enthält eine `static` Modifizierer, die Felder, die durch die Deklaration eingeführt sind ***statische Felder***. Wenn kein `static` Modifizierer vorhanden ist, wird die Felder, die durch die Deklaration eingeführt sind ***Instanzfelder***. Statische Felder und Instanzfelder sind zwei verschiedene Arten von Variablen ([Variablen](variables.md)) von c# unterstützt, und gelegentlich werden sie bezeichnet als ***statische Variablen*** und ***Instanzvariablen*** bzw.
+Wenn eine Felddeklaration enthält eine `static` Modifizierer, die Felder, die durch die Deklaration eingeführt sind ***statische Felder***. Wenn kein `static` Modifizierer vorhanden ist, wird die Felder, die durch die Deklaration eingeführt sind ***Instanzfelder***. Statische Felder und Instanzfelder sind zwei verschiedene Arten von Variablen ([Variablen](variables.md)) von C# unterstützt, und gelegentlich werden sie bezeichnet als ***statische Variablen*** und ***Instanzvariablen*** bzw.
 
 Ein statisches Feld gehört nicht zu einer bestimmten Instanz. Stattdessen es für alle Instanzen eines Typs geschlossene genutzt ([offene und geschlossene Typen](types.md#open-and-closed-types)). Unabhängig davon, wie viele Instanzen eines geschlossenen Klassentyps erstellt werden ist es immer nur eine Kopie eines statischen Felds für die Domäne der zugehörigen Anwendung.
 

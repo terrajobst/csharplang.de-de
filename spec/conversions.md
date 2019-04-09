@@ -414,7 +414,7 @@ Die standardmäßige explizite Konvertierungen sind alle standardmäßigen impli
 
 ## <a name="user-defined-conversions"></a>Benutzerdefinierte Konvertierungen
 
-In c# können Sie die vordefinierten impliziten und expliziten Konvertierungen von ergänzt werden ***benutzerdefinierte Konvertierungen***. Benutzerdefinierte Konvertierungen werden eingeführt, durch das Deklarieren von Konvertierungsoperatoren ([Konvertierungsoperatoren](classes.md#conversion-operators)) in der Klasse und Strukturtypen.
+In C# können Sie die vordefinierten impliziten und expliziten Konvertierungen von ergänzt werden ***benutzerdefinierte Konvertierungen***. Benutzerdefinierte Konvertierungen werden eingeführt, durch das Deklarieren von Konvertierungsoperatoren ([Konvertierungsoperatoren](classes.md#conversion-operators)) in der Klasse und Strukturtypen.
 
 ### <a name="permitted-user-defined-conversions"></a>Benutzerdefinierte Konvertierungen zulässig
 
@@ -589,7 +589,7 @@ Konvertierung von einer anonymen Funktion in einen Typ für die Ausdrucksbaumstr
 
 ### <a name="implementation-example"></a>Beispiel für die Implementierung
 
-Dieser Abschnitt beschreibt eine mögliche Implementierung der anonymen Funktion Konvertierungen in Bezug auf andere Konstrukte in c#. Die hier beschriebene Implementierung basiert darauf, dass die gleichen Prinzipien, die vom Microsoft C#-Compiler verwendet, aber es ist keine beauftragten-Implementierung, noch ist es das einzig mögliche. Konvertierungen in Ausdrucksbaumstrukturen, wird nur kurz erwähnt, wie die genaue Semantik außerhalb des Bereichs dieser Spezifikation.
+Dieser Abschnitt beschreibt eine mögliche Implementierung der anonymen Funktion Konvertierungen in Bezug auf andere Konstrukte in C#. Die hier beschriebene Implementierung basiert darauf, dass die gleichen Prinzipien, die vom Microsoft C#-Compiler verwendet, aber es ist keine beauftragten-Implementierung, noch ist es das einzig mögliche. Konvertierungen in Ausdrucksbaumstrukturen, wird nur kurz erwähnt, wie die genaue Semantik außerhalb des Bereichs dieser Spezifikation.
 
 Der übrige Teil dieses Abschnitts enthält mehrere Beispiele für Code, der anonyme Funktionen mit unterschiedlichen Eigenschaften enthält. Für jedes Beispiel erfolgt eine entsprechende Übersetzung in Code, der nur anderen C#-Konstrukten verwendet. In den Beispielen wird der Bezeichner `D` davon stellen den folgenden Delegattyp:
 ```csharp
