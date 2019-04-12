@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ab41a3c99f79c4cc70f7d4720f7e53b91a410859
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.openlocfilehash: db10046af5d635b430951679a448e23680b18b87
+ms.sourcegitcommit: a19fac74c01a6c3da67d38b2f79527145d4edcbc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "49640898"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426811"
 ---
 # <a name="introduction"></a>Einführung
 
@@ -12,11 +12,11 @@ C# (Aussprache „C Sharp“) ist eine einfache, moderne, objektorientierte und 
 
 C# ist eine objektorientierte Sprache, umfasst allerdings auch Unterstützung für eine ***komponentenorientierte*** Programmierung. Die Softwareentwicklung von heute beruht zunehmend auf Softwarekomponenten in Form von eigenständigen und selbstbeschreibenden Funktionspaketen. Wichtig bei solchen Komponenten ist, dass sie für ein Programmiermodell mit Eigenschaften, Methoden und Ereignissen stehen. Sie verfügen über Attribute, die deklarative Informationen zur Komponente bereitstellen, und lassen sich in ihre eigene Dokumentation integrieren. C# bietet Sprachkonstrukte zur direkten Unterstützung für diese Konzepte, wodurch c# zu einer sehr natürlichen Sprache, in denen zum Erstellen und Verwenden der Software-Komponenten.
 
-Mehrere C# bietet Hilfe bei der Erstellung der stabile und permanente Anwendungen: ***Die automatische speicherbereinigung*** von nicht verwendeten Objekte belegten Arbeitsspeicher automatisch freigibt ***Ausnahmebehandlung*** bietet einen strukturierten und erweiterbaren Ansatz für die fehlererkennung und Wiederherstellung und die ***typsichere*** Aufbau der Sprache macht es unmöglich, nicht initialisierte Variablen gelesen werden soll. Geben Sie zum Indizieren Umwandlungen Arrays über die Grenzen oder führen Sie deaktiviert.
+Mehrere C#-Funktionen helfen beim Entwickeln stabiler und dauerhafter Anwendungen: ***Die automatische speicherbereinigung*** von nicht verwendeten Objekte belegten Arbeitsspeicher automatisch freigibt ***Ausnahmebehandlung*** bietet einen strukturierten und erweiterbaren Ansatz für die fehlererkennung und Wiederherstellung und die ***typsichere*** Aufbau der Sprache macht es unmöglich, nicht initialisierte Variablen gelesen werden soll. Geben Sie zum Indizieren Umwandlungen Arrays über die Grenzen oder führen Sie deaktiviert.
 
 C# verfügt über ein ***einheitliches Typsystem***. Alle C#-Typen, einschließlich primitiver Typen wie `int` und `double`, erben von einem einzelnen `object`-Stammtyp. Daher verwenden alle Typen einen Satz allgemeiner Vorgänge, und Werte eines beliebigen Typs können gespeichert, übertragen und konsistent ausgeführt werden. Darüber hinaus unterstützt C# benutzerdefinierte Verweistypen und Werttypen und ermöglicht so die dynamische Zuordnung von Objekten sowie die Inlinespeicherung einfacher Strukturen.
 
-Um sicherzustellen, dass c#-Programmen und Bibliotheken im Laufe der Zeit kompatibel weiterentwickelt werden können, wurde viel Bedeutung für platziert ***versionsverwaltung*** # Entwurf. Viele Programmiersprachen schenken diesem Problem wenig Beachtung, und in dieser Sprache geschriebene Programme stürzen daher häufiger als notwendig ab, wenn neuere Versionen abhängiger Bibliotheken eingeführt werden. Aspekte der # Entwurf, die direkt von Überlegungen bei der Versionskontrolle beeinflusst wurden, gehören die separaten `virtual` und `override` Modifizierer, die Regeln für die überladungsauflösung und die Unterstützung für explizite Schnittstellenmember-Deklarationen.
+Um sicherzustellen, dass c#-Programmen und Bibliotheken im Laufe der Zeit kompatibel weiterentwickelt werden können, wurde viel Bedeutung für platziert ***versionsverwaltung*** # Entwurf. Viele Programmiersprachen schenken diesem Problem wenig Beachtung, und in dieser Sprache geschriebene Programme stürzen daher häufiger als notwendig ab, wenn neuere Versionen abhängiger Bibliotheken eingeführt werden. Aspekte der C#des Entwurfs, der direkt von Überlegungen bei der Versionskontrolle beeinflusst wurden, gehören die separaten `virtual` und `override` Modifizierer, die Regeln für die überladungsauflösung und die Unterstützung für explizite Schnittstellenmember-Deklarationen.
 
 Im verbleibenden Teil dieses Kapitels wird beschrieben, die wesentlichen Funktionen von c#-Sprache. Obwohl es sich bei spätere Kapiteln detailorientiertheit und manchmal mathematischen Regeln und Ausnahmen zu beschreiben, wurde in diesem Kapitel für Klarheit und Übersichtlichkeit zu Lasten der Vollständigkeit. Ziel ist für eine Einführung in die Sprache des Readers bereit, die das Schreiben von frühen Programme und das Lesen der späteren Kapiteln erleichtern wird.
 
@@ -135,26 +135,26 @@ In C# kann der Quelltext eines Programms in verschiedenen Quelldateien gespeiche
 
 Es gibt zwei Arten von Typen in C#: ***Werttypen*** und ***Verweistypen***. Variablen von Werttypen enthalten ihre Daten direkt, Variablen von Verweistypen speichern hingegen Verweise auf ihre Daten – letztere werden als Objekte bezeichnet. Mit Verweistypen können zwei Variablen auf das gleiche Objekt verweisen, und so können an einer Variablen durchgeführte Vorgänge das Objekt beeinflussen, auf das die andere Variable verweist. Bei Werttypen besitzt jede Variable eine eigene Kopie der Daten, und auf eine Variable angewendete Vorgänge können die andere Variable nicht beeinflussen (außer im Fall von `ref`- und `out`-Parametervariablen).
 
-# Werttypen sind weiter unterteilt in ***einfache Typen***, ***Enumerationstypen***, ***Strukturtypen***, und ***auf NULL festlegbare Typen***, und die # Referenz Typen sind weiter unterteilt in ***Klassentypen***, ***Schnittstellentypen***, ***Arraytypen***, und ***Delegattypen***.
+C#die Werttypen sind weiter unterteilt in ***einfache Typen***, ***Enumerationstypen***, ***Strukturtypen***, und ***auf NULL festlegbare Typen***, und C#des Verweistypen sind weiter unterteilt in ***Klassentypen***, ***Schnittstellentypen***, ***Arraytypen***, und ***Delegattypen***.
 
-Die folgende Tabelle enthält einen Überblick über die # Typsystem.
+Die folgende Tabelle enthält eine Übersicht über C#Typsystem.
 
 | __Kategorie__    |                 | __Beschreibung__ |
 |-----------------|-----------------|-----------------|
-| Werttypen     | Einfache Typen    | Ganzzahlig mit Vorzeichen: `sbyte`, `short`, `int`,`long` |
-|                 |                 | Ganzzahlig ohne Vorzeichen: `byte`, `ushort`, `uint`,`ulong` |
+| Werttypen     | Einfache Typen    | Ganzzahlig mit Vorzeichen: `sbyte`, `short`, `int`, `long` |
+|                 |                 | Ganzzahlig ohne Vorzeichen: `byte`, `ushort`, `uint`, `ulong` |
 |                 |                 | Unicode-Zeichen: `char` |
 |                 |                 | IEEE-Gleitkomma: `float`, `double` |
-|                 |                 | Dezimalwert mit hoher Genauigkeit: `decimal` |
-|                 |                 | Boolesch: `bool` |
-|                 | Enumerationstypen      | Benutzerdefinierte Typen der Form `enum E {...}` |
-|                 | Strukturtypen    | Benutzerdefinierte Typen der Form `struct S {...}` |
+|                 |                 | Decimal mit hoher Präzision: `decimal` |
+|                 |                 | Boolescher Wert: `bool` |
+|                 | Enumerationstypen      | Benutzerdefinierte Typen des Formulars `enum E {...}` |
+|                 | Strukturtypen    | Benutzerdefinierte Typen des Formulars `struct S {...}` |
 |                 | Auf NULL festlegbare Typen  | Erweiterungen aller anderen Werttypen mit einem `null`-Wert |
-| Verweistypen | Klassentypen     | Ultimative Basisklasse aller anderen Typen:`object` |
+| Verweistypen | Klassentypen     | Ultimative Basisklasse aller anderen Typen: `object` |
 |                 |                 | Unicode-Zeichenfolgen: `string` |
-|                 |                 | Benutzerdefinierte Typen der Form `class C {...}` |
-|                 | Schnittstellentypen | Benutzerdefinierte Typen der Form `interface I {...}` |
-|                 | Arraytypen     | Ein- und mehrdimensional, z.B. `int[]` und`int[,]` |
+|                 |                 | Benutzerdefinierte Typen des Formulars `class C {...}` |
+|                 | Schnittstellentypen | Benutzerdefinierte Typen des Formulars `interface I {...}` |
+|                 | Arraytypen     | Ein- und mehrdimensional, z. B. `int[]` und `int[,]` |
 |                 | Delegattypen  | Benutzerdefinierte Typen im Format z. B. `delegate int  D(...)` |
 
 Die acht Ganzzahltypen unterstützen 8-Bit-, 16-Bit, 32-Bit- und 64-Bit-Werte mit oder ohne Vorzeichen.
@@ -163,14 +163,14 @@ Zeigen Sie die beiden floating-Typen, `float` und `double`, werden mit der 32-Bi
 
 Der `decimal`-Typ ist ein für Finanz-und Währungsberechnungen geeigneter 128-Bit-Datentyp.
 
-# `bool` Typ dient zur Darstellung boolescher Werte – Werte, die entweder `true` oder `false`.
+C#die `bool` Typ dient zur Darstellung boolescher Werte – Werte, die entweder `true` oder `false`.
 
 Zur Zeichen- und Zeichenfolgenverarbeitung in C# wird die Unicode-Codierung verwendet. Der `char`-Typ stellt eine UTF-16-Codeeinheit dar und der `string`-Typ eine Folge von UTF-16-Codeeinheiten.
 
-Die folgende Tabelle enthält die # numerische Typen.
+Die folgende Tabelle enthält C#der numerischen Typen.
 
 
-| __Kategorie__      | __Bits__ | __Type__  | __Bereich/der gleichen Genauigkeit__ |
+| __Kategorie__      | __Bits__ | __Typ__  | __Bereich/der gleichen Genauigkeit__ |
 |-------------------|----------|-----------|---------------------|
 | Ganzzahlig mit Vorzeichen   | 8        | `sbyte`   | -128...127 |
 |                   | 16       | `short`   | -32,768...32,767 |
@@ -184,7 +184,7 @@ Die folgende Tabelle enthält die # numerische Typen.
 |                   | 64       | `double`  | 5,0 × 10 ^-324 bis 1,7 × 10 ^ 308, Genauigkeit von 15 Stellen |
 | Decimal           | 128      | `decimal` | 1.0 × 10 ^-28 7,9 × 10 ^ 28, 28 Stellen Genauigkeit |
 
-C#-Programme verwenden ***Typdeklarationen***, um neue Typen zu erstellen. Eine Typdeklaration gibt den Namen und die Member des neuen Typs an. Fünf Typkategorien # sind Benutzerdefinierbar: Klasse Typen, Strukturtypen, Schnittstellentypen, Enumerationstypen und Delegattypen.
+C#-Programme verwenden ***Typdeklarationen***, um neue Typen zu erstellen. Eine Typdeklaration gibt den Namen und die Member des neuen Typs an. Fünf C#der Kategorien von Typen sind Benutzerdefinierbar: Klasse Typen, Strukturtypen, Schnittstellentypen, Enumerationstypen und Delegattypen.
 
 Ein Klassentyp definiert eine Datenstruktur, die Datenmember (Felder) und Funktionsmember (Methoden, Eigenschaften usw.) enthält. Klassentypen unterstützen einzelne Vererbung und Polymorphie. Dies sind Mechanismen, durch die abgeleitete Klassen erweitert und Basisklassen spezialisiert werden können.
 
@@ -202,7 +202,7 @@ C# unterstützt ein- und mehrdimensionale Arrays beliebigen Typs. Im Gegensatz z
 
 Auf NULL festlegbare Typen auch keine deklariert werden, bevor sie verwendet werden können. Für jeden NULL-Werte `T` wird es ein entsprechenden nullable-Typ `T?`, die einen zusätzlichen Wert enthalten kann `null`. Z. B. `int?` ist ein Typ, der alle 32-Bit-Ganzzahlwert oder den Wert aufnehmen kann `null`.
 
-# Typsystem ist dahingehend vereinheitlicht, dass ein Wert eines beliebigen Typs als Objekt behandelt werden kann. Jeder Typ in C# ist direkt oder indirekt vom `object`-Klassentyp abgeleitet, und `object` ist die ultimative Basisklasse aller Typen. Werte von Verweistypen werden als Objekte behandelt, indem die Werte einfach als Typ `object` angezeigt werden. Werte von Werttypen werden als Objekte behandelt, indem Sie Ausführung ***Boxing*** und ***unboxing*** Vorgänge. Im folgenden Beispiel wird ein `int`-Wert in ein `object` und wieder in einen `int`-Wert konvertiert.
+C#Typsystem ist dahingehend vereinheitlicht, dass ein Wert eines beliebigen Typs als Objekt behandelt werden kann. Jeder Typ in C# ist direkt oder indirekt vom `object`-Klassentyp abgeleitet, und `object` ist die ultimative Basisklasse aller Typen. Werte von Verweistypen werden als Objekte behandelt, indem die Werte einfach als Typ `object` angezeigt werden. Werte von Werttypen werden als Objekte behandelt, indem Sie Ausführung ***Boxing*** und ***unboxing*** Vorgänge. Im folgenden Beispiel wird ein `int`-Wert in ein `object` und wieder in einen `int`-Wert konvertiert.
 
 ```csharp
 using System;
@@ -218,12 +218,12 @@ class Test
 ```
 Wenn der Wert eines Werttyps in den Typ konvertiert wird `object`, eine Objektinstanz, die auch "Box" genannte wird zum Speichern des Werts zugeordnet, und der Wert wird in diese Box kopiert. Im Gegensatz dazu, wann ein `object` Verweis auf einen Werttyp umgewandelt wird, wird eine Überprüfung durchgeführt, die das referenzierte Objekt ein Feld des korrekten Datentyps ist und, wenn die Überprüfung erfolgreich ist, wird der Wert in das Feld kopiert.
 
-Vereinheitlichen Typsystem von # bedeutet, dass Werttypen "bei Bedarf." Objekte werden können Aufgrund der Vereinheitlichung können Bibliotheken für allgemeine Zwecke, die den Typ `object` verwenden, sowohl mit Verweis- als auch Werttypen verwendet werden.
+C#der unified Type System bedeutet, dass Werttypen "bei Bedarf." Objekte werden können Aufgrund der Vereinheitlichung können Bibliotheken für allgemeine Zwecke, die den Typ `object` verwenden, sowohl mit Verweis- als auch Werttypen verwendet werden.
 
 Es gibt mehrere Arten von ***Variablen*** in C#, einschließlich Feldern, Arrayelementen, lokalen Variablen und Parametern. Variablen stellen Speicherorte dar, und jede Variable hat einen Typ, der bestimmt, welche Werte können in der Variablen gespeichert wird, wie in der folgenden Tabelle gezeigt.
 
 
-| __Typ der Variablen__    | __Mögliche Inhalt__ |
+| __Variablentyp__    | __Mögliche Inhalt__ |
 |-------------------------|-----------------------|
 | Nicht auf NULL festlegbarer Werttyp | Ein Wert genau dieses Typs |
 | Auf NULL festlegbarer Werttyp     | Ein null-Wert oder einen Wert genau dieses Typs |
@@ -241,10 +241,10 @@ Wenn ein Ausdruck mehrere Operatoren enthält, bestimmt die ***Rangfolge*** der 
 
 Die meisten Operatoren können ***überladen*** werden. Das Überladen von Operatoren ermöglicht die Angabe benutzerdefinierter Operatorimplementierungen für Vorgänge, in denen einer der Operanden oder beide einer benutzerdefinierten Klasse oder einem benutzerdefinierten Strukturtyp angehören.
 
-Die folgende Tabelle enthält die # Operatoren, die Auflistungskategorien "Operator" in der Reihenfolge der Rangfolge von oben nach unten. Operatoren der gleichen Kategorie haben den gleichen Rang.
+Die folgende Tabelle enthält C#Operatoren, die Operatorkategorien gemäß der Rangfolge von der höchsten zur niedrigsten Ebene auflisten. Operatoren der gleichen Kategorie haben den gleichen Rang.
 
 
-| __Kategorie__                     | __Expression (Ausdruck)__    | __Beschreibung__ |
+| __Kategorie__                     | __Ausdruck__    | __Beschreibung__ |
 |----------------------------------|-------------------|-----------------|
 | Primär                          | `x.m`             | Memberzugriff |
 |                                  | `x(...)`          | Methoden- und Delegataufruf |
@@ -252,7 +252,7 @@ Die folgende Tabelle enthält die # Operatoren, die Auflistungskategorien "Opera
 |                                  | `x++`             | Postinkrement |
 |                                  | `x--`             | Postdekrement |
 |                                  | `new T(...)`      | Objekt- und Delegaterstellung |
-|                                  | `new T(...){...}` | Objekterstellung mit Initialisierern |
+|                                  | `new T(...){...}` | Objekterstellung mit Initialisierer |
 |                                  | `new {...}`       | Anonymer Objektinitialisierer |
 |                                  | `new T[...]`      | Arrayerstellung |
 |                                  | `typeof(T)`       | Abrufen `System.Type` für Objekt `T` |
@@ -267,7 +267,7 @@ Die folgende Tabelle enthält die # Operatoren, die Auflistungskategorien "Opera
 |                                  | `++x`             | Präinkrement |
 |                                  | `--x`             | Prädekrement |
 |                                  | `(T)x`            | Konvertieren Sie explizit `x` eingeben `T` |
-|                                  | `await x`         | Asynchrones warten `x` abgeschlossen |
+|                                  | `await x`         | Asynchrones Warten auf den Abschluss von `x` |
 | Multiplikativ                   | `x * y`           | Multiplikation |
 |                                  | `x / y`           | Division |
 |                                  | `x % y`           | Rest |
@@ -279,7 +279,7 @@ Die folgende Tabelle enthält die # Operatoren, die Auflistungskategorien "Opera
 |                                  | `x > y`           | Größer als |
 |                                  | `x <= y`          | Kleiner oder gleich |
 |                                  | `x >= y`          | Größer oder gleich |
-|                                  | `x is T`          | Zurückgeben `true` Wenn `x` ist eine `T`, `false` andernfalls |
+|                                  | `x is T`          | `true` zurückgeben, wenn `x` ein `T` ist, andernfalls `false` |
 |                                  | `x as T`          | Zurückgeben `x` als `T`, oder `null` Wenn `x` kein `T` |
 | Gleichheit                         | `x == y`          | Gleich      |
 |                                  | `x != y`          | Ungleich |
@@ -288,10 +288,10 @@ Die folgende Tabelle enthält die # Operatoren, die Auflistungskategorien "Opera
 | Logisches OR                       | <code>x &#124; y</code> | Ganzzahliges bitweises OR, boolesches logisches OR |
 | Bedingtes AND                  | `x && y`          | Wertet `y` nur, wenn `x` ist `true` |
 | Bedingtes OR                   | <code>x &#124;&#124; y</code> | Wertet `y` nur, wenn `x` ist `false` |
-| NULL-Sammeloperator                  | `X ?? y`          | Ergibt `y` Wenn `x` ist `null`zu `x` andernfalls |
+| NULL-Sammeloperator                  | `x ?? y`          | Ergibt `y` Wenn `x` ist `null`zu `x` andernfalls |
 | Bedingt                      | `x ? y : z`       | Wertet `y` Wenn `x` ist `true`, `z` Wenn `x` ist `false` |
 | Zuweisung oder anonyme Funktion | `x = y`           | Zuweisung |
-|                                  | `x op= y`         | Zusammengesetzte Zuweisung; Operatoren werden unterstützt `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
+|                                  | `x op= y`         | Zusammengesetzte Zuweisung; unterstützte Operatoren sind `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
 |                                  | `(T x) => y`      | Anonyme Funktion (Lambda-Ausdruck) |
 
 ## <a name="statements"></a>Anweisungen
@@ -620,7 +620,7 @@ Die folgende Tabelle enthält eine Übersicht über die Arten von Membern, die e
 Jeder Member einer Klasse ist mit einem Zugriff verknüpft, der die Regionen des Programmtexts steuert, die auf den Member zugreifen können. Es gibt fünf mögliche Formen des Zugriffs. Diese werden in der folgenden Tabelle zusammengefasst.
 
 
-| __Barrierefreiheit__    | __Bedeutung__ |
+| __Zugriff__    | __Bedeutung__ |
 |----------------------|-----------------|
 | `public`             | Der Zugriff ist nicht eingeschränkt. |
 | `protected`          | Der Zugriff ist auf diese Klasse oder auf von dieser Klasse abgeleitete Klassen beschränkt. |
@@ -1152,7 +1152,7 @@ Ein `get` -Accessor entspricht einer Methode ohne Parameter mit einem Rückgabew
 Ein `set` Accessor entspricht einer Methode mit einem einzigen Parameter, die mit dem Namen `value` und keinen Rückgabewert. Wenn eine Eigenschaft verwiesen wird, als das Ziel einer Zuweisung oder als Operand `++` oder `--`, `set` -Accessor wird aufgerufen, mit der ein Argument, das den neuen Wert bereitstellt.
 
 Die `List<T>
-` -Klasse deklariert zwei Eigenschaften, `Count` und `Capacity`, die schreibgeschützten und Lese-/ Schreibzugriff, bzw. sind. Es folgt ein Beispiel zur Verwendung dieser Eigenschaften.
+`-Klasse deklariert die beiden Eigenschaften „`Count`“ und „`Capacity`“, von denen die eine schreibgeschützt ist und die andere Lese- und Schreibzugriff besitzt. Es folgt ein Beispiel zur Verwendung dieser Eigenschaften.
 
 ```csharp
 List<string> names = new List<string>();
