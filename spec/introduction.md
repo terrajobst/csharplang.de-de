@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: db10046af5d635b430951679a448e23680b18b87
-ms.sourcegitcommit: a19fac74c01a6c3da67d38b2f79527145d4edcbc
+ms.sourcegitcommit: 4cc6d73a765ac9827ab00c48ad9f09204baf888f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426811"
 ---
 # <a name="introduction"></a>Einführung
@@ -141,20 +141,20 @@ Die folgende Tabelle enthält eine Übersicht über C#Typsystem.
 
 | __Kategorie__    |                 | __Beschreibung__ |
 |-----------------|-----------------|-----------------|
-| Werttypen     | Einfache Typen    | Ganzzahlig mit Vorzeichen: `sbyte`, `short`, `int`, `long` |
-|                 |                 | Ganzzahlig ohne Vorzeichen: `byte`, `ushort`, `uint`, `ulong` |
+| Werttypen     | Einfache Typen    | Ganzzahlig mit Vorzeichen: `sbyte`, `short`, `int`,`long` |
+|                 |                 | Ganzzahlig ohne Vorzeichen: `byte`, `ushort`, `uint`,`ulong` |
 |                 |                 | Unicode-Zeichen: `char` |
 |                 |                 | IEEE-Gleitkomma: `float`, `double` |
-|                 |                 | Decimal mit hoher Präzision: `decimal` |
-|                 |                 | Boolescher Wert: `bool` |
-|                 | Enumerationstypen      | Benutzerdefinierte Typen des Formulars `enum E {...}` |
-|                 | Strukturtypen    | Benutzerdefinierte Typen des Formulars `struct S {...}` |
+|                 |                 | Dezimalwert mit hoher Genauigkeit: `decimal` |
+|                 |                 | Boolesch: `bool` |
+|                 | Enumerationstypen      | Benutzerdefinierte Typen der Form `enum E {...}` |
+|                 | Strukturtypen    | Benutzerdefinierte Typen der Form `struct S {...}` |
 |                 | Auf NULL festlegbare Typen  | Erweiterungen aller anderen Werttypen mit einem `null`-Wert |
-| Verweistypen | Klassentypen     | Ultimative Basisklasse aller anderen Typen: `object` |
+| Verweistypen | Klassentypen     | Ultimative Basisklasse aller anderen Typen:`object` |
 |                 |                 | Unicode-Zeichenfolgen: `string` |
-|                 |                 | Benutzerdefinierte Typen des Formulars `class C {...}` |
-|                 | Schnittstellentypen | Benutzerdefinierte Typen des Formulars `interface I {...}` |
-|                 | Arraytypen     | Ein- und mehrdimensional, z. B. `int[]` und `int[,]` |
+|                 |                 | Benutzerdefinierte Typen der Form `class C {...}` |
+|                 | Schnittstellentypen | Benutzerdefinierte Typen der Form `interface I {...}` |
+|                 | Arraytypen     | Ein- und mehrdimensional, z.B. `int[]` und`int[,]` |
 |                 | Delegattypen  | Benutzerdefinierte Typen im Format z. B. `delegate int  D(...)` |
 
 Die acht Ganzzahltypen unterstützen 8-Bit-, 16-Bit, 32-Bit- und 64-Bit-Werte mit oder ohne Vorzeichen.
@@ -170,7 +170,7 @@ Zur Zeichen- und Zeichenfolgenverarbeitung in C# wird die Unicode-Codierung verw
 Die folgende Tabelle enthält C#der numerischen Typen.
 
 
-| __Kategorie__      | __Bits__ | __Typ__  | __Bereich/der gleichen Genauigkeit__ |
+| __Kategorie__      | __Bits__ | __Type__  | __Bereich/der gleichen Genauigkeit__ |
 |-------------------|----------|-----------|---------------------|
 | Ganzzahlig mit Vorzeichen   | 8        | `sbyte`   | -128...127 |
 |                   | 16       | `short`   | -32,768...32,767 |
@@ -223,7 +223,7 @@ C#der unified Type System bedeutet, dass Werttypen "bei Bedarf." Objekte werden 
 Es gibt mehrere Arten von ***Variablen*** in C#, einschließlich Feldern, Arrayelementen, lokalen Variablen und Parametern. Variablen stellen Speicherorte dar, und jede Variable hat einen Typ, der bestimmt, welche Werte können in der Variablen gespeichert wird, wie in der folgenden Tabelle gezeigt.
 
 
-| __Variablentyp__    | __Mögliche Inhalt__ |
+| __Typ der Variablen__    | __Mögliche Inhalt__ |
 |-------------------------|-----------------------|
 | Nicht auf NULL festlegbarer Werttyp | Ein Wert genau dieses Typs |
 | Auf NULL festlegbarer Werttyp     | Ein null-Wert oder einen Wert genau dieses Typs |
@@ -244,7 +244,7 @@ Die meisten Operatoren können ***überladen*** werden. Das Überladen von Opera
 Die folgende Tabelle enthält C#Operatoren, die Operatorkategorien gemäß der Rangfolge von der höchsten zur niedrigsten Ebene auflisten. Operatoren der gleichen Kategorie haben den gleichen Rang.
 
 
-| __Kategorie__                     | __Ausdruck__    | __Beschreibung__ |
+| __Kategorie__                     | __Expression (Ausdruck)__    | __Beschreibung__ |
 |----------------------------------|-------------------|-----------------|
 | Primär                          | `x.m`             | Memberzugriff |
 |                                  | `x(...)`          | Methoden- und Delegataufruf |
@@ -255,7 +255,7 @@ Die folgende Tabelle enthält C#Operatoren, die Operatorkategorien gemäß der R
 |                                  | `new T(...){...}` | Objekterstellung mit Initialisierer |
 |                                  | `new {...}`       | Anonymer Objektinitialisierer |
 |                                  | `new T[...]`      | Arrayerstellung |
-|                                  | `typeof(T)`       | Abrufen `System.Type` für Objekt `T` |
+|                                  | `typeof(T)`       | Abrufen von `System.Type`-Objekt für `T` |
 |                                  | `checked(x)`      | Auswerten von Ausdrücken in geprüftem Kontext |
 |                                  | `unchecked(x)`    | Auswerten von Ausdrücken in nicht geprüftem Kontext |
 |                                  | `default(T)`      | Abrufen des Standardwerts vom Typ `T` |
@@ -266,7 +266,7 @@ Die folgende Tabelle enthält C#Operatoren, die Operatorkategorien gemäß der R
 |                                  | `~x`              | Bitweise Negation |
 |                                  | `++x`             | Präinkrement |
 |                                  | `--x`             | Prädekrement |
-|                                  | `(T)x`            | Konvertieren Sie explizit `x` eingeben `T` |
+|                                  | `(T)x`            | Explizites Konvertieren von `x` in den Typ `T` |
 |                                  | `await x`         | Asynchrones Warten auf den Abschluss von `x` |
 | Multiplikativ                   | `x * y`           | Multiplikation |
 |                                  | `x / y`           | Division |
@@ -280,7 +280,7 @@ Die folgende Tabelle enthält C#Operatoren, die Operatorkategorien gemäß der R
 |                                  | `x <= y`          | Kleiner oder gleich |
 |                                  | `x >= y`          | Größer oder gleich |
 |                                  | `x is T`          | `true` zurückgeben, wenn `x` ein `T` ist, andernfalls `false` |
-|                                  | `x as T`          | Zurückgeben `x` als `T`, oder `null` Wenn `x` kein `T` |
+|                                  | `x as T`          | `x` als `T` typisiert zurückgeben, oder `null`, wenn `x` kein `T` ist |
 | Gleichheit                         | `x == y`          | Gleich      |
 |                                  | `x != y`          | Ungleich |
 | Logisches AND                      | `x & y`           | Ganzzahliges bitweises AND, boolesches logisches AND |
@@ -289,9 +289,9 @@ Die folgende Tabelle enthält C#Operatoren, die Operatorkategorien gemäß der R
 | Bedingtes AND                  | `x && y`          | Wertet `y` nur, wenn `x` ist `true` |
 | Bedingtes OR                   | <code>x &#124;&#124; y</code> | Wertet `y` nur, wenn `x` ist `false` |
 | NULL-Sammeloperator                  | `x ?? y`          | Ergibt `y` Wenn `x` ist `null`zu `x` andernfalls |
-| Bedingt                      | `x ? y : z`       | Wertet `y` Wenn `x` ist `true`, `z` Wenn `x` ist `false` |
+| Bedingt                      | `x ? y : z`       | Wertet `y` aus, wenn `x` `true` ist, `z`, wenn `x` `false` ist |
 | Zuweisung oder anonyme Funktion | `x = y`           | Zuweisung |
-|                                  | `x op= y`         | Zusammengesetzte Zuweisung; unterstützte Operatoren sind `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
+|                                  | `x op= y`         | Zusammengesetzte Zuweisung; Operatoren werden unterstützt `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
 |                                  | `(T x) => y`      | Anonyme Funktion (Lambda-Ausdruck) |
 
 ## <a name="statements"></a>Anweisungen
@@ -620,7 +620,7 @@ Die folgende Tabelle enthält eine Übersicht über die Arten von Membern, die e
 Jeder Member einer Klasse ist mit einem Zugriff verknüpft, der die Regionen des Programmtexts steuert, die auf den Member zugreifen können. Es gibt fünf mögliche Formen des Zugriffs. Diese werden in der folgenden Tabelle zusammengefasst.
 
 
-| __Zugriff__    | __Bedeutung__ |
+| __Barrierefreiheit__    | __Bedeutung__ |
 |----------------------|-----------------|
 | `public`             | Der Zugriff ist nicht eingeschränkt. |
 | `protected`          | Der Zugriff ist auf diese Klasse oder auf von dieser Klasse abgeleitete Klassen beschränkt. |
