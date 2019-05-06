@@ -1,25 +1,25 @@
 ---
 ms.openlocfilehash: 75fcd5b00ea5cac218a9f7809c53b179df97825c
 ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/18/2019
 ms.locfileid: "47229656"
 ---
 # <a name="exceptions"></a>Ausnahmen
 
-Ausnahmen in c# bieten eine strukturierte, einheitliche und typsichere Möglichkeit, sowohl auf Systemebene und auf Anwendungsebene Behandeln von fehlerbedingungen. Der Ausnahmemechanismus in c# ist vergleichbar mit C++, mit einigen wichtigen Unterschieden:
+Ausnahmen in C# bieten eine strukturierte, einheitliche und typsichere Möglichkeit, sowohl auf Systemebene und auf Anwendungsebene Behandeln von fehlerbedingungen. Der Ausnahmemechanismus in C# ist vergleichbar mit C++, mit einigen wichtigen Unterschieden:
 
-*  In c# müssen alle Ausnahmen, die von einer Instanz eines Klassentyps, die von abgeleiteten dargestellt werden `System.Exception`. In C++ kann einen beliebigen Wert eines beliebigen Typs verwendet werden, um eine Ausnahme darzustellen.
-*  In c# einen finally-block ([der Try-Anweisung](statements.md#the-try-statement)) kann verwendet werden, um die Beendigung Code zu schreiben, die in normalen Ausführung und außergewöhnliche Bedingungen, die ausgeführt wird. Solcher Code ist schwierig, die in C++ zu schreiben, ohne Code zu duplizieren.
-*  In c# auf Systemebene Ausnahmen wie z. B. Überlauf, Division durch Null und Null-Dereferenzierungen Ausnahmeklassen verfügen über klar definierte und werden auf die gleiche Stufe von fehlerbedingungen auf Anwendungsebene.
+*  In C# müssen alle Ausnahmen, die von einer Instanz eines Klassentyps, die von abgeleiteten dargestellt werden `System.Exception`. In C++ kann einen beliebigen Wert eines beliebigen Typs verwendet werden, um eine Ausnahme darzustellen.
+*  In C# einen finally-block ([der Try-Anweisung](statements.md#the-try-statement)) kann verwendet werden, um die Beendigung Code zu schreiben, die in normalen Ausführung und außergewöhnliche Bedingungen, die ausgeführt wird. Solcher Code ist schwierig, die in C++ zu schreiben, ohne Code zu duplizieren.
+*  In C# auf Systemebene Ausnahmen wie z. B. Überlauf, Division durch Null und Null-Dereferenzierungen Ausnahmeklassen verfügen über klar definierte und werden auf die gleiche Stufe von fehlerbedingungen auf Anwendungsebene.
 
 ## <a name="causes-of-exceptions"></a>Ursachen von Ausnahmen
 
 Ausnahme kann auf zwei unterschiedliche Arten ausgelöst werden.
 
 *  Ein `throw` Anweisung ([die Throw-Anweisung](statements.md#the-throw-statement)) löst eine Ausnahme aus, sofort und ohne Bedingung. Steuerung niemals erreicht, die Anweisung sofort nach der `throw`.
-*  Bestimmte außergewöhnlichen Bedingungen, die während der Verarbeitung von c#-Anweisungen und Ausdrücke entstehen unter bestimmten Umständen eine Ausnahme ausgelöst, wenn der Vorgang normal abgeschlossen werden kann. Z. B. eine ganze Zahl Division ([Divisionsoperator](expressions.md#division-operator)) löst eine `System.DivideByZeroException` Wenn der Nenner 0 (null) ist. Finden Sie unter [Common Exception Classes](exceptions.md#common-exception-classes) eine Liste der verschiedenen Ausnahmen, die auf diese Weise auftreten können.
+*  Bestimmte außergewöhnlichen Bedingungen, die während der Verarbeitung von C#-Anweisungen und Ausdrücke entstehen unter bestimmten Umständen eine Ausnahme ausgelöst, wenn der Vorgang normal abgeschlossen werden kann. Z. B. eine ganze Zahl Division ([Divisionsoperator](expressions.md#division-operator)) löst eine `System.DivideByZeroException` Wenn der Nenner 0 (null) ist. Finden Sie unter [Common Exception Classes](exceptions.md#common-exception-classes) eine Liste der verschiedenen Ausnahmen, die auf diese Weise auftreten können.
 
 ## <a name="the-systemexception-class"></a>Die System.Exception-Klasse
 
@@ -47,7 +47,7 @@ Ausnahmen, die auftreten, während der Destruktorausführung sind muss erwähnt 
 
 ## <a name="common-exception-classes"></a>Allgemeine Ausnahmeklassen
 
-Die folgenden Ausnahmen werden von bestimmten c#-Vorgängen ausgelöst.
+Die folgenden Ausnahmen werden von bestimmten C#-Vorgängen ausgelöst.
 
 |                                      |                |
 |--------------------------------------|----------------|

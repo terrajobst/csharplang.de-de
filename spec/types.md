@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: a28397b1ce97dbead6d5014e2b20e108a1018502
 ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/18/2019
 ms.locfileid: "47229641"
 ---
 # <a name="types"></a>Typen
 
-Die Typen von c#-Sprache sind in zwei Hauptkategorien unterteilt: ***Werttypen*** und ***Verweistypen***. Werttypen und Verweistypen möglicherweise ***generische Typen***, dies dauern mindestens ***Typparameter***. Typparameter können bestimmen sowohl Werttypen und Verweistypen.
+Die Typen von C#-Sprache sind in zwei Hauptkategorien unterteilt: ***Werttypen*** und ***Verweistypen***. Werttypen und Verweistypen möglicherweise ***generische Typen***, dies dauern mindestens ***Typparameter***. Typparameter können bestimmen sowohl Werttypen und Verweistypen.
 
 ```antlr
 type
@@ -156,7 +156,7 @@ string t = 123.ToString();      // System.Int32.ToString() instance method
 
 Die einfachen Typen unterscheiden sich von anderen Strukturtypen dadurch, dass sie bestimmte zusätzliche Vorgänge ermöglichen:
 
-*  Die meisten einfachen Typen ermöglichen, Werte für das Schreiben von zu erstellenden *Literale* ([Literale](lexical-structure.md#literals)). Z. B. `123` ist ein Literal vom Typ `int` und `'a'` ist ein Literal vom Typ `char`. In c# keine Bereitstellung für Literale der Strukturtypen im Allgemeinen wird, und nicht standardmäßigen Werten anderer Strukturtypen sind letztendlich immer über Instanzkonstruktoren dieser Struct-Typen erstellt.
+*  Die meisten einfachen Typen ermöglichen, Werte für das Schreiben von zu erstellenden *Literale* ([Literale](lexical-structure.md#literals)). Z. B. `123` ist ein Literal vom Typ `int` und `'a'` ist ein Literal vom Typ `char`. In C# keine Bereitstellung für Literale der Strukturtypen im Allgemeinen wird, und nicht standardmäßigen Werten anderer Strukturtypen sind letztendlich immer über Instanzkonstruktoren dieser Struct-Typen erstellt.
 *  Wenn die Operanden eines Ausdrucks auf alle einfache Typkonstanten sind, ist es möglich, dass der Compiler zum Auswerten des Ausdrucks während der Kompilierung. Ein solcher Ausdruck wird als bezeichnet ein *Constant_expression* ([Konstante Ausdrücke](expressions.md#constant-expressions)). Ausdrücke, die im Zusammenhang mit anderen Strukturtypen definierten Operatoren sind nicht als Konstante Ausdrücke sein.
 *  Über `const` Deklarationen kann zum Deklarieren von Konstanten der einfachen Typen ([Konstanten](classes.md#constants)). Es ist nicht möglich, die Konstanten, die von anderen Strukturtypen haben, aber ein ähnliches Ergebnis erfolgt über `static readonly` Felder.
 *  Konvertierungen, die im Zusammenhang mit einfachen Typen Auswertung von Konvertierungsoperatoren, die von anderen Strukturtypen definiert teilnehmen können, aber ein benutzerdefinierten Konvertierungsoperator kann nie teilnehmen Auswertung von einem anderen benutzerdefinierten Operator ([Auswertung Benutzerdefinierte Konvertierungen](conversions.md#evaluation-of-user-defined-conversions)).
@@ -215,7 +215,7 @@ Der Gleitkomma-Operatoren, einschließlich der Zuweisungsoperatoren sind erzeuge
 *  Wenn eine Gleitkommaoperation ungültig ist, wird das Ergebnis des Vorgangs NaN.
 *  Wenn eine oder beide der Operanden einer Gleitkommaoperation ist NaN, wird das Ergebnis des Vorgangs NaN.
 
-Gleitkommaoperationen können mit einer höheren Genauigkeit als der Ergebnistyp des Vorgangs ausgeführt werden. Beispielsweise unterstützen einige Hardwarearchitekturen einen "erweiterten" oder "long double" vom Typ Gleitkommazahlen mit größeren Bereich und Genauigkeit als den `double` geben, und führen Sie alle Operationen mit Gleitkommazahlen mit dem folgenden höhere Genauigkeit Typ implizit. Nur auf eine übermäßige Abstriche bei der Leistung können solche Hardwarearchitekturen zum Ausführen von Operations mit Gleitkommazahlen mit geringerer Genauigkeit und anstelle eine Implementierung, die in Anspruch genommenen Leistung und Genauigkeit erfordern, lässt c# einen höheren Genauigkeit Typ für alle Operationen mit Gleitkommazahlen verwendet. Als die Bereitstellung eine genauere Ergebnisse, hat dies nur selten keine messbaren Auswirkungen. In Ausdrücken des Formulars `x * y / z`, in denen die Multiplikation für ein Ergebnis erzeugt, die außerhalb der `double` Bereich, aber die nachfolgende Division wird das temporäre Ergebnis wieder in die `double` liegen, die Tatsache, dass der Ausdruck ausgewertet, in einem höheren Bereich Format kann dazu führen, dass eine endliche Ergebnis unendlich erstellt werden.
+Gleitkommaoperationen können mit einer höheren Genauigkeit als der Ergebnistyp des Vorgangs ausgeführt werden. Beispielsweise unterstützen einige Hardwarearchitekturen einen "erweiterten" oder "long double" vom Typ Gleitkommazahlen mit größeren Bereich und Genauigkeit als den `double` geben, und führen Sie alle Operationen mit Gleitkommazahlen mit dem folgenden höhere Genauigkeit Typ implizit. Nur auf eine übermäßige Abstriche bei der Leistung können solche Hardwarearchitekturen zum Ausführen von Operations mit Gleitkommazahlen mit geringerer Genauigkeit und anstelle eine Implementierung, die in Anspruch genommenen Leistung und Genauigkeit erfordern, lässt C# einen höheren Genauigkeit Typ für alle Operationen mit Gleitkommazahlen verwendet. Als die Bereitstellung eine genauere Ergebnisse, hat dies nur selten keine messbaren Auswirkungen. In Ausdrücken des Formulars `x * y / z`, in denen die Multiplikation für ein Ergebnis erzeugt, die außerhalb der `double` Bereich, aber die nachfolgende Division wird das temporäre Ergebnis wieder in die `double` liegen, die Tatsache, dass der Ausdruck ausgewertet, in einem höheren Bereich Format kann dazu führen, dass eine endliche Ergebnis unendlich erstellt werden.
 
 ### <a name="the-decimal-type"></a>Der decimal-Typ
 
@@ -237,7 +237,7 @@ Die `bool` Boolesche logische Mengen darstellt. Die möglichen Werte des Typs `b
 
 Keine standardkonvertierungen bestehen zwischen `bool` und anderen Typen. Insbesondere die `bool` verschieden und getrennt von ganzzahligen Typen ist und ein `bool` Wert kann nicht verwendet werden, statt einen ganzzahligen Wert (und umgekehrt).
 
-In den Sprachen C und C++ einen ganzzahligen oder Gleitkomma Nullwert oder ein null-Zeiger auf den booleschen Wert konvertiert werden kann `false`, und einen Wert ungleich NULL, ganzzahligen oder Gleitkomma oder ein nicht-Null-Zeiger auf den booleschen Wert konvertiert werden kann `true`. Solche Konvertierungen werden in c# erreicht, durch die explizite Vergleich einen ganzzahligen oder Gleitkomma-Wert 0 (null) oder durch die explizite Vergleich einen Objektverweis auf `null`.
+In den Sprachen C und C++ einen ganzzahligen oder Gleitkomma Nullwert oder ein null-Zeiger auf den booleschen Wert konvertiert werden kann `false`, und einen Wert ungleich NULL, ganzzahligen oder Gleitkomma oder ein nicht-Null-Zeiger auf den booleschen Wert konvertiert werden kann `true`. Solche Konvertierungen werden in C# erreicht, durch die explizite Vergleich einen ganzzahligen oder Gleitkomma-Wert 0 (null) oder durch die explizite Vergleich einen Objektverweis auf `null`.
 
 ### <a name="enumeration-types"></a>Enumerationstypen
 

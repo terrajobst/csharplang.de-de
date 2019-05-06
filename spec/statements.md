@@ -1,7 +1,7 @@
 ---
 ms.openlocfilehash: 8f9551b9e7f70379836c23a60f0d37dc02f8e18e
 ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/18/2019
 ms.locfileid: "47229701"
@@ -768,7 +768,7 @@ foreach (var value in values)
 
 f();
 ```
-Wenn `v` deklariert wurde, außerhalb der While-Schleife wird für alle Iterationen und dessen Wert nach gemeinsam genutzt werden die für Schleife den endgültigen Wert wäre `13`, d.h. welche der Aufruf von `f` druckt. Stattdessen, da jede Iteration eine eigene Variable weist `v`, die von erfasst `f` in der ersten Iteration weiterhin den Wert enthalten soll `7`, dies ist, was gedruckt werden. (Hinweis: frühere Versionen von c# deklariert `v` außerhalb der While-Schleife.)
+Wenn `v` deklariert wurde, außerhalb der While-Schleife wird für alle Iterationen und dessen Wert nach gemeinsam genutzt werden die für Schleife den endgültigen Wert wäre `13`, d.h. welche der Aufruf von `f` druckt. Stattdessen, da jede Iteration eine eigene Variable weist `v`, die von erfasst `f` in der ersten Iteration weiterhin den Wert enthalten soll `7`, dies ist, was gedruckt werden. (Hinweis: frühere Versionen von C# deklariert `v` außerhalb der While-Schleife.)
 
 Der Hauptteil der Block wird schließlich anhand der folgenden Schritte erstellt:
 
@@ -1100,7 +1100,7 @@ Es sei denn, eine `catch` -Klausel enthält einen Variablennamen der Ausnahme, e
 
 Ein `catch` -Klausel nicht angegeben ist, die eine *Exception_specifier* wird aufgerufen, eine allgemeine `catch` Klausel.
 
-Einige Programmiersprachen unterstützen möglicherweise Ausnahmen, die nicht darstellbar sind, wie ein Objekt abgeleitet `System.Exception`, obwohl solche Ausnahmen niemals von c#-Code generiert werden können. Eine allgemeine `catch` -Klausel kann verwendet werden, um solche Ausnahmen abzufangen. Daher eine allgemeine `catch` -Klausel ist semantisch, die den Typ angibt, `System.Exception`, die erste auch aus anderen Sprachen Abfangen von Ausnahmen kann.
+Einige Programmiersprachen unterstützen möglicherweise Ausnahmen, die nicht darstellbar sind, wie ein Objekt abgeleitet `System.Exception`, obwohl solche Ausnahmen niemals von C#-Code generiert werden können. Eine allgemeine `catch` -Klausel kann verwendet werden, um solche Ausnahmen abzufangen. Daher eine allgemeine `catch` -Klausel ist semantisch, die den Typ angibt, `System.Exception`, die erste auch aus anderen Sprachen Abfangen von Ausnahmen kann.
 
 Um einen Handler für eine Ausnahme aus, suchen `catch` -Klauseln nacheinander überprüft werden, in der lexikalischen Reihenfolge. Wenn eine `catch` -Klausel gibt an, ein Typ, aber keine Ausnahmefilter, es ist ein Fehler während der Kompilierung für eine höhere `catch` Klausel in der gleichen `try` -Anweisung geben Sie einen Typ, die entspricht, oder wird abgeleitet, die eingeben. Wenn eine `catch` -Klausel gibt an, kein Typ und kein Filter, er muss die letzte `catch` -Klausel, die für die `try` Anweisung.
 

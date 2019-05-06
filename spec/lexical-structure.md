@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 7f7abb120d0b3a6abf12beb9daa0d79a975ccce2
+ms.sourcegitcommit: 4e3f2e4ea5a50b186b08d1e93d3ffcdb3754596e
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56411311"
+---
 # <a name="lexical-structure"></a>Lexikalische Struktur
 
 ## <a name="programs"></a>Programs
@@ -20,7 +28,7 @@ Der lexikalischen und syntaktischen Grammatik werden in Backus-Naur-Form, die mi
 
 ### <a name="lexical-grammar"></a>Lexikalische Grammatik
 
-Die lexikalische Grammatik von c# werden im [Lexikalische Analyse](lexical-structure.md#lexical-analysis), [Token](lexical-structure.md#tokens), und [Präprozessordirektiven](lexical-structure.md#pre-processing-directives). Die terminal-Symbole der lexikalische Grammatik sind die Zeichen des Unicode-Zeichensatz aus, und die lexikalische Grammatik gibt an, wie Zeichen kombiniert werden, um Formular-Token ([Token](lexical-structure.md#tokens)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), und Präprozessordirektiven ([Präprozessordirektiven](lexical-structure.md#pre-processing-directives)).
+Die lexikalische Grammatik von C# werden im [Lexikalische Analyse](lexical-structure.md#lexical-analysis), [Token](lexical-structure.md#tokens), und [Präprozessordirektiven](lexical-structure.md#pre-processing-directives). Die terminal-Symbole der lexikalische Grammatik sind die Zeichen des Unicode-Zeichensatz aus, und die lexikalische Grammatik gibt an, wie Zeichen kombiniert werden, um Formular-Token ([Token](lexical-structure.md#tokens)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), und Präprozessordirektiven ([Präprozessordirektiven](lexical-structure.md#pre-processing-directives)).
 
 Jede Quelldatei in einem C#-Programm entsprechen den *Eingabe* Produktion der lexikalische Grammatik ([Lexikalische Analyse](lexical-structure.md#lexical-analysis)).
 
@@ -200,7 +208,7 @@ unicode_escape_sequence
     ;
 ```
 
-Eine Unicode-Escape-Sequenz darstellt, das einzelne Unicode-Zeichen gebildet, indem die hexadezimale Zahl nach der "`\u`"oder"`\U`" Zeichen. Da c# eine 16-Bit-Codierung von Unicode-Codepunkte in Zeichen und Zeichenfolgenwerte verwendet, wird ein Unicode-Zeichen im Bereich U + 10000 bis U + 10FFFF ist nicht in einem Zeichenliteral zulässig und wird mithilfe eines Unicode-Ersatzzeichenpaars in einem Zeichenfolgenliteral dargestellt. Mit den Codepunkten oben 0x10FFFF Unicode-Zeichen werden nicht unterstützt.
+Eine Unicode-Escape-Sequenz darstellt, das einzelne Unicode-Zeichen gebildet, indem die hexadezimale Zahl nach der "`\u`"oder"`\U`" Zeichen. Da C# eine 16-Bit-Codierung von Unicode-Codepunkte in Zeichen und Zeichenfolgenwerte verwendet, wird ein Unicode-Zeichen im Bereich U + 10000 bis U + 10FFFF ist nicht in einem Zeichenliteral zulässig und wird mithilfe eines Unicode-Ersatzzeichenpaars in einem Zeichenfolgenliteral dargestellt. Mit den Codepunkten oben 0x10FFFF Unicode-Zeichen werden nicht unterstützt.
 
 Mehrere Übersetzungen werden nicht ausgeführt. Z. B. das Zeichenfolgenliteral "`\u005Cu005C`"ist gleich"`\u005C`"statt"`\`". Der Unicode-Wert `\u005C` ist das Zeichen "`\`".
 
@@ -844,7 +852,7 @@ Eine Präprozessordirektive nimmt immer auf eine separate Zeile des Quellcodes u
 
 Zeile für eine Datenquelle mit einem `#define`, `#undef`, `#if`, `#elif`, `#else`, `#endif`, `#line`, oder `#endregion` Richtlinie möglicherweise ein einzeiliger Kommentar endet. Kommentare getrennt (die `/* */` Stil von Kommentaren) dürfen nicht auf Quellzeilen, die Präprozessordirektiven enthält.
 
-Präprozessordirektiven sind keine Token und sind nicht Teil der syntaktischen Grammatik von c#. Allerdings Präprozessordirektiven können ein-oder Ausschließen von Sequenzen von Token verwendet werden und können auf diese Weise beeinträchtigen die Bedeutung eines C#-Programms. Beispielsweise wird bei der Kompilierung kann des Programms:
+Präprozessordirektiven sind keine Token und sind nicht Teil der syntaktischen Grammatik von C#. Allerdings Präprozessordirektiven können ein-oder Ausschließen von Sequenzen von Token verwendet werden und können auf diese Weise beeinträchtigen die Bedeutung eines C#-Programms. Beispielsweise wird bei der Kompilierung kann des Programms:
 ```csharp
 #define A
 #undef B
@@ -1236,7 +1244,7 @@ pragma_body
     ;
 ```
 
-C# bietet `#pragma` Direktiven zum Compiler-Warnungen zu steuern. Zukünftige Versionen der Sprache ist eventuell zusätzliche `#pragma` Anweisungen. Um Interoperabilität mit anderen c#-Compiler zu gewährleisten, stellt Microsoft c#-Compiler keine Kompilierungsfehler für unbekannt aus `#pragma` Anweisungen, während solche Anweisungen führen jedoch Warnungen generiert werden.
+C# bietet `#pragma` Direktiven zum Compiler-Warnungen zu steuern. Zukünftige Versionen der Sprache ist eventuell zusätzliche `#pragma` Anweisungen. Um Interoperabilität mit anderen C#-Compiler zu gewährleisten, stellt Microsoft C#-Compiler keine Kompilierungsfehler für unbekannt aus `#pragma` Anweisungen, während solche Anweisungen führen jedoch Warnungen generiert werden.
 
 #### <a name="pragma-warning"></a>Pragma-Warnung
 
