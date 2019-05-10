@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 67019511d49a786a5d6edf6fea442f745fc40f3f
-ms.sourcegitcommit: 0a80f26b8e455c4f09843a10e11e29c24d2d922e
-ms.translationtype: HT
+ms.openlocfilehash: 066c300d4c2baa8749e132730ecd48275e2957f7
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347273"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64489010"
 ---
 # <a name="expressions"></a>Ausdrücke
 
@@ -48,7 +48,7 @@ Allerdings ist ein Ausdruck eines dynamischen Ausdrucks (z. B. weist den Typ `dy
 
 Wenn ein Vorgang dynamisch gebunden ist, wird vom Compiler nur wenig oder keine Überprüfung ausgeführt. Wenn die Bindung zur Laufzeit ein Fehler auftritt, werden stattdessen Fehler als Ausnahmen zur Laufzeit gemeldet.
 
-Die folgenden Vorgänge in C# unterliegen Bindung aus:
+Die folgenden Vorgänge in c# unterliegen Bindung aus:
 
 *  Memberzugriff: `e.M`
 *  Methodenaufruf: `e.M(e1, ..., eN)`
@@ -60,7 +60,7 @@ Die folgenden Vorgänge in C# unterliegen Bindung aus:
 *  Zuweisungsoperatoren: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=`
 *  Implizite und explizite Konvertierungen
 
-Wenn Sie keine dynamischen Ausdrücke beteiligt sind, standardmäßig C# statische Bindung, was bedeutet, dass die Typen während der Kompilierung der enthaltenen Ausdrücke in den Prozess verwendet werden. Wenn einer der enthaltenen Ausdrücke in den oben aufgeführten Vorgängen eines dynamischen Ausdrucks ist, ist jedoch, der Vorgang, stattdessen dynamisch gebunden.
+Wenn Sie keine dynamischen Ausdrücke beteiligt sind, standardmäßig c# statische Bindung, was bedeutet, dass die Typen während der Kompilierung der enthaltenen Ausdrücke in den Prozess verwendet werden. Wenn einer der enthaltenen Ausdrücke in den oben aufgeführten Vorgängen eines dynamischen Ausdrucks ist, ist jedoch, der Vorgang, stattdessen dynamisch gebunden.
 
 ### <a name="binding-time"></a>Bindung-time
 
@@ -80,13 +80,13 @@ Die ersten beiden Aufrufe statisch gebunden sind: die Überladung von `Console.W
 
 Der dritte Aufruf dynamisch gebunden ist: die Überladung von `Console.WriteLine` wird ausgewählt, basierend auf dem Laufzeit-Typ des Arguments. Dies liegt daran, dass das Argument eines dynamischen Ausdrucks – der Kompilierzeittyp `dynamic`. Daher ist die Bindung und die Uhrzeit für die dritte Aufruf zur Laufzeit.
 
-### <a name="dynamic-binding"></a>dynamische Bindung
+### <a name="dynamic-binding"></a>Dynamische Bindung
 
 Die dynamische Bindung dient zum Zulassen von C#-Programme für die Interaktion mit ***dynamische Objekte***, d. h. Objekte, die nicht die üblichen Regeln der C# folgen-Typsystem. Dynamische Objekte können Objekte aus anderen Programmiersprachen mit verschiedenen Systemen werden, oder sie möglicherweise Objekte, die programmgesteuert einrichten, um ihre eigene Bindung-Semantik für verschiedene Vorgänge zu implementieren sind.
 
-Der Mechanismus, mit dem ein dynamisches Objekt eine eigene Semantik implementiert, ist die Implementierung definiert. Eine bestimmte Schnittstelle – erneut Implementierung definiert – wird durch dynamische Objekte für die C#-Laufzeit zu signalisieren, dass sie spezielle Semantik haben implementiert. Daher, wenn Vorgänge für ein dynamisches Objekt dynamisch gebunden sind, haben ihre eigene Bindung-Semantik, anstatt die C# -Code wie in diesem Dokument angegeben.
+Der Mechanismus, mit dem ein dynamisches Objekt eine eigene Semantik implementiert, ist die Implementierung definiert. Eine bestimmte Schnittstelle – erneut Implementierung definiert – wird durch dynamische Objekte für die c#-Laufzeit zu signalisieren, dass sie spezielle Semantik haben implementiert. Daher, wenn Vorgänge für ein dynamisches Objekt dynamisch gebunden sind, haben ihre eigene Bindung-Semantik, anstatt die C# -Code wie in diesem Dokument angegeben.
 
-Während der Zweck der dynamischen Bindung ist um interoperation mit dynamischen Objekten zu ermöglichen, ermöglicht C# dynamische Bindung für alle Objekte, ob sie dynamisch oder nicht sind. Dies ermöglicht eine nahtlosere Integration der dynamische Objekte, wie die Ergebnisse der Vorgänge auf diesen können selbst keine dynamische Objekte, aber immer noch von einem Typ, der dem Programmierer zum Zeitpunkt der Kompilierung nicht bekannt sind. Dynamische Bindung können fehleranfällige Reflection basierender Code entfernen, selbst, wenn Sie keine beteiligten Objekte dynamische Objekte sind.
+Während der Zweck der dynamischen Bindung ist um interoperation mit dynamischen Objekten zu ermöglichen, ermöglicht c# dynamische Bindung für alle Objekte, ob sie dynamisch oder nicht sind. Dies ermöglicht eine nahtlosere Integration der dynamische Objekte, wie die Ergebnisse der Vorgänge auf diesen können selbst keine dynamische Objekte, aber immer noch von einem Typ, der dem Programmierer zum Zeitpunkt der Kompilierung nicht bekannt sind. Dynamische Bindung können fehleranfällige Reflection basierender Code entfernen, selbst, wenn Sie keine beteiligten Objekte dynamische Objekte sind.
 
 In den folgenden Abschnitten beschreiben für jedes Konstrukt in der Sprache, genau Wenn dynamische Bindung übernommen wird, was zur Kompilierzeit – Wenn--wird angewendet, und welche die während der Kompilierung Result und Expression-Klassifizierung ist.
 
@@ -1517,7 +1517,7 @@ Zum Zeitpunkt der Bindung *Base_access* Ausdrücken der Form `base.I` und `base[
 
 Wenn eine *Base_access* verweist auf ein virtuelle Funktion-Element (eine Methode, Eigenschaft, oder Indexer), die Bestimmung der Funktion zur Laufzeit aufzurufenden Member ([Überprüfungen zur Kompilierzeit der dynamischen überladungsauflösung ](expressions.md#compile-time-checking-of-dynamic-overload-resolution)) geändert wird. Der Funktionsmember der Member, die aufgerufen wird, richtet sich nach der Suche nach der am weitesten abgeleiteten Implementierung ([virtuelle Methoden](classes.md#virtual-methods)) des Funktionsmembers in Bezug auf `B` (anstelle von in Bezug auf den Laufzeittyp der `this`, wie üblich in einer nicht-Base Zugriff wäre). Daher innerhalb eine `override` von einer `virtual` Funktionsmember der Member, eine *Base_access* kann zum Aufrufen der geerbten Implementierung von der Funktionsmember der Member verwendet werden. Wenn das Funktionselement verweist eine *Base_access* ist eine abstrakte tritt ein Fehler während der Bindung.
 
-### <a name="postfix-increment-and-decrement-operators"></a>Postfix-Inkrement und Dekrement-Operatoren
+### <a name="postfix-increment-and-decrement-operators"></a>Postfix-Inkrementoperator und Postfix-Dekrementoperator
 
 ```antlr
 post_increment_expression
@@ -2159,7 +2159,7 @@ Beachten Sie, dass `int` und `System.Int32` denselben Typ aufweisen.
 
 Beachten Sie, dass das Ergebnis des `typeof(X<>)` hängt nicht das Typargument, aber das Ergebnis des `typeof(X<T>)` ist.
 
-### <a name="the-checked-and-unchecked-operators"></a>Die Operatoren checked und unchecked
+### <a name="the-checked-and-unchecked-operators"></a>Checked- und Unchecked-Operatoren
 
 Die `checked` und `unchecked` Operatoren werden verwendet, um zu steuern die ***Kontext der überlaufprüfung*** für arithmetische Operationen für ganzzahlige Typen und Konvertierungen.
 
@@ -2478,7 +2478,7 @@ decimal operator +(decimal x);
 
 Für die einzelnen Operatoren ist das Ergebnis einfach der Wert des Operanden.
 
-### <a name="unary-minus-operator"></a>Unäres minus-operator
+### <a name="unary-minus-operator"></a>Unärer Minusoperator
 
 Für einen Vorgang des Formulars `-x`, Auflösen der Überladung unäroperator ([unäroperator überladungsauflösung](expressions.md#unary-operator-overload-resolution)) wird angewendet, um einen bestimmten Operator-Implementierung auswählen. Der Operand wird in der Parametertyp des ausgewählten Operator konvertiert, und der Typ des Ergebnisses ist der Rückgabetyp des Operators. Die vordefinierten Negationsoperatoren sind:
 
@@ -2541,7 +2541,7 @@ E operator ~(E x);
 
 Das Ergebnis der Auswertung `~x`, wobei `x` ist ein Ausdruck eines Enumerationstyps `E` mit einem zugrunde liegenden Typ `U`, entspricht genau dem Auswerten von `(E)(~(U)x)`, außer dass die Konvertierung in `E` ist als immer ausgeführt. sofern es sich um ein `unchecked` Kontext ([checked und unchecked Operatoren](expressions.md#the-checked-and-unchecked-operators)).
 
-### <a name="prefix-increment-and-decrement-operators"></a>Präfix-Inkrement und Dekrement-Operatoren
+### <a name="prefix-increment-and-decrement-operators"></a>Präfix-Inkrementoperator und Präfix-Dekrementoperator
 
 ```antlr
 pre_increment_expression
@@ -2658,7 +2658,7 @@ Zur Laufzeit wird der Ausdruck `await t` wird wie folgt ausgewertet:
 
 Ein awaiter-Element-Implementierung der Schnittstellenmethoden `INotifyCompletion.OnCompleted` und `ICriticalNotifyCompletion.UnsafeOnCompleted` sollten dazu führen, dass der Delegat `r` höchstens einmal aufgerufen werden. Andernfalls ist das Verhalten der einschließenden Async-Funktion nicht definiert.
 
-## <a name="arithmetic-operators"></a>Arithmetische Operatoren
+## <a name="arithmetic-operators"></a>Arithmetische operatoren
 
 Die `*`, `/`, `%`, `+`, und `-` Operatoren werden die arithmetischen Operatoren bezeichnet.
 
@@ -2830,7 +2830,7 @@ Der vordefinierte restoperatoren sind unten aufgeführt. Alle Operatoren berechn
    Decimal Rest ist äquivalent zur Verwendung der Restoperator vom Typ `System.Decimal`.
 
 
-### <a name="addition-operator"></a>Addition-operator
+### <a name="addition-operator"></a>Additionsoperator
 
 Für einen Vorgang des Formulars `x + y`, binärer Operator der überladungsauflösung ([binärer Operator überladungsauflösung](expressions.md#binary-operator-overload-resolution)) wird angewendet, um einen bestimmten Operator-Implementierung auswählen. Die Operanden werden in die Parametertypen des ausgewählten Operator konvertiert, und der Typ des Ergebnisses ist der Rückgabetyp des Operators.
 
@@ -3485,7 +3485,7 @@ E operator ^(E x, E y);
 
 Das Ergebnis der Auswertung `x op y`, wobei `x` und `y` sind Ausdrücke eines Enumerationstyps `E` mit einem zugrunde liegenden Typ `U`, und `op` ist einer der logischen Operatoren, entspricht genau dem Auswerten von `(E)((U)x op (U)y)`. Das heißt, führen Sie die logischen Operatoren für die Enumeration einfach die logische Operation mit den zugrunde liegenden Typ, der zwei Operanden.
 
-### <a name="boolean-logical-operators"></a>Boolesche logische Operatoren
+### <a name="boolean-logical-operators"></a>Logische boolesche Operatoren
 
 Die vordefinierten booleschen logischen Operatoren sind:
 ```csharp
@@ -4480,7 +4480,7 @@ Wenn eine abfrageübersetzung einen transparenten Bezeichner einbettet sollten, 
 *  Wenn ein transparenter Bezeichner als Parameter in einer anonymen Funktion auftritt, werden die Member des anonymen Typs zugeordnet automatisch im Bereich des Texts der anonymen Funktion.
 *  Wenn ein Element mit einem transparenten Bezeichner im Gültigkeitsbereich befindet, sind im Bereich auch die Elemente dieses Elements.
 *  Tritt ein transparenter Bezeichner als ein Member-Declarator in einem anonyme Objektinitialisierer, führt er einen Member mit einem transparenten Bezeichner.
-*  In den oben beschriebenen Übersetzungsschritten werden transparent Bezeichner immer zusammen mit anonymen Typen, mit der Absicht an mehrere Bereichsvariablen als Mitglieder eines einzelnen Objekts erfassen eingeführt. Eine Implementierung von C# ist zulässig, einen anderen Mechanismus als anonyme Typen zu verwenden, um mehrere Bereichsvariablen zu gruppieren. In den folgenden Beispielen für die Übersetzung wird davon ausgegangen, dass anonyme Typen werden verwendet, und wie transparent Bezeichner zeigen sofort übersetzt werden kann.
+*  In den oben beschriebenen Übersetzungsschritten werden transparent Bezeichner immer zusammen mit anonymen Typen, mit der Absicht an mehrere Bereichsvariablen als Mitglieder eines einzelnen Objekts erfassen eingeführt. Eine Implementierung von c# ist zulässig, einen anderen Mechanismus als anonyme Typen zu verwenden, um mehrere Bereichsvariablen zu gruppieren. In den folgenden Beispielen für die Übersetzung wird davon ausgegangen, dass anonyme Typen werden verwendet, und wie transparent Bezeichner zeigen sofort übersetzt werden kann.
 
 Im Beispiel
 ```csharp

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: af7af574814dc04ee3ece0396b7ae5f86b3ec8eb
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: HT
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229644"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488899"
 ---
 # <a name="classes"></a>Klassen
 
@@ -468,7 +468,7 @@ class_body
     ;
 ```
 
-## <a name="partial-types"></a>Partielle Typen
+## <a name="partial-types"></a>Partial types (Partielle Typen)
 
 Eine Typdeklaration aufgeteilt werden kann, über mehrere ***partielle Typdeklarationen***. Die Deklaration des Typs wird aus seiner Teile erstellt, wird entsprechend den Regeln in diesem Abschnitt, wonach es als eine einzelne Deklaration während der Rest der Verarbeitung während der Kompilierung und Laufzeit des Programms behandelt wird.
 
@@ -601,7 +601,7 @@ partial class A
 }
 ```
 
-Die Reihenfolge der Elemente in einem Typ wird nur selten relevant, für die C#-Code, aber kann erheblich sein, wenn für die Kommunikation mit anderen Sprachen und Umgebungen. In diesen Fällen ist es nicht definiert, die Reihenfolge der Member innerhalb eines Typs, die in mehreren Teilen deklariert.
+Die Reihenfolge der Elemente in einem Typ wird nur selten relevant, für die c#-Code, aber kann erheblich sein, wenn für die Kommunikation mit anderen Sprachen und Umgebungen. In diesen Fällen ist es nicht definiert, die Reihenfolge der Member innerhalb eines Typs, die in mehreren Teilen deklariert.
 
 ### <a name="partial-methods"></a>Partielle Methoden
 
@@ -1389,7 +1389,7 @@ class A
 
 ### <a name="static-and-instance-fields"></a>Statische und Felder
 
-Wenn eine Felddeklaration enthält eine `static` Modifizierer, die Felder, die durch die Deklaration eingeführt sind ***statische Felder***. Wenn kein `static` Modifizierer vorhanden ist, wird die Felder, die durch die Deklaration eingeführt sind ***Instanzfelder***. Statische Felder und Instanzfelder sind zwei verschiedene Arten von Variablen ([Variablen](variables.md)) von C# unterstützt, und gelegentlich werden sie bezeichnet als ***statische Variablen*** und ***Instanzvariablen*** bzw.
+Wenn eine Felddeklaration enthält eine `static` Modifizierer, die Felder, die durch die Deklaration eingeführt sind ***statische Felder***. Wenn kein `static` Modifizierer vorhanden ist, wird die Felder, die durch die Deklaration eingeführt sind ***Instanzfelder***. Statische Felder und Instanzfelder sind zwei verschiedene Arten von Variablen ([Variablen](variables.md)) von c# unterstützt, und gelegentlich werden sie bezeichnet als ***statische Variablen*** und ***Instanzvariablen*** bzw.
 
 Ein statisches Feld gehört nicht zu einer bestimmten Instanz. Stattdessen es für alle Instanzen eines Typs geschlossene genutzt ([offene und geschlossene Typen](types.md#open-and-closed-types)). Unabhängig davon, wie viele Instanzen eines geschlossenen Klassentyps erstellt werden ist es immer nur eine Kopie eines statischen Felds für die Domäne der zugehörigen Anwendung.
 
@@ -2887,7 +2887,7 @@ Wenn eine Eigenschaft als eine automatisch implementierte Eigenschaft angegeben 
 
 Eine Auto-Eigenschaft möglicherweise optional ein *Property_initializer*, das angewendet wird, direkt auf das dahinter liegende Feld als ein *Variable_initializer* ([Variableninitialisierern](classes.md#variable-initializers)) .
 
-Im folgenden Beispiel:
+Im Beispiel unten geschieht Folgendes:
 ```csharp
 public class Point {
     public int X { get; set; } = 0;
@@ -2904,7 +2904,7 @@ public class Point {
 }
 ```
 
-Im folgenden Beispiel:
+Im Beispiel unten geschieht Folgendes:
 ```csharp
 public class ReadOnlyPoint
 {

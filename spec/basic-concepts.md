@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 1c3d05674f8f7b69e70e0d9e06021537fc45f7ed
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: HT
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229662"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488489"
 ---
 # <a name="basic-concepts"></a>Grundlegende Konzepte
 
@@ -30,11 +30,11 @@ Wie gezeigt, kann optional der Einstiegspunkt Zurückgeben einer `int` Wert. Dad
 
 Der Einstiegspunkt kann optional einen formalen Parameter aufweisen. Der Parameter kann einen beliebigen Namen aufweisen, aber der Typ des Parameters muss `string[]`. Wenn der formale Parameter vorhanden ist, wird die ausführungsumgebung erstellt und übergibt eine `string[]` Argument mit den Befehlszeilenargumenten, die angegeben, wenn die Anwendung gestartet wurde. Die `string[]` Argument ist nie null, aber es möglicherweise eine Länge von 0 (null) auf, wenn keine Befehlszeilenargumente angegeben wurden.
 
-Da C# das Überladen von Methoden unterstützt, kann eine Klasse oder Struktur mehrere Definitionen einer Methode enthalten, jeweils eine andere Signatur ist. Mit einem einzelnen Programm, keine Klasse oder Struktur kann jedoch enthalten mehr als eine Methode mit dem Namen `Main` , deren Definition kann es als Einstiegspunkt für die Anwendung verwendet werden kann. Andere überladenen Versionen der `Main` sind zulässig, aber sie haben mehr als einen Parameter oder ihr einziger Parameter ist als Typ `string[]`.
+Da c# das Überladen von Methoden unterstützt, kann eine Klasse oder Struktur mehrere Definitionen einer Methode enthalten, jeweils eine andere Signatur ist. Mit einem einzelnen Programm, keine Klasse oder Struktur kann jedoch enthalten mehr als eine Methode mit dem Namen `Main` , deren Definition kann es als Einstiegspunkt für die Anwendung verwendet werden kann. Andere überladenen Versionen der `Main` sind zulässig, aber sie haben mehr als einen Parameter oder ihr einziger Parameter ist als Typ `string[]`.
 
 Eine Anwendung kann aus mehreren Klassen oder Strukturen bestehen. Es ist möglich, mehr als eine dieser Klassen oder Strukturen, die eine Methode namens enthalten `Main` , deren Definition kann es als Einstiegspunkt für die Anwendung verwendet werden kann. In solchen Fällen muss ein externer Mechanismus (z. B. eine Befehlszeilen-Compiler-Option) verwendet werden, wählen Sie eines der folgenden `Main` Methoden als Einstiegspunkt.
 
-In C# muss jede Methode als Member einer Klasse oder Struktur definiert werden. Normalerweise die deklarierte Zugriffsart ([deklariert Barrierefreiheit](basic-concepts.md#declared-accessibility)) einer Methode richtet sich nach den Zugriffsmodifizierern ([Zugriffsmodifizierer](classes.md#access-modifiers)) in der Deklaration verwendet werden soll, und ebenso der deklarierte angegeben Zugriff auf einen Typ richtet sich nach der Zugriffsmodifizierer, die in der Deklaration angegeben. In der Reihenfolge für eine bestimmte Methode eines angegebenen Typs aufgerufen werden können müssen sowohl den Typ und das Element zugegriffen werden. Allerdings ist der Einstiegspunkt der Anwendung ein besonderer Fall. Insbesondere kann die ausführungsumgebung Einstiegspunkt der Anwendung, unabhängig von die deklarierte Zugriffsart und unabhängig von die deklarierte Zugriffsart von seiner einschließenden Typdeklarationen zugreifen.
+In c# muss jede Methode als Member einer Klasse oder Struktur definiert werden. Normalerweise die deklarierte Zugriffsart ([deklariert Barrierefreiheit](basic-concepts.md#declared-accessibility)) einer Methode richtet sich nach den Zugriffsmodifizierern ([Zugriffsmodifizierer](classes.md#access-modifiers)) in der Deklaration verwendet werden soll, und ebenso der deklarierte angegeben Zugriff auf einen Typ richtet sich nach der Zugriffsmodifizierer, die in der Deklaration angegeben. In der Reihenfolge für eine bestimmte Methode eines angegebenen Typs aufgerufen werden können müssen sowohl den Typ und das Element zugegriffen werden. Allerdings ist der Einstiegspunkt der Anwendung ein besonderer Fall. Insbesondere kann die ausführungsumgebung Einstiegspunkt der Anwendung, unabhängig von die deklarierte Zugriffsart und unabhängig von die deklarierte Zugriffsart von seiner einschließenden Typdeklarationen zugreifen.
 
 Die Einstiegspunktmethode für die Anwendung möglicherweise nicht in der Deklaration einer generischen Klasse.
 
@@ -371,7 +371,7 @@ die drei Zuweisungen zu `x` sind zulässig, da sie alle über Instanzen von Klas
 
 ### <a name="accessibility-constraints"></a>Barrierefreiheit-Einschränkungen
 
-Verschiedene Konstrukte in C# müssen einen Typ ist ***mindestens dieselben zugriffsmöglichkeiten wie*** ein Element oder einen anderen Typ. Ein Typ `T` gilt mindestens dieselben zugriffsmöglichkeiten wie ein Member oder Typ `M` Wenn die Zugriffsdomäne von `T` ist eine Obermenge der Zugriffsdomäne von `M`. Das heißt, `T` ist mindestens dieselben zugriffsmöglichkeiten wie `M` Wenn `T` zugegriffen werden in allen Kontexten, in dem `M` zugegriffen werden kann.
+Verschiedene Konstrukte in c# müssen einen Typ ist ***mindestens dieselben zugriffsmöglichkeiten wie*** ein Element oder einen anderen Typ. Ein Typ `T` gilt mindestens dieselben zugriffsmöglichkeiten wie ein Member oder Typ `M` Wenn die Zugriffsdomäne von `T` ist eine Obermenge der Zugriffsdomäne von `M`. Das heißt, `T` ist mindestens dieselben zugriffsmöglichkeiten wie `M` Wenn `T` zugegriffen werden in allen Kontexten, in dem `M` zugegriffen werden kann.
 
 Die folgenden Einschränkungen für die Barrierefreiheit vorhanden sein:
 
@@ -759,7 +759,7 @@ C# -Code setzt automatische Speicherverwaltung, die Entwickler von manuell zuord
 
 Der Garbage Collector verwaltet Informationen über die Verwendung des Objekts und verwendet diese Informationen zum Arbeitsspeicher Entscheidungen Management, z. B. Where, im Arbeitsspeicher, um ein neu erstelltes Objekt, zu suchen, wenn ein Objekt, und wenn ein Objekt verschieben nicht mehr verwendet oder ist nicht möglich ist.
 
-Wie andere Sprachen, die das Vorhandensein eines Garbage Collectors wird davon ausgegangen wird, ist C# -Code so konzipiert, dass der Garbage Collector kann eine Vielzahl von Richtlinien für die arbeitsspeicherverwaltung implementieren. Z. B. erfordert C# keine Destruktoren ausgeführt werden oder, dass Objekte gesammelt werden, sobald sie berechtigt sind, oder dass Destruktoren in einer bestimmten Reihenfolge oder in einem bestimmten Thread ausgeführt werden.
+Wie andere Sprachen, die das Vorhandensein eines Garbage Collectors wird davon ausgegangen wird, ist C# -Code so konzipiert, dass der Garbage Collector kann eine Vielzahl von Richtlinien für die arbeitsspeicherverwaltung implementieren. Z. B. erfordert c# keine Destruktoren ausgeführt werden oder, dass Objekte gesammelt werden, sobald sie berechtigt sind, oder dass Destruktoren in einer bestimmten Reihenfolge oder in einem bestimmten Thread ausgeführt werden.
 
 Das Verhalten des Garbage Collectors kann gesteuert werden, und zu einem gewissen Grad über statische Methoden für die Klasse `System.GC`. Diese Klasse kann verwendet werden, um die Anforderung einer Auflistung, die auftreten, Destruktoren führen (oder nicht ausgeführt werden), und so weiter.
 

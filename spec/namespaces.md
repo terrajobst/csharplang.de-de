@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 3232163ed91d9d8bb6b0babf94c4282bfd60976c
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488932"
+---
 # <a name="namespaces"></a>Namespaces
 
 C#-Programme werden mithilfe von Namespaces organisiert. Namespaces werden verwendet, sowohl als "intern" Organisation System für ein Programm, und als "extern" Organisation System – eine Möglichkeit zum Darstellen der Programmelemente, die für andere Programme verfügbar gemacht werden.

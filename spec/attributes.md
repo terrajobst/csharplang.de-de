@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: a8ad8a8b3eda1d00fa745bd92e4371eacc36b79f
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229611"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488824"
 ---
 # <a name="attributes"></a>Attribute
 
@@ -645,7 +645,7 @@ class Class3
 
 #### <a name="conditional-attribute-classes"></a>Conditional-Attribut von Klassen
 
-Eine Attributklasse ([Attributklassen](attributes.md#attribute-classes)) mit einem oder mehreren ergänzt `Conditional` Attribute ist ein ***conditional-Attribut-Klasse***. Eine conditional-Attribut-Klasse ist mit der Symbole für bedingte Kompilierung in deklarierten daher zugeordneten seine `Conditional` Attribute. In diesem Beispiel:
+Eine Attributklasse ([Attributklassen](attributes.md#attribute-classes)) mit einem oder mehreren ergänzt `Conditional` Attribute ist ein ***conditional-Attribut-Klasse***. Eine conditional-Attribut-Klasse ist mit der Symbole für bedingte Kompilierung in deklarierten daher zugeordneten seine `Conditional` Attribute. Dieses Beispiel:
 
 ```csharp
 using System;
