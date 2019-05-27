@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: ff285fc202d14c2060c5f005c319c7886458a168
+ms.sourcegitcommit: 8152182f0a477cb3082e625b607262cc459a17f3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488866"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174237"
 ---
 # <a name="variables"></a>Variablen
 
@@ -574,7 +574,7 @@ Für einen Ausdruck *Expr* des Formulars `expr_first ?? expr_second`:
 *  Die definitive Zuweisung Zustand des *v* vor *Expr_first* ist identisch mit den definitive Zuweisung Zustand des *v* vor *Expr*.
 *  Die definitive Zuweisung Zustand des *v* vor *Expr_second* ist identisch mit den definitive Zuweisung Zustand des *v* nach *Expr_first*.
 *  Die definitive Zuweisung-Anweisung von *v* nach *Expr* richtet sich nach:
-    * Wenn *Expr_first* ist ein konstanter Ausdruck ([Konstante Ausdrücke](expressions.md#constant-expressions)) mit dem Wert null ist, die den Status der *v* nach *Expr* entspricht Wenn sich der Zustand *v* nach *Expr_second*.
+    * Wenn *Expr_first* ist ein konstanter Ausdruck ([Konstante Ausdrücke](expressions.md#constant-expressions)) mit Wert Null, und klicken Sie dann auf den Zustand des *v* nach *Expr* ist identisch mit der Status der *v* nach *Expr_second*.
 *  Andernfalls den Zustand des *v* nach *Expr* ist identisch mit den definitive Zuweisung Zustand des *v* nach *Expr_first*.
 
 #### <a name="-conditional-expressions"></a>?: (Bedingungsausdrücken)

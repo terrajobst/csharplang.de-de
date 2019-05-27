@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 066c300d4c2baa8749e132730ecd48275e2957f7
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 130898a8b5a7b8eb986b314cb4cf78038e840b02
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64489010"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193933"
 ---
 # <a name="expressions"></a>Ausdrücke
 
@@ -2489,7 +2489,7 @@ Für einen Vorgang des Formulars `-x`, Auflösen der Überladung unäroperator (
    long operator -(long x);
    ```
 
-   Das Ergebnis wird durch das Subtrahieren berechnet `x` 0 (null). Wenn der Wert von der `x` ist die kleinste darstellbare Wert des Typs Operand (-2 ^ 31 für `int` oder-2 ^ 63 für `long`), klicken Sie dann die mathematische Negation des `x` ist nicht in den Operandentyp dargestellt werden kann. Wenn dies in erfolgt eine `checked` Kontext eine `System.OverflowException` ausgelöst; wenn es erfolgt eine `unchecked` Kontext das Ergebnis ist der Wert des Operanden und der Überlauf wird nicht gemeldet.
+   Das Ergebnis wird durch das Subtrahieren berechnet `x` 0 (null). Wenn der Wert des `x` ist die kleinste darstellbare Wert des Typs Operand (-2 ^ 31 für `int` oder-2 ^ 63 für `long`), klicken Sie dann die mathematische Negation des `x` ist nicht in den Operandentyp dargestellt werden kann. Wenn dies in erfolgt eine `checked` Kontext eine `System.OverflowException` ausgelöst; wenn es erfolgt eine `unchecked` Kontext das Ergebnis ist der Wert des Operanden und der Überlauf wird nicht gemeldet.
 
    Wenn der Operand der Negationsoperator vom Typ `uint`, es ist in den Typ konvertiert `long`, und der Typ des Ergebnisses ist `long`. Eine Ausnahme ist die Regel, die `int` Wert von – 2147483648 (-2 ^ 31) als ein Ganzzahlliteral im Dezimalformat geschrieben werden ([Integer-Literale](lexical-structure.md#integer-literals)).
 
@@ -3473,7 +3473,7 @@ ulong operator ^(ulong x, ulong y);
 
 Die `&` -Operator berechnet das bitweise logische `AND` der zwei Operanden, die `|` -Operator berechnet das bitweise logische `OR` der zwei Operanden, und die `^` -Operator berechnet das bitweise logische XOR `OR` der beiden Operanden. Keine Überläufe sind von diesen Vorgängen möglich.
 
-### <a name="enumeration-logical-operators"></a>Logische Operatoren Enumeration
+### <a name="enumeration-logical-operators"></a>Logische Enumerationsoperatoren
 
 Jeder Enumerationstyp `E` implizit bietet die folgenden vordefinierten logische Operatoren:
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9a9baf63b83ae4eb8af0e3b8c65ed3256222f12f
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 201db57d243c9d0e22553366bc653d02e183aa4b
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488894"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193869"
 ---
 # <a name="introduction"></a>Einführung
 
@@ -355,7 +355,7 @@ static void Main() {
 }
 ```
 
-__`if` Anweisung__
+__`if`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -369,7 +369,7 @@ static void Main(string[] args) {
 ```
 
 
-__`switch` Anweisung__
+__`switch`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -388,7 +388,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`while` Anweisung__
+__`while`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -401,7 +401,7 @@ static void Main(string[] args) {
 ```
 
 
-__`do` Anweisung__
+__`do`-Anweisung__
 
 ```csharp
 static void Main() {
@@ -413,7 +413,7 @@ static void Main() {
 }
 ```
 
-__`for` Anweisung__
+__`for`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -423,7 +423,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`foreach` Anweisung__
+__`foreach`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -433,7 +433,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`break` Anweisung__
+__`break`-Anweisung__
 
 ```csharp
 static void Main() {
@@ -445,7 +445,7 @@ static void Main() {
 }
 ```
 
-__`continue` Anweisung__
+__`continue`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -456,7 +456,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`goto` Anweisung__
+__`goto`-Anweisung__
 
 ```csharp
 static void Main(string[] args) {
@@ -469,7 +469,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`return` Anweisung__
+__`return`-Anweisung__
 
 ```csharp
 static int Add(int a, int b) {
@@ -482,7 +482,7 @@ static void Main() {
 }
 ```
 
-__`yield` Anweisung__
+__`yield`-Anweisung__
 
 ```csharp
 static IEnumerable<int> Range(int from, int to) {
@@ -539,7 +539,7 @@ static void Main() {
 }
 ```
 
-__`lock` Anweisung__
+__`lock`-Anweisung__
 
 ```csharp
 class Account
@@ -556,7 +556,7 @@ class Account
 }
 ```
 
-__`using` Anweisung__
+__`using`-Anweisung__
 
 ```csharp
 static void Main() {
@@ -648,8 +648,7 @@ Pair<int,string> pair = new Pair<int,string> { First = 1, Second = "two" };
 int i = pair.First;     // TFirst is int
 string s = pair.Second; // TSecond is string
 ```
-Ein generischer Typ mit den Typargumente angegeben wurden, wie z. B. `Pair<int,string>
-    ` oben einen konstruierten Typ aufgerufen wird.
+Ein generischer Typ mit den Typargumente angegeben wurden, wie z. B. `Pair<int,string>` oben einen konstruierten Typ aufgerufen wird.
 
 ### <a name="base-classes"></a>Basisklassen
 
@@ -1131,9 +1130,7 @@ C# unterstützt sowohl Instanzkonstruktoren als auch statische Konstruktoren. Ei
 
 Ein Konstruktor wird wie eine Methode ohne Rückgabetyp und mit demselben Namen wie die enthaltende Klasse deklariert. Wenn eine Konstruktordeklaration verwendet enthält eine `static` Modifizierer verwenden, wird einen statischen Konstruktor deklariert. Andernfalls wird ein Instanzkonstruktor deklariert.
 
-Instanzkonstruktoren können überladen werden. Beispielsweise deklariert die `List<T>
-`-Klasse zwei Instanzkonstruktoren, einen ohne Parameter und einen weiteren mit einem `int`-Parameter. Instanzkonstruktoren werden über den `new`-Operator aufgerufen. Die folgenden Anweisungen weisen zwei `List<string>
-` Instanzen, indem Sie die Konstruktoren der `List` Klasse.
+Instanzkonstruktoren können überladen werden. Beispielsweise deklariert die `List<T>`-Klasse zwei Instanzkonstruktoren, einen ohne Parameter und einen weiteren mit einem `int`-Parameter. Instanzkonstruktoren werden über den `new`-Operator aufgerufen. Die folgenden Anweisungen weisen zwei `List<string>` Instanzen, indem Sie die Konstruktoren der `List` Klasse.
 
 ```csharp
 List<string> list1 = new List<string>();
@@ -1151,8 +1148,7 @@ Ein `get` -Accessor entspricht einer Methode ohne Parameter mit einem Rückgabew
 
 Ein `set` Accessor entspricht einer Methode mit einem einzigen Parameter, die mit dem Namen `value` und keinen Rückgabewert. Wenn eine Eigenschaft verwiesen wird, als das Ziel einer Zuweisung oder als Operand `++` oder `--`, `set` -Accessor wird aufgerufen, mit der ein Argument, das den neuen Wert bereitstellt.
 
-Die `List<T>
-`-Klasse deklariert die beiden Eigenschaften „`Count`“ und „`Capacity`“, von denen die eine schreibgeschützt ist und die andere Lese- und Schreibzugriff besitzt. Es folgt ein Beispiel zur Verwendung dieser Eigenschaften.
+Die `List<T>`-Klasse deklariert die beiden Eigenschaften „`Count`“ und „`Capacity`“, von denen die eine schreibgeschützt ist und die andere Lese- und Schreibzugriff besitzt. Es folgt ein Beispiel zur Verwendung dieser Eigenschaften.
 
 ```csharp
 List<string> names = new List<string>();
@@ -1188,11 +1184,9 @@ Ein ***Ereignis*** ist ein Member, der es einer Klasse oder einem Objekt ermögl
 
 Innerhalb einer Klasse, die einen Ereignismember deklariert, verhält sich das Ereignis wie ein Feld des Delegattyps (vorausgesetzt, das Ereignis ist nicht abstrakt und deklariert keine Accessors). Das Feld speichert einen Verweis auf einen Delegaten, der die Ereignishandler repräsentiert, die dem Ereignis hinzugefügt wurden. Wenn keine Handles für ein Ereignis vorhanden sind, wird das Feld `null`.
 
-Die `List<T>
-`-Klasse deklariert einen einzigen Ereignismember namens `Changed`, der angibt, dass der Liste ein neues Element hinzugefügt wurde. Die `Changed` Ereignis wird ausgelöst, durch die `OnChanged` virtuelle Methode, die zunächst prüft, ob das Ereignis `null` (d. h., dass keine Handler vorhanden sind). Das Auslösen eines Ereignisses entspricht exakt dem Aufrufen des Delegaten, der durch das Ereignis repräsentiert wird, es gibt deshalb keine besonderen Sprachkonstrukte zum Auslösen von Ereignissen.
+Die `List<T>`-Klasse deklariert einen einzigen Ereignismember namens `Changed`, der angibt, dass der Liste ein neues Element hinzugefügt wurde. Die `Changed` Ereignis wird ausgelöst, durch die `OnChanged` virtuelle Methode, die zunächst prüft, ob das Ereignis `null` (d. h., dass keine Handler vorhanden sind). Das Auslösen eines Ereignisses entspricht exakt dem Aufrufen des Delegaten, der durch das Ereignis repräsentiert wird, es gibt deshalb keine besonderen Sprachkonstrukte zum Auslösen von Ereignissen.
 
-Clients reagieren über ***Ereignishandler*** auf Ereignisse. Ereignishandler werden unter Verwendung des `+=`-Operators angefügt und mit dem `-=`-Operator entfernt. Im folgenden Beispiel wird dem `Changed`-Ereignis von `List<string>
-` ein Ereignishandler hinzugefügt.
+Clients reagieren über ***Ereignishandler*** auf Ereignisse. Ereignishandler werden unter Verwendung des `+=`-Operators angefügt und mit dem `-=`-Operator entfernt. Im folgenden Beispiel wird dem `Changed`-Ereignis von `List<string>` ein Ereignishandler hinzugefügt.
 
 ```csharp
 using System;
@@ -1221,10 +1215,7 @@ In komplexeren Szenarien, in denen die zugrunde liegende Speicherung eines Ereig
 
 Ein ***Operator*** ist ein Member, der die Bedeutung der Anwendung eines bestimmten Ausdrucksoperators auf Instanzen einer Klasse definiert. Es können drei Arten von Operatoren definiert werden: unäre Operatoren, binäre Operatoren und Konvertierungsoperatoren. Alle Operatoren müssen als `public` und `static` deklariert werden.
 
-Die `List<T>
-`-Klasse deklariert zwei Operatoren, `operator==` und `operator!=`, und verleiht so Ausdrücken, die diese Operatoren auf `List`-Instanzen anwenden, eine neue Bedeutung. Insbesondere die Operatoren definieren die Gleichheit von zwei `List<T>
-` als Vergleich aller enthaltenen Objekte mithilfe von Instanzen ihrer `Equals` Methoden. Im folgenden Beispiel wird der `==`-Operator verwendet, um zwei Instanzen von `List<int>
-` zu vergleichen.
+Die `List<T>`-Klasse deklariert zwei Operatoren, `operator==` und `operator!=`, und verleiht so Ausdrücken, die diese Operatoren auf `List`-Instanzen anwenden, eine neue Bedeutung. Insbesondere die Operatoren definieren die Gleichheit von zwei `List<T>` als Vergleich aller enthaltenen Objekte mithilfe von Instanzen ihrer `Equals` Methoden. Im folgenden Beispiel wird der `==`-Operator verwendet, um zwei Instanzen von `List<int>` zu vergleichen.
 
 ```csharp
 using System;
@@ -1245,9 +1236,7 @@ class Test
 }
 ```
 
-Die erste Methode `Console.WriteLine` gibt `True` aus, weil die zwei Listen dieselbe Anzahl von Objekten mit denselben Werten in derselben Reihenfolge enthalten. Wenn `List<T>
-` nicht `operator==` definieren würde, würde die Ausgabe der ersten `Console.WriteLine`-Methode `False` lauten, weil `a` und `b` auf unterschiedliche `List<int>
-`-Instanzen verweisen.
+Die erste Methode `Console.WriteLine` gibt `True` aus, weil die zwei Listen dieselbe Anzahl von Objekten mit denselben Werten in derselben Reihenfolge enthalten. Wenn `List<T>` nicht `operator==` definieren würde, würde die Ausgabe der ersten `Console.WriteLine`-Methode `False` lauten, weil `a` und `b` auf unterschiedliche `List<int>`-Instanzen verweisen.
 
 #### <a name="destructors"></a>Destruktoren
 

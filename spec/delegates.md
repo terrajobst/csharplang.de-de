@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 08c14d9ef2afe30580f456995066c141653ede92
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 994b22f5375d57cfc4c7537c64345a27ddf3e416
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488986"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193877"
 ---
 # <a name="delegates"></a>Delegaten
 
@@ -73,7 +73,7 @@ class B
 }
 ```
 
-Die Methoden `A.M1` und `B.M1 `sind kompatibel mit sowohl die Delegattypen `D1` und `D2` , da sie haben dasselbe zurückzugeben und die Parameterliste; jedoch diese Delegattypen zwei unterschiedliche Typen sind, sodass sie nicht sind austauschbar. Die Methoden `B.M2`, `B.M3`, und `B.M4` sind nicht kompatibel mit Delegattypen `D1` und `D2`, da sie unterschiedliche Rückgabetypen oder Parameterlisten aufweisen.
+Die Methoden `A.M1` und `B.M1` sind kompatibel mit sowohl die Delegattypen `D1` und `D2` , da sie haben dasselbe zurückzugeben und die Parameterliste; jedoch diese Delegattypen zwei unterschiedliche Typen sind, sodass sie nicht sind austauschbar. Die Methoden `B.M2`, `B.M3`, und `B.M4` sind nicht kompatibel mit Delegattypen `D1` und `D2`, da sie unterschiedliche Rückgabetypen oder Parameterlisten aufweisen.
 
 Wie andere generische Typdeklarationen müssen Typargumente angegeben werden, um einen Typ des erstellten Delegaten zu erstellen. Ersetzen der für jeden Typparameter in der Delegatdeklaration überein, das entsprechende Typargument der Typ des erstellten Delegaten werden die Parameter und Rückgabetypen eines Typs des erstellten Delegaten erstellt. Die resultierende Rückgabe- und Parametertypen werden verwendet, bei der Bestimmung, welche Methoden mit einem Typ des erstellten Delegaten kompatibel sind. Zum Beispiel:
 

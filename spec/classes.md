@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: af7af574814dc04ee3ece0396b7ae5f86b3ec8eb
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 917e2f1e196013f85eefbda21fb3d717cc681084
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488899"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193910"
 ---
 # <a name="classes"></a>Klassen
 
@@ -1500,7 +1500,7 @@ Für nicht flüchtige Felder Optimierungstechniken, die Anweisungen neu anordnet
 Diese Einschränkungen stellen sicher, dass alle Threads volatile-Schreibvorgänge, die von einem anderen Thread ausgeführt werden, in der Reihenfolge ihrer Ausführung berücksichtigen. Keine entsprechende Implementierung ist nicht erforderlich, zu der eine einzelne gesamte Sortierung von flüchtigen Schreibvorgänge von allen Threads der Ausführung sehen. Der Typ eines flüchtigen Felds muss es sich um eine der folgenden sein:
 
 *  Ein *Reference_type*.
-*  Der Typ `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `char`, `float`, `bool`, `System.IntPtr`, oder` System.UIntPtr`.
+*  Der Typ `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `char`, `float`, `bool`, `System.IntPtr`, oder `System.UIntPtr`.
 *  Ein *Enum_type* müssen einen Enum-Basistyp des `byte`, `sbyte`, `short`, `ushort`, `int`, oder `uint`.
 
 Im Beispiel
