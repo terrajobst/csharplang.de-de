@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 61eeae6173eaa19f9cf6d6e985f3dc107d4c3ac9
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: d082393a00496b948ad4e3ff9e135d94e89d2448
+ms.sourcegitcommit: 1a46441156b13db6c845f4bbb886284387d73023
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67047036"
 ---
 # <a name="conversions"></a>Konvertierungen
 
@@ -47,7 +47,7 @@ Jedoch dynamische Konvertierungen ([implizite dynamische Konvertierungen](conver
 
 Eine identitätskonvertierung von einem Typ die in denselben Typ konvertiert werden. Diese Konvertierung vorhanden ist, dass eine Entität, die bereits den erforderlichen Typ besitzt bezeichnet werden kann, um auf diesen Typ konvertiert werden können.
 
-*  Da das Objekt und dynamischer als gleichwertig angesehen werden besteht eine für die identitätskonvertierung `object` und `dynamic`, und zwischen konstruierte Typen, die gleich sind, wenn Sie alle Vorkommen von ersetzen `dynamic` mit `object`.
+*  Da `object` und `dynamic` gelten als äquivalent, eine Identität zwischen Konvertierung `object` und `dynamic`, und zwischen konstruierte Typen, die gleich sind, wenn Sie alle Vorkommen von ersetzen `dynamic` mit `object`.
 
 ### <a name="implicit-numeric-conversions"></a>Implizite numerische Konvertierungen
 
