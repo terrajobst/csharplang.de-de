@@ -1,20 +1,20 @@
 ---
-ms.openlocfilehash: c9f8417dc68153f02ceb72bb1d51f3615f3c4961
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: adf81842e3c763c7bbdd3f10bb884dc1207b9099
+ms.sourcegitcommit: 0489cb64b7dfb328813d757f4d447a15b85a5851
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488916"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912438"
 ---
 # <a name="documentation-comments"></a>Dokumentationskommentare
 
-C# bietet einen Mechanismus für Programmierer, dokumentieren ihren Code mit einer besonderen Kommentarsyntax, die XML-Text enthält. In Quellcodedateien können Kommentare, die einem bestimmten Format aufweisen verwendet werden, leiten Sie ein Tool zum Erstellen von XML aus diesen Kommentaren und die Quellcodeelemente, die sie vor. Diese Syntax heißen-Kommentaren mit ***Dokumentationskommentare***. Sie müssen unmittelbar vor einem benutzerdefinierten Typ (z. B. eine Klasse, Delegat oder Schnittstelle) oder ein Element (z. B. ein Feld, Ereignis, Eigenschaft oder Methode) stehen. Das Tool zum Generieren von XML-wird aufgerufen, die ***Dokumentations-Generator***. (Dieses Generators könnte sein, aber muss nicht sein, die c#-Compiler selbst.) Die Ausgabe der Dokumentations-Generator wird aufgerufen, die ***Dokumentationsdatei***. Eine Dokumentationsdatei dient als Eingabe für eine ***Dokumentations-Viewer***ein Tool soll eine Art visuelle Darstellung der Typinformationen und die zugehörige Dokumentation zu erzeugen.
+C#stellt einen Mechanismus bereit, mit dem Programmierer Ihren Code mithilfe einer speziellen Kommentar Syntax dokumentieren können, die XML-Text enthält. In Quell Code Dateien können Kommentare mit einem bestimmten Formular verwendet werden, um ein Tool zum Erstellen von XML aus diesen Kommentaren und den Quell Code Elementen zu leiten, denen Sie vorangestellt sind. Kommentare, die diese Syntax verwenden, werden als ***Dokumentations Kommentare***bezeichnet. Sie müssen direkt einem benutzerdefinierten Typ (z. b. einer Klasse, einem Delegaten oder einer Schnittstelle) oder einem Member (z. b. einem Feld, einem Ereignis, einer Eigenschaft oder einer Methode) vorangestellt sein. Das XML-Generierungs Tool wird als ***Dokumentations Generator***bezeichnet. (Dieser Generator kann, aber nicht, der C# Compiler selbst sein.) Die vom Dokumentations Generator erstellte Ausgabe wird als ***Dokumentations Datei***bezeichnet. Eine Dokumentations Datei wird als Eingabe für einen ***Dokumentations-Viewer***verwendet. ein Tool, mit dem eine visuelle Darstellung der Typinformationen und der zugehörigen Dokumentation erzeugt werden soll.
 
-Diese Spezifikation empfiehlt einen Satz von Tags in Dokumentationskommentare, verwendet werden, aber mithilfe dieser Tags ist nicht erforderlich und andere Tags können verwendet werden, wenn gewünscht, wie lange die Regeln für wohlgeformte XML-eingehalten werden.
+Diese Spezifikation schlägt vor, dass ein Satz von Tags in Dokumentations Kommentaren verwendet wird, aber die Verwendung dieser Tags ist nicht erforderlich, und andere Tags können bei Bedarf verwendet werden, solange die Regeln von wohl geformtem XML befolgt werden.
 
 ## <a name="introduction"></a>Einführung
 
-Kommentare müssen eine besondere Form können verwendet werden, um ein Tool zum Erstellen von XML aus diesen Kommentaren und die Quellcodeelemente, die sie vor weiterzuleiten. Diese Kommentare werden einzeilige Kommentare, die mit drei Schrägstrichen beginnen (`///`), oder Kommentare, die mit einem Schrägstrich und zwei Sterne beginnen getrennt (`/**`). Sie müssen unmittelbar voranstehen, einen benutzerdefinierten Typ (z. B. eine Klasse, Delegat oder Schnittstelle) oder ein Element (z. B. ein Feld, Ereignis, Eigenschaft oder Methode), die sie kommentieren. Attribut Abschnitte ([Attributspezifikation](attributes.md#attribute-specification)) gelten als Teil von Deklarationen, damit Kommentare zur Dokumentation auf einen Typ oder Member angewendete vor angegeben werden müssen.
+Kommentare mit einem speziellen Formular können verwendet werden, um ein Tool zum Erstellen von XML aus diesen Kommentaren und den Quell Code Elementen zu leiten, denen Sie vorangestellt sind. Solche Kommentare sind einzeilige Kommentare, die mit drei Schrägstrichen (`///`) oder durch getrennte Kommentare beginnen, die mit einem Schrägstrich und zwei Sternen`/**`beginnen (). Sie müssen unmittelbar vor einem benutzerdefinierten Typ (z. b. einer Klasse, einem Delegaten oder einer Schnittstelle) oder einem Member (z. b. einem Feld, einem Ereignis, einer Eigenschaft oder einer Methode), dem Sie kommentiert werden, voranstehen. Attribut Abschnitte ([Attribut Spezifikation](attributes.md#attribute-specification)) werden als Teil von Deklarationen betrachtet. Daher müssen Dokumentations Kommentare den Attributen vorangestellt werden, die auf einen Typ oder Member angewendet werden.
 
 __Syntax:__
 
@@ -28,9 +28,9 @@ delimited_doc_comment
     ;
 ```
 
-In einer *Single_line_doc_comment*, wenn eine *Leerzeichen* folgende Zeichen der `///` Zeichen auf jedem der *Single_line_doc_comment*s angrenzende mit dem aktuellen *Single_line_doc_comment*, klicken Sie dann, *Leerzeichen* Zeichen ist nicht in der XML-Ausgabe enthalten.
+Wenn in *einem single_line_doc_comment*ein *leer* Zeichen vorhanden ist, das auf `///` die Zeichen auf jeder der *single_line_doc_comment*s neben dem aktuellen *single_line_doc_comment*folgt, dann  *ein leer* Zeichen ist nicht in der XML-Ausgabe enthalten.
 
-In einem getrennten-Dok-Kommentar Wenn das erste nicht-Leerzeichen in der zweiten Zeile ein Sternchen und dasselbe Muster von optionalen Leerzeichen und ein Sternchen am Anfang der Zeile im getrennten-Dok-Kommentar jedes wiederholt, Klicken Sie dann sind die Zeichen, das wiederholte Muster nicht in der XML-Ausgabe enthalten. Das Muster kann Leerzeichen nach sowie vor, das Sternchenzeichen enthalten.
+Wenn in einem durch Trennzeichen getrennten doc-Kommentar das erste Zeichen in der zweiten Zeile, das kein Leerzeichen ist, ein Sternchen und das gleiche Muster optionaler leer Raum Zeichen und ein Sternchen am Anfang jeder Zeile innerhalb des durch Trennzeichen getrennten-doc-Kommentars wiederholt wird. dann sind die Zeichen des wiederholten Musters nicht in der XML-Ausgabe enthalten. Das Muster kann Leerzeichen nach und vor das Sternchen Zeichen enthalten.
 
 __Beispiel:__
 
@@ -45,46 +45,46 @@ public class Point
 }
 ```
 
-Der Text innerhalb von Dokumentationskommentaren muss wohlgeformt sein und gemäß den Regeln des XML-Codes (https://www.w3.org/TR/REC-xml). Wenn der XML-Code fehlerhaft formuliert ist, formatiert, wird eine Warnung generiert, und die Dokumentationsdatei enthält einen Kommentar, der besagt, dass ein Fehler aufgetreten ist.
+Der Text in den Dokumentations Kommentaren muss gemäß den Regeln von XML (https://www.w3.org/TR/REC-xml) ) wohl geformt sein. Wenn das XML nicht ordnungsgemäß formatiert ist, wird eine Warnung generiert, und die Dokumentations Datei enthält einen Kommentar, der besagt, dass ein Fehler aufgetreten ist.
 
-Obwohl Entwickler können ihren eigenen Satz von Tags zu erstellen sind, ist eine empfohlene Sammlung in definiert [empfohlene Tags](documentation-comments.md#recommended-tags). Einige der empfohlenen Tags haben eine besondere Bedeutung:
+Obwohl Entwickler kostenlos einen eigenen Satz von Tags erstellen können, wird ein empfohlener Satz in [empfohlenen Tags](documentation-comments.md#recommended-tags)definiert. Einige der empfohlenen Tags haben eine besondere Bedeutung:
 
-*  Die `<param>` Tag wird verwendet, um Parameter zu beschreiben. Wenn diese einem Tag verwendet wird, muss der Dokumentations-Generator überprüfen, ob der angegebene Parameter vorhanden ist und alle Parameter in Dokumentationskommentaren beschrieben werden. Wenn eine solche Überprüfung fehlschlägt, gibt der Dokumentations-Generator eine Warnung aus.
-*  Das `cref`-Attribut kann an jedes Tag angefügt werden, um einen Verweis auf ein Codeelement bereitzustellen. Der Dokumentations-Generator muss, ob dieses Codeelement vorhanden ist. Wenn die Überprüfung fehlschlägt, gibt der Dokumentations-Generator eine Warnung aus. Bei der Suche für ein Namen im beschrieben eine `cref` -Attribut muss der Dokumentations-Generator Namespace Sichtbarkeit gemäß respektieren `using` Anweisungen im Quellcode. Für Codeelemente, die generisch ist, sind die normale generische Syntax (d. h. "`List<T>`") kann nicht verwendet werden, da er ungültige XML-Daten erzeugt. Geschweifte Klammern können anstelle von eckigen Klammern verwendet werden (d. h. "`List{T}`"), oder die XML-Escape-Syntax verwendet werden kann (d. h. "`List&lt;T&gt;`").
-*  Die `<summary>` richtet sich an Tag durch eine Dokumentations-Viewer verwendet werden, um weitere Informationen über einen Typ oder Member anzuzeigen.
-*  Die `<include>` Tag enthält Informationen aus einer externen XML-Datei.
+*  Das `<param>` -Tag wird verwendet, um Parameter zu beschreiben. Wenn ein solches Tag verwendet wird, muss der Dokumentations Generator überprüfen, ob der angegebene Parameter vorhanden ist und dass alle Parameter in den Dokumentations Kommentaren beschrieben werden. Wenn diese Überprüfung fehlschlägt, gibt der Dokumentations Generator eine Warnung aus.
+*  Das `cref`-Attribut kann an jedes Tag angefügt werden, um einen Verweis auf ein Codeelement bereitzustellen. Der Dokumentations Generator muss überprüfen, ob dieses Code Element vorhanden ist. Wenn die Überprüfung fehlschlägt, gibt der Dokumentations Generator eine Warnung aus. Bei der Suche nach einem Namen, der `cref` in einem-Attribut beschrieben wird, muss der Dokumentations-Generator `using` die Sichtbarkeit von Namespaces gemäß den Anweisungen im Quellcode berücksichtigen. Für Code Elemente, die generisch sind, kann die normale generische Syntax (d`List<T>`. h. "") nicht verwendet werden, da Sie ungültiges XML erzeugt. Geschweifte Klammern können anstelle von Klammern (`List{T}`d. h. "") verwendet werden, oder die XML-Escapesyntax kann verwendet werden (d. h. "`List&lt;T&gt;`").
+*  Das `<summary>` -Tag soll von einem Dokumentations-Viewer verwendet werden, um zusätzliche Informationen zu einem Typ oder Member anzuzeigen.
+*  Das `<include>` -Tag enthält Informationen aus einer externen XML-Datei.
 
-Sorgfältig Beachten Sie, dass die Dokumentationsdatei keine vollständigen Informationen über Typen und Membern (z. B. es enthält keine Typinformationen). Um solche Informationen über einen Typ oder Member zu erhalten, muss die Dokumentationsdatei zusammen mit Reflektion für den tatsächlichen Typ oder Member verwendet werden.
+Beachten Sie, dass die Dokumentations Datei keine vollständigen Informationen über den Typ und die Member bereitstellt (z. b. enthält Sie keine Typinformationen). Um solche Informationen zu einem Typ oder Member zu erhalten, muss die Dokumentations Datei in Verbindung mit der Reflektion für den tatsächlichen Typ oder Member verwendet werden.
 
-## <a name="recommended-tags"></a>Empfohlene tags
+## <a name="recommended-tags"></a>Empfohlene Tags
 
-Der Dokumentations-Generator muss akzeptiert und verarbeitet alle Tags, die gemäß den Regeln der XML gültig ist. Die folgenden Tags stellen häufig verwendete Funktionen in der Dokumentation für die Benutzer bereit. (Natürlich sind andere Tags möglich).
+Der Dokumentations-Generator muss alle Tags akzeptieren und verarbeiten, die gemäß den XML-Regeln gültig sind. Die folgenden Tags stellen häufig verwendete Funktionen in der Benutzerdokumentation bereit. (Natürlich sind andere Tags möglich.)
 
 
-| __Tag__          | __Bereich__                                            | __Zweck__                                            |
+| __Tag__          | __Bereich__                                            | __Darin__                                            |
 |------------------|--------------------------------------------------------|--------------------------------------------------------|
-| `<c>`            | [`<c>`](documentation-comments.md#c)                   | Text in einer Code-ähnliche Schriftart festlegen                           | 
-| `<code>`         | [`<code>`](documentation-comments.md#code)             | Legen Sie eine oder mehrere Zeilen von Code oder Programmausgabe-Quellausgabe |
-| `<example>`      | [`<example>`](documentation-comments.md#example)       | Geben Sie ein Beispiel für                                    |
-| `<exception>`    | [`<exception>`](documentation-comments.md#exception)   | Identifiziert die Ausnahmen, die eine Methode ausgelöst werden können           |
-| `<include>`      | [`<include>`](documentation-comments.md#include)       | Enthält XML-Code aus einer externen Datei                     |
-| `<list>`         | [`<list>`](documentation-comments.md#list)             | Erstellen Sie eine Liste oder Tabelle                                 |
-| `<para>`         | [`<para>`](documentation-comments.md#para)             | Zulassen der Struktur, die Text hinzugefügt werden                   |
-| `<param>`        | [`<param>`](documentation-comments.md#param)           | Beschreiben Sie die Parameter für eine Methode oder Konstruktor       |
-| `<paramref>`     | [`<paramref>`](documentation-comments.md#paramref)     | Erkennen Sie, dass ein Wort ein Parametername ist               |
-| `<permission>`   | [`<permission>`](documentation-comments.md#permission) | Dokumentieren Sie die Security Zugriff auf ein Element        |
-| `<remark>`       | [`<remark>`](documentation-comments.md#remark)         | Weitere Informationen zu einem Typ beschreiben           |
-| `<returns>`      | [`<returns>`](documentation-comments.md#returns)       | Der Rückgabewert einer Methode zu beschreiben                  |
-| `<see>`          | [`<see>`](documentation-comments.md#see)               | Geben Sie einen link                                         |
-| `<seealso>`      | [`<seealso>`](documentation-comments.md#seealso)       | Generieren Sie einen Eintrag auch finden Sie unter                              |
-| `<summary>`      | [`<summary>`](documentation-comments.md#summary)       | Ein Typ oder Member eines Typs zu beschreiben                  |
+| `<c>`            | [`<c>`](documentation-comments.md#c)                   | Festlegen von Text in einer Code ähnlichen Schriftart                           | 
+| `<code>`         | [`<code>`](documentation-comments.md#code)             | Mindestens eine Zeile des Quellcodes oder der Programmausgabe festlegen |
+| `<example>`      | [`<example>`](documentation-comments.md#example)       | Anzeigen eines Beispiels                                    |
+| `<exception>`    | [`<exception>`](documentation-comments.md#exception)   | Identifiziert die Ausnahmen, die von einer Methode ausgelöst werden können.           |
+| `<include>`      | [`<include>`](documentation-comments.md#include)       | Enthält XML aus einer externen Datei.                     |
+| `<list>`         | [`<list>`](documentation-comments.md#list)             | Erstellen einer Liste oder Tabelle                                 |
+| `<para>`         | [`<para>`](documentation-comments.md#para)             | Struktur zum Hinzufügen von Text zulassen                   |
+| `<param>`        | [`<param>`](documentation-comments.md#param)           | Beschreibt einen Parameter für eine Methode oder einen Konstruktor.       |
+| `<paramref>`     | [`<paramref>`](documentation-comments.md#paramref)     | Erkennen, dass ein Wort ein Parameter Name ist               |
+| `<permission>`   | [`<permission>`](documentation-comments.md#permission) | Dokumentieren der Sicherheits Barrierefreiheit eines Mitglieds        |
+| `<remarks>`      | [`<remarks>`](documentation-comments.md#remarks)       | Beschreiben zusätzlicher Informationen zu einem Typ           |
+| `<returns>`      | [`<returns>`](documentation-comments.md#returns)       | Beschreiben des Rückgabewerts einer Methode                  |
+| `<see>`          | [`<see>`](documentation-comments.md#see)               | Link angeben                                         |
+| `<seealso>`      | [`<seealso>`](documentation-comments.md#seealso)       | Einen Eintrag "Siehe auch" generieren                              |
+| `<summary>`      | [`<summary>`](documentation-comments.md#summary)       | Beschreibt einen Typ oder einen Member eines Typs.                  |
 | `<value>`        | [`<value>`](documentation-comments.md#value)           | Beschreiben einer Eigenschaft                                    |
-| `<typeparam>`    |                                                        | Beschreiben Sie einen generischen Typparameter                      |
-| `<typeparamref>` |                                                        | Erkennen Sie, dass ein Wort einen Parameternamen handelt          |
+| `<typeparam>`    |                                                        | Beschreiben eines generischen Typparameters                      |
+| `<typeparamref>` |                                                        | Erkennen, dass ein Wort ein Typparameter Name ist          |
 
 ### `<c>`
 
-Dieses Tag stellt einen Mechanismus, um anzugeben, dass ein Fragment von Text in einer Beschreibung in einer speziellen Schriftart wie z. B., verwendet für einen Codeblock festgelegt werden soll. Verwenden Sie für die Feldlinien des tatsächlichen Code, `<code>` ([`<code>`](documentation-comments.md#code)).
+Dieses Tag stellt einen Mechanismus bereit, mit dem angegeben wird, dass ein Textfragment innerhalb einer Beschreibung in einer speziellen Schriftart, z. b. der für einen Codeblock verwendeten, festgelegt werden soll. Verwenden `<code>` Sie für Zeilen des tatsächlichen Codes ([`<code>`](documentation-comments.md#code)).
 
 __Syntax:__
 
@@ -106,7 +106,7 @@ public class Point
 
 ### `<code>`
 
-Dieses Tag wird verwendet, eine oder mehrere Zeilen von Code oder Programmausgabe Quellausgabe in einige besondere Schriftart festlegen. Verwenden Sie für kleine Codefragmente in die Geschichte hinter dem, `<c>` ([`<c>`](documentation-comments.md#c)).
+Dieses Tag wird verwendet, um eine oder mehrere Zeilen des Quellcodes oder der Programmausgabe in einer speziellen Schriftart festzulegen. Verwenden `<c>` Sie bei kleinen Code Fragmenten in der Erzählung[`<c>`](documentation-comments.md#c)().
 
 __Syntax:__
 
@@ -136,7 +136,7 @@ public void Translate(int xor, int yor) {
 
 ### `<example>`
 
-Dieses Tag ermöglicht Beispielcode in einem Kommentar, um anzugeben, wie eine Methode oder eines anderen Bibliothekmembers verwendet werden kann. Normalerweise würde dies auch die Verwendung des Tags betreffen `<code>` ([`<code>`](documentation-comments.md#code)) ebenfalls.
+Dieses Tag ermöglicht Beispielcode in einem Kommentar, um anzugeben, wie eine Methode oder ein anderes Bibliothekselement verwendet werden kann. Normalerweise würde dies auch die Verwendung des-Tags `<code>` ([`<code>`](documentation-comments.md#code)) beinhalten.
 
 __Syntax:__
 
@@ -146,11 +146,11 @@ __Syntax:__
 
 __Beispiel:__
 
-Finden Sie unter `<code>` ([`<code>`](documentation-comments.md#code)) ein Beispiel.
+Ein `<code>` Beispiel[`<code>`](documentation-comments.md#code)finden Sie unter ().
 
 ### `<exception>`
 
-Dieses Tag bietet eine Möglichkeit, die Ausnahmen zu dokumentieren, die eine Methode ausgelöst werden kann.
+Dieses Tag bietet eine Möglichkeit, die Ausnahmen zu dokumentieren, die eine Methode auslösen kann.
 
 __Syntax:__
 
@@ -160,8 +160,8 @@ __Syntax:__
 
 wo
 
-* `member` ist der Name eines Elements. Der Dokumentations-Generator überprüft, ob der angegebene Member vorhanden ist und übersetzt `member` auf den kanonischen Elementnamen in der Dokumentationsdatei.
-* `description` ist eine Beschreibung der Umstände, in denen die Ausnahme ausgelöst wird.
+* `member`der Name eines Members. Der Dokumentations Generator überprüft, ob der angegebene Member vorhanden ist `member` , und übersetzt ihn in der Dokumentations Datei in den kanonischen Elementnamen.
+* `description`eine Beschreibung der Umstände, in denen die Ausnahme ausgelöst wird.
 
 __Beispiel:__
 
@@ -182,7 +182,7 @@ public class DataBaseOperations
 
 ### `<include>`
 
-Dieses Tag ermöglicht, einschließlich der Informationen aus einem XML-Dokument, das außerhalb der Quellcodedatei ist. Die externe Datei muss ein wohlgeformtes XML-Dokument sein, und ein XPath-Ausdruck an, welche XML-Code aus diesem Dokument sollen Geben Sie das Dokument angewendet wird. Die `<include>` Tag wird dann mit den ausgewählten XML-Code aus dem externen Dokument ersetzt.
+Dieses Tag ermöglicht das Einschließen von Informationen aus einem XML-Dokument, das für die Quell Code Datei extern ist. Die externe Datei muss ein wohl geformtes XML-Dokument sein, und es wird ein XPath-Ausdruck auf das Dokument angewendet, um anzugeben, welches XML-Dokument in diesem Dokument enthalten sein soll. Das `<include>` Tag wird dann durch den ausgewählten XML-Code aus dem externen Dokument ersetzt.
 
 __Syntax:__
 
@@ -192,19 +192,19 @@ __Syntax:__
 
 wo
 
-* `filename` ist der Dateiname einer externen XML-Datei an. Der Dateiname ist relativ zur Datei interpretiert, die die Include-Tag enthält.
-* `xpath` ist ein XPath-Ausdruck, der Teil der XML-Code in der externen XML-Datei auswählt.
+* `filename`der Dateiname einer externen XML-Datei. Der Dateiname wird relativ zur Datei interpretiert, die das include-Tag enthält.
+* `xpath`ein XPath-Ausdruck, der einen Teil des XML-Codes in der externen XML-Datei auswählt.
 
 __Beispiel:__
 
-Wenn der Quellcode eine Deklaration wie enthalten:
+Wenn der Quellcode eine Deklaration wie z. b. enthält:
 
 ```csharp
 /// <include file="docs.xml" path='extradoc/class[@name="IntList"]/*' />
 public class IntList { ... }
 ```
 
-und die externe Datei "docs.xml" hatte den folgenden Inhalt:
+die externe Datei "docs. xml" wies den folgenden Inhalt auf:
 
 ```xml
 <?xml version="1.0"?>
@@ -222,7 +222,7 @@ und die externe Datei "docs.xml" hatte den folgenden Inhalt:
 </extradoc>
 ```
 
-Klicken Sie dann ist die gleiche Dokumentation Ausgabe aus, als ob der Quellcode enthalten:
+dann wird dieselbe Dokumentation ausgegeben, als wäre der Quellcode wie folgt:
 
 ```csharp
 /// <summary>
@@ -233,9 +233,9 @@ public class IntList { ... }
 
 ### `<list>`
 
-Dieses Tag wird verwendet, um eine Liste oder Tabelle der Elemente zu erstellen. Sie enthält eventuell eine `<listheader>` Block, um die Überschriftenzeile einer Tabelle oder einer Definitionsliste zu definieren. (Beim Definieren einer Tabelle, die nur einen Eintrag für `term` in der Überschrift müssen angegeben werden.)
+Dieses Tag wird verwendet, um eine Liste oder eine Tabelle mit Elementen zu erstellen. Sie kann einen `<listheader>` -Block enthalten, um die Überschriften Zeile einer Tabelle oder einer Definitionsliste zu definieren. (Beim Definieren einer Tabelle muss nur ein Eintrag für `term` in der Überschrift angegeben werden.)
 
-Jedes Element in der Liste wird angegeben, mit einem `<item>` Block. Beim Erstellen einer Definitionsliste sowohl `term` und `description` muss angegeben werden. Allerdings für eine Tabelle, Liste mit Aufzählungszeichen oder nummerierte Liste nur `description` muss angegeben werden.
+Jedes Element in der Liste wird mit einem `<item>` -Block angegeben. Beim Erstellen einer Definitionsliste müssen sowohl `term` als `description` auch angegeben werden. Allerdings muss für eine Tabelle, eine aufzählige Liste oder eine nummerierte Liste nur `description` angegeben werden.
 
 __Syntax:__
 
@@ -259,8 +259,8 @@ __Syntax:__
 
 wo
 
-* `term` ist der Begriff definiert, deren Definition befindet sich in `description`.
-* `description` ist entweder ein Element in einer Aufzählung oder nummerierten Liste oder die Definition einer `term`.
+* `term`der Begriff, der definiert werden soll, dessen Definition `description`in ist.
+* `description`ist entweder ein Element in einer Aufzählungs Liste oder nummerierte Liste oder die `term`Definition einer.
 
 __Beispiel:__
 
@@ -285,7 +285,7 @@ public class MyClass
 
 ### `<para>`
 
-Dieses Tag ist für die Verwendung in anderen Tags, wie z. B. `<summary>` ([`<remark>`](documentation-comments.md#remark)) oder `<returns>` ([`<returns>`](documentation-comments.md#returns)), und lässt die Struktur, die Text hinzugefügt werden.
+Dieses Tag dient zur Verwendung innerhalb anderer Tags, z `<summary>` . b. ( `<returns>` [`<remarks>`](documentation-comments.md#remarks))[`<returns>`](documentation-comments.md#returns)oder (), und lässt zu, dass die Struktur dem Text hinzugefügt wird.
 
 __Syntax:__
 
@@ -293,7 +293,7 @@ __Syntax:__
 <para>content</para>
 ```
 
-wo `content` ist der Text des Absatzes.
+dabei `content` ist der Text des Absatzes.
 
 __Beispiel:__
 
@@ -309,7 +309,7 @@ public static void Main() {
 
 ### `<param>`
 
-Dieses Tag wird verwendet, um einen Parameter für eine Methode, einem Konstruktor oder einem Indexer zu beschreiben.
+Dieses Tag wird verwendet, um einen Parameter für eine Methode, einen Konstruktor oder einen Indexer zu beschreiben.
 
 __Syntax:__
 
@@ -319,8 +319,8 @@ __Syntax:__
 
 wo
 
-* `name` Ist der Name des Parameters.
-* `description` ist eine Beschreibung des Parameters.
+* `name`der Name des Parameters.
+* `description`eine Beschreibung des Parameters.
 
 __Beispiel:__
 
@@ -337,7 +337,7 @@ public void Move(int xor, int yor) {
 
 ### `<paramref>`
 
-Dieses Tag wird verwendet, um anzugeben, dass ein Wort ein Parameter ist. Die Dokumentationsdatei kann verarbeitet werden, um diesen Parameter auf unterschiedliche Weise zu formatieren.
+Dieses Tag wird verwendet, um anzugeben, dass ein Wort ein Parameter ist. Die Dokumentations Datei kann verarbeitet werden, um diesen Parameter auf unterschiedliche Weise zu formatieren.
 
 __Syntax:__
 
@@ -345,7 +345,7 @@ __Syntax:__
 <paramref name="name"/>
 ```
 
-wo `name` ist der Name des Parameters.
+dabei `name` ist der Name des Parameters.
 
 __Beispiel:__
 
@@ -363,7 +363,7 @@ public Point(int xor, int yor) {
 
 ### `<permission>`
 
-Dieses Tag ermöglicht den Sicherheitszugriff auf einen Member dokumentiert werden soll.
+Mit diesem Tag kann die Sicherheits Barrierefreiheit eines Members dokumentiert werden.
 
 __Syntax:__
 
@@ -373,8 +373,8 @@ __Syntax:__
 
 wo
 
-* `member` ist der Name eines Elements. Der Dokumentations-Generator überprüft, ob das angegebene Codeelement vorhanden ist und übersetzt *Member* auf den kanonischen Elementnamen in der Dokumentationsdatei.
-* `description` ist eine Beschreibung des Zugriffs auf das Element.
+* `member`der Name eines Members. Der Dokumentations Generator überprüft, ob das angegebene Code Element vorhanden ist, und übersetzt den *Member* in den kanonischen Elementnamen in der Dokumentations Datei.
+* `description`eine Beschreibung des Zugriffs auf den Member.
 
 __Beispiel:__
 
@@ -387,24 +387,24 @@ public static void Test() {
 }
 ```
 
-### `<remark>`
+### `<remarks>`
 
-Dieses Tag wird verwendet, um zusätzliche Informationen über einen Typ anzugeben. (Verwenden `<summary>` ([`<summary>`](documentation-comments.md#summary)) um den Typ selbst und die Member eines Typs beschreiben.)
+Dieses Tag wird verwendet, um zusätzliche Informationen zu einem Typ anzugeben. (Verwenden `<summary>` Sie[`<summary>`](documentation-comments.md#summary)(), um den Typ selbst und die Member eines Typs zu beschreiben.)
 
 __Syntax:__
 
 ```xml
-<remark>description</remark>
+<remarks>description</remarks>
 ```
 
-wo `description` ist der Text, der die Anmerkung.
+dabei `description` steht für den Text der Anmerkung.
 
 __Beispiel:__
 
 ```csharp
 /// <summary>Class <c>Point</c> models a point in a 
 /// two-dimensional plane.</summary>
-/// <remark>Uses polar coordinates</remark>
+/// <remarks>Uses polar coordinates</remarks>
 public class Point 
 {
     // ...
@@ -421,7 +421,7 @@ __Syntax:__
 <returns>description</returns>
 ```
 
-wo `description` finden Sie eine Beschreibung des Rückgabewerts.
+dabei `description` ist eine Beschreibung des Rückgabewerts.
 
 __Beispiel:__
 
@@ -436,7 +436,7 @@ public override string ToString() {
 
 ### `<see>`
 
-Dieses Tag ermöglicht einen Link im Text angegeben werden. Verwendung `<seealso>` ([`<seealso>`](documentation-comments.md#seealso)) um Text anzugeben, die in einem Abschnitt Siehe auch angezeigt werden soll.
+Dieses Tag ermöglicht das Angeben eines Links in Text. Verwenden `<seealso>` Sie[`<seealso>`](documentation-comments.md#seealso)(), um Text anzugeben, der in einem Abschnitt Siehe auch angezeigt werden soll.
 
 __Syntax:__
 
@@ -444,7 +444,7 @@ __Syntax:__
 <see cref="member"/>
 ```
 
-wo `member` ist der Name eines Elements. Der Dokumentations-Generator überprüft, ob das angegebene Codeelement vorhanden ist und ändert *Member* an den Elementnamen in der der generierten Dokumentationsdatei.
+dabei `member` ist der Name eines Members. Der Dokumentations Generator überprüft, ob das angegebene Code Element vorhanden ist, und ändert den *Member* in der generierten Dokumentations Datei in den Elementnamen.
 
 __Beispiel:__
 
@@ -469,7 +469,7 @@ public void Translate(int xor, int yor) {
 
 ### `<seealso>`
 
-Dieses Tag ermöglicht einen Eintrag im Abschnitt Siehe auch generiert werden soll. Verwendung `<see>` ([`<see>`](documentation-comments.md#see)), geben Sie einen Link im Text.
+Dieses Tag ermöglicht das Generieren eines Eintrags für den Abschnitt "Siehe auch". Verwenden `<see>` Sie[`<see>`](documentation-comments.md#see)(), um einen Link aus Text anzugeben.
 
 __Syntax:__
 
@@ -477,7 +477,7 @@ __Syntax:__
 <seealso cref="member"/>
 ```
 
-wo `member` ist der Name eines Elements. Der Dokumentations-Generator überprüft, ob das angegebene Codeelement vorhanden ist und ändert *Member* an den Elementnamen in der der generierten Dokumentationsdatei.
+dabei `member` ist der Name eines Members. Der Dokumentations Generator überprüft, ob das angegebene Code Element vorhanden ist, und ändert den *Member* in der generierten Dokumentations Datei in den Elementnamen.
 
 __Beispiel:__
 
@@ -493,7 +493,7 @@ public override bool Equals(object o) {
 
 ### `<summary>`
 
-Dieses Tag kann verwendet werden, um einen Typ oder Member eines Typs beschreiben. Verwendung `<remark>` ([`<remark>`](documentation-comments.md#remark)) um den Typ selbst beschreiben.
+Dieses Tag kann verwendet werden, um einen Typ oder einen Member eines Typs zu beschreiben. Verwenden `<remarks>` Sie[`<remarks>`](documentation-comments.md#remarks)(), um den Typ selbst zu beschreiben.
 
 __Syntax:__
 
@@ -501,7 +501,7 @@ __Syntax:__
 <summary>description</summary>
 ```
 
-wo `description` ist eine Zusammenfassung der den Typ oder Member.
+dabei `description` ist eine Zusammenfassung des Typs oder Members.
 
 __Beispiel:__
 
@@ -513,7 +513,7 @@ public Point() : this(0,0) {
 
 ### `<value>`
 
-Dieses Tag kann eine Eigenschaft, um die beschrieben werden.
+Dieses Tag ermöglicht die Beschreibung einer Eigenschaft.
 
 __Syntax:__
 
@@ -521,7 +521,7 @@ __Syntax:__
 <value>property description</value>
 ```
 
-wo `property description` finden Sie eine Beschreibung für die Eigenschaft.
+dabei `property description` ist eine Beschreibung der Eigenschaft.
 
 __Beispiel:__
 
@@ -536,7 +536,7 @@ public int X
 
 ### `<typeparam>`
 
-Dieses Tag wird verwendet, um einen generischen Typparameter für eine Klasse, Struktur, Schnittstelle, Delegat oder Methode zu beschreiben.
+Dieses Tag wird verwendet, um einen generischen Typparameter für eine Klasse, Struktur, Schnittstelle, einen Delegaten oder eine Methode zu beschreiben.
 
 __Syntax:__
 
@@ -544,7 +544,7 @@ __Syntax:__
 <typeparam name="name">description</typeparam>
 ```
 
-wo `name` ist der Name des Typparameters, und `description` wird seine Beschreibung.
+Dabei ist der Name des Typparameters, und `description` ist seine Beschreibung. `name`
 
 __Beispiel:__
 
@@ -558,7 +558,7 @@ public class MyList<T> {
 
 ### `<typeparamref>`
 
-Dieses Tag wird verwendet, um anzugeben, dass ein Wort ein Typparameter ist. Die Dokumentationsdatei kann verarbeitet werden, um diesen Typparameter auf unterschiedliche Weise zu formatieren.
+Dieses Tag wird verwendet, um anzugeben, dass ein Wort ein Typparameter ist. Die Dokumentations Datei kann verarbeitet werden, um diesen Typparameter auf unterschiedliche Weise zu formatieren.
 
 __Syntax:__
 
@@ -566,7 +566,7 @@ __Syntax:__
 <typeparamref name="name"/>
 ```
 
-wo `name` ist der Name des Typparameters.
+dabei `name` ist der Name des Typparameters.
 
 __Beispiel:__
 
@@ -578,46 +578,46 @@ public List<T> FetchData<T>(string query) {
 }
 ```
 
-## <a name="processing-the-documentation-file"></a>Verarbeiten der Dokumentationsdatei
+## <a name="processing-the-documentation-file"></a>Die Dokumentations Datei wird verarbeitet.
 
-Der Dokumentations-Generator generiert eine ID-Zeichenfolge für jedes Element im Quellcode, der mit einem Dokumentationskommentar gekennzeichnet ist. Diese ID-Zeichenfolge identifiziert eindeutig ein Quellelement. Eine ID-Zeichenfolge können ein Dokumentations-Viewer die entsprechenden Metadaten/Reflektionselement identifizieren, die Dokumentation gilt.
+Der Dokumentations Generator generiert eine ID-Zeichenfolge für jedes Element im Quellcode, das mit einem Dokumentations Kommentar gekennzeichnet ist. Diese ID-Zeichenfolge identifiziert eindeutig ein Quell Element. In einem Dokumentations-Viewer kann eine ID-Zeichenfolge verwendet werden, um die entsprechenden Metadaten/reflektionselementelemente zu identifizieren
 
-Die Dokumentationsdatei ist keine hierarchische Darstellung des Quellcodes; Es handelt sich vielmehr um eine flache Liste mit einer generierten ID-Zeichenfolge für jedes Element.
+Die Dokumentations Datei ist keine hierarchische Darstellung des Quellcodes. Vielmehr handelt es sich um eine flache Liste mit einer generierten ID-Zeichenfolge für jedes Element.
 
-### <a name="id-string-format"></a>Zeichenfolge-ID-format
+### <a name="id-string-format"></a>ID-Zeichen folgen Format
 
-Der Dokumentations-Generator verwendet die folgenden Regeln beim Generieren der ID-Zeichenfolgen:
+Beim Generieren der ID-Zeichen folgen werden die folgenden Regeln vom Dokumentations-Generator beachtet:
 
 *  In der Zeichenfolge wird kein Leerraum platziert.
 
-*  Der erste Teil der Zeichenfolge identifiziert die Art von Member dokumentiert wird, über ein einzelnes Zeichen, gefolgt von einem Doppelpunkt. Die folgenden Arten von Membern sind definiert:
+*  Der erste Teil der Zeichenfolge identifiziert die Art des dokumentierten Members, über ein einzelnes Zeichen gefolgt von einem Doppelpunkt. Die folgenden Arten von Membern sind definiert:
 
    | __Zeichen__ | __Beschreibung__                                             |
    |---------------|-------------------------------------------------------------|
    | E             | event                                                       |
    | F             | Feld                                                       |
-   | M             | Methode (einschließlich Konstruktoren, Destruktoren und Operatoren) |
+   | M             | Methode (einschließlich Konstruktoren, Dekonstruktoren und Operatoren) |
    | N             | Namespace                                                   |
    | P             | Eigenschaft (einschließlich Indexer)                               |
-   | T             | Geben Sie (z. B. Klasse, Delegat, Enumeration, Schnittstelle und Struktur) |
-   | !             | Fehlermeldungs-Zeichenfolge; der Rest der Zeichenfolge enthält Informationen zum Fehler. Der Dokumentations-Generator generiert z. B. Fehlerinformationen für Links, die nicht aufgelöst werden kann. |
+   | T             | Type (z. b. Klasse, Delegat, Enumeration, Schnittstelle und Struktur) |
+   | !             | Fehler Zeichenfolge; der Rest der Zeichenfolge enthält Informationen zum Fehler. Der Dokumentations Generator generiert beispielsweise Fehlerinformationen für Links, die nicht aufgelöst werden können. |
 
-*  Der zweite Teil der Zeichenfolge ist der vollqualifizierte Name des Elements im Stammverzeichnis des Namespace ab. Der Name des Elements, dessen einschließenden Typen und Namespace sind durch Punkte getrennt. Wenn der Name des Elements selbst Punkte enthält, werden sie durch ersetzt `#(U+0023)` Zeichen. (Es wird vorausgesetzt, dass kein Element dieses Zeichen im Namen hat.)
-*  Listen Sie für die Methoden und Eigenschaften mit Argumenten das Argument folgt in Klammern eingeschlossen. Für diejenigen ohne Argumente werden keine Klammern verwendet. Die Argumente werden durch Kommas voneinander getrennt. Die Codierung jedes Arguments ist identisch mit einer CLI-Signatur wie folgt:
-   *  Argumente werden anhand des Namens Dokumentation dargestellt, basierend auf dem vollqualifizierten Namen, die wie folgt geändert:
-      * Argumente, die generische Typen darstellen müssen ein angefügtes `` ` `` (Gravis)-Zeichens, gefolgt von der Anzahl von Typparametern
-      * Argumente, die mit der `out` oder `ref` -Modifizierer aufweisen. eine `@` nach ihren Namen eingeben. Argumente zu übergeben, als Wert oder über `params` haben keine besondere Schreibweise.
-      * Argumente, die Arrays werden als dargestellt `[lowerbound:size, ... , lowerbound:size]` , in dem die Anzahl von Kommas ist der Rang minus 1, und die unteren Grenzen und die Größe jeder Dimension, sofern bekannt, Dezimal dargestellt werden. Wenn die untere Grenze oder die Größe nicht angegeben ist, wird es weggelassen. Wenn die untere Grenze und die Größe für eine bestimmte Dimension ausgelassen werden, die `:` ebenfalls ausgelassen werden. Verzweigte Arrays werden von einem dargestellt `[]` pro Ebene.
-      * Argumente, die Zeiger als "void" aufweisen, werden mit dargestellt eine `*` nach dem Typnamen. Ein void-Zeiger wird dargestellt, verwenden den Typnamen `System.Void`.
-      * Argumente, die die generischen Typparametern definierten Typen finden Sie codiert werden, mithilfe der `` ` `` (Gravis)-Zeichens, gefolgt von der nullbasierte Index des Typparameters.
-      * Generischen Typparametern in Methoden definiert mithilfe von Argumenten verwenden ein Double-Wert-Hochkomma ``` `` ``` statt der `` ` `` für Typen verwendet.
-      * Argumente, die konstruierte generische Typen verweisen, codiert werden, verwenden den generischen Typ an, gefolgt von `{`, gefolgt von einer durch Trennzeichen getrennte Liste der Argumente des Typs, gefolgt von `}`.
+*  Der zweite Teil der Zeichenfolge ist der voll qualifizierte Name des Elements, beginnend mit dem Stamm des Namespace. Der Name des Elements, der einschließende Typ (en) und der Namespace werden durch Punkte getrennt. Wenn der Name des Elements selbst über Zeiträume verfügt, werden Sie durch `#(U+0023)` Zeichen ersetzt. (Es wird angenommen, dass kein Element über dieses Zeichen im Namen verfügt.)
+*  Bei Methoden und Eigenschaften mit Argumenten folgt die Argumentliste in Klammern. Für diejenigen ohne Argumente werden die Klammern ausgelassen. Die Argumente werden durch Kommas voneinander getrennt. Die Codierung jedes Arguments ist wie folgt mit einer CLI-Signatur identisch:
+   *  Argumente werden durch ihren Dokumentations Namen dargestellt, der auf dem voll qualifizierten Namen basiert, wie folgt geändert:
+      * Argumente, die generische Typen darstellen, haben `` ` `` ein angefügtes Zeichen (Backtick), gefolgt von der Anzahl der Typparameter.
+      * Argumente, die `out` den `ref` -Modifizierer `@` oder den-Modifizierer haben, haben einen folgenden Argumente, die nach Wert oder `params` via übermittelt werden, haben keine besondere Notation.
+      * Argumente, bei denen es sich um `[lowerbound:size, ... , lowerbound:size]` Arrays handelt, werden als dargestellt, wobei die Anzahl der Kommas der Rang kleiner ist, und die unteren Begrenzungen und die Größe der einzelnen Dimensionen, sofern bekannt, in Dezimalform dargestellt werden. Wenn eine Untergrenze oder Größe nicht angegeben ist, wird Sie ausgelassen. Wenn die Untergrenze und die Größe für eine bestimmte Dimension ausgelassen werden, `:` wird auch der weggelassen. Verzweigte Arrays werden durch eine `[]` pro Ebene dargestellt.
+      * Argumente, die andere Zeiger Typen als void aufweisen, werden mithilfe `*` eines nach dem Typnamen dargestellt. Ein void-Zeiger wird mithilfe eines Typnamens `System.Void`dargestellt.
+      * Argumente, die auf generische Typparameter verweisen, die für-Typen definiert `` ` `` sind, werden mit dem Zeichen (Backtick) codiert, gefolgt vom Null basierten Index des Typparameters.
+      * Argumente, die generische Typparameter verwenden, die in-Methoden definiert sind, ``` `` ``` verwenden einen doppelten `` ` `` Backtick anstelle der für-Typen verwendeten.
+      * Argumente, die auf konstruierte generische Typen verweisen, werden mit dem generischen Typ gefolgt `{`von codiert, gefolgt von einer durch Trennzeichen getrennten Liste von Typargumenten, gefolgt von. `}`
 
-### <a name="id-string-examples"></a>Beispiele für die ID-Zeichenfolge
+### <a name="id-string-examples"></a>ID-Zeichen folgen Beispiele
 
-Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit der ID-Zeichenfolge, die von jedem Quellelement für einen Dokumentationskommentar erstellt:
+In den folgenden Beispielen wird jeweils ein C# Code Fragment zusammen mit der ID-Zeichenfolge angezeigt, die aus jedem Quell Element erstellt wurde, das einen Dokumentations Kommentar aufweisen kann:
 
-*  Typen werden unter Verwendung des vollqualifizierten Namens, getragenen allgemeine Informationen dargestellt:
+*  Typen werden mit dem voll qualifizierten Namen dargestellt, der auf generische Informationen erweitert ist:
 
    ```csharp
    enum Color { Red, Blue, Green }
@@ -654,7 +654,7 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
    "T:Acme.MyList`1.Helper`2"
    ```
 
-*  Felder werden durch ihre vollqualifizierten Namen dargestellt:
+*  Felder werden durch ihren voll qualifizierten Namen dargestellt:
 
    ```csharp
    namespace Acme
@@ -726,7 +726,7 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
    "M:Acme.Widget.Finalize"
    ```
 
-*  -Methoden.
+*  Anzuwenden.
 
    ```csharp
    namespace Acme
@@ -796,7 +796,7 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
    "P:Acme.Widget.Item(System.String,System.Int32)"
    ```
 
-*  Ereignisse.
+*  Fall.
 
    ```csharp
    namespace Acme
@@ -824,7 +824,7 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
    "M:Acme.Widget.op_UnaryPlus(Acme.Widget)"
    ```
 
-   Der vollständige Satz von Funktionsnamen für unären Operator verwendet, lautet wie folgt: `op_UnaryPlus`, `op_UnaryNegation`, `op_LogicalNot`, `op_OnesComplement`, `op_Increment`, `op_Decrement`, `op_True`, und `op_False`.
+   Der gesamte `op_UnaryPlus`Satz unärer Operator Funktionsnamen wird wie folgt verwendet:, `op_UnaryNegation`, `op_LogicalNot`, `op_OnesComplement`, `op_Increment`, `op_Decrement`, `op_True`und `op_False`.
 
 *  Binäre Operatoren.
 
@@ -840,9 +840,9 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
    "M:Acme.Widget.op_Addition(Acme.Widget,Acme.Widget)"
    ```
 
-   Der vollständige Satz von binären Operator Funktionsnamen verwendet, lautet wie folgt: `op_Addition`, `op_Subtraction`, `op_Multiply`, `op_Division`, `op_Modulus`, `op_BitwiseAnd`, `op_BitwiseOr`, `op_ExclusiveOr`, `op_LeftShift`, `op_RightShift`, `op_Equality`, `op_Inequality`, `op_LessThan`, `op_LessThanOrEqual`, `op_GreaterThan`, und `op_GreaterThanOrEqual`.
+   Der gesamte verwendete Satz von Funktionsnamen für binäre Operatoren lautet wie `op_Addition`folgt `op_Subtraction`: `op_Multiply`, `op_Division`, `op_Modulus`, `op_BitwiseAnd`, `op_BitwiseOr`, `op_ExclusiveOr`, `op_LeftShift`, `op_RightShift`,,, `op_Equality`, ,,`op_LessThan`, und`op_GreaterThan`. `op_LessThanOrEqual` `op_Inequality` `op_GreaterThanOrEqual`
 
-*  Konvertierungsoperatoren verfügen über kein nachfolgendes Zeichen "`~`" gefolgt von den Rückgabetyp.
+*  Konvertierungs Operatoren verfügen über`~`eine nachfolgende "", gefolgt vom Rückgabetyp.
 
    ```csharp
    namespace Acme
@@ -860,7 +860,7 @@ Die folgenden Beispiele wird jeder zeigen ein Fragment des c#-Code zusammen mit 
 
 ## <a name="an-example"></a>Beispiel
 
-### <a name="c-source-code"></a>C#-Quellcode
+### <a name="c-source-code"></a>C#Quellcode
 
 Das folgende Beispiel zeigt den Quellcode einer `Point` Klasse:
 
@@ -1011,9 +1011,9 @@ public class Point
 }
 ```
 
-### <a name="resulting-xml"></a>XML-Ergebnis
+### <a name="resulting-xml"></a>Resultierende XML
 
-Hier ist die Ausgabe einen Dokumentations-Generator, wenn den Quellcode für die Klasse `Point`, wie oben gezeigt:
+Hier sehen Sie die Ausgabe, die von einem Dokumentations Generator erzeugt wird, wenn der `Point`Quellcode für die-Klasse angegeben wird, wie oben gezeigt:
 
 ```xml
 <?xml version="1.0"?>
