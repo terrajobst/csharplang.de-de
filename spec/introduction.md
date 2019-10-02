@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8bc4bf6310fb8a8457beee167f18d30aaca10a8e
-ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
+ms.openlocfilehash: 300d5fc2a2fadd98472d73c122226146605b01dd
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876895"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703995"
 ---
 # <a name="introduction"></a>Einführung
 
@@ -36,11 +36,11 @@ class Hello
 ```
 
 C#-Quelldateien weisen in der Regel die Dateierweiterung `.cs` auf. Wenn das Programm "Hello, World" in der Datei `hello.cs`gespeichert ist, kann das Programm über die Befehlszeile mit dem Microsoft C# -Compiler kompiliert werden.
-```
+```console
 csc hello.cs
 ```
 die eine ausführbare Assembly mit `hello.exe`dem Namen erzeugt. Die von dieser Anwendung beim Ausführen von erstellte Ausgabe ist
-```
+```console
 Hello, World
 ```
 
@@ -91,7 +91,7 @@ namespace Acme.Collections
 ```
 deklariert eine Klasse mit `Stack` dem Namen in einem `Acme.Collections`Namespace mit dem Namen. Der vollqualifizierte Name dieser Klasse ist `Acme.Collections.Stack`. Die Klasse enthält mehrere Member: ein Feld mit dem Namen `top`, zwei Methoden mit dem Namen `Push` und `Pop` sowie eine geschachtelte Klasse mit dem Namen `Entry`. Die `Entry`-Klasse enthält weitere drei Member: ein Feld mit dem Namen `next`, ein Feld mit dem Namen `data` und einen Konstruktor. Vorausgesetzt, dass der Quellcode des Beispiels in der Datei `acme.cs` gespeichert wird, kompiliert die Befehlszeile
 
-```
+```console
 csc /t:library acme.cs
 ```
 das Beispiel als Bibliothek (Code ohne `Main`-Einstiegspunkt) und erstellt eine Assembly mit dem Namen `acme.dll`.
@@ -119,12 +119,12 @@ class Test
 ```
 Wenn das Programm `test.cs`in der Datei gespeichert wird, kann bei `test.cs` der Kompilierung `acme.dll` von auf die Assembly mit der- `/r` Option des Compilers verwiesen werden:
 
-```
+```console
 csc /r:acme.dll test.cs
 ```
 So wird eine ausführbare Assembly mit dem Namen `test.exe` erstellt, die bei Ausführung folgende Ausgabe erzeugt:
 
-```
+```console
 100
 10
 1
@@ -170,7 +170,7 @@ Zur Zeichen- und Zeichenfolgenverarbeitung in C# wird die Unicode-Codierung verw
 In der folgenden Tabelle C#sind die numerischen Typen zusammengefasst.
 
 
-| __Kategorie__      | __Bohrer__ | __Type__  | __Bereich/Genauigkeit__ |
+| __Kategorie__      | __Bohrer__ | __Typ__  | __Bereich/Genauigkeit__ |
 |-------------------|----------|-----------|---------------------|
 | Ganzzahliges Vorzeichen   | 8        | `sbyte`   | -128... 127 |
 |                   | 16       | `short`   | -32768... 32, 767 |
@@ -244,7 +244,7 @@ Die meisten Operatoren können ***überladen*** werden. Das Überladen von Opera
 In der folgenden Tabelle C#sind die Operatoren zusammengefasst, wobei die Operator Kategorien in der Rangfolge von der höchsten zur niedrigsten aufgeführt sind. Operatoren der gleichen Kategorie haben den gleichen Rang.
 
 
-| __Kategorie__                     | __Expression (Ausdruck)__    | __Beschreibung__ |
+| __Kategorie__                     | __expression__    | __Beschreibung__ |
 |----------------------------------|-------------------|-----------------|
 | Primär                          | `x.m`             | Memberzugriff |
 |                                  | `x(...)`          | Methoden- und Delegataufruf |

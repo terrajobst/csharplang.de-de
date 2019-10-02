@@ -1,30 +1,30 @@
 ---
-ms.openlocfilehash: 90001cf3d48f216787fc65e59166ec57c5d0ca34
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 4faef9a12bdff54fa59a55a0206fa72bda4ea585
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488800"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704062"
 ---
 # <a name="unsafe-code"></a>Unsicherer Code
 
-Der Kern von c#-Sprache unterscheidet sich gemäß der in den vorangegangenen Kapiteln, insbesondere von C- und C++ in Auslassen von Zeigern als Datentyp. Stattdessen bietet C#-Verweise und die Möglichkeit zum Erstellen von Objekten, die von einem Garbage Collector verwaltet werden. Aufgrund dieses Designs, zusammen mit anderen Funktionen sind c# eine viel sicherere Sprache als C- oder C++. In der Kernsprache c# ist es einfach nicht möglich, dass eine nicht initialisierte Variable, eine "verwaiste" Zeiger oder ein Ausdruck, der ein Array außerhalb ihrer Grenzen indiziert. Gesamte Kategorien von Fehlern kämpfen, routinemäßig C und C++-Programme werden somit entfernt.
+Die in C# den vorstehenden Kapiteln definierte Kernsprache unterscheidet sich insbesondere von C und C++ durch das Weglassen von Zeigern als Datentyp. Stattdessen C# bietet Verweise und die Möglichkeit, Objekte zu erstellen, die von einem Garbage Collector verwaltet werden. Dieser Entwurf stellt C# in Verbindung mit anderen Features eine viel sicherere Sprache als C oder C++dar. In der Kern C# Sprache ist es einfach nicht möglich, eine nicht initialisierte Variable, einen "Verb leibend"-Zeiger oder einen Ausdruck zu haben, der ein Array über seine Begrenzungen hinaus indiziert. Alle Fehlerkategorien, die routinemäßig C und C++ Programme Plagen, werden daher vermieden.
 
-Praktisch jeder Zeiger-Typ-Konstrukt in C oder C++ eine Verweis-Typ-Entsprechung in C# geschrieben wurde, sind jedoch trotzdem, gibt es Situationen, in denen Zugriff auf Zeigertypen notwendig wird. Z. B. eine Schnittstelle mit dem zugrunde liegenden Betriebssystem, den Zugriff auf ein Gerät mit zugewiesenem Speicher oder einen zeitkritischen Algorithmus implementieren möglich oder praktikabel ist, ohne Zugriff auf die Zeiger möglicherweise nicht. Um diesem Erfordernis entgegenzukommen, c# bietet die Möglichkeit zum Schreiben ***unsicheren Code***.
+Obwohl praktisch jedes Zeigertyp Konstrukt in C C++ oder ein Verweistyp in der C#Entsprechung in ist, gibt es jedoch Situationen, in denen der Zugriff auf Zeiger Typen zu einer Notwendigkeit wird. Beispielsweise ist die Schnittstellen mit dem zugrunde liegenden Betriebssystem, der Zugriff auf ein Speicher Abbild oder die Implementierung eines zeitkritischen Algorithmus möglicherweise ohne Zugriff auf Zeiger nicht möglich oder praktikabel. Um diese Anforderung zu erfüllen C# , bietet die Möglichkeit, ***unsicheren Code***zu schreiben.
 
-In unsicherem Code ist es möglich, deklarieren und Arbeiten mit Zeigern, die zum Durchführen von Konvertierungen zwischen Zeigern und ganzzahligen Typen, für die Adresse der Variablen, und so weiter. In gewisser Hinsicht ähnelt das Schreiben von unsicherem Code Schreiben von C#-Code in einem C#-Programm.
+Im unsicheren Code ist es möglich, Zeiger zu deklarieren und zu verarbeiten, Konvertierungen zwischen Zeigern und ganzzahligen Typen auszuführen, die Adresse von Variablen zu übernehmen usw. In gewisser Weise ist das Schreiben von unsicherem Code ähnlich wie das Schreiben C# von C-Code in einem Programm.
 
-Unsicherer Code ist in der Tat ein "sicher" Feature aus Sicht der Entwickler und Benutzer. Unsicherer Code muss eindeutig gekennzeichnet werden, mit dem Modifizierer `unsafe`, sodass Entwickler können keine möglicherweise unsichere Funktionen versehentlich, und die ausführungs-Engine funktioniert, um sicherzustellen, dass die unsicherer Code in einer nicht vertrauenswürdigen Umgebung ausgeführt werden kann.
+Unsicherer Code ist tatsächlich eine "sichere" Funktion aus der Perspektive von Entwicklern und Benutzern. Unsicherer Code muss eindeutig mit dem-Modifizierer `unsafe` gekennzeichnet werden, sodass Entwickler nicht möglicherweise unsichere Funktionen versehentlich verwenden können, und die Ausführungs-Engine kann sicherstellen, dass unsicherer Code nicht in einer nicht vertrauenswürdigen Umgebung ausgeführt werden kann.
 
-## <a name="unsafe-contexts"></a>Nicht sicheren Kontexten
+## <a name="unsafe-contexts"></a>Unsichere Kontexte
 
-Die unsichere Funktionen von c# sind nur in einem unsicheren Kontext verfügbar. Ein unsicherer Kontext wird eingeführt, durch Einschließen einer `unsafe` Modifizierer in der Deklaration eines Typs oder Members oder durch den Einsatz einer *Unsafe_statement*:
+Die unsicheren Funktionen von C# sind nur in unsicheren Kontexten verfügbar. Ein unsicherer Kontext wird durch das Einschließen eines `unsafe`-Modifizierers in die Deklaration eines Typs oder Members oder durch die Verwendung eines *unsafe_statement*-Elements eingeführt:
 
-*  Eine Deklaration einer Klasse, Struktur, Schnittstelle oder Delegaten eventuell eine `unsafe` Modifizierer, die in der Groß-und Kleinschreibung der gesamte Text Wertebereich diese Typdeklaration (einschließlich des Texts der Klasse, Struktur oder Schnittstelle) einen unsicheren Kontext berücksichtigt wird.
-*  Eine Deklaration eines Felds, Methode, Eigenschaft, Ereignis, Indexer, Operator, Instanzenkonstruktor, Destruktor oder statischen Konstruktor enthalten möglicherweise eine `unsafe` Modifizierer verwenden, in dem Fall der gesamte Text Wertebereich, Memberdeklaration eine unsichere gilt Kontext.
-*  Ein *Unsafe_statement* ermöglicht die Verwendung von einem unsicheren Kontext innerhalb einer *Block*. Das Ausmaß der gesamte Text des zugeordneten *Block* einen unsicheren Kontext gilt.
+*  Eine Deklaration einer Klasse, Struktur, Schnittstelle oder eines Delegaten kann einen `unsafe`-Modifizierer enthalten. in diesem Fall wird der gesamte Text Block dieser Typdeklaration (einschließlich des Texts der Klasse, Struktur oder Schnittstelle) als unsicherer Kontext betrachtet.
+*  Eine Deklaration eines Felds, einer Methode, einer Eigenschaft, eines Ereignisses, eines Indexers, eines Operators, eines Instanzkonstruktors, eines Dekonstruktors oder eines statischen Konstruktors kann einen `unsafe`-Modifizierer enthalten. in diesem Fall wird der gesamte Text Block der Element Deklaration als unsicherer Kontext betrachtet.
+*  Ein *unsafe_statement* ermöglicht die Verwendung eines unsicheren Kontexts innerhalb eines- *Blocks*. Der gesamte Text Block des zugeordneten *Blocks* wird als unsicherer Kontext betrachtet.
 
-Die zugeordneten Grammatikproduktionen werden unten angezeigt.
+Die zugehörigen Grammatik Produktionen sind unten dargestellt.
 
 ```antlr
 class_modifier_unsafe
@@ -106,7 +106,7 @@ public unsafe struct Node
 }
 ```
 
-die `unsafe` Modifizierer, die in der Strukturdeklaration angegebenen bewirkt, dass den gesamte Text Wertebereich die Strukturdeklaration zu einem unsicheren Kontext. Daher ist es möglich, deklarieren die `Left` und `Right` Felder eines Zeigertyps sein. Das obige Beispiel könnte auch geschrieben werden
+der in der Struktur Deklaration angegebene `unsafe`-Modifizierer bewirkt, dass der gesamte Text Block der Struktur Deklaration zu einem unsicheren Kontext wird. Daher ist es möglich, die Felder "`Left`" und "`Right`" als Zeigertyp zu deklarieren. Das obige Beispiel könnte auch geschrieben werden.
 
 ```csharp
 public struct Node
@@ -117,9 +117,9 @@ public struct Node
 }
 ```
 
-Hier ist die `unsafe` Modifizierer in den Felddeklarationen dazu führen, dass diese Deklarationen nicht sicheren Kontexten berücksichtigt werden.
+Hier bewirken die `unsafe`-Modifizierer in den Feld Deklarationen, dass diese Deklarationen als unsichere Kontexte angesehen werden.
 
-Im Gegensatz zum Einrichten eines unsicheren Kontexts, also eine ermöglicht die Verwendung von Zeigertypen, die `unsafe` Modifizierer hat keine Auswirkungen auf einen Typ oder Member. Im Beispiel
+Abgesehen von der Einrichtung eines unsicheren Kontexts, der die Verwendung von Zeiger Typen ermöglicht, hat der `unsafe`-Modifizierer keine Auswirkung auf einen Typ oder einen Member. Im Beispiel
 
 ```csharp
 public class A
@@ -139,9 +139,9 @@ public class B: A
 }
 ```
 
-die `unsafe` Modifizierer für den `F` -Methode in der `A` einfach führt dazu, dass der Text der `F` zu einem unsicheren Kontext, in dem die unsicheren Funktionen der Sprache verwendet werden können. Überschreiben `F` in `B`, besteht keine Notwendigkeit, geben Sie erneut die `unsafe` Modifizierer – es sei denn, natürlich die `F` -Methode in der `B` selbst benötigt Zugriff auf unsichere Funktionen.
+der `unsafe`-Modifizierer für die `F`-Methode in `A` bewirkt, dass der Text Block von `F` zu einem unsicheren Kontext wird, in dem die unsicheren Funktionen der Sprache verwendet werden können. Bei der außer Kraft Setzung von `F` in `B` ist es nicht notwendig, den `unsafe`-Modifizierer erneut anzugeben, es sei denn, die `F`-Methode in `B` selbst benötigt Zugriff auf unsichere Features.
 
-Die Situation ist etwas anders, wenn ein Zeigertyp Teil der Signatur der Methode ist.
+Die Situation ist etwas anders, wenn ein Zeigertyp Teil der Methoden Signatur ist.
 
 ```csharp
 public unsafe class A
@@ -155,11 +155,11 @@ public class B: A
 }
 ```
 
-Hier ist da `F`Signatur enthält einen Zeigertyp, es kann nur geschrieben werden in einem unsicheren Kontext. Allerdings kann der unsichere Kontext eingeführt werden, indem entweder die gesamte Klasse unsicher, wie in der Fall ist `A`, oder ein `unsafe` -Modifizierer in der Deklaration der Methode, wie in der Fall ist `B`.
+Da die Signatur von `F` einen Zeigertyp enthält, kann Sie nur in einem unsicheren Kontext geschrieben werden. Allerdings kann der unsichere Kontext eingeführt werden, indem entweder die gesamte Klasse unsicher gemacht wird, wie es bei `A` der Fall ist, oder indem ein `unsafe`-Modifizierer in die Methoden Deklaration eingeschlossen wird, wie es in `B` der Fall ist.
 
 ## <a name="pointer-types"></a>Zeigertypen
 
-In einem unsicheren Kontext einen *Typ* ([Typen](types.md)) möglicherweise ein *Pointer_type* als auch ein *Value_type* oder *Reference_type* . Allerdings eine *Pointer_type* kann ebenfalls verwendet werden, eine `typeof` Ausdruck ([anonyme Erstellung Objektausdrücke](expressions.md#anonymous-object-creation-expressions)) außerhalb eines unsicheren Kontexts als solche Verwendung ist nicht unsicher.
+In einem unsicheren Kontext kann ein *Typ* ([types](types.md)) ein *pointer_type* sowie ein *value_type* oder ein *reference_type*sein. Ein *pointer_type* kann jedoch auch in einem `typeof`-Ausdruck ([Anonyme Objekt Erstellungs Ausdrücke](expressions.md#anonymous-object-creation-expressions)) außerhalb eines unsicheren Kontexts verwendet werden, da diese Verwendung nicht unsicher ist.
 
 ```antlr
 type_unsafe
@@ -167,7 +167,7 @@ type_unsafe
     ;
 ```
 
-Ein *Pointer_type* wird geschrieben, als ein *Unmanaged_type* oder das Schlüsselwort `void`, gefolgt von einem `*` token:
+Ein *pointer_type* -Wert wird als *unmanaged_type* oder das-Schlüsselwort `void`, gefolgt von einem `*`-Token geschrieben:
 
 ```antlr
 pointer_type
@@ -180,50 +180,50 @@ unmanaged_type
     ;
 ```
 
-Vor dem angegebenen Typ der `*` in einen Zeiger Typ wird aufgerufen, die ***Referent Typ*** des Zeigertyps. Es stellt den Typ der Variablen, die auf den Wert der Zeigertyp zeigt dar.
+Der Typ, der vor dem `*` in einem Zeigertyp angegeben wird, wird als ***Verweistyp*** des Zeiger Typs bezeichnet. Sie stellt den Typ der Variablen dar, auf die ein Wert des Zeiger Typs zeigt.
 
-Im Gegensatz zu verweisen (Werte von Verweistypen) Zeigern werden nicht vom Garbage Collector verfolgt, denn der Garbage Collector hat keine Kenntnis von Zeigern und die Daten, die auf die sie verweisen. Aus diesem Grund ein Zeiger ist nicht zulässig, um auf einen Verweis zu verweisen oder auf eine Struktur, die Verweise enthält, und der Referent Typ eines Zeigers muss ein *Unmanaged_type*.
+Anders als Verweise (Werte von Verweis Typen) werden Zeiger nicht vom Garbage Collector nachverfolgt, und der Garbage Collector hat keine Informationen über Zeiger und die Daten, auf die Sie zeigen. Aus diesem Grund kann ein Zeiger nicht auf einen Verweis oder eine Struktur verweisen, die Verweise enthält, und der Verweistyp eines Zeigers muss ein *unmanaged_type*sein.
 
-Ein *Unmanaged_type* ist jeder Typ, die keine *Reference_type* oder konstruierter Typ und enthält keine *Reference_type* oder auf einer beliebigen Ebene-Feldern erstellt schachteln. Das heißt, eine *Unmanaged_type* ist eine der folgenden:
+Ein *unmanaged_type* ist ein beliebiger Typ, der kein *reference_type* oder konstruierter Typ ist und keine *reference_type* -oder konstruierten Typfelder auf einer beliebigen Schachtelungs Ebene enthält. Mit anderen Worten: ein *unmanaged_type* -Wert ist einer der folgenden:
 
-*  `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, oder `bool`.
-*  Alle *Enum_type*.
-*  Alle *Pointer_type*.
-*  Eine benutzerdefinierte *Struct_type* , keinen konstruierten Typ und enthält Felder *Unmanaged_type*nur.
+*  `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, 0, 1 oder 2.
+*  Alle *enum_type*.
+*  Alle *pointer_type*.
+*  Alle benutzerdefinierten *struct_type* , bei denen es sich nicht um einen konstruierten Typ handelt und die nur die Felder *unmanaged_type*s enthalten.
 
-Die Faustregel für das Mischen von Zeiger und Verweise ist, dass Referenten von verweisen (Objekte) sind zulässig, die Zeiger enthalten, aber Referenten von Zeigern nicht zulässig sind, um die Verweise enthalten.
+Die intuitive Regel zum Mischen von Zeigern und verweisen ist, dass Verweise von verweisen (Objekten) Zeiger enthalten dürfen, aber Verweise von Zeigern dürfen keine Verweise enthalten.
 
-Einige Beispiele für Zeigertypen werden in der folgenden Tabelle angegeben:
+In der folgenden Tabelle sind einige Beispiele für Zeiger Typen angegeben:
 
 | __Beispiel__ | __Beschreibung__                               |
 |-------------|-----------------------------------------------|
 | `byte*`     | Zeiger auf `byte`                             |
 | `char*`     | Zeiger auf `char`                             |
-| `int**`     | Zeiger auf Zeiger auf `int`                   |
+| `int**`     | Zeiger auf den Zeiger auf `int`                   |
 | `int*[]`    | Eindimensionales Array von Zeigern auf `int` |
 | `void*`     | Zeiger auf unbekannten Typ                       |
 
-Für eine bestimmte Implementierung müssen alle Zeigertypen gleicher Größe und Darstellung.
+Für eine bestimmte Implementierung müssen alle Zeiger Typen die gleiche Größe und Darstellung aufweisen.
 
-Im Gegensatz zu C und C++, wenn mehrere Zeiger, in der gleichen Deklaration in c# deklariert werden die `*` wird zusammen mit dem zugrunde liegenden Typ, nicht als ein Präfix Punctuator für jeden Zeigernamen geschrieben. Beispiel:
+Im Gegensatz zu C++C und wird in C# der `*` zusammen mit dem zugrunde liegenden Typ und nicht als Präfix Satzzeichen für jeden Zeiger Namen geschrieben, wenn mehrere Zeiger in der gleichen Deklaration deklariert werden. Beispiel:
 
 ```csharp
 int* pi, pj;    // NOT as int *pi, *pj;
 ```
 
-Der Wert eines Zeigers, der mit einem Typ `T*` stellt die Adresse einer Variablen vom Typ `T`. Der Zeiger-Dereferenzierungsoperator `*` ([Zeigerdereferenzierung](unsafe-code.md#pointer-indirection)) kann verwendet werden, um diese Variable zugreifen. Angenommen, eine Variable `P` des Typs `int*`, den Ausdruck `*P` kennzeichnet die `int` Variablen finden Sie unter der Adresse, die in enthaltenen `P`.
+Der Wert eines Zeigers mit dem Typ "`T*`" stellt die Adresse einer Variablen vom Typ "`T`" dar. Der Zeiger Dereferenzierungsoperator `*` ([Zeigerdereferenzierung](unsafe-code.md#pointer-indirection)) kann verwendet werden, um auf diese Variable zuzugreifen. Wenn z. b. eine Variable `P` vom Typ `int*` ist, kennzeichnet der Ausdruck `*P` die `int`-Variable, die sich an der in `P` enthaltenen Adresse befindet.
 
-Wie einen Objektverweis, möglicherweise ein Zeiger `null`. Anwendung des Dereferenzierungsoperators auf einen `null` Zeiger führt die Implementierung definiertes Verhalten. Ein Zeiger mit dem Wert `null` wird durch alle Bits auf 0 dargestellt.
+Ein Zeiger kann wie ein Objekt Verweis `null` sein. Das Anwenden des Dereferenzierungsoperators auf einen `null`-Zeiger führt zu einem von der Implementierung definierten Verhalten. Ein Zeiger mit dem Wert "`null`" wird durch "All-Bits-Zero" dargestellt.
 
-Die `void*` Typ stellt einen Zeiger auf einen unbekannten Typ. Da der Referent-Typ unbekannt ist, kann der Dereferenzierungsoperator kann nicht in einen Zeiger vom Typ angewendet werden `void*`, noch kann für einen solchen Zeiger eine arithmetische Operation ausgeführt werden. Allerdings einen Zeiger vom Typ `void*` umgewandelt werden kann, um einen anderen Zeigertyp (und umgekehrt).
+Der `void*`-Typ stellt einen Zeiger auf einen unbekannten Typ dar. Da der Verweistyp unbekannt ist, kann der Dereferenzierungsoperator nicht auf einen Zeiger vom Typ "`void*`" angewendet werden, und es können keine Arithmetik für einen solchen Zeiger ausgeführt werden. Ein Zeiger vom Typ "`void*`" kann jedoch in einen anderen Zeigertyp (und umgekehrt) umgewandelt werden.
 
-Zeigertypen sind eine eigene Kategorie von Typen. Im Gegensatz zu Verweistypen und Werttypen, Zeigertypen erben nicht von `object` und keine Konvertierung zwischen Zeigertypen und `object`. Insbesondere das boxing und unboxing ([Boxing und unboxing](types.md#boxing-and-unboxing)) werden für Zeiger nicht unterstützt. Allerdings sind Konvertierungen zwischen verschiedenen Zeigertypen sowie zwischen Zeigertypen und ganzzahligen Typen zulässig. Finden Sie im [zeigerkonvertierungen](unsafe-code.md#pointer-conversions).
+Zeiger Typen sind eine separate Kategorie von Typen. Anders als bei Verweis Typen und Werttypen erben Zeiger Typen nicht von `object` und es sind keine Konvertierungen zwischen Zeiger Typen und `object` vorhanden. Vor allem werden Boxing und Unboxing ([Boxing und Unboxing](types.md#boxing-and-unboxing)) für Zeiger nicht unterstützt. Allerdings sind Konvertierungen zwischen verschiedenen Zeiger Typen sowie zwischen Zeiger Typen und ganzzahligen Typen zulässig. Dies wird in [Zeiger Konvertierungen](unsafe-code.md#pointer-conversions)beschrieben.
 
-Ein *Pointer_type* kann nicht als Typargument verwendet werden ([Typen konstruiert](types.md#constructed-types)), und den Typrückschluss ([Typrückschluss](expressions.md#type-inference)) ein Fehler auftritt, auf generische Methodenaufrufen, die abgeleitet haben würde ein Geben Sie ein Argument für ein Zeigertyp sein.
+Ein *pointer_type* kann nicht als Typargument ([konstruierte Typen](types.md#constructed-types)) verwendet werden, und der Typrückschluss ([Typrückschluss](expressions.md#type-inference)) schlägt bei generischen Methoden aufrufen fehl, die ein Typargument als Zeigertyp ableiten müssten.
 
-Ein *Pointer_type* als den Typ eines flüchtigen Felds verwendet werden kann ([flüchtige Felder](classes.md#volatile-fields)).
+Ein *pointer_type* kann als Typ eines flüchtigen Felds ([flüchtige Felder](classes.md#volatile-fields)) verwendet werden.
 
-Obwohl Zeiger können, als übergeben werden `ref` oder `out` Parameter nicht definiertem Verhalten führen kann, da der Zeiger gut kann auch festgelegt werden, zeigen Sie auf eine lokale Variable, die nicht mehr vorhanden ist, wenn die aufgerufene Methode zurückgibt, oder das feste Objekt auf das Sie verweisen, ist nicht mehr festgelegt. Zum Beispiel:
+Obwohl Zeiger als `ref`-oder `out`-Parameter weitergegeben werden können, kann dies zu undefiniertem Verhalten führen, da der Zeiger möglicherweise so festgelegt wird, dass er auf eine lokale Variable verweist, die nicht mehr vorhanden ist, wenn die aufgerufene Methode zurückgibt, oder das fixierte Objekt, auf das verweist. , ist nicht mehr korrigiert. Zum Beispiel:
 
 ```csharp
 using System;
@@ -257,7 +257,7 @@ class Test
 }
 ```
 
-Eine Methode kann einen Wert eines bestimmten Typs zurückgeben, und dieser Typ kann ein Zeiger sein. Beispielsweise, wenn ein Zeiger auf eine fortlaufende Folge von angegeben `int`s, diese Sequenz die Elementanzahl und einige andere `int` Wert, die folgende Methode gibt die Adresse des entsprechenden Wertes in dieser Reihenfolge, zurück, wenn eine Übereinstimmung vorliegt; andernfalls `null`:
+Eine Methode kann einen Wert eines Typs zurückgeben, und dieser Typ kann ein Zeiger sein. Wenn beispielsweise ein Zeiger auf eine zusammenhängende Sequenz von `int`s, der Element Anzahl der Sequenz und einem anderen `int`-Wert angegeben wird, gibt die folgende Methode die Adresse dieses Werts in dieser Sequenz zurück, wenn eine Entsprechung auftritt. Andernfalls wird `null` zurückgegeben:
 
 ```csharp
 unsafe static int* Find(int* pi, int size, int value) {
@@ -270,58 +270,58 @@ unsafe static int* Find(int* pi, int size, int value) {
 }
 ```
 
-Verschiedene Konstrukte stehen in einem unsicheren Kontext für den Betrieb für Zeiger ist:
+In einem unsicheren Kontext sind mehrere-Konstrukte zum Ausführen von Zeigern verfügbar:
 
-*  Die `*` Operator kann verwendet werden, um Zeigerdereferenzierung ([Zeigerdereferenzierung](unsafe-code.md#pointer-indirection)).
-*  Die `->` Operator über einen Zeiger auf einen Member einer Struktur verwendet werden kann ([Zeigermemberzugriff](unsafe-code.md#pointer-member-access)).
-*  Die `[]` Operator kann verwendet werden, um einen Zeiger zu indizieren ([Zeigerelementzugriff auf](unsafe-code.md#pointer-element-access)).
-*  Die `&` Operator kann verwendet werden, um die Adresse einer Variablen zu erhalten ([Address-of-Operators](unsafe-code.md#the-address-of-operator)).
-*  Die `++` und `--` Operatoren können verwendet werden, um Inkrementieren und Dekrementieren von Zeigern ([Zeiger Inkrementieren und Dekrementieren](unsafe-code.md#pointer-increment-and-decrement)).
-*  Die `+` und `-` Operatoren können verwendet werden, um das Ausführen von Zeigerarithmetik ([Zeigerarithmetik](unsafe-code.md#pointer-arithmetic)).
-*  Die `==`, `!=`, `<`, `>`, `<=`, und `=>` Operatoren verwendet werden können, Vergleichen von Zeigern ([zeigervergleich](unsafe-code.md#pointer-comparison)).
-*  Die `stackalloc` Operator kann verwendet werden, um die speicherbelegung in der Aufrufliste ([Puffer fester Größe](unsafe-code.md#fixed-size-buffers)).
-*  Die `fixed` Anweisung kann verwendet werden, um eine Variable vorübergehend zu beheben, damit seine Adresse abgerufen werden kann ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)).
+*  Der `*`-Operator kann verwendet werden, um eine Zeigerdereferenzierung auszuführen ([Zeigerdereferenzierung](unsafe-code.md#pointer-indirection)).
+*  Der `->`-Operator kann verwendet werden, um auf einen Member einer Struktur über einen Zeiger ([Zeiger Element Zugriff](unsafe-code.md#pointer-member-access)) zuzugreifen.
+*  Der `[]`-Operator kann verwendet werden, um einen Zeiger zu indizieren ([Zeiger Element Zugriff](unsafe-code.md#pointer-element-access)).
+*  Der `&`-Operator kann verwendet werden, um die Adresse einer Variablen ([dem address-of-Operator](unsafe-code.md#the-address-of-operator)) abzurufen.
+*  Mit den Operatoren "`++`" und "`--`" können Zeiger erhöht und dekrementiert werden ([Zeiger Inkrement und Dekrement](unsafe-code.md#pointer-increment-and-decrement)).
+*  Die Operatoren "`+`" und "`-`" können verwendet werden, um Zeigerarithmetik ([Zeigerarithmetik](unsafe-code.md#pointer-arithmetic)) auszuführen.
+*  Der `==`-, `!=`-, `<`-, `>`-, `<=`-und `=>`-Operatoren können verwendet werden, um Zeiger zu vergleichen ([Zeiger Vergleiche](unsafe-code.md#pointer-comparison)).
+*  Der `stackalloc`-Operator kann verwendet werden, um Speicher aus der aufrufsstapel zuzuordnen ([Puffer fester Größe](unsafe-code.md#fixed-size-buffers)).
+*  Die `fixed`-Anweisung kann verwendet werden, um eine Variable temporär zu korrigieren, sodass Ihre Adresse abgerufen werden kann ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)).
 
-## <a name="fixed-and-moveable-variables"></a>Feste und verschiebbare Variablen
+## <a name="fixed-and-moveable-variables"></a>Behobene und verschiebbare Variablen
 
-Der Address-of-Operator ([Address-of-Operators](unsafe-code.md#the-address-of-operator)) und die `fixed` Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) Variablen in zwei Kategorien unterteilen: ***Variablen fester*** und ***verschiebbare Variablen***.
+Der Address-of-Operator ([der Address-of-Operator](unsafe-code.md#the-address-of-operator)) und die `fixed`-Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) dividieren Variablen in zwei Kategorien: ***Fixierte Variablen*** und ***verschiebbare Variablen***.
 
-Feste Variablen befinden sich in die Speicherorte, die von den Vorgang der Garbage Collection nicht betroffen sind. (Beispiele für feste Variablen sind lokale Variablen, Parameter und Variablen, die durch die Dereferenzierung von Zeigern erstellt.) Befinden auf der anderen Seite verschiebbare Variablen an externen Speicherorten, die vom Garbage Collector verschoben oder verworfen werden. (Beispiele für bewegliche Variablen sind die Felder in Objekte und Elemente des Arrays an.)
+Fixierte Variablen befinden sich in Speicherorten, die von der Garbage Collector nicht betroffen sind. (Beispiele für fixierte Variablen sind lokale Variablen, Wert Parameter und Variablen, die durch dereferenzierende Zeiger erstellt werden.) Auf der anderen Seite befinden sich verschiebbare Variablen in Speicherorten, die von der Garbage Collector verlagert oder verfügbar gemacht werden. (Beispiele für verschiebbare Variablen sind Felder in Objekten und Elementen von Arrays.)
 
-Die `&` Operator ([Address-of-Operators](unsafe-code.md#the-address-of-operator)) ermöglicht die Adresse des eine feste Variable ohne Einschränkungen abgerufen werden sollen. Aber da verschoben oder verworfen, die vom Garbage Collector eine bewegliche Variable ist, die Adresse des eine bewegliche Variable nur abgerufen werden kann mithilfe einer `fixed` Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)), und diese Adresse bleibt gültig, nur für die Dauer dieser `fixed` Anweisung.
+Der `&`-Operator ([der Address-of-Operator](unsafe-code.md#the-address-of-operator)) gestattet, dass die Adresse einer Variablen mit fester Größe ohne Einschränkungen abgerufen wird. Da eine verschiebbare Variable jedoch vom Garbage Collector verschoben oder aufgehoben werden kann, kann die Adresse einer verschiebbaren Variablen nur mit einer `fixed`-Anweisung ([fixed-Anweisung](unsafe-code.md#the-fixed-statement)) abgerufen werden, und diese Adresse bleibt nur für die die Dauer dieser `fixed`-Anweisung.
 
-Eine feste Variable ist präzise ausgedrückt eine der folgenden:
+Eine Variable mit fester Genauigkeit ist eine der folgenden:
 
-*  Eine Variable aufgrund einer *Simple_name* ([einfache Namen](expressions.md#simple-names)), die auf eine lokale Variable oder ein Value-Parameter, es sei denn, die Variable eine anonyme Funktion erfasst wird.
-*  Eine Variable aufgrund einer *Member_access* ([Memberzugriff](expressions.md#member-access)) des Formulars `V.I`, wobei `V` ist eine feste Variable von einem *Struct_type*.
-*  Eine Variable aufgrund einer *Pointer_indirection_expression* ([Zeigerdereferenzierung](unsafe-code.md#pointer-indirection)) des Formulars `*P`, *Pointer_member_access* ([Zeigermemberzugriff](unsafe-code.md#pointer-member-access)) des Formulars `P->I`, oder ein *Pointer_element_access* ([Zeigerelementzugriff auf](unsafe-code.md#pointer-element-access)) des Formulars `P[E]`.
+*  Eine Variable, die sich aus einem *Simple_name* ([simple names](expressions.md#simple-names)) ergibt, der auf eine lokale Variable oder einen value-Parameter verweist, es sei denn, die Variable wird von einer anonymen Funktion aufgezeichnet.
+*  Eine Variable, die sich aus einem *member_access* ([Member Access](expressions.md#member-access)) der Form `V.I` ergibt, wobei "`V`" eine festgelegte Variable eines *struct_type*ist.
+*  Eine Variable, die sich aus einer *pointer_indirection_expression* ([Zeigerdereferenzierung](unsafe-code.md#pointer-indirection)) der Form `*P`, eines *pointer_member_access* ([Zeiger Element Zugriffs](unsafe-code.md#pointer-member-access)) der Form `P->I` oder einer *pointer_element_access* ( [Zeiger Element Zugriff](unsafe-code.md#pointer-element-access)) der Form `P[E]`.
 
-Alle anderen Variablen werden als bewegliche Variablen klassifiziert.
+Alle anderen Variablen werden als verschiebbare Variablen klassifiziert.
 
-Beachten Sie, dass ein statisches Feld als bewegliche Variable klassifiziert wurde. Beachten Sie, dass eine `ref` oder `out` Parameter wird als eine bewegliche Variable klassifiziert, selbst wenn das Argument für den Parameter erhält eine feste Variable ist. Beachten Sie außerdem, dass eine Variable, die durch einen Zeiger dereferenziert erzeugt immer als eine feste Variable klassifiziert wurde.
+Beachten Sie, dass ein statisches Feld als eine verschiebbare Variable klassifiziert ist. Beachten Sie außerdem, dass der Parameter "`ref`" oder "`out`" als eine verschiebbare Variable klassifiziert ist, auch wenn das für den-Parameter angegebene Argument eine Fixed-Variable ist. Beachten Sie schließlich, dass eine Variable, die durch dereferenzieren eines Zeigers erzeugt wird, immer als eine festgelegte Variable klassifiziert wird.
 
 ## <a name="pointer-conversions"></a>Zeigerkonvertierungen
 
-In einem unsicheren Kontext, den Satz von verfügbaren impliziten Konvertierungen ([implizite Konvertierungen](conversions.md#implicit-conversions)) wird erweitert, um die folgenden implizite zeigerkonvertierungen einzuschließen:
+In einem unsicheren Kontext wird der Satz der verfügbaren impliziten Konvertierungen ([implizite Konvertierungen](conversions.md#implicit-conversions)) um die folgenden impliziten Zeiger Konvertierungen erweitert:
 
-*  Von jedem *Pointer_type* in den Typ `void*`.
-*  Von der `null` in einen literalen *Pointer_type*.
+*  Von allen *pointer_type* bis zum Typ `void*`.
+*  Vom `null`-literalen zu beliebigen *pointer_type*.
 
-Darüber hinaus in einem unsicheren Kontext, den Satz von verfügbaren explizite Konvertierungen ([explizite Konvertierungen](conversions.md#explicit-conversions)) wurde erweitert und die folgende explizite zeigerkonvertierungen enthalten:
+Außerdem wird in einem unsicheren Kontext der Satz der verfügbaren expliziten Konvertierungen ([explizite Konvertierungen](conversions.md#explicit-conversions)) erweitert, um die folgenden expliziten Zeiger Konvertierungen einzubeziehen:
 
-*  Von jedem *Pointer_type* auch einer beliebigen anderen *Pointer_type*.
-*  Von `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, oder `ulong` auf *Pointer_type*.
-*  Von jedem *Pointer_type* zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, oder `ulong`.
+*  Von allen *pointer_type* bis hin zu anderen *pointer_type*.
+*  Von `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long` oder `ulong` in beliebige *pointer_type*.
+*  Von jeder *pointer_type* zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long` oder `ulong`.
 
-Schließlich wird in einem unsicheren Kontext, den Satz von standardmäßigen implizite Konvertierungen ([Standard implizite Konvertierungen](conversions.md#standard-implicit-conversions)) enthält die folgende zeigerkonvertierung:
+Schließlich umfasst der Satz von impliziten Standard Konvertierungen ([standardmäßige implizite Konvertierungen](conversions.md#standard-implicit-conversions)) in einem unsicheren Kontext die folgende Zeiger Konvertierung:
 
-*  Von jedem *Pointer_type* in den Typ `void*`.
+*  Von allen *pointer_type* bis zum Typ `void*`.
 
-Konvertierungen zwischen zwei Typen von Funktionszeigern ändern sich nie den eigentlichen Zeigerwert. Das heißt, hat eine Konvertierung von einem Zeigertyp in einen anderen keine Auswirkungen auf die zugrunde liegenden Adresse des Zeigers.
+Konvertierungen zwischen zwei Zeiger Typen ändern niemals den tatsächlichen Zeiger Wert. Anders ausgedrückt: eine Konvertierung von einem Zeigertyp in einen anderen hat keine Auswirkungen auf die zugrunde liegende Adresse, die durch den Zeiger angegeben wird.
 
-Wenn ein Zeigertyp in eine andere konvertiert wird, wenn der resultierende Zeiger für den Typ auf nicht korrekt ausgerichtet ist, ist das Verhalten undefiniert, wenn das Ergebnis dereferenziert wird. Im Allgemeinen ist das Konzept "korrekt ausgerichtet" transitiv: Wenn ein Zeiger auf den Typ `A` wird für einen Zeiger auf den Typ richtig ausgerichtet `B`, das wiederum wird für einen Zeiger auf den Typ richtig ausgerichtet `C`, klicken Sie dann einen Zeiger auf Typ `A`wird für einen Zeiger auf den Typ richtig ausgerichtet `C`.
+Wenn ein Zeigertyp in einen anderen konvertiert wird, wenn der resultierende Zeiger nicht ordnungsgemäß für den Verweis auf den Typ ausgerichtet ist, ist das Verhalten nicht definiert, wenn das Ergebnis dereferenziert wird. Im Allgemeinen ist das Konzept "ordnungsgemäß ausgerichtet" transitiv: Wenn ein Zeiger auf den Typ "`A`" ordnungsgemäß für einen Zeiger auf den Typ "`B`" ausgerichtet ist, der wiederum ordnungsgemäß für einen Zeiger auf den Typ "`C`" ausgerichtet ist, wird ein Zeiger auf den Typ "`A`" ordnungsgemäß für einen Zeiger auf den Typ `C`.
 
-Betrachten Sie den folgenden Fall, in dem eine Variable eines bestimmten Typs, über einen Zeiger auf einen anderen Typ zugegriffen wird, aus:
+Beachten Sie den folgenden Fall, in dem auf eine Variable mit einem Typ über einen Zeiger auf einen anderen Typ zugegriffen wird:
 
 ```csharp
 char c = 'A';
@@ -332,7 +332,7 @@ int i = *pi;         // undefined
 *pi = 123456;        // undefined
 ```
 
-Wenn ein Zeigertyp in einen Zeiger auf Byte, zeigt das Ergebnis, das niedrigste adressierte Byte der Variablen konvertiert. Aufeinander folgenden Schritten des Ergebnisses wird bis zur Größe der Variablen, ergeben die Zeiger auf die verbleibenden Bytes der Variablen. Beispielsweise zeigt die folgende Methode jedes Byte acht in einen Double-Wert als hexadezimaler Wert:
+Wenn ein Zeigertyp in einen Zeiger auf ein Byte konvertiert wird, zeigt das Ergebnis auf das niedrigste adressierte Byte der Variablen. Aufeinanderfolgende Inkremente des Ergebnisses bis zur Größe der Variablen ergeben Zeiger auf die restlichen Bytes dieser Variablen. Die folgende Methode zeigt beispielsweise alle acht Bytes in einem Double-Wert als Hexadezimalwert an:
 
 ```csharp
 using System;
@@ -351,26 +351,26 @@ class Test
 }
 ```
 
-Natürlich hängt die Ausgabe von Bytereihenfolge.
+Die erstellte Ausgabe hängt natürlich von der-Unterscheidung ab.
 
-Zuordnungen zwischen Zeigern und ganze Zahlen werden in der Implementierung definiert. Jedoch auf 32 * und 64-Bit-CPU-Architekturen mit einem linearen Adressraums, Konvertierungen von Zeigern zu oder von ganzzahligen Typen in der Regel Verhalten sich genau wie Konvertierungen von `uint` oder `ulong` -Werte an oder von diesen ganzzahligen Typen.
+Zuordnungen zwischen Zeigern und ganzen Zahlen sind Implementierungs definiert. Allerdings Verhalten sich Konvertierungen von Zeigern auf oder von ganzzahligen Typen auf 32 *-und 64-Bit-CPU-Architekturen mit einem linearen Adressraum in der Regel genauso wie Konvertierungen von `uint`-oder `ulong`-Werten in bzw. aus diesen ganzzahligen Typen.
 
-### <a name="pointer-arrays"></a>Zeiger-arrays
+### <a name="pointer-arrays"></a>Zeiger Arrays
 
-In einem unsicheren Kontext können Arrays von Zeigern erstellt werden. Nur einige der Konvertierungen, die für andere Arraytypen gelten, sind für Zeiger Arrays zulässig:
+In einem unsicheren Kontext können Arrays von Zeigern erstellt werden. Nur einige der Konvertierungen, die für andere Array Typen gelten, sind in Zeiger Arrays zulässig:
 
-*  Die implizite verweiskonvertierung ([implizite Verweis-](conversions.md#implicit-reference-conversions)) aus allen *Array_type* zu `System.Array` und die Schnittstellen, die es implementiert auch gilt, für Zeiger-Arrays. Jedoch jeder Versuch, auf die Elemente des Arrays durch `System.Array` oder die Schnittstellen implementiert führt zur Laufzeit eine Ausnahme, da Zeigertypen nicht konvertierbar sind `object`.
-*  Verweisen Sie die implizite und explizite Konvertierungen ([implizite Verweis-](conversions.md#implicit-reference-conversions), [explizite Konvertierungen](conversions.md#explicit-reference-conversions)) aus einem eindimensionalen Array-Typ `S[]` zu `System.Collections.Generic.IList<T>` und die generische Basisschnittstellen gelten nicht für Zeiger-Arrays, auf, da Zeigertypen nicht als Typargumente verwendet werden, und es keine Konvertierungen von Zeigertypen auf Nichtzeiger-Typen gibt.
-*  Die explizite Konvertierung ([explizite Konvertierungen](conversions.md#explicit-reference-conversions)) von `System.Array` und die Schnittstellen implementiert, alle *Array_type* gelten für Zeiger-Arrays.
-*  Die explizite Konvertierungen ([explizite Konvertierungen](conversions.md#explicit-reference-conversions)) von `System.Collections.Generic.IList<S>` und Basis Schnittstellen verwenden, um einen eindimensionalen Arraytyp `T[]` wird nicht für Zeiger-Arrays, da Zeigertypen sein darf nicht verwendet als Typargumente ein, und es gibt keine Konvertierungen von Zeigertypen auf Nichtzeiger-Typen.
+*  Die implizite Verweis Konvertierung ([implizite Verweis Konvertierungen](conversions.md#implicit-reference-conversions)) von *array_type* in `System.Array` und die implementierten Schnittstellen gelten auch für Zeiger Arrays. Allerdings wird bei jedem Versuch, auf die Array Elemente über `System.Array` oder die von ihm implementierten Schnittstelle zuzugreifen, zur Laufzeit eine Ausnahme ausgelöst, da Zeiger Typen nicht in `object` konvertierbar sind.
+*  Die impliziten und expliziten Verweis Konvertierungen ([implizite Verweis](conversions.md#implicit-reference-conversions)Konvertierungen, [explizite Verweis Konvertierungen](conversions.md#explicit-reference-conversions)) aus einem eindimensionalen Arraytyp `S[]` in `System.Collections.Generic.IList<T>` und seine generischen Basis Schnittstellen werden nie auf Zeiger Arrays angewendet. Zeiger Typen können nicht als Typargumente verwendet werden, und es sind keine Konvertierungen von Zeiger Typen zu nicht-Zeiger Typen vorhanden.
+*  Die explizite Verweis Konvertierung ([explizite Verweis Konvertierungen](conversions.md#explicit-reference-conversions)) von `System.Array` und die Schnittstellen, die Sie für beliebige *array_type* implementiert, gelten für Zeiger Arrays.
+*  Die expliziten Verweis Konvertierungen ([explizite Verweis Konvertierungen](conversions.md#explicit-reference-conversions)) von `System.Collections.Generic.IList<S>` und deren Basis Schnittstellen in einen eindimensionalen Arraytyp `T[]` gelten nie für Zeiger Arrays, da Zeiger Typen nicht als Typargumente verwendet werden können und es keine Konvertierungen von Zeiger Typen in nicht-Zeiger Typen.
 
-Diese Einschränkungen bedeuten, dass die Erweiterung für die `foreach` Anweisung über Arrays in beschriebenen [der Foreach-Anweisung](statements.md#the-foreach-statement) nicht auf Zeiger-Arrays angewendet werden. Stattdessen eine Foreach-Anweisung der Form
+Diese Einschränkungen bedeuten, dass die Erweiterung für die `foreach`-Anweisung über Arrays, die in [der foreach-Anweisung](statements.md#the-foreach-statement) beschrieben werden, nicht auf Zeiger Arrays angewendet werden kann. Stattdessen wird eine foreach-Anweisung der Form
 
 ```csharp
 foreach (V v in x) embedded_statement
 ```
 
-in denen der Typ des `x` ist ein Arraytyp des Formulars `T[,,...,]`, `N` ist die Anzahl der Dimensionen minus 1 und `T` oder `V` ist ein Typ, mit geschachtelten for-Schleifen wie folgt erweitert:
+Wenn der `x`-Typ ein Arraytyp der Form ist `T[,,...,]`, `N` die Anzahl der Dimensionen minus 1 und `T` oder `V` ein Zeigertyp ist, wird wie folgt mithilfe von schsted for-Schleifen erweitert:
 
 ```csharp
 {
@@ -385,13 +385,13 @@ in denen der Typ des `x` ist ein Arraytyp des Formulars `T[,,...,]`, `N` ist die
 }
 ```
 
-Die Variablen `a`, `i0`, `i1`,..., `iN` sind nicht sichtbar und zugänglich `x` oder *Embedded_statement* oder jeden anderen Quellcode des Programms. Die Variable `v` in die eingebettete Anweisung schreibgeschützt ist. Wenn eine explizite Konvertierung nicht vorhanden ist ([zeigerkonvertierungen](unsafe-code.md#pointer-conversions)) von `T` (der Typ des Elements), `V`, ein Fehler erzeugt wird und keine weiteren Schritte ausgeführt. Wenn `x` hat den Wert `null`, `System.NullReferenceException` wird zur Laufzeit ausgelöst.
+Die Variablen "`a`", "`i0`", "`i1`", "...", "`iN`" sind für `x` oder den *embedded_statement* oder einen beliebigen anderen Quellcode des Programms nicht sichtbar oder können darauf zugegriffen werden. Die Variable `v` ist in der eingebetteten Anweisung schreibgeschützt. Wenn keine explizite Konvertierung ([Zeiger Konvertierungen](unsafe-code.md#pointer-conversions)) von `T` (dem Elementtyp) zu `V` vorhanden ist, wird ein Fehler erzeugt, und es werden keine weiteren Schritte ausgeführt. Wenn `x` den Wert `null`hat, wird `System.NullReferenceException` zur Laufzeit eine ausgelöst.
 
 ## <a name="pointers-in-expressions"></a>Zeiger in Ausdrücken
 
-Klicken Sie in einem unsicheren Kontext ein Ausdruck kann ein Ergebnis von einem Zeigertyp, aber außerhalb eines unsicheren Kontexts, die es ist ein Fehler während der Kompilierung für einen Ausdruck, der ein Zeigertyp sein. Präzise ausgedrückt, außerhalb eines unsicheren Kontexts ein Kompilierungsfehler tritt auf, wenn alle *Simple_name* ([einfache Namen](expressions.md#simple-names)), *Member_access* ([Memberzugriff ](expressions.md#member-access)), *Invocation_expression* ([Aufrufausdrücke](expressions.md#invocation-expressions)), oder *Element_access* ([Elementzugriff](expressions.md#element-access)) ist ein Zeigertyp.
+In einem unsicheren Kontext kann ein Ausdruck das Ergebnis eines Zeiger Typs ergeben, aber außerhalb eines unsicheren Kontexts ist es ein Kompilierzeitfehler für einen Ausdruck, der einen Zeigertyp aufweisen soll. Genau gesagt: außerhalb eines unsicheren Kontexts tritt ein Kompilierzeitfehler auf, *Wenn Simple_name* ([simple names](expressions.md#simple-names)), *member_access* ([Member Access](expressions.md#member-access)), *invocation_expression* ([Aufruf Ausdrücke](expressions.md#invocation-expressions)) oder  *element_access* ([Element Zugriff](expressions.md#element-access)) ist ein Zeigertyp.
 
-In einem unsicheren Kontext der *Primary_no_array_creation_expression* ([primärausdrücke](expressions.md#primary-expressions)) und *Unary_expression* ([unäre Operatoren](expressions.md#unary-operators)) Produktionen ermöglichen die folgenden zusätzliche Konstrukte:
+In einem unsicheren Kontext ermöglichen die *primary_no_array_creation_expression* ([Primary Expressions](expressions.md#primary-expressions)) und *unary_expression* ([unäre Operatoren](expressions.md#unary-operators)) die folgenden zusätzlichen Konstrukte:
 
 ```antlr
 primary_no_array_creation_expression_unsafe
@@ -406,11 +406,11 @@ unary_expression_unsafe
     ;
 ```
 
-Diese Konstrukte werden in den folgenden Abschnitten beschrieben. Die Rangfolge und Assoziativität der unsicheren Operatoren wird von der Grammatik impliziert.
+Diese Konstrukte werden in den folgenden Abschnitten beschrieben. Die-Grammatik ist die Rangfolge und Assoziativität der unsicheren Operatoren.
 
-### <a name="pointer-indirection"></a>Zeigerdereferenzierung
+### <a name="pointer-indirection"></a>Zeiger Dereferenzierung
 
-Ein *Pointer_indirection_expression* besteht aus einem Sternchen (`*`) gefolgt von einem *Unary_expression*.
+Ein *pointer_indirection_expression* besteht aus einem Sternchen (`*`), gefolgt von einem *unary_expression*.
 
 ```antlr
 pointer_indirection_expression
@@ -418,17 +418,17 @@ pointer_indirection_expression
     ;
 ```
 
-Der unäre `*` Operator Zeigerdereferenzierung bezeichnet und wird verwendet, um die Variable zu ermitteln, zu dem ein Zeiger zeigt. Das Ergebnis der Auswertung `*P`, wobei `P` ist ein Ausdruck eines Zeigertyps `T*`, eine Variable vom Typ `T`. Es ist ein Fehler während der Kompilierung der unäre anzuwendende `*` Operator, um ein Ausdruck vom Typ `void*` oder auf einen Ausdruck, der einen Zeigertyp ist.
+Der unäre `*`-Operator bezeichnet die Zeiger Dereferenzierung und wird zum Abrufen der Variablen verwendet, auf die ein Zeiger zeigt. Das Ergebnis der Auswertung von "`*P`", wobei "`P`" ein Ausdruck eines Zeiger Typs `T*` ist, ist eine Variable vom Typ "`T`". Es handelt sich um einen Kompilierzeitfehler, mit dem der unäre `*`-Operator auf einen Ausdruck vom Typ `void*` oder auf einen Ausdruck angewendet wird, der kein Zeigertyp ist.
 
-Der Effekt der Anwendung der unäre `*` Operator, um eine `null` Zeiger wird durch die Implementierung definiert. Insbesondere besteht keine Garantie, die dieser Vorgang löst einen `System.NullReferenceException`.
+Die Auswirkung der Anwendung des unären `*`-Operators auf einen `null`-Zeiger ist Implementierungs definiert. Insbesondere gibt es keine Garantie, dass dieser Vorgang eine `System.NullReferenceException` auslöst.
 
-Wenn ein ungültiger Wert auf den Zeiger, die das Verhalten der unären zugewiesen wurde `*` Operator nicht definiert ist. Auf die ungültige Werte für einen Zeiger dereferenziert, indem Sie den unären `*` Operator werden eine Adresse, die nicht ordnungsgemäß ausgerichtet werden, für der Typ, zeigt (siehe Beispiel in [zeigerkonvertierungen](unsafe-code.md#pointer-conversions)), und die Adresse einer Variablen nach der Ende ihrer Lebensdauer.
+Wenn dem Zeiger ein ungültiger Wert zugewiesen wurde, ist das Verhalten des unären `*`-Operators nicht definiert. Unter den ungültigen Werten für die Dereferenzierung eines Zeigers durch den unären `*`-Operator handelt es sich um eine Adresse, die für den Typ, auf den verwiesen wird (siehe Beispiel in [Zeiger Konvertierungen](unsafe-code.md#pointer-conversions)), und die Adresse einer Variablen nach dem Ende ihrer Lebensdauer nicht ordnungsgemäß ausgerichtet ist.
 
-Für Zwecke der definite Assignment Analyse, eine Variablen, die durch die Auswertung eines Ausdrucks des Formulars `*P` gilt als ursprünglich zugewiesen ([anfänglich zugewiesene Variablen](variables.md#initially-assigned-variables)).
+Zum Zweck der eindeutigen Zuweisungs Analyse wird eine Variable, die durch Auswerten eines Ausdrucks der Form `*P` erstellt wird, als anfänglich zugewiesen ([ursprünglich zugewiesene Variablen](variables.md#initially-assigned-variables)).
 
-### <a name="pointer-member-access"></a>Zeigermemberzugriff
+### <a name="pointer-member-access"></a>Zugriff auf Zeiger Elemente
 
-Ein *Pointer_member_access* besteht aus einer *Primary_expression*, gefolgt von einer "`->`" token, gefolgt von einer *Bezeichner* und eine optionale *Type_argument_list*.
+Ein *pointer_member_access* besteht aus einem *primary_expression*, gefolgt von einem "`->`"-Token, gefolgt von einem *Bezeichner* und einem optionalen *type_argument_list*.
 
 ```antlr
 pointer_member_access
@@ -436,9 +436,9 @@ pointer_member_access
     ;
 ```
 
-In einem Zeigermemberzugriff des Formulars `P->I`, `P` muss ein Ausdruck eines Zeigertyps außer `void*`, und `I` müssen einen verfügbaren Member des Typs, der dem kennzeichnen `P` Punkte.
+In einem Zeiger Element Zugriff auf das Formular `P->I` muss `P` ein Ausdruck eines anderen Zeiger Typs als `void*` sein, und `I` muss einen zugänglichen Member des Typs angeben, zu dem `P`-Punkte gehören.
 
-Ein Zeigermemberzugriff des Formulars `P->I` wird ausgewertet, genau wie `(*P).I`. Eine Beschreibung der Zeiger-Dereferenzierungsoperator (`*`), finden Sie unter [Zeigerdereferenzierung](unsafe-code.md#pointer-indirection). Eine Beschreibung der den Memberzugriffsoperator (`.`), finden Sie unter [Memberzugriff](expressions.md#member-access).
+Ein Zeiger Element Zugriff auf das Formular `P->I` wird genau wie `(*P).I` ausgewertet. Eine Beschreibung des Zeigerdereferenzierungsoperators (`*`) finden Sie unter [Zeiger Dereferenzierung](unsafe-code.md#pointer-indirection). Eine Beschreibung des Mitglieds Zugriffs Operators (`.`) finden Sie unter [Member Access](expressions.md#member-access).
 
 Im Beispiel
 
@@ -469,7 +469,7 @@ class Test
 }
 ```
 
-die `->` Operator wird verwendet, um den Zugriff auf Felder und Aufrufen einer Methode, einer Struktur über einen Zeiger. Da der Vorgang `P->I` entspricht exakt dem `(*P).I`, `Main` Methode kann ebenso gut geschrieben wurden:
+der `->`-Operator wird verwendet, um auf Felder zuzugreifen und eine Methode einer Struktur mithilfe eines Zeigers aufzurufen. Da der Vorgang `P->I` exakt dem `(*P).I` entspricht, könnte die `Main`-Methode gleichermaßen gut geschrieben worden sein:
 
 ```csharp
 class Test
@@ -486,9 +486,9 @@ class Test
 }
 ```
 
-### <a name="pointer-element-access"></a>Zeigerelementzugriff auf
+### <a name="pointer-element-access"></a>Zeiger Element Zugriff
 
-Ein *Pointer_element_access* besteht aus einem *Primary_no_array_creation_expression* gefolgt von einem Ausdruck, der eingeschlossen in "`[`"und"`]`".
+Ein *pointer_element_access* besteht aus einem *primary_no_array_creation_expression* , gefolgt von einem Ausdruck, der in "`[`" und "`]`" eingeschlossen ist.
 
 ```antlr
 pointer_element_access
@@ -496,9 +496,9 @@ pointer_element_access
     ;
 ```
 
-In einem Zeigerelementzugriff des Formulars `P[E]`, `P` muss ein Ausdruck eines Zeigertyps außer `void*`, und `E` muss ein Ausdruck, der implizit in konvertiert werden kann `int`, `uint`, `long`, oder `ulong`.
+Bei einem Zeiger Element Zugriff auf das Formular `P[E]` muss `P` ein Ausdruck eines anderen Zeiger Typs als `void*` sein, und `E` muss ein Ausdruck sein, der implizit in `int`, `uint`, `long` oder `ulong` konvertiert werden kann.
 
-Ein Zeiger auf der Form `P[E]` wird ausgewertet, genau wie `*(P + E)`. Eine Beschreibung der Zeiger-Dereferenzierungsoperator (`*`), finden Sie unter [Zeigerdereferenzierung](unsafe-code.md#pointer-indirection). Eine Beschreibung des Zeigeradditionsoperators (`+`), finden Sie unter [Zeigerarithmetik](unsafe-code.md#pointer-arithmetic).
+Ein Zeiger Element Zugriff auf das Formular `P[E]` wird genau wie `*(P + E)` ausgewertet. Eine Beschreibung des Zeigerdereferenzierungsoperators (`*`) finden Sie unter [Zeiger Dereferenzierung](unsafe-code.md#pointer-indirection). Eine Beschreibung des Zeiger Additions Operators (`+`) finden Sie unter [Zeigerarithmetik](unsafe-code.md#pointer-arithmetic).
 
 Im Beispiel
 
@@ -514,7 +514,7 @@ class Test
 }
 ```
 
-Ein Zeiger auf wird verwendet, um den Zeichenpuffer in zu initialisieren. eine `for` Schleife. Da der Vorgang `P[E]` entspricht exakt dem `*(P + E)`, im Beispiel kann ebenso gut geschrieben wurden:
+Ein Zeiger Element Zugriff wird verwendet, um den Zeichen Puffer in einer `for`-Schleife zu initialisieren. Da der Vorgang `P[E]` genau mit `*(P + E)` übereinstimmt, könnte das Beispiel gleich gut geschrieben worden sein:
 
 ```csharp
 class Test
@@ -528,11 +528,11 @@ class Test
 }
 ```
 
-Der Zeiger Element Access-Operator nicht außerhalb des gültigen Bereichs nach Fehlern und das Verhalten beim Zugriff auf ein Element außerhalb des gültigen Bereichs ist nicht definiert. Dies ist identisch mit C- und C++.
+Der Zeiger Element-Zugriffs Operator prüft nicht auf Fehler aufgrund von Fehlern, und das Verhalten beim Zugriff auf ein Out-of-Bounds-Element ist nicht definiert. Dies entspricht dem C und C++.
 
-### <a name="the-address-of-operator"></a>Der Address-of-operator
+### <a name="the-address-of-operator"></a>Der Address-of-Operator
 
-Ein *Addressof_expression* besteht aus einem kaufmännischen und-Zeichen (`&`) gefolgt von einem *Unary_expression*.
+Ein *addressof_expression* besteht aus einem kaufmännischen und-(`&`), gefolgt von einem *unary_expression*.
 
 ```antlr
 addressof_expression
@@ -540,9 +540,9 @@ addressof_expression
     ;
 ```
 
-Erhält einen Ausdruck `E` die ist ein Typ `T` und wird als eine feste Variable klassifiziert ([für feste und verschiebbare Variablen](unsafe-code.md#fixed-and-moveable-variables)), das Konstrukt `&E` berechnet die Adresse der Variablen vom `E`. Der Typ des Ergebnisses ist `T*` und wird als Wert klassifiziert. Ein Fehler während der Kompilierung tritt auf, wenn `E` wird nicht als Variable klassifiziert, wenn `E` wird als schreibgeschützte lokale Variable klassifiziert oder, wenn `E` eine bewegliche Variable bezeichnet. Im letzten Fall einer fixed-Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) kann verwendet werden, um vorübergehend "die Variable beheben", bevor Sie ihre Adresse abzurufen. Wie in der angegeben [Memberzugriff](expressions.md#member-access), außerhalb eines Instanzkonstruktors oder einen statischen Konstruktor für eine Struktur oder Klasse, die definiert eine `readonly` Feld, in dieses Feld gilt einen Wert, nicht auf eine Variable. Daher kann nicht die Adresse nicht ausgeführt werden. Die Adresse einer Konstanten können auf ähnliche Weise kann nicht ausgeführt werden.
+Wenn ein Ausdruck `E` ist, der vom Typ "`T`" ist und als eine Variable mit fester Größe ([Fixed und verschiebbare Variablen](unsafe-code.md#fixed-and-moveable-variables)) klassifiziert ist, berechnet das Konstrukt "`&E`" die Adresse der Variablen, die von `E` angegeben wird. Der Ergebnistyp ist `T*` und wird als Wert klassifiziert. Ein Kompilierzeitfehler tritt auf, wenn `E` nicht als Variable klassifiziert ist, wenn `E` als schreibgeschützte lokale Variable klassifiziert ist, oder wenn `E` eine verschiebbare Variable bezeichnet. Im letzten Fall kann eine fixed-Anweisung ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) verwendet werden, um die Variable temporär zu korrigieren, bevor Sie Ihre Adresse erhält. Wie in [Member Access](expressions.md#member-access)angegeben, wird das Feld außerhalb eines Instanzkonstruktors oder statischen Konstruktors für eine Struktur oder Klasse, die ein `readonly`-Feld definiert, als Wert, nicht als Variable angesehen. Daher kann die Adresse nicht übernommen werden. Ebenso kann die Adresse einer Konstante nicht übernommen werden.
 
-Die `&` Operator erfordert nicht das Argument in der definitiv zugewiesen werden, jedoch folgende eine `&` -Operation, die Variable, die auf die der Operator angewendet wird gilt als definitiv zugewiesen, in den Ausführungspfad, in dem der Vorgang auftritt. Es handelt sich um die Verantwortung des Programmierers sicherzustellen, dass die richtige Initialisierung der Variable tatsächlich Stelle in diesem Fall übernimmt.
+Der `&`-Operator erfordert nicht, dass sein Argument definitiv zugewiesen wird, aber nach einem `&`-Vorgang wird die Variable, auf die der Operator angewendet wird, definitiv in dem Ausführungs Pfad zugewiesen, in dem der Vorgang stattfindet. Es liegt in der Verantwortung des Programmierers, sicherzustellen, dass die richtige Initialisierung der Variablen in dieser Situation tatsächlich stattfindet.
 
 Im Beispiel
 
@@ -562,26 +562,26 @@ class Test
 }
 ```
 
-`i` gilt als definitiv zugewiesen, nach der `&i` Vorgang, der zum Initialisieren verwendet `p`. Die Zuweisung zu `*p` faktisch initialisiert `i`, aber der Einbindung dieser Initialisierung liegt in der Verantwortung des Programmierers und keine Kompilierungsfehler tritt auf, wenn die Zuweisung entfernt wurde.
+`i` wird nach dem `&i`-Vorgang, der zum Initialisieren von `p` verwendet wird, definitiv zugewiesen. Die Zuweisung zu "`*p`" initialisiert `i`, aber die Einbindung dieser Initialisierung liegt in der Verantwortung des Programmierers, und es tritt kein Kompilierzeitfehler auf, wenn die Zuweisung entfernt wurde.
 
-Die Regeln für definitive Zuweisungen für die `&` Operator vorhanden sein, dass redundante Initialisierung von lokalen Variablen kann vermieden werden. Viele externe APIs werden z. B. einen Zeiger auf eine Struktur, die von der API angegeben ist. Aufrufe dieser APIs in der Regel übergeben Sie die Adresse einer Struktur von lokalen Variablen und ohne die Regel, redundante Initialisierung der Strukturvariable wären erforderlich.
+Die Regeln der eindeutigen Zuweisung für den `&`-Operator sind so vorhanden, dass die redundante Initialisierung lokaler Variablen vermieden werden kann. Viele externe APIs nehmen z. b. einen Zeiger auf eine Struktur, die von der API ausgefüllt wird. Aufrufe dieser APIs übergeben in der Regel die Adresse einer lokalen Struktur Variablen, und ohne die Regel wäre eine redundante Initialisierung der Struktur Variablen erforderlich.
 
-### <a name="pointer-increment-and-decrement"></a>Zeiger Inkrementieren und Dekrementieren
+### <a name="pointer-increment-and-decrement"></a>Inkrementieren und Dekrementieren von Zeigern
 
-In einem unsicheren Kontext der `++` und `--` Operatoren ([Postfix-Inkrement und Dekrement-Operatoren](expressions.md#postfix-increment-and-decrement-operators) und [Präfix-Inkrement und Dekrement-Operatoren](expressions.md#prefix-increment-and-decrement-operators)) können auf Zeiger angewendet werden Variablen aller Typen mit Ausnahme von `void*`. Daher ist es bei jedem Zeigertyp `T*`, die folgenden Operatoren werden implizit definiert:
+In einem unsicheren Kontext können die Operatoren "`++`" und "`--`" ([postfix-Inkrement-und Dekrementoperatoren](expressions.md#postfix-increment-and-decrement-operators) und [Präfix Inkrement-und Dekrementoperatoren](expressions.md#prefix-increment-and-decrement-operators)) auf Zeiger Variablen aller Typen außer `void*` angewendet werden. Daher sind für jeden Zeigertyp `T*` die folgenden Operatoren implizit definiert:
 
 ```csharp
 T* operator ++(T* x);
 T* operator --(T* x);
 ```
 
-Die Operatoren erzeugen die gleichen Ergebnisse wie `x + 1` und `x - 1`bzw. ([Zeigerarithmetik](unsafe-code.md#pointer-arithmetic)). In anderen Worten: für eine Zeigervariable des Typs `T*`, `++` -Operator fügt hinzu, `sizeof(T)` an die Adresse, die in der Variablen enthalten und die `--` Operator subtrahiert `sizeof(T)` von der Adresse, die in der Variablen enthalten.
+Die Operatoren erzielen dieselben Ergebnisse wie `x + 1` und `x - 1` bzw. ([Zeigerarithmetik](unsafe-code.md#pointer-arithmetic)). Anders ausgedrückt: für eine Zeiger Variable vom Typ `T*` fügt der `++`-Operator der in der Variablen enthaltenen Adresse `sizeof(T)` hinzu, und der `--`-Operator subtrahiert `sizeof(T)` von der Adresse, die in der Variablen enthalten ist.
 
-Wenn Sie eine Zeiger-Inkrement oder Dekrement Operation die Domänengrenzen des Zeigertyps, das Ergebnis ist die Implementierung definiert, aber keine Ausnahmen erstellt werden.
+Wenn ein Zeiger Inkrement-oder Dekrement-Vorgang die Domäne des Zeiger Typs überschreitet, wird das Ergebnis durch die Implementierung definiert, es werden jedoch keine Ausnahmen erzeugt.
 
 ### <a name="pointer-arithmetic"></a>Zeigerarithmetik
 
-In einem unsicheren Kontext der `+` und `-` Operatoren ([Additionsoperator](expressions.md#addition-operator) und [Subtraktionsoperator](expressions.md#subtraction-operator)) auf Werte mit Ausnahme von alle Zeigertypen angewendet werden können `void*`. Daher ist es bei jedem Zeigertyp `T*`, die folgenden Operatoren werden implizit definiert:
+In einem unsicheren Kontext können die Operatoren "`+`" und "`-`" (Additions[Operator](expressions.md#addition-operator) und [Subtraktions Operator](expressions.md#subtraction-operator)) auf Werte aller Zeiger Typen außer `void*` angewendet werden. Daher sind für jeden Zeigertyp `T*` die folgenden Operatoren implizit definiert:
 
 ```csharp
 T* operator +(T* x, int y);
@@ -602,9 +602,9 @@ T* operator -(T* x, ulong y);
 long operator -(T* x, T* y);
 ```
 
-Erhält einen Ausdruck `P` eines Zeigertyps `T*` und einen Ausdruck `N` des Typs `int`, `uint`, `long`, oder `ulong`, die Ausdrücke `P + N` und `N + P` Berechnen der Zeigerwert des Typs `T*` , die sich aus der Addition ergibt `N * sizeof(T)` an die Adresse, die vom `P`. Entsprechend dem Ausdruck `P - N` berechnet den Wert des Zeigers des Typs `T*` , die sich aus der Subtraktion ergibt `N * sizeof(T)` von der Adresse, die vom `P`.
+Wenn ein Ausdruck `P` eines Zeiger Typs ist `T*` und ein Ausdruck `N` vom Typ `int`, `uint`, `long` oder `ulong`, berechnen die Ausdrücke `P + N` und `N + P` den Zeiger Wert des Typs `T*`, der sich aus dem Hinzufügen von 0 zur Adresse ergibt. wird von 1 angegeben. Entsprechend berechnet der Ausdruck `P - N` den Zeiger Wert des Typs `T*`, der sich aus der Subtraktion von `N * sizeof(T)` von der Adresse ergibt, die von `P` angegeben wird.
 
-Mit den Ausdrücken `P` und `Q`, eines Zeigertyps `T*`, den Ausdruck `P - Q` berechnet die Differenz zwischen den Adressen, die vom `P` und `Q` und klicken Sie dann diesen Unterschied von `sizeof(T)`. Der Typ des Ergebnisses ist immer `long`. Tatsächlich `P - Q` wird berechnet als `((long)(P) - (long)(Q)) / sizeof(T)`.
+Wenn zwei Ausdrücke, `P` und `Q`, eines Zeiger Typs `T*`, berechnet der Ausdruck `P - Q` den Unterschied zwischen den Adressen, die von `P` und `Q` angegeben werden, und dividiert diese Differenz durch `sizeof(T)`. Der Ergebnistyp ist immer `long`. In der Tat wird `P - Q` als `((long)(P) - (long)(Q)) / sizeof(T)` berechnet.
 
 Zum Beispiel:
 
@@ -625,18 +625,18 @@ class Test
 }
 ```
 
-die Ausgabe erzeugt:
+der die Ausgabe erzeugt:
 
-```
+```console
 p - q = -14
 q - p = 14
 ```
 
-Wenn eine arithmetische Operation der Zeiger auf die Domäne des Zeigertyps überläuft, das Ergebnis wird auf eine Weise implementierungsdefinierte abgeschnitten, aber keine Ausnahmen erstellt werden.
+Wenn eine Zeiger arithmetische Operation die Domäne des Zeiger Typs überschreitet, wird das Ergebnis in einer durch die Implementierung definierten Weise abgeschnitten, es werden jedoch keine Ausnahmen erzeugt.
 
-### <a name="pointer-comparison"></a>Zeigervergleich
+### <a name="pointer-comparison"></a>Zeiger Vergleich
 
-In einem unsicheren Kontext der `==`, `!=`, `<`, `>`, `<=`, und `=>` Operatoren ([Relational und Typtest Operatoren](expressions.md#relational-and-type-testing-operators)) kann auf alle Werte angewendet werden Zeigertypen. Die Vergleichsoperatoren für Zeiger sind:
+In einem unsicheren Kontext können die Operatoren "`==`", "`!=`", "`<`", "`>`", "`<=`" und "`=>`" ([relationale und Typtest Operatoren](expressions.md#relational-and-type-testing-operators)) auf Werte aller Zeiger Typen angewendet werden. Die Zeiger Vergleichs Operatoren lauten wie folgt:
 
 ```csharp
 bool operator ==(void* x, void* y);
@@ -647,11 +647,11 @@ bool operator <=(void* x, void* y);
 bool operator >=(void* x, void* y);
 ```
 
-Da eine implizite Konvertierung in einen Zeigertyp, vorhanden ist. die `void*` Typ Operanden vom Zeigertyp mithilfe dieser Operatoren verglichen werden kann. Die Vergleichsoperatoren vergleichen die Adressen, die durch die beiden Operanden angegeben wird, als wären sie ganze Zahlen ohne Vorzeichen.
+Da eine implizite Konvertierung von einem Zeigertyp in den `void*`-Typ vorhanden ist, können die Operanden beliebiger Zeigertyp mithilfe dieser Operatoren verglichen werden. Die Vergleichs Operatoren vergleichen die Adressen, die von den beiden Operanden angegeben werden, so, als wären Sie ganze Zahlen ohne Vorzeichen.
 
-### <a name="the-sizeof-operator"></a>Der Operator sizeof
+### <a name="the-sizeof-operator"></a>Der sizeof-Operator
 
-Die `sizeof` -Operator gibt die Anzahl der Bytes, die durch eine Variable eines bestimmten Typs belegt wird. Der Typ als Operand für `sizeof` muss ein *Unmanaged_type* ([Zeigertypen](unsafe-code.md#pointer-types)).
+Der `sizeof`-Operator gibt die Anzahl der Bytes zurück, die von einer Variablen eines bestimmten Typs belegt werden. Der als Operand angegebene Typ für `sizeof` muss ein *unmanaged_type* ([Zeiger Typen](unsafe-code.md#pointer-types)) sein.
 
 ```antlr
 sizeof_expression
@@ -659,10 +659,10 @@ sizeof_expression
     ;
 ```
 
-Das Ergebnis der `sizeof` Operator ist ein Wert vom Typ `int`. Für bestimmte vordefinierte Typen, die `sizeof` -Operator liefert einen konstanten Wert an, wie in der folgenden Tabelle gezeigt.
+Das Ergebnis des `sizeof`-Operators ist ein Wert vom Typ `int`. Für bestimmte vordefinierte Typen ergibt der `sizeof`-Operator einen konstanten Wert, wie in der folgenden Tabelle dargestellt.
 
 
-| __Expression (Ausdruck)__   | __Ergebnis__ |
+| __expression__   | __Ergebnis__ |
 |------------------|------------|
 | `sizeof(sbyte)`  | `1`        |
 | `sizeof(byte)`   | `1`        |
@@ -677,17 +677,17 @@ Das Ergebnis der `sizeof` Operator ist ein Wert vom Typ `int`. Für bestimmte vo
 | `sizeof(double)` | `8`        |
 | `sizeof(bool)`   | `1`        |
 
-Für alle anderen Dateitypen, das Ergebnis der `sizeof` Operator wird durch die Implementierung definiert und wird als Wert und kein Konstante klassifiziert.
+Für alle anderen Typen ist das Ergebnis des `sizeof`-Operators Implementierungs definiert und wird als Wert, nicht als Konstante klassifiziert.
 
-Die Reihenfolge, in der Elemente in einer Struktur gepackt werden, ist nicht angegeben.
+Die Reihenfolge, in der Elemente in einer Struktur verpackt werden, ist nicht angegeben.
 
-Für die Ausrichtung möglicherweise benannte Füllzeichen am Anfang einer Struktur, in eine Struktur, und am Ende der Struktur. Der Inhalt der Bits, die als Abstand verwendet ist unbestimmt.
+Zu Ausrichtungs Zwecken gibt es möglicherweise unbenannte Auffüll Zeichen am Anfang einer Struktur, innerhalb einer Struktur und am Ende der Struktur. Der Inhalt der als Auffüllung verwendeten Bits ist unbestimmt.
 
-Wenn auf einen Operanden angewendet, die Struktur verfügt, ist das Ergebnis die Gesamtzahl der Bytes in einer Variablen des Typs, einschließlich der Abstände an.
+Wenn ein Operand mit einem Strukturtyp angewendet wird, ist das Ergebnis die Gesamtzahl der Bytes in einer Variablen dieses Typs, einschließlich aller Auffüll Zeichen.
 
-## <a name="the-fixed-statement"></a>Die fixed-Anweisung
+## <a name="the-fixed-statement"></a>Fixed-Anweisung
 
-In einem unsicheren Kontext der *Embedded_statement* ([Anweisungen](statements.md)) Produktion ermöglicht ein zusätzliches Konstrukt, das `fixed` -Anweisung, die verwendet wird, um "eine bewegliche Variable korrigieren" so, dass die Adresse bleibt unverändert, für die Dauer der Anweisung.
+In einem unsicheren Kontext gestattet die *embedded_statement* ([Statements](statements.md)) Production ein zusätzliches Konstrukt, die `fixed`-Anweisung, die verwendet wird, um eine verschiebbare Variable zu "korrigieren", sodass die Adresse für die Dauer der Anweisung konstant bleibt. .
 
 ```antlr
 fixed_statement
@@ -708,22 +708,22 @@ fixed_pointer_initializer
     ;
 ```
 
-Jede *Fixed_pointer_declarator* deklariert eine lokale Variable mit der angegebenen *Pointer_type* und initialisiert die lokale Variable mit der Adresse berechnet, indem Sie die entsprechende *Fixed_ Pointer_initializer*. Eine lokale Variable deklariert, die eine `fixed` -Anweisung ist in jedem zugänglich *Fixed_pointer_initializer*s auf der rechten Seite der Deklaration dieser Variablen die, und in der *Embedded_statement* von der `fixed` Anweisung. Eine lokale Variable deklariert, indem eine `fixed` Anweisung ist schreibgeschützt. Ein Fehler während der Kompilierung tritt auf, wenn die eingebettete Anweisung versucht, diese lokale Variable zu ändern (per Zuweisung oder `++` und `--` Operatoren) oder übergeben Sie sie als eine `ref` oder `out` Parameter.
+Jede *fixed_pointer_declarator* deklariert eine lokale Variable des angegebenen *pointer_type* und initialisiert diese lokale Variable mit der Adresse, die von der entsprechenden *fixed_pointer_initializer*berechnet wird. Auf eine lokale Variable, die in einer `fixed`-Anweisung deklariert ist, kann in allen *fixed_pointer_initializer*s, die rechts neben der Deklaration der Variablen auftreten, und in der *embedded_statement* -Anweisung der `fixed`-Anweisung zugegriffen werden. Eine lokale Variable, die von einer `fixed`-Anweisung deklariert wird, wird als schreibgeschützt betrachtet. Ein Kompilierzeitfehler tritt auf, wenn die eingebettete Anweisung versucht, diese lokale Variable (überzuweisung oder den `++`-und `--`-Operatoren) zu ändern oder Sie als `ref`-oder `out`-Parameter zu übergeben.
 
-Ein *Fixed_pointer_initializer* kann einen der folgenden sein:
+Ein *fixed_pointer_initializer* kann eines der folgenden sein:
 
-*  Das Token "`&`" gefolgt von einem *Variable_reference* ([präzise Regeln für definitive Zuweisungen bestimmen](variables.md#precise-rules-for-determining-definite-assignment)) auf eine bewegliche Variable ([für feste und verschiebbare Variablen](unsafe-code.md#fixed-and-moveable-variables)) eines nicht verwalteten Typs `T`, der Typ `T*` wird implizit in den Zeigertyp den `fixed` Anweisung. In diesem Fall berechnet die Initialisierung der Adresse der angegebenen Variablen und die Variable ist garantiert an fester Adresse für die Dauer der `fixed` Anweisung.
-*  Ein Ausdruck, der eine *Array_type* mit Elementen eines nicht verwalteten Typs `T`, der Typ `T*` wird implizit in den Zeigertyp die `fixed` Anweisung. In diesem Fall berechnet die Initialisierung der Adresse des ersten Elements im Array und das gesamte Array ist garantiert an fester Adresse für die Dauer der `fixed` Anweisung. Wenn der Ausdruck null ist oder wenn das Array 0 (null) Elemente verfügt, berechnet der Initialisierer einer Adresse gleich 0 (null).
-*  Ein Ausdruck vom Typ `string`, der Typ `char*` wird implizit in den Zeigertyp den `fixed` Anweisung. In diesem Fall berechnet die Adresse des ersten Zeichens in der Zeichenfolge für die Initialisierung und die gesamte Zeichenfolge ist garantiert an fester Adresse für die Dauer der `fixed` Anweisung. Das Verhalten der `fixed` Anweisung ist Implementierung definiert, wenn der Ausdruck null ist.
-*  Ein *Simple_name* oder *Member_access* , die verweist auf einen Member fester Größe Puffer eine bewegliche Variable, sofern der Typ des Members Puffer fester Größe implizit in den Zeigertyp ist. in der `fixed` Anweisung. In diesem Fall berechnet die Initialisierung für einen Zeiger auf das erste Element des Puffers fester Größe ([Puffer fester Größe in Ausdrücken](unsafe-code.md#fixed-size-buffers-in-expressions)), und der Puffer mit fester Größe ist garantiert an fester Adresse für die Dauer der `fixed`Anweisung.
+*  Das Token "`&`" gefolgt von einem *variable_reference* ([genaue Regeln zum Bestimmen der eindeutigen Zuweisung](variables.md#precise-rules-for-determining-definite-assignment)) für eine verschiebbare Variable ([Feste und verschiebbare Variablen](unsafe-code.md#fixed-and-moveable-variables)) eines nicht verwalteten Typs `T`, sofern der Typ `T*` ist implizit in den Zeigertyp konvertierbar, der in der `fixed`-Anweisung angegeben ist. In diesem Fall berechnet der Initialisierer die Adresse der angegebenen Variablen, und die Variable bleibt für die Dauer der `fixed`-Anweisung garantiert an einer bestimmten Adresse.
+*  Ein Ausdruck eines *array_type* mit Elementen eines nicht verwalteten Typs `T`, sofern der Typ `T*` implizit in den Zeigertyp konvertiert werden kann, der in der `fixed`-Anweisung angegeben ist. In diesem Fall berechnet der Initialisierer die Adresse des ersten Elements im Array, und das gesamte Array bleibt für die Dauer der `fixed`-Anweisung garantiert an einer Fixed-Adresse. Wenn der Array Ausdruck NULL ist oder das Array über keine Elemente verfügt, berechnet der Initialisierer eine Adresse, die gleich 0 (null) ist.
+*  Ein Ausdruck vom Typ "`string`", wenn der Typ "`char*`" implizit in den Zeigertyp konvertiert werden kann, der in der `fixed`-Anweisung angegeben ist. In diesem Fall berechnet der Initialisierer die Adresse des ersten Zeichens in der Zeichenfolge, und die gesamte Zeichenfolge bleibt für die Dauer der `fixed`-Anweisung garantiert an einer Fixed-Adresse. Das Verhalten der `fixed`-Anweisung ist Implementierungs definiert, wenn der Zeichen folgen Ausdruck NULL ist.
+*  Ein *Simple_name* -oder *member_access* -Element, das auf einen Puffer mit fester Größe einer verschiebbaren Variablen verweist, sofern der Typ des Puffer Elements mit fester Größe implizit in den Zeigertyp konvertiert werden kann, der in der `fixed`-Anweisung angegeben ist. In diesem Fall berechnet der Initialisierer einen Zeiger auf das erste Element des Puffers mit fester Größe ([Puffer fester Größe in Ausdrücken](unsafe-code.md#fixed-size-buffers-in-expressions)), und der Puffer mit fester Größe bleibt für die Dauer der `fixed`-Anweisung garantiert an einer Fixed-Adresse.
 
-Für jede Adresse berechnet, indem eine *Fixed_pointer_initializer* der `fixed` Anweisung wird sichergestellt, dass die Variable verwiesen wird, durch die Adresse nicht verschoben oder verworfen, die vom Garbage Collector für die Dauer der `fixed` Anweisung. Wenn die Adresse berechnet, indem Sie z. B. eine *Fixed_pointer_initializer* verweist auf ein Feld eines Objekts oder ein Element einer Instanz des Arrays, die `fixed` -Anweisung wird sichergestellt, dass die enthaltende Objektinstanz nicht verschoben wird oder während der Lebensdauer der Anweisung verworfen.
+Für jede Adresse, die von einem *fixed_pointer_initializer* berechnet wird, stellt die `fixed`-Anweisung sicher, dass die Variable, auf die die Adresse verweist, nicht für die Dauer der `fixed`-Anweisung von der Garbage Collector verlagert oder nicht zur Verfügung gestellt wird. Wenn die von einem *fixed_pointer_initializer* berechnete Adresse beispielsweise auf ein Feld eines Objekts oder ein Element einer Array Instanz verweist, stellt die `fixed`-Anweisung sicher, dass die enthaltende Objektinstanz während des die Lebensdauer der Anweisung.
 
-Es ist der Programmierer dafür verantwortlich, um sicherzustellen, dass der Zeiger von erstellt `fixed` Anweisungen bleiben nach Ausführung dieser Anweisungen nicht. Z. B. Zeiger der Erstellung von `fixed` Anweisungen an externen APIs übergeben werden, es ist der Programmierer dafür verantwortlich, um sicherzustellen, dass die APIs keinen Speicher für diese Zeiger beibehalten.
+Es ist Aufgabe des Programmierers, sicherzustellen, dass die von `fixed`-Anweisungen erstellten Zeiger nicht über die Ausführung dieser Anweisungen hinausgehen. Wenn beispielsweise Zeiger, die von `fixed`-Anweisungen erstellt werden, an externe APIs übermittelt werden, liegt es in der Verantwortung des Programmierers sicherzustellen, dass die APIs keinen Arbeitsspeicher für diese Zeiger erhalten.
 
-Feste Objekte möglicherweise die Fragmentierung des Heaps (da sie nicht verschoben werden können). Aus diesem Grund sollten Objekte nur wenn unbedingt nötig behoben werden und dann nur für kürzestmöglicher Zeit möglich.
+Fixed-Objekte können die Fragmentierung des Heaps verursachen (da Sie nicht verschoben werden können). Aus diesem Grund sollten Objekte nur dann korrigiert werden, wenn Sie unbedingt erforderlich sind, und dann nur für die kürzeste benötigte Zeit.
 
-Im Beispiel
+Das Beispiel
 
 ```csharp
 class Test
@@ -748,11 +748,11 @@ class Test
 }
 ```
 
-veranschaulicht verschiedene Verwendungen von der `fixed` Anweisung. Die erste Anweisung korrigiert und ruft die Adresse eines statischen Felds ab, die zweite Anweisung korrigiert und die Adresse eines Instanzenfelds und die dritte Anweisung korrigiert und ruft die Adresse eines Arrayelements ab. In jedem Fall hätte ein Fehler mit der normalen `&` Operator, da die Variablen als bewegliche Variablen klassifiziert werden.
+veranschaulicht verschiedene Verwendungen der `fixed`-Anweisung. Mit der ersten Anweisung wird die Adresse eines statischen Felds korrigiert und abgerufen, mit der zweiten Anweisung wird die Adresse eines Instanzfelds korrigiert und abgerufen, und die dritte Anweisung korrigiert und ruft die Adresse eines Array Elements ab. In jedem Fall wäre es ein Fehler, den regulären `&`-Operator zu verwenden, da die Variablen alle als verschiebbare Variablen klassifiziert werden.
 
-Der vierte `fixed` -Anweisung im obigen Beispiel erzeugt ein ähnliches Ergebnis an den dritten.
+Die vierte `fixed`-Anweisung im obigen Beispiel führt zu einem ähnlichen Ergebnis wie das dritte.
 
-Dieses Beispiel die `fixed` -Anweisung verwendet `string`:
+In diesem Beispiel für die `fixed`-Anweisung wird `string` verwendet:
 
 ```csharp
 class Test
@@ -773,7 +773,7 @@ class Test
 }
 ```
 
-In einem unsicheren Kontext werden Elemente des Arrays von eindimensionalen Arrays in aufsteigender Indexreihenfolge, beginnend mit dem Index gespeichert `0` und endend mit Index `Length - 1`. Für mehrdimensionale Arrays, Arrays, die Elemente gespeichert werden, dass die Indizes von die Dimension ganz rechts zunächst erhöht werden dann von der nächsten links Dimension, und so weiter auf der linken Seite. Innerhalb einer `fixed` -Anweisung, die einen Zeiger erhält `p` auf eine Arrayinstanz `a`, die Zeigerwerte von `p` zu `p + a.Length - 1` Adressen der Elemente im Array darstellen. Ebenso die Variablen, die im Bereich von `p[0]` zu `p[a.Length - 1]` die tatsächlichen Arrayelemente darstellen. Wenn die Möglichkeit, die in der Arrays gespeichert sind, können wir ein Array von einer beliebigen Dimension, behandeln, als wäre es linear.
+In einem unsicheren Kontext Array werden Elemente von eindimensionalen Arrays in zunehmender Index Reihenfolge gespeichert, beginnend mit Index `0` und endende mit Index `Length - 1`. Bei mehrdimensionalen Arrays werden Array Elemente so gespeichert, dass die Indizes der äußersten rechten Dimension zuerst, dann die nächste linke Dimension usw. nach links angehoben werden. Innerhalb einer `fixed`-Anweisung, die einen Zeiger `p` auf eine Array Instanz `a` abruft, stellen die Zeiger Werte zwischen `p` und `p + a.Length - 1` Adressen der Elemente im Array dar. Ebenso stellen die Variablen, von `p[0]` bis `p[a.Length - 1]`, die eigentlichen Array Elemente dar. Angesichts der Art und Weise, in der Arrays gespeichert werden, können wir ein Array einer beliebigen Dimension so behandeln, als wäre es linear.
 
 Zum Beispiel:
 
@@ -801,9 +801,9 @@ class Test
 }
 ```
 
-die Ausgabe erzeugt:
+der die Ausgabe erzeugt:
 
-```
+```console
 [0,0,0] =  0 [0,0,1] =  1 [0,0,2] =  2 [0,0,3] =  3
 [0,1,0] =  4 [0,1,1] =  5 [0,1,2] =  6 [0,1,3] =  7
 [0,2,0] =  8 [0,2,1] =  9 [0,2,2] = 10 [0,2,3] = 11
@@ -830,7 +830,7 @@ class Test
 }
 ```
 
-eine `fixed` -Anweisung verwendet, um ein Array zu beheben, damit seine Adresse an eine Methode übergeben werden kann, die einen Zeiger akzeptiert.
+eine `fixed`-Anweisung wird verwendet, um ein Array zu korrigieren, sodass die Adresse an eine Methode, die einen Zeiger annimmt, übermittelt werden kann.
 
 Im folgenden Beispiel
 
@@ -863,21 +863,21 @@ class Test
 }
 ```
 
-eine fixed-Anweisung wird verwendet, um Puffers mit fester Größe einer Struktur zu beheben, damit seine Adresse als Zeiger verwendet werden kann.
+eine fixed-Anweisung wird verwendet, um einen Puffer fester Größe einer Struktur zu korrigieren, sodass die Adresse als Zeiger verwendet werden kann.
 
-Ein `char*` Wert erzeugt, indem Sie die Fixierung einer Zeichenfolgeninstanz immer zeigt auf eine Null-terminierte Zeichenfolge. In einer fixed-Anweisung, die einen Zeiger erhält `p` zu einer Zeichenfolgeninstanz `s`, die Zeigerwerte von `p` zu `p + s.Length - 1` Adressen Zeichen in der Zeichenfolge und der Zeigerwert darstellen `p + s.Length` immer verweist auf ein Null-Zeichen (das Zeichen, mit dem Wert `'\0'`).
+Ein `char*`-Wert, der durch das Reparieren einer Zeichen folgen Instanz erzeugt wird, verweist immer auf eine mit NULL endenden Zeichenfolge Innerhalb einer fixed-Anweisung, die einen Zeiger `p` auf eine Zeichen folgen Instanz `s` abruft, stellen die Zeiger Werte von `p` bis `p + s.Length - 1` Adressen der Zeichen in der Zeichenfolge dar, und der Zeiger Wert `p + s.Length` zeigt immer auf ein NULL-Zeichen (das Zeichen mit dem Wert `'\0'`).
 
-Ändern Objekte vom verwalteten Typ über feste Zeiger können die Ergebnisse in einem nicht definierten Verhalten. Da Zeichenfolgen unveränderlich sind, ist es z. B. der Programmierer dafür verantwortlich, um sicherzustellen, dass die Zeichen, die auf die verwiesen wird durch einen Zeiger auf eine feste Zeichenfolge nicht geändert werden.
+Das Ändern von Objekten des verwalteten Typs durch Fixed-Zeiger kann zu undefiniertem Verhalten führen. Da z. b. Zeichen folgen unveränderlich sind, ist es die Aufgabe des Programmierers sicherzustellen, dass die Zeichen, auf die von einem Zeiger auf eine festgelegte Zeichenfolge verwiesen wird, nicht geändert werden.
 
-Die automatischen Null-Terminierung von Zeichenfolgen ist besonders praktisch, wenn es sich bei externen APIs aufrufen, die voraussichtlich von Zeichenfolgen im "C-Stil". Beachten Sie jedoch, dass eine Zeichenfolgeninstanz zulässig ist, Null-Zeichen enthalten. Wenn diese Null-Zeichen vorhanden sind, die Zeichenfolge wird angezeigt, abgeschnittene als eine Null-terminierte behandelt `char*`.
+Die automatische NULL-Beendigung von Zeichen folgen ist besonders praktisch, wenn externe APIs aufgerufen werden, die "C-Style"-Zeichen folgen erwarten. Beachten Sie jedoch, dass eine Zeichen folgen Instanz NULL-Zeichen enthalten darf. Wenn solche NULL-Zeichen vorhanden sind, wird die Zeichenfolge abgeschnitten, wenn Sie als NULL-terminierte `char*` behandelt wird.
 
 ## <a name="fixed-size-buffers"></a>Puffer fester Größe
 
-Puffer fester Größe werden verwendet, um "C-Style" Inline-Arrays als Member von Strukturen deklariert werden, und eignen sich in erster Linie für die Interaktion mit nicht verwalteten APIs.
+Puffer fester Größe werden verwendet, um in-Line-Arrays im C-Format als Member von Strukturen zu deklarieren und sind hauptsächlich für die Schnittstellen mit nicht verwalteten APIs nützlich.
 
-### <a name="fixed-size-buffer-declarations"></a>Puffer fester Größe-Deklarationen
+### <a name="fixed-size-buffer-declarations"></a>Puffer Deklarationen fester Größe
 
-Ein ***fester Größe Puffer*** angehört, der Speicher für einen Puffer fester Länge mit einer Variablen eines bestimmten Typs darstellt. Puffer fester Größe Deklaration führt eine oder mehrere Puffer mit fester Größe eines bestimmten Elementtyps. Puffer fester Größe dürfen nur in Strukturdeklarationen von und kann nur in nicht sicheren Kontexten auftreten ([nicht sicheren Kontexten](unsafe-code.md#unsafe-contexts)).
+Ein ***Puffer fester Größe*** ist ein Member, der den Speicher für einen Puffer fester Länge von Variablen eines bestimmten Typs darstellt. Eine Puffer Deklaration mit fester Größe führt einen oder mehrere Puffer fester Größe eines bestimmten Elementtyps ein. Puffer fester Größe sind nur in Struktur Deklarationen zulässig und können nur in unsicheren Kontexten ([unsichere Kontexte](unsafe-code.md#unsafe-contexts)) vorkommen.
 
 ```antlr
 struct_member_declaration_unsafe
@@ -906,17 +906,17 @@ fixed_size_buffer_declarator
     ;
 ```
 
-Deklaration Puffer fester Größe kann einen Satz von Attributen enthalten ([Attribute](attributes.md)), ein `new` Modifizierer ([Modifizierer](classes.md#modifiers)), eine gültige Kombination der vier Zugriffsmodifizierer ([Typ Parameter und Einschränkungen](classes.md#type-parameters-and-constraints)) und ein `unsafe` Modifizierer ([nicht sicheren Kontexten](unsafe-code.md#unsafe-contexts)). Die Attribute und Modifizierer gelten für alle Member, die der Puffer fester Größe-Deklaration deklariert. Es ist ein Fehler für den gleichen Modifizierer für mehrere Male in einer Puffer fester Größe angezeigt werden.
+Eine Puffer Deklaration fester Größe kann einen Satz von Attributen ([Attribute](attributes.md)), einen `new`-Modifizierer ([Modifizierer](classes.md#modifiers)), eine gültige Kombination der vier Zugriffsmodifizierer ([Typparameter und Einschränkungen](classes.md#type-parameters-and-constraints)) und einen `unsafe`-Modifizierer (unsicher) enthalten.[ Kontexte](unsafe-code.md#unsafe-contexts)). Die Attribute und Modifizierer gelten für alle Member, die von der Puffer Deklaration mit fester Größe deklariert werden. Es ist ein Fehler, dass derselbe Modifizierer mehrmals in einer Puffer Deklaration fester Größe angezeigt wird.
 
-Deklaration Puffer fester Größe ist nicht zulässig, sollen die `static` Modifizierer.
+Eine Puffer Deklaration mit fester Größe darf den `static`-Modifizierer nicht enthalten.
 
-Der Puffer-Elementtyp, der eine feste Größe Puffer Deklaration gibt an, den Typ des Elements, der die Puffer durch die Deklaration eingeführt wurden. Der Elementtyp der Puffer muss eine der vordefinierten Typen `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, oder `bool`.
+Der Puffer Elementtyp einer Puffer Deklaration mit fester Größe gibt den Elementtyp der Puffer an, die von der Deklaration eingeführt wurden. Beim Puffer Elementtyp muss es sich um einen der vordefinierten Typen `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, 0 oder 1 handeln.
 
-Der Puffer-Elementtyp folgt eine Liste von Deklaratoren verwenden Puffer fester Größe, von denen jede einen neuen Member einführen. Puffer fester Größe Deklaration besteht aus einem Bezeichner, der den Elementnamen gefolgt von einem konstanten Ausdruck, der eingeschlossen in `[` und `]` Token. Der Konstante Ausdruck gibt an, die Anzahl der Elemente in das Element, das durch diese feste Größe Puffer Deklarator eingeführt wird. Der Typ des konstanten Ausdrucks muss implizit in den Typ `int`, und der Wert muss eine ganze Zahl ungleich NULL sein.
+Auf den Puffer Elementtyp folgt eine Liste von Puffer Deklaratoren fester Größe, von denen jeder einen neuen Member einführt. Ein Puffer mit fester Größe besteht aus einem Bezeichner, der den Member benennt, gefolgt von einem konstanten Ausdruck, der in `[`-und `]`-Token eingeschlossen ist. Der Konstante Ausdruck gibt die Anzahl der Elemente in dem Element an, das von diesem Puffer Deklarator mit fester Größe eingeführt wurde. Der Typ des konstanten Ausdrucks muss implizit in den Typ "`int`" konvertiert werden, und der Wert muss eine positive ganze Zahl ungleich NULL sein.
 
-Die Elemente des Puffers mit fester Größe werden garantiert sequenziell im Arbeitsspeicher angeordnet werden.
+Es ist sichergestellt, dass die Elemente eines Puffers mit fester Größe sequenziell im Arbeitsspeicher angeordnet werden.
 
-Erklärung Puffer fester Größe, die mehrere Puffer mit fester Größe deklariert entspricht mehreren Deklarationen für eine Deklaration einer Puffer fester Größe mit denselben Attributen und Elementtypen. Beispiel:
+Eine Puffer Deklaration fester Größe, die mehrere Puffer fester Größe deklariert, entspricht mehreren Deklarationen einer einzelnen Puffer Deklaration mit fester Größe mit denselben Attributen und Elementtypen. Beispiel:
 
 ```csharp
 unsafe struct A
@@ -938,22 +938,22 @@ unsafe struct A
 
 ### <a name="fixed-size-buffers-in-expressions"></a>Puffer fester Größe in Ausdrücken
 
-Suche nach Membern ([Operatoren](expressions.md#operators)) eine feste Größe Puffer Member wird fortgesetzt, genau wie die Suche nach Membern eines Felds.
+Die Member-Suche ([Operatoren](expressions.md#operators)) eines Puffer Elements fester Größe verläuft genau wie die Element Suche eines Felds.
 
-Puffers mit fester Größe kann verwiesen werden, in einem Ausdruck mit einer *Simple_name* ([Typrückschluss](expressions.md#type-inference)) oder ein *Member_access* ([Überprüfungen zur Kompilierzeit der Dynamische überladungsauflösung](expressions.md#compile-time-checking-of-dynamic-overload-resolution)).
+Ein Puffer fester Größe kann in einem Ausdruck mithilfe eines *Simple_name* ([Typrückschlusses](expressions.md#type-inference)) oder eines *member_access* ([Kompilierzeit Überprüfung der dynamischen Überladungs Auflösung](expressions.md#compile-time-checking-of-dynamic-overload-resolution)) referenziert werden.
 
-Wenn Mitglied Puffer fester Größe als einen einfachen Namen verwiesen wird, der Effekt ist derselbe wie ein Memberzugriff des Formulars `this.I`, wobei `I` Members Puffer fester Größe ist.
+Wenn ein Puffer Element mit fester Größe als einfacher Name referenziert wird, entspricht der Effekt dem Element Zugriff im Formular `this.I`, wobei `I` das Puffer Element mit fester Größe ist.
 
-In einem Memberzugriff des Formulars `E.I`, wenn `E` ist ein Strukturtyp und eine Suche nach Membern der `I` , Typ "Struktur" einen Member mit fester Größe, bezeichnet, die dann `E.I` ist eine klassifizierte wie folgt ausgewertet:
+Wenn ein Element Zugriff auf das Formular `E.I`, wenn `E` einen Strukturtyp und eine Element Suche von `I` in diesem Strukturtyp einen Member mit fester Größe identifiziert, wird `E.I` wie folgt als klassifiziert ausgewertet:
 
-*  Wenn der Ausdruck `E.I` erfolgt nicht in einem unsicheren Kontext, ein Fehler während der Kompilierung auftritt.
-*  Wenn `E` wird als Wert klassifiziert, ein Fehler während der Kompilierung auftritt.
-*  Andernfalls gilt: Wenn `E` ist eine bewegliche Variable ([für feste und verschiebbare Variablen](unsafe-code.md#fixed-and-moveable-variables)) und der Ausdruck `E.I` keine *Fixed_pointer_initializer* ([festen Anweisung](unsafe-code.md#the-fixed-statement)), ein Fehler während der Kompilierung auftritt.
-*  Andernfalls `E` verweist auf eine feste Variable und das Ergebnis des Ausdrucks ist ein Zeiger auf das erste Element des Elements Puffer fester Größe `I` in `E`. Das Ergebnis ist vom Typ `S*`, wobei `S` ist der Elementtyp der `I`, und wird als Wert klassifiziert.
+*  Wenn der Ausdruck `E.I` nicht in einem unsicheren Kontext auftritt, tritt ein Kompilierzeitfehler auf.
+*  Wenn `E` als Wert klassifiziert wird, tritt ein Kompilierzeitfehler auf.
+*  Andernfalls tritt ein Kompilierzeitfehler auf, wenn `E` eine verschiebbare Variable ([Fixed und verschiebbare Variablen](unsafe-code.md#fixed-and-moveable-variables)) und der Ausdruck `E.I` kein *fixed_pointer_initializer* ([die fixed-Anweisung](unsafe-code.md#the-fixed-statement)) ist.
+*  Andernfalls verweist `E` auf eine Variable mit fester Größe, und das Ergebnis des Ausdrucks ist ein Zeiger auf das erste Element des Puffer Elements mit fester Größe `I` in `E`. Das Ergebnis ist vom Typ "`S*`", wobei "`S`" der Elementtyp "`I`" ist und als Wert klassifiziert wird.
 
-Die nachfolgenden Elemente des Puffers fester Größe können mithilfe von Zeigeroperationen vom ersten Element zugegriffen werden. Im Gegensatz zu den Zugriff auf Arrays Zugriff auf die Elemente eines Puffers mit fester Größe ist ein unsicherer Vorgang und ist kein Bereich überprüft.
+Auf die nachfolgenden Elemente des Puffers mit fester Größe kann mithilfe von Zeiger Vorgängen aus dem ersten Element zugegriffen werden. Im Gegensatz zum Zugriff auf Arrays ist der Zugriff auf die Elemente eines Puffers fester Größe ein unsicherer Vorgang und ist nicht Bereichs geprüft.
 
-Das folgende Beispiel deklariert und verwendet eine Struktur mit einem Member Puffer mit fester Größe.
+Im folgenden Beispiel wird eine Struktur mit einem Puffer Element fester Größe deklariert und verwendet.
 
 ```csharp
 unsafe struct Font
@@ -980,15 +980,15 @@ class Test
 }
 ```
 
-### <a name="definite-assignment-checking"></a>Definitive Zuweisung überprüfen
+### <a name="definite-assignment-checking"></a>Definitive Zuweisungs Überprüfung
 
-Puffer fester Größe werden nicht definitive Zuweisung überprüfen ([definitive Zuweisung](variables.md#definite-assignment)), und fester Größe Puffer Elemente werden ignoriert, zum Zweck der definitive Zuweisung, die Überprüfung der Struktur Typvariablen.
+Puffer fester Größe unterliegen nicht der eindeutigen Zuweisungs Überprüfung ([definitive Zuweisung](variables.md#definite-assignment)), und Puffer Elemente fester Größe werden ignoriert, um eine definitive Zuweisungs Überprüfung von Strukturtyp Variablen zu bestimmen.
 
-Wenn die äußersten enthaltenden Strukturvariable eines Elements Puffer fester Größe eine statische Variable, eine Instanzvariable für eine Instanz der Klasse oder eines Arrayelements ist, werden die Elemente des Puffers fester Größe automatisch auf ihre Standardwerte initialisiert ([Standardwerte](variables.md#default-values)). In allen anderen Fällen ist der ursprüngliche Inhalt des Puffers mit fester Größe nicht definiert.
+Wenn die äußerste enthaltende Struktur Variable eines Puffer Elements mit fester Größe eine statische Variable, eine Instanzvariable einer Klasseninstanz oder ein Array Element ist, werden die Elemente des Puffers fester Größe automatisch mit ihren Standardwerten initialisiert ([Standardeinstellung: Werte](variables.md#default-values)). In allen anderen Fällen ist der anfängliche Inhalt eines Puffers mit fester Größe nicht definiert.
 
-## <a name="stack-allocation"></a>Stapelreservierung
+## <a name="stack-allocation"></a>Stapel Zuordnung
 
-In einem unsicheren Kontext, einer lokalen Variablendeklaration ([lokale Variablendeklarationen](statements.md#local-variable-declarations)) kann einen Stack Allocation-Initialisierer dem Speicher zugeordnet werden, in der Aufrufliste enthalten.
+In einem unsicheren Kontext kann eine lokale Variablen Deklaration ([Deklarationen von lokalen Variablen](statements.md#local-variable-declarations)) einen Stapel Zuordnungs Initialisierer enthalten, der Arbeitsspeicher aus der-aufrufsliste zuweist.
 
 ```antlr
 local_variable_initializer_unsafe
@@ -1000,15 +1000,15 @@ stackalloc_initializer
     ;
 ```
 
-Die *Unmanaged_type* gibt den Typ der Elemente, die in den neu zugewiesenen Standort gespeichert werden und die *Ausdruck* gibt die Anzahl dieser Elemente. Zusammen geben diese die erforderlichen Zuordnungsgröße. Da die Größe des Stack-gesamtzuordnung darf nicht negativ sein, es ist ein Fehler während der Kompilierung an die Anzahl der Elemente als eine *Constant_expression* , die auf einen negativen Wert ausgewertet wird.
+Der *unmanaged_type* gibt den Typ der Elemente an, die im neu zugewiesenen Speicherort gespeichert werden, und der *Ausdruck* gibt die Anzahl dieser Elemente an. Diese geben die erforderliche Zuordnungs Größe an. Da die Größe einer Stapel Zuordnung nicht negativ sein kann, handelt es sich um einen Kompilierzeitfehler, der die Anzahl der Elemente als *constant_expression* angibt, die einen negativen Wert ergibt.
 
-Ein Stack Allocation-Initialisierer des Formulars `stackalloc T[E]` erfordert `T` einen nicht verwalteten Typ sein ([Zeigertypen](unsafe-code.md#pointer-types)) und `E` als Ausdruck vom Typ `int`. Das Konstrukt weist `E * sizeof(T)` Bytes aus dem Aufruf Stapel und gibt einen Zeiger vom Typ `T*`, auf den neu belegten Block. Wenn `E` ein negativer Wert ist, und klicken Sie dann das Verhalten nicht definiert ist. Wenn `E` ist 0 (null), und klicken Sie dann keine Zuordnung erfolgt, und des zurückgegebene Zeigers Implementierung definiert. Wenn nicht genügend Arbeitsspeicher verfügbar, um einen Block, der angegebenen Größe ein `System.StackOverflowException` ausgelöst.
+Ein Stapel Zuordnungs Initialisierer der Form `stackalloc T[E]` erfordert, dass `T` ein nicht verwalteter Typ ([Zeiger Typen](unsafe-code.md#pointer-types)) und `E` ein Ausdruck des Typs `int` ist. Das-Konstrukt ordnet `E * sizeof(T)` Bytes aus der-aufrufsstapel zu und gibt einen Zeiger vom Typ `T*` an den neu belegten Block zurück. Wenn `E` ein negativer Wert ist, ist das Verhalten nicht definiert. Wenn `E` 0 (null) ist, wird keine Zuweisung durchgeführt, und der zurückgegebene Zeiger ist Implementierungs definiert. Wenn nicht genügend Arbeitsspeicher verfügbar ist, um einen Block mit der angegebenen Größe zuzuordnen, wird eine `System.StackOverflowException` ausgelöst.
 
-Der Inhalt des neu belegten Speichers ist nicht definiert.
+Der Inhalt des neu zugeordneten Speichers ist undefiniert.
 
-Stack Allocation-Initialisierer sind nicht zulässig `catch` oder `finally` Blöcke ([der Try-Anweisung](statements.md#the-try-statement)).
+Stapel Zuordnungs Initialisierer sind in `catch`-oder `finally`-Blöcken ([try-Anweisung](statements.md#the-try-statement)) nicht zulässig.
 
-Es gibt keine Möglichkeit, explizit freizugeben, speicherbelegung, die mit `stackalloc`. Alle stapelzugeordneten Speicherblöcke, die während der Ausführung ein Funktionsmember erstellt werden automatisch verworfen werden, wenn diese Funktionselement zurückgibt. Dies entspricht der `alloca` -Funktion, eine Erweiterung, die häufig in C und C++-Implementierungen gefunden.
+Es gibt keine Möglichkeit, Arbeitsspeicher, der mit `stackalloc` belegt wird, explizit freizugeben. Alle Stapel zugeordneten Speicherblöcke, die während der Ausführung eines Funktionsmembers erstellt werden, werden automatisch verworfen, wenn der Funktions Member zurückgegeben wird. Dies entspricht der Funktion "`alloca`", eine Erweiterung, die häufig in C++ C und Implementierungen gefunden wird.
 
 Im Beispiel
 
@@ -1038,11 +1038,11 @@ class Test
 }
 ```
 
-eine `stackalloc` Initialisierer werden in der `IntToString` Methode, um einen Puffer von 16 Zeichen auf dem Stapel zu reservieren. Der Puffer wird automatisch verworfen, wenn die Methode zurückgegeben.
+ein `stackalloc`-Initialisierer wird in der `IntToString`-Methode verwendet, um einen Puffer mit 16 Zeichen im Stapel zuzuordnen. Der Puffer wird automatisch verworfen, wenn die Methode zurückgibt.
 
-## <a name="dynamic-memory-allocation"></a>Dynamische speicherbelegung
+## <a name="dynamic-memory-allocation"></a>Dynamische Speicher Belegung
 
-Mit Ausnahme der `stackalloc` Operator c# bietet keine vordefinierten Konstrukte für die Verwaltung von erfassten nicht-Garbage-Speicher. Diese Dienste werden in der Regel durch die Unterstützung von Klassenbibliotheken bereitgestellt oder direkt aus dem zugrunde liegenden Betriebssystem importiert. Z. B. die `Memory` nachstehenden Klasse veranschaulicht, wie die Heapfunktionen eines zugrunde liegenden Betriebssystems aus c# zugegriffen werden können:
+Mit Ausnahme des `stackalloc`-Operators C# werden von keine vordefinierten Konstrukte zum Verwalten von nicht Garbage Collection-Speicher bereitgestellt. Solche Dienste werden in der Regel durch Unterstützung von Klassenbibliotheken oder direkt aus dem zugrunde liegenden Betriebssystem bereitgestellt. Beispielsweise wird in der `Memory`-Klasse unten veranschaulicht, wie auf die Heap Funktionen eines zugrunde liegenden Betriebssystems C#zugegriffen werden kann:
 
 ```csharp
 using System;
@@ -1120,7 +1120,7 @@ public unsafe class Memory
 }
 ```
 
-Ein Beispiel, verwendet der `Memory` Klasse sind unten angegeben:
+Im folgenden finden Sie ein Beispiel, in dem die Klasse `Memory` verwendet wird:
 
 ```csharp
 class Test
@@ -1142,4 +1142,4 @@ class Test
 }
 ```
 
-Das Beispiel ordnet 256 Bytes an Arbeitsspeicher über `Memory.Alloc` und initialisiert den Speicherblock mit Werten von 0 bis 255. Klicken Sie dann ein Element mit 256-Byte-Array zugeordnet und verwendet `Memory.Copy` um den Inhalt des Speicherblocks in der Byte-Array zu kopieren. Schließlich wird der Speicherblock mit freigegeben `Memory.Free` und der Inhalt des Byte-Arrays auf der Konsole ausgegeben.
+Im Beispiel werden 256 Bytes Arbeitsspeicher über `Memory.Alloc` zugewiesen und der Speicherblock mit Werten, die von 0 bis 255 steigen, initialisiert. Anschließend ordnet es ein 256-Element-Bytearray zu und verwendet `Memory.Copy`, um den Inhalt des Speicherblocks in das Bytearray zu kopieren. Schließlich wird der Speicherblock mithilfe von `Memory.Free` freigegeben, und der Inhalt des Bytearrays wird in der Konsole ausgegeben.

@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: c3b716e6eb331be2ee33fffeb42c1e2406cd3a5c
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 3b142d7dbda8a94a4cf2c973a2e380065dcbf5ee
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488757"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703965"
 ---
 # <a name="enums"></a>Enumerationen
 
-Ein ***Enumerationstyp*** ist ein unverwechselbarer Werttyp ([Werttypen](types.md#value-types)), die einen Satz benannter Konstanten deklariert.
+Ein ***Enumerationstyp*** ist ein eindeutiger Werttyp ([Werttypen](types.md#value-types)), der einen Satz benannter Konstanten deklariert.
 
-Im Beispiel
+Das Beispiel
 
 ```csharp
 enum Color
@@ -21,11 +21,11 @@ enum Color
 }
 ```
 
-deklariert einen Enum-Typ, der mit dem Namen `Color` mit Mitgliedern `Red`, `Green`, und `Blue`.
+deklariert einen Enumerationstyp mit dem Namen "`Color`" mit Membern `Red`, `Green` und `Blue`.
 
-## <a name="enum-declarations"></a>Enum-Deklarationen
+## <a name="enum-declarations"></a>Enumerationsdeklarationen
 
-Eine Enum-Deklaration deklariert einen neue Enum-Typ. Eine Enum-Deklaration beginnt mit dem Schlüsselwort `enum`, und definiert den Namen, die Barrierefreiheit, die zugrunde liegenden Typ und die Member der Enumeration.
+Eine Aufzählungs Deklaration deklariert einen neuen Aufzählungstyp. Eine Enumerationsdeklaration beginnt mit dem-Schlüsselwort `enum` und definiert den Namen, die Barrierefreiheit, den zugrunde liegenden Typ und Member der Enumeration.
 
 ```antlr
 enum_declaration
@@ -42,9 +42,9 @@ enum_body
     ;
 ```
 
-Jeder Enumerationstyp hat einen entsprechenden ganzzahligen Typ, der Namen der ***zugrunde liegender Typ*** des Enum-Typs. Diese zugrunde liegenden Typ muss alle in der Enumeration definierten Enumeratorwerte darstellen können. Eine Enum-Deklaration kann explizit einen zugrunde liegenden Typ deklarieren `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `long` oder `ulong`. Beachten Sie, dass `char` nicht als zugrunde liegender Typ verwendet werden. Eine Enum-Deklaration, der nicht explizit einen zugrunde liegenden Typ deklariert, hat einen zugrunde liegenden Typ `int`.
+Jeder Aufzählungstyp verfügt über einen entsprechenden ganzzahligen Typ, der als ***zugrunde liegenden Typ*** des Aufzählungs Typs bezeichnet wird. Dieser zugrunde liegende Typ muss in der Lage sein, alle Enumeratorwerte darzustellen, die in der-Enumeration definiert sind. Eine Aufzählungs Deklaration kann einen zugrunde liegenden Typ von "`byte`", "`sbyte`", "`short`", "`ushort`", "`int`", "`uint`", "`long`" oder "@no__t Beachten Sie, dass "`char`" nicht als zugrunde liegender Typ verwendet werden kann. Eine Aufzählungs Deklaration, die einen zugrunde liegenden Typ nicht explizit deklariert, hat einen zugrunde liegenden Typ `int`.
 
-Im Beispiel
+Das Beispiel
 
 ```csharp
 enum Color: long
@@ -55,11 +55,11 @@ enum Color: long
 }
 ```
 
-deklariert eine Enumeration mit zugrunde liegender Typ `long`. Ein Entwickler kann auswählen, einen zugrunde liegenden Typ verwenden `long`, wie im Beispiel verwenden, um die Verwendung von Werten zu ermöglichen, die im Bereich von `long` , aber nicht in den Bereich der `int`, oder klicken Sie auf diese Option für die Zukunft zu erhalten.
+deklariert eine-Aufzählung mit dem zugrunde liegenden Typ `long`. Ein Entwickler kann einen zugrunde liegenden Typ von "`long`" verwenden, wie z. b., um die Verwendung von Werten zu ermöglichen, die im Bereich von `long` liegen, jedoch nicht im Bereich von `int`, oder um diese Option für die Zukunft beizubehalten.
 
-## <a name="enum-modifiers"></a>Enum-Modifizierer
+## <a name="enum-modifiers"></a>Aufzählungs modifiziererer
 
-Ein *Enum_declaration* kann optional eine Sequenz von Enum-Modifizierer enthalten:
+Ein *enum_declaration* kann optional eine Sequenz von enumerationsmodifiziererwerten enthalten:
 
 ```antlr
 enum_modifier
@@ -71,13 +71,13 @@ enum_modifier
     ;
 ```
 
-Es ist ein Fehler während der Kompilierung für den gleichen Modifizierer für mehrere Male in einer Enum-Deklaration angezeigt werden.
+Es ist ein Kompilierzeitfehler, damit derselbe Modifizierer mehrmals in einer Enumeration-Deklaration angezeigt wird.
 
-Der Modifizierer, der eine Enum-Deklaration haben dieselbe Bedeutung wie die einer Klassendeklaration ([Klasse Modifizierer](classes.md#class-modifiers)). Beachten Sie jedoch, die die `abstract` und `sealed` Modifizierer dürfen nicht in eine Enum-Deklaration. Enumerationen darf nicht abstrakt sein und lassen sich nicht auf die Ableitung.
+Die Modifizierer einer Enumerationsdeklaration haben dieselbe Bedeutung wie die einer Klassen Deklaration ([Klassenmodifizierer](classes.md#class-modifiers)). Beachten Sie jedoch, dass die Modifizierer "`abstract`" und "`sealed`" in einer Aufzählungs Deklaration nicht zulässig sind. Auffüge Zeichen können nicht abstrakt sein und dürfen keine Ableitung zulassen.
 
-## <a name="enum-members"></a>Mitglieder aufzählen
+## <a name="enum-members"></a>Enumerationsmember
 
-Der Hauptteil der Deklaration eines Enum-Typs definiert NULL oder mehr Enum-Member, die benannten Konstanten des Enum-Typs sind. Enumerationsmember nicht, können die gleichen Namen haben.
+Der Text einer Enumerationstypdeklaration definiert NULL oder mehr Enumerationsmember, bei denen es sich um die benannten Konstanten des Enumerationstyps handelt. Es können nicht zwei Enumerationsmember denselben Namen haben.
 
 ```antlr
 enum_member_declarations
@@ -89,7 +89,7 @@ enum_member_declaration
     ;
 ```
 
-Jedem Enumerationsmember ist einen konstanten Wert zugeordneten. Der Typ dieses Werts wird der zugrunde liegende Typ der entsprechenden Enumeration. Der Konstante Wert für jede Enum-Element muss im Bereich von den zugrunde liegenden Typ der Enumeration. Im Beispiel
+Jedem Enumerationsmember ist ein konstanter Wert zugeordnet. Der Typ dieses Werts ist der zugrunde liegende Typ für die enthaltende Enumeration. Der Konstante Wert für jedes Enumerationsmember muss im Bereich des zugrunde liegenden Typs für die Enumeration liegen. Das Beispiel
 
 ```csharp
 enum Color: uint
@@ -100,9 +100,9 @@ enum Color: uint
 }
 ```
 
-führt zu einem Kompilierzeitfehler, da die Konstanten Werte `-1`, `-2`, und `-3` sind nicht im Bereich des zugrunde liegenden ganzzahligen Typs `uint`.
+führt zu einem Kompilierzeitfehler, da die Konstanten Werte `-1`, `-2` und `-3` nicht im Bereich des zugrunde liegenden integralen Typs `uint` liegen.
 
-Mehrere Enumerationsmember darf es sich um den gleichen zugeordneten Wert weitergeben. Im Beispiel
+Mehrere Enumerationsmember können denselben zugeordneten Wert gemeinsam verwenden. Das Beispiel
 
 ```csharp
 enum Color 
@@ -115,14 +115,14 @@ enum Color
 }
 ```
 
-Zeigt eine Enumeration in die zwei Enumerationsmember-- `Blue` und `Max` – der gleiche Wert verknüpft haben.
+zeigt eine Enumeration an, in der zwei Enumerationsmember--`Blue` und `Max`-den gleichen zugeordneten Wert aufweisen.
 
-Der zugeordnete Wert eines Enumerationsmembers wird entweder implizit oder explizit zugewiesen. Wenn die Deklaration des Enumerationsmembers eine *Constant_expression* Initialisierer, der Wert dieses konstanten Ausdrucks, in der zugrunde liegende Typ der Enumeration implizit konvertiert wird, den zugeordneten Wert, der dem Enumerationsmember. Wenn die Deklaration des Enumerationsmembers keinen Initialisierer aufweist, wird der zugehörige Wert festgelegt, implizit, wie folgt:
+Der zugeordnete Wert eines Enumerationsmembers wird entweder implizit oder explizit zugewiesen. Wenn die Deklaration des Enumerationsmembers über einen *constant_expression* -Initialisierer verfügt, ist der Wert dieses konstanten Ausdrucks, der implizit in den zugrunde liegenden Typ der Enumeration konvertiert wird, der zugeordnete Wert des Enumeration-Members. Wenn die Deklaration des Enumerationsmembers keinen Initialisierer aufweist, wird der zugehörige Wert implizit wie folgt festgelegt:
 
-*  Wenn der Enum-Element der ersten Enum-Element, das in Enum-Typs deklariert ist, ist der zugehörige Wert 0 (null).
-*  Andernfalls wird der zugeordnete Wert des Enumerationsmembers abgerufen, durch den zugeordneten Wert des textlich vorausgehenden Enumerationsmembers um eins erhöhen. Dieser höhere Wert muss innerhalb des Bereichs von Werten, die durch den zugrunde liegenden Typ dargestellt werden kann, andernfalls tritt ein Fehler während der Kompilierung auf.
+*  Wenn das Enumerationsmember das erste Enumerationsmember ist, das im Enumerationstyp deklariert wurde, ist der zugeordnete Wert 0 (null).
+*  Andernfalls wird der zugeordnete Wert des Enumerationsmembers abgerufen, indem der zugeordnete Wert des texthin vorangehenden Enumerationsmembers um eins erhöht wird. Dieser erweiterte Wert muss innerhalb des Bereichs von Werten liegen, der durch den zugrunde liegenden Typ dargestellt werden kann. andernfalls tritt ein Kompilierzeitfehler auf.
 
-Im Beispiel
+Das Beispiel
 
 ```csharp
 using System;
@@ -160,9 +160,9 @@ class Test
 }
 ```
 
-Gibt den Elementnamen Enumeration und die zugehörigen Werte. Ausgabe:
+druckt die enumerationselementnamen und die zugehörigen Werte aus. Ausgabe:
 
-```
+```console
 Red = 0
 Green = 10
 Blue = 11
@@ -170,13 +170,13 @@ Blue = 11
 
 aus den folgenden Gründen:
 
-*  der Enumerationsmember `Red` erhält automatisch den Wert 0 (da es keinen Initialisierer aufweist und das erste Enum-Element ist);
-*  der Enumerationsmember `Green` erhält den Wert explizit `10`;
-*  und der Enumerationsmember `Blue` wird automatisch der Wert eins größer ist als das Element, das textlich vorausgehenden zugewiesen.
+*  dem Enumerationsmember `Red` wird automatisch der Wert 0 (null) zugewiesen (da er über keinen Initialisierer verfügt und der erste Enumerationsmember ist);
+*  der Enumerationsmember `Green` erhält explizit den Wert `10`;
+*  und dem Enumerationsmember `Blue` wird automatisch der Wert zugewiesen, der größer ist als der Member, der ihm texthal vorangestellt ist.
 
-Der zugeordnete Wert eines Enumerationsmembers möglicherweise nicht der Fall, direkt oder indirekt, verwenden Sie den Wert der eigenen zugehörigen Enum-Element. Außer dieser Einschränkung Zirkularität können die Enum-Standardmember-Initialisierer frei auf andere Enumeration Standardmember-Initialisierer, unabhängig von deren Text Position verweisen. Innerhalb einer enumerationsmemberinitialisierer werden Werte anderer Enumerationsmember immer als müssen den Typ des ihre zugrunde liegenden Typ und behandelt, sodass Umwandlungen nicht erforderlich, beim Verweisen auf andere Enumerationsmember sind.
+Der zugeordnete Wert eines Enumerationsmembers darf nicht direkt oder indirekt den Wert seines eigenen zugeordneten Enumerationsmembers verwenden. Abgesehen von dieser zirkulareinschränkungs Einschränkung verweisen Enumerationsmember-Initialisierer möglicherweise unabhängig von ihrer Textposition auf andere Initialisierer von Enumerationsmembern. In einem enumerationselementinitialisierer werden Werte anderer Enumerationsmember immer so behandelt, als hätten Sie den Typ des zugrunde liegenden Typs, sodass Umwandlungen beim Verweis auf andere Enumerationsmember nicht erforderlich sind.
 
-Im Beispiel
+Das Beispiel
 
 ```csharp
 enum Circular
@@ -186,22 +186,22 @@ enum Circular
 }
 ```
 
-führt zu einem Kompilierzeitfehler, da die Deklarationen der `A` und `B` sind zirkulär. `A` hängt von `B` explizit und `B` hängt `A` implizit.
+führt zu einem Kompilierzeitfehler, da die Deklarationen von `A` und `B` zirkulär sind. `A` ist explizit von `B` abhängig, und `B` hängt implizit von `A` ab.
 
-Enumerationsmember sind mit dem Namen und in einer Weise, die analog zu Feldern in Klassen beschränkt. Der Bereich eines Enumerationsmembers ist der Text, den enthaltenden Typ der Enumeration. Innerhalb des Bereichs können die Enum-Elementen, mit ihrem einfachen Namen verwiesen werden. Von anderem Code muss der Name des Enum-Element mit dem Namen der Enum-Typs qualifiziert werden. Enum-Mitglieder haben keiner deklarierten Zugriffsebenen – ein Enum-Element zugegriffen werden kann, wenn die enthaltende Enum-Typ zugegriffen werden kann.
+Enumerationsmember werden genau analog zu den Feldern innerhalb von Klassen benannt und auf eine Weise festgelegt. Der Gültigkeitsbereich eines Enumerationsmembers ist der Text seines enthaltenden Enumerationstyps. Innerhalb dieses Bereichs kann mit dem einfachen Namen auf Enumerationsmember verwiesen werden. Aus dem gesamten anderen Code muss der Name eines Enumerationsmembers mit dem Namen seines Enumerationstyps qualifiziert werden. Enumerationsmember haben keine deklarierten Barrierefreiheits Elemente. ein Enumerationsmember ist verfügbar, wenn auf den enthaltenden Enumerationstyp zugegriffen werden kann.
 
-## <a name="the-systemenum-type"></a>Der System.Enum-Typ
+## <a name="the-systemenum-type"></a>Der System. Aufzählungs Typen
 
-Der Typ `System.Enum` ist die abstrakte Basisklasse aller Enum-Typen (Dies ist distinct und unterscheidet sich von den zugrunde liegenden Typ des Enum-Typs), und die Mitglieder von geerbt `System.Enum` stehen in jeder Enumerationstyp. Eine Boxingkonvertierung ([Boxing-Konvertierung](types.md#boxing-conversions)) vorhanden ist, aus jeder Enumerationstyp, `System.Enum`, und einer unboxing-Konvertierung ([Unboxing-Konvertierungen](types.md#unboxing-conversions)) vorhanden ist, von `System.Enum` auf einen beliebigen Enumerationstyp.
+Der Typ `System.Enum` ist die abstrakte Basisklasse aller Enumerationstypen (Dies unterscheidet sich von dem zugrunde liegenden Typ des Enumerationstyps), und die von `System.Enum` geerbten Member sind in jedem Enumerationstyp verfügbar. Eine Boxing-Konvertierung ([Boxing-Konvertierungen](types.md#boxing-conversions)) ist von einem beliebigen Aufzählungstyp zu `System.Enum` vorhanden, und eine Unboxing-Konvertierung ([Unboxing-Konvertierungen](types.md#unboxing-conversions)) ist von `System.Enum` in einen beliebigen Aufzählungstyp vorhanden.
 
-Beachten Sie, dass `System.Enum` ist nicht selbst eine *Enum_type*. Es handelt sich vielmehr eine *Class_type* von der alle *Enum_type*s abgeleitet werden. Der Typ `System.Enum` erbt vom Typ `System.ValueType` ([die System.ValueType-Typ](types.md#the-systemvaluetype-type)), das wiederum vom Typ erbt `object`. Zur Laufzeit, ein Wert vom Typ `System.Enum` kann `null` oder ein Verweis auf einen geschachtelten Wert eines beliebigen Enumerationstyps.
+Beachten Sie, dass "`System.Enum`" nicht selbst ein *enum_type*ist. Vielmehr handelt es sich um eine *class_type* , von der alle *enum_type*s abgeleitet werden. Der Typ `System.Enum` erbt vom Typ `System.ValueType` ([System. ValueType](types.md#the-systemvaluetype-type)), der wiederum vom Typ `object` erbt. Zur Laufzeit kann ein Wert vom Typ "`System.Enum`" `null` oder ein Verweis auf einen geboxten Wert eines beliebigen Enumerationstyps sein.
 
-## <a name="enum-values-and-operations"></a>Enum-Werte und Vorgänge
+## <a name="enum-values-and-operations"></a>Enumerationswerte und-Vorgänge
 
-Jeder Enumerationstyp definiert einen gesonderter Typ ist. eine Enumeration der expliziten Konvertierung ([explizite Enumeration Konvertierungen](conversions.md#explicit-enumeration-conversions)) ist erforderlich, um zwischen einer Enum-Typ und einen ganzzahligen Typ oder zwischen zwei Enum-Typen zu konvertieren. Der Satz von Werten, die ein Enum-Typ übernehmen kann, ist nicht durch die Enumerationsmember beschränkt. Insbesondere ein Wert für den zugrunde liegenden Typ einer Enumeration in Enum-Typs umgewandelt werden kann, und ist ein eindeutiger gültiger Wert dieses Enum-Typs.
+Jeder Aufzählungstyp definiert einen eindeutigen Typ. eine explizite Enumerationskonvertierung ([Explizite Enumerationskonvertierungen](conversions.md#explicit-enumeration-conversions)) ist erforderlich, um zwischen einem Enumerationstyp und einem ganzzahligen Typ oder zwischen zwei Enumerationstypen zu konvertieren. Der Satz von Werten, der von einem Enumerationstyp übernommen werden kann, wird nicht durch seine Enumerationsmember eingeschränkt. Insbesondere kann jeder Wert des zugrunde liegenden Typs einer Enumeration in den Enumerationstyp umgewandelt werden und ist ein eindeutiger gültiger Wert dieses Enumerationstyps.
 
-Enum-Member haben den Typ ihres enthaltenden Enum-Typs (mit Ausnahme der in anderen Enum-Standardmember-Initialisierer: finden Sie unter [Enumerationsmember](enums.md#enum-members)). Der Wert eines Enumerationsmembers in Enum-Typs deklariert `E` mit zugeordneten Wert `v` ist `(E)v`.
+Enumerationsmember haben den Typ Ihres enthaltenden Enumerationstyps (außer innerhalb anderer Enumerationmember-Initialisierer: siehe [Enumeration](enums.md#enum-members)-Member). Der Wert eines Enumerationsmembers, der im Enumerationstyp deklariert wurde, `E` mit dem zugeordneten Wert `v` ist `(E)v`.
 
-Die folgenden Operatoren verwendet werden können, auf den Werten der Enum-Typen: `==`, `!=`, `<`, `>`, `<=`, `>=`  ([Enumeration Vergleichsoperatoren](expressions.md#enumeration-comparison-operators)) , binäre `+`  ([Additionsoperator](expressions.md#addition-operator)), binäre `-`  ([Subtraktionsoperator](expressions.md#subtraction-operator)), `^`, `&` , `|`  ([Enumeration logische Operatoren](expressions.md#enumeration-logical-operators)), `~`  ([bitweiser Komplementoperator](expressions.md#bitwise-complement-operator)), `++` und `--`  ([Postfix-Inkrement und Dekrement-Operatoren](expressions.md#postfix-increment-and-decrement-operators) und [Präfix-Inkrement und Dekrement-Operatoren](expressions.md#prefix-increment-and-decrement-operators)).
+Die folgenden Operatoren können für Werte von Enumerationstypen verwendet werden: `==`, `!=`, `<`, `>`, `<=`, `>=` @ no__t-6 ([enumerationsvergleichs-Operatoren](expressions.md#enumeration-comparison-operators)), Binary `+` @ no__t-9 (Additions[Operator](expressions.md#addition-operator)), Binary 1 @ no__ t-12 ([Subtraktions Operator](expressions.md#subtraction-operator)), 4, 5, 6 @ no__t-17 ([logische enumerationsoperatoren](expressions.md#enumeration-logical-operators)), 9 @ no__t-20 ([bitweiser Komplement Operator](expressions.md#bitwise-complement-operator)), 2 und 3 @ no__t-24 ([postfix-Inkrement und Dekrementoperatoren](expressions.md#postfix-increment-and-decrement-operators) und [Präfix Inkrement-und Dekrementoperatoren](expressions.md#prefix-increment-and-decrement-operators)).
 
-Jeder Enumerationstyp wird automatisch von der Klasse `System.Enum` (abgeleitet, die wiederum `System.ValueType` und `object`). Daher können für die Werte eines Enumerationstyps geerbter Methoden und Eigenschaften dieser Klasse verwendet werden.
+Jeder Enumerationstyp wird automatisch von der-Klasse `System.Enum` abgeleitet (wiederum abgeleitet von `System.ValueType` und `object`). Daher können geerbte Methoden und Eigenschaften dieser Klasse für Werte eines Enumerationstyps verwendet werden.

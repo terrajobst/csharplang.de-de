@@ -1,22 +1,22 @@
 ---
-ms.openlocfilehash: 72d17175dfb8ef284dce6cf7e5837420fa06f16a
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 6dd1dde67597b2125de9a1aa2fab9144128d533f
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488881"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704028"
 ---
 # <a name="structs"></a>Strukturen
 
-Strukturen sind ähnlich wie Klassen, Datenstrukturen dar, die Datenmember und Funktionsmember enthalten können. Im Gegensatz zu Klassen, Strukturen sind allerdings Werttypen und erfordern keine Heapzuordnung. Eine Variable eines Strukturtyps enthält die Daten der Struktur direkt, während eine Variable eines Klassentyps einen Verweis auf die Daten der letzten bekannten als Objekt enthält.
+Strukturen ähneln Klassen darin, dass Sie Datenstrukturen darstellen, die Datenmember und Funktionsmember enthalten können. Im Unterschied zu Klassen sind Strukturen jedoch Werttypen und erfordern keine Heap Zuordnung. Eine Variable eines Struktur Typs enthält direkt die Daten der Struktur, während eine Variable eines Klassen Typs einen Verweis auf die Daten enthält, wobei es sich um ein Objekt handelt, das als Objekt bezeichnet wird.
 
-Strukturen sind besonders nützlich für kleine Datenstrukturen, die über Wertsemantik verfügen. Komplexe Zahlen, Punkte in einem Koordinatensystem oder Schlüssel-Wert-Paare im Wörterbuch sind gute Beispiele für Strukturen. Schlüssel für diese Datenstrukturen ist, dass sie einige Datenmember, das, dass keine Verwendung von Vererbung und referenzieller Identität erforderlich ist und sie problemlos implementiert werden können über Wertsemantik, in der Zuweisung des Werts anstelle des Verweises kopiert haben.
+Strukturen sind besonders nützlich für kleine Datenstrukturen, die über Wertsemantik verfügen. Komplexe Zahlen, Punkte in einem Koordinatensystem oder Schlüssel-Wert-Paare im Wörterbuch sind gute Beispiele für Strukturen. Der Schlüssel für diese Datenstrukturen besteht darin, dass Sie nur wenige Datenmember haben, dass Sie keine Vererbung oder referenzielle Identität benötigen, und dass Sie mithilfe der Wert Semantik, bei der die Zuweisung den Wert anstelle des Verweises kopiert, bequem implementiert werden können.
 
-Siehe [einfache Typen](types.md#simple-types), die einfachen Typen wie z. B. von c# bereitgestellten `int`, `double`, und `bool`, tatsächlich alle Strukturtypen sind. Genau wie diese vordefinierten Typen Strukturen sind, ist es auch möglich, Strukturen und Überladen von Operatoren zum Implementieren der neuer "Grundtypen" in der C#-Sprache verwenden. Zwei Beispiele für solche Typen werden am Ende dieses Kapitels erhalten ([Struct Examples](structs.md#struct-examples)).
+Wie in [einfachen Typen](types.md#simple-types)beschrieben, sind die einfachen Typen, C#die von bereitgestellt werden, z. b. `int`, `double` und `bool`, tatsächlich alle Strukturtypen. Ebenso wie diese vordefinierten Typen Strukturen sind, ist es auch möglich, Strukturen und Operator Überladung zu verwenden, um neue "primitive" Typen in der C# Sprache zu implementieren. Am Ende dieses Kapitels ([Struktur Beispiele](structs.md#struct-examples)) werden zwei Beispiele für solche Typen angegeben.
 
-## <a name="struct-declarations"></a>Strukturdeklarationen
+## <a name="struct-declarations"></a>Struktur Deklarationen
 
-Ein *Struct_declaration* ist eine *Type_declaration* ([Typdeklarationen](namespaces.md#type-declarations)), die eine neue Struktur deklariert:
+Ein *struct_declaration* ist ein *type_declaration* ([Typdeklarationen](namespaces.md#type-declarations)), der eine neue Struktur deklariert:
 
 ```antlr
 struct_declaration
@@ -25,11 +25,11 @@ struct_declaration
     ;
 ```
 
-Ein *Struct_declaration* besteht aus einer optionalen Gruppe von *Attribute* ([Attribute](attributes.md)), gefolgt von einer optionalen Gruppe von *Struct_modifier*s ([Struktur Modifizierer](structs.md#struct-modifiers)), gefolgt von einem optionalen `partial` Modifizierer, gefolgt vom Schlüsselwort `struct` und *Bezeichner* mit dem Namen der Struktur, gefolgt von einer optionale *Type_parameter_list* Spezifikation ([Typparameter](classes.md#type-parameters)), gefolgt von einem optionalen *Struct_interfaces* Spezifikation ([Partial-Modifizierer](structs.md#partial-modifier))), gefolgt von einem optionalen *Type_parameter_constraints_clause*s-Spezifikation ([Geben Sie die Einschränkungen für Typparameter](classes.md#type-parameter-constraints)), gefolgt von einem *Struct_body* ([strukturtext](structs.md#struct-body)), optional gefolgt durch ein Semikolon.
+Ein *struct_declaration* besteht aus einem optionalen Satz von *Attributen* ([Attributen](attributes.md)), gefolgt von einem optionalen Satz von *struct_modifier*s ([Strukturmodifizierer](structs.md#struct-modifiers)), gefolgt von einem optionalen `partial`-Modifizierer, gefolgt vom Schlüsselwort `struct` und ein *Bezeichner* , der die Struktur benennt, gefolgt von einer optionalen *type_parameter_list* -Spezifikation ([Typparameter](classes.md#type-parameters)), gefolgt von einer optionalen *struct_interfaces* -Spezifikation ([partiell -Modifizierer](structs.md#partial-modifier)), gefolgt von einer optionalen *type_parameter_constraints_clause*s-Spezifikation ([Typparameter Einschränkungen](classes.md#type-parameter-constraints)), gefolgt von einem *struct_body* ([Struktur Text](structs.md#struct-body)), optional gefolgt von einem Semikolon.
 
-### <a name="struct-modifiers"></a>Struktur-Modifizierer
+### <a name="struct-modifiers"></a>Strukturmodifizierer
 
-Ein *Struct_declaration* kann optional eine Sequenz von Struct-Modifizierer enthalten:
+Ein *struct_declaration* kann optional eine Sequenz von strukturmodifizierermodifizierer einschließen:
 
 ```antlr
 struct_modifier
@@ -42,17 +42,17 @@ struct_modifier
     ;
 ```
 
-Es ist ein Fehler während der Kompilierung für den gleichen Modifizierer für mehrere Male in einer Strukturdeklaration angezeigt werden.
+Es ist ein Kompilierzeitfehler, damit derselbe Modifizierer mehrmals in einer Struktur Deklaration angezeigt wird.
 
-Die Modifizierer der einer Strukturdeklaration haben dieselbe Bedeutung wie die einer Klassendeklaration ([Klasse Deklarationen](classes.md#class-declarations)).
+Die Modifizierer einer Struktur Deklaration haben dieselbe Bedeutung wie die einer Klassen Deklaration ([Klassen Deklarationen](classes.md#class-declarations)).
 
-### <a name="partial-modifier"></a>Ein partial-Modifizierer
+### <a name="partial-modifier"></a>Partieller Modifizierer
 
-Die `partial` Modifizierer gibt an, dass dies *Struct_declaration* ist eine Deklaration der partiellen Typ. Mehreren partiellen Strukturdeklarationen mit demselben Namen in einer einschließenden Namespace oder Typ Deklaration kombinieren, um eine Strukturdeklaration zu bilden, im angegebenen gemäß den Regeln [partielle Typen](classes.md#partial-types).
+Der `partial`-Modifizierer gibt an, dass dieses *struct_declaration* eine partielle Typdeklaration ist. Mehrere partielle Struktur Deklarationen mit demselben Namen innerhalb eines einschließenden Namespace oder einer Typdeklaration kombinieren eine Struktur Deklaration, die den in [partiellen Typen](classes.md#partial-types)angegebenen Regeln folgt.
 
-### <a name="struct-interfaces"></a>Struktur-Schnittstellen
+### <a name="struct-interfaces"></a>Struktur Schnittstellen
 
-Herausgeberkontos ausgewiesenen Form eine Strukturdeklaration eine *Struct_interfaces* -Spezifikation, in dem Fall der Struktur wird als die angegebene Schnittstelle-Typen direkt zu implementieren.
+Eine Struktur Deklaration kann eine *struct_interfaces* -Spezifikation enthalten. in diesem Fall wird die Struktur so bezeichnet, dass die angegebenen Schnittstellentypen direkt implementiert werden.
 
 ```antlr
 struct_interfaces
@@ -60,11 +60,11 @@ struct_interfaces
     ;
 ```
 
-Schnittstellenimplementierungen finden Sie weiter unten in [Schnittstellenimplementierungen](interfaces.md#interface-implementations).
+Schnittstellen Implementierungen werden in [Schnittstellen Implementierungen](interfaces.md#interface-implementations)ausführlicher erläutert.
 
-### <a name="struct-body"></a>Strukturtext
+### <a name="struct-body"></a>Struktur Text
 
-Die *Struct_body* einer Struktur definiert die Elemente der Struktur.
+Der *struct_body* einer Struktur definiert die Member der Struktur.
 
 ```antlr
 struct_body
@@ -74,7 +74,7 @@ struct_body
 
 ## <a name="struct-members"></a>Strukturmember
 
-Die Member einer Struktur besteht aus der Elemente eingeführt, durch die *Struct_member_declaration*s und den Membern geerbt vom Typ `System.ValueType`.
+Die Member einer Struktur bestehen aus den Membern, die von den *struct_member_declaration*s eingeführt wurden, und den Membern, die vom Typ `System.ValueType` geerbt wurden.
 
 ```antlr
 struct_member_declaration
@@ -92,27 +92,27 @@ struct_member_declaration
     ;
 ```
 
-Mit Ausnahme der Unterschiede in notiert [Klassen- und Strukturmember Unterschiede](structs.md#class-and-struct-differences), die Beschreibungen der Klassenmember, die im bereitgestellten [Klassenmember](classes.md#class-members) über [Iteratoren](classes.md#iterators) gelten für Struktur auch Elemente.
+Mit Ausnahme der Unterschiede in den [Klassen-und Struktur unterschieden](structs.md#class-and-struct-differences)gelten die Beschreibungen von Klassenmembern, die in [Klassenmembern](classes.md#class-members) durch [Iteratoren](classes.md#iterators) bereitgestellt werden, auch für Strukturmember.
 
-## <a name="class-and-struct-differences"></a>Unterschiede für Klassen- und Strukturmember
+## <a name="class-and-struct-differences"></a>Klassen-und Strukturunterschiede
 
-Strukturen unterscheiden sich von Klassen in mehreren wichtigen Punkten:
+Strukturen unterscheiden sich in mehreren wichtigen Punkten von Klassen:
 
-*  Strukturen sind Werttypen ([Wertsemantik](structs.md#value-semantics)).
-*  Alle Strukturtypen erben implizit von der Klasse `System.ValueType` ([Vererbung](structs.md#inheritance)).
-*  Zuweisung zu einer Variable eines Strukturtyps erstellt eine Kopie des Werts zugewiesen wird ([Zuweisung](structs.md#assignment)).
-*  Der Standardwert einer Struktur ist der Wert, der erstellt werden, indem alle Werttypfelder auf ihre Standardwerte und alle Verweise auf Felder festlegen. `null` ([Standardwerte](structs.md#default-values)).
-*  Boxing und unboxing-Vorgänge werden verwendet, um zwischen einem Strukturtyp zu konvertieren und `object` ([Boxing und unboxing](structs.md#boxing-and-unboxing)).
-*  Die Bedeutung der `this` unterscheidet sich für Strukturen ([diesen Zugriff](expressions.md#this-access)).
-*  Instanz Steuerelementfeld-Deklarationen für eine Struktur dürfen nicht Variableninitialisierern enthalten ([Feld Initialisierer](structs.md#field-initializers)).
-*  Eine Struktur ist nicht zulässig, einen parameterlosen Instanzenkonstruktor deklarieren ([Konstruktoren](structs.md#constructors)).
-*  Eine Struktur ist nicht zulässig, einen Destruktor deklarieren ([Destruktoren](structs.md#destructors)).
+*  Strukturen sind Werttypen ([Wert Semantik](structs.md#value-semantics)).
+*  Alle Strukturtypen erben implizit von der-Klasse `System.ValueType` ([Vererbung](structs.md#inheritance)).
+*  Durch die Zuweisung zu einer Variablen eines Struktur Typs wird eine Kopie des zugewiesenen Werts ([Zuweisung](structs.md#assignment)) erstellt.
+*  Der Standardwert einer Struktur ist der Wert, der erzeugt wird, indem alle Werttyp Felder auf ihren Standardwert und alle Verweistyp Felder auf `null` ([Standardwerte](structs.md#default-values)) festgelegt werden.
+*  Boxing-und Unboxing-Vorgänge werden verwendet, um zwischen einem Strukturtyp und `object` ([Boxing und Unboxing](structs.md#boxing-and-unboxing)) zu konvertieren.
+*  Die Bedeutung von "`this`" unterscheidet sich für Strukturen ([dieser Zugriff](expressions.md#this-access)).
+*  Instanzfelddeklarationen für eine Struktur dürfen keine Variableninitialisierer ([Feldinitialisierer](structs.md#field-initializers)) enthalten.
+*  Eine Struktur darf keinen Parameter losen Instanzenkonstruktor ([Konstruktoren](structs.md#constructors)) deklarieren.
+*  Es ist nicht zulässig, einen destrukturtor ([destrukturtoren](structs.md#destructors)) zu deklarieren.
 
-### <a name="value-semantics"></a>Wertsemantik
+### <a name="value-semantics"></a>Wert Semantik
 
-Strukturen sind Werttypen ([Werttypen](types.md#value-types)) und Sie über Wertsemantik verfügen. Auf der anderen Seite sind Klassen, Verweistypen ([Verweistypen](types.md#reference-types)) und bewirken, haben Verweissemantik.
+Strukturen sind Werttypen ([Werttypen](types.md#value-types)) und werden als Wert Semantik bezeichnet. Klassen hingegen sind Verweis Typen ([Verweis Typen](types.md#reference-types)) und werden als Verweis Semantik bezeichnet.
 
-Eine Variable eines Strukturtyps enthält die Daten der Struktur direkt, während eine Variable eines Klassentyps einen Verweis auf die Daten der letzten bekannten als Objekt enthält. Wenn eine Struktur `B` enthält ein Instanzenfeld eines Typs `A` und `A` ist ein Strukturtyp, es ist ein Fehler während der Kompilierung für `A` hängt von `B` oder ein Typ erstellt, von `B`. Eine Struktur `X` ***hängt direkt von*** eine Struktur `Y` Wenn `X` enthält ein Instanzenfeld eines Typs `Y`. Dank dieser der vollständige Satz von Strukturen, die von der eine Struktur abhängig ist, wird den transitiven Abschluss von der ***hängt direkt von*** Beziehung.  Beispiel:
+Eine Variable eines Struktur Typs enthält direkt die Daten der Struktur, während eine Variable eines Klassen Typs einen Verweis auf die Daten enthält, wobei es sich um ein Objekt handelt, das als Objekt bezeichnet wird. Wenn eine Struktur `B` ein Instanzfeld vom Typ `A` und `A` ein Strukturtyp ist, ist dies ein Kompilierzeitfehler, damit `A` von `B` oder einem von `B` erstellten Typ abhängig ist. Eine Struktur `X` ist ***direkt von*** einer Struktur abhängig `Y`, wenn `X` ein Instanzfeld vom Typ `Y` enthält. Bei dieser Definition ist der gesamte Satz von Strukturen, von denen eine Struktur abhängt, das transitiv Schließen der direkt von der Beziehung ***abhängig*** .  Beispiel:
 ```csharp
 struct Node
 {
@@ -120,7 +120,7 @@ struct Node
     Node next; // error, Node directly depends on itself
 }
 ```
-ist ein Fehler, da `Node` ein Instanzenfeld des eigenen Typs enthält.  Ein weiteres Beispiel
+ist ein Fehler, da `Node` ein Instanzfeld seines eigenen Typs enthält.  Ein weiteres Beispiel
 ```csharp
 struct A { B b; }
 
@@ -128,11 +128,11 @@ struct B { C c; }
 
 struct C { A a; }
 ```
-ist ein Fehler, da alle Typen `A`, `B`, und `C` voneinander abhängig.
+ist ein Fehler, da jeder der Typen `A`, `B` und `C` voneinander abhängig ist.
 
-Mit Klassen ist es möglich, dass zwei Variablen auf dasselbe Objekt verweisen, und so können Vorgänge auf eine Variable auf das Objekt, das die andere Variable verweist auswirken. Mit Strukturen besitzt jede Variable eine eigene Kopie der Daten (außer im Fall von `ref` und `out` Parametervariablen), und es ist nicht möglich, für Vorgänge auf einem anderen zu beeinflussen. Darüber hinaus da Strukturen keine Verweistypen sind, ist es nicht möglich, dass die Werte eines Strukturtyps sein `null`.
+Mit-Klassen können zwei Variablen auf das gleiche Objekt verweisen, und so können Vorgänge in einer Variablen das Objekt beeinflussen, auf das von der anderen Variablen verwiesen wird. Bei Strukturen verfügen die Variablen jeweils über eine eigene Kopie der Daten (außer im Fall der Parameter Variablen "`ref`" und "`out`"), und es ist nicht möglich, dass Vorgänge auf einem anderen die anderen beeinflussen. Da Strukturen keine Verweis Typen sind, ist es nicht möglich, dass die Werte eines Struktur Typs `null` sind.
 
-Im Falle folgender Deklaration
+Bei Angabe der Deklaration
 ```csharp
 struct Point
 {
@@ -144,46 +144,46 @@ struct Point
     }
 }
 ```
-das Codefragment
+das Code Fragment
 ```csharp
 Point a = new Point(10, 10);
 Point b = a;
 a.x = 100;
 System.Console.WriteLine(b.x);
 ```
-Gibt den Wert `10`. Die Zuweisung von `a` zu `b` erstellt eine Kopie des Werts und `b` ist daher nicht betroffen, durch die Zuweisung zu `a.x`. Hatte `Point` wurde stattdessen als eine Klasse deklariert, ist die Ausgabe wäre `100` da `a` und `b` würde das gleiche Objekt verweisen.
+Gibt den Wert `10` aus. Durch die Zuweisung von `a` zu `b` wird eine Kopie des Werts erstellt, und `b` ist von der Zuweisung zu `a.x` nicht betroffen. Hätte `Point` stattdessen als Klasse deklariert, würde die Ausgabe `100` lauten, da `a` und `b` auf das gleiche Objekt verweisen würden.
 
 ### <a name="inheritance"></a>Vererbung
 
-Alle Strukturtypen erben implizit von der Klasse `System.ValueType`, das wiederum erbt von Klasse `object`. Eine Strukturdeklaration kann eine Liste der implementierten Schnittstellen angeben, aber es ist nicht möglich, für die Strukturdeklaration einer, die eine Basisklasse angeben.
+Alle Strukturtypen erben implizit von der-Klasse `System.ValueType`, die wiederum von der-Klasse `object` erbt. Eine Struktur Deklaration kann eine Liste der implementierten Schnittstellen angeben, aber es ist nicht möglich, dass eine Struktur Deklaration eine Basisklasse angibt.
 
-Strukturtypen sind nicht abstrakt und sind immer implizit versiegelt. Die `abstract` und `sealed` Modifizierer sind in einer Strukturdeklaration daher nicht zulässig.
+Strukturtypen sind niemals abstrakt und sind immer implizit versiegelt. Die Modifizierer "`abstract`" und "`sealed`" sind daher in einer Struktur Deklaration nicht zulässig.
 
-Da Vererbung für Strukturen nicht unterstützt wird, nicht die deklarierte Zugriffsart eines Members Struktur `protected` oder `protected internal`.
+Da die Vererbung für Strukturen nicht unterstützt wird, kann die deklarierte Barrierefreiheit eines Strukturmembers nicht `protected` oder `protected internal` sein.
 
-Funktionsmember in einer Struktur nicht `abstract` oder `virtual`, und die `override` Modifizierer kann nur für das Überschreiben von geerbten Methoden `System.ValueType`.
+Funktionsmember in einer Struktur können nicht `abstract` oder `virtual` sein, und der `override`-Modifizierer darf nur Methoden überschreiben, die von `System.ValueType` geerbt wurden.
 
 ### <a name="assignment"></a>Zuweisung
 
-Zuweisung zu einer Variable eines Strukturtyps erstellt eine Kopie der Wert zugewiesen wird. Dies unterscheidet sich von Zuweisung einer Variable eines Klassentyps, die den Verweis aber nicht das Objekt identifiziert, die durch den Verweis kopiert.
+Durch die Zuweisung zu einer Variablen eines Struktur Typs wird eine Kopie des zugewiesenen Werts erstellt. Dies unterscheidet sich von der Zuweisung zu einer Variablen eines Klassen Typs, die den Verweis, aber nicht das durch den Verweis identifizierte Objekt kopiert.
 
-Ähnlich wie bei einer Zuweisung ist, wenn eine Struktur als ein Value-Parameter übergeben oder als Ergebnis ein Funktionsmember zurückgegeben wird, wird eine Kopie der Struktur erstellt. Eine Struktur kann übergeben werden, durch Verweis auf ein Funktionsmember mithilfe einer `ref` oder `out` Parameter.
+Ähnlich wie bei einer Zuweisung wird eine Kopie der Struktur erstellt, wenn eine Struktur als Wert Parameter übergeben oder als Ergebnis eines Funktionsmembers zurückgegeben wird. Eine Struktur kann mithilfe eines `ref`-oder `out`-Parameters als Verweis an einen Funktionsmember übergeben werden.
 
-Wenn eine Eigenschaft oder der Indexer einer Struktur das Ziel einer Zuweisung ist, muss der Instanzausdruck, der mit der Eigenschaft oder der Indexer verknüpft als Variable klassifiziert werden. Wenn der Instanzausdruck als Wert klassifiziert ist, tritt ein Fehler während der Kompilierung. Dies wird ausführlicher im beschrieben [einfache Zuweisung](expressions.md#simple-assignment).
+Wenn eine Eigenschaft oder ein Indexer einer Struktur das Ziel einer Zuweisung ist, muss der Instanzausdruck, der der Eigenschaft oder dem Indexer-Zugriff zugeordnet ist, als Variable klassifiziert werden. Wenn der Instanzausdruck als Wert klassifiziert wird, tritt ein Kompilierzeitfehler auf. Dies wird in " [einfache Zuweisung](expressions.md#simple-assignment)" ausführlicher beschrieben.
 
 ### <a name="default-values"></a>Standardwerte
 
-Siehe [Standardwerte](variables.md#default-values), verschiedene Arten von Variablen werden automatisch auf ihren Standardwert initialisiert, wenn sie erstellt werden. Für die Variablen der Klasse und anderen Verweistypen, der Standardwert ist `null`. Aber da Strukturen Werttypen sind, die nicht möglich `null`, der Standardwert einer Struktur ist der Wert, der erstellt werden, indem alle Werttypfelder auf ihre Standardwerte und alle Verweise auf Felder festlegen. `null`.
+Wie in [Standardwerte](variables.md#default-values)beschrieben, werden bei der Erstellung automatisch verschiedene Arten von Variablen auf ihren Standardwert initialisiert. Für Variablen von Klassentypen und anderen Verweis Typen ist dieser Standardwert `null`. Da Strukturen jedoch Werttypen sind, die nicht `null` sein können, ist der Standardwert einer Struktur der Wert, der erzeugt wird, indem alle Werttyp Felder auf ihren Standardwert und alle Verweistyp Felder auf `null` festgelegt werden.
 
-Verweisen auf die `Point` Struktur deklariert werden, im Beispiel oben
+Im Beispiel wird auf die oben deklarierte `Point`-Struktur verwiesen.
 ```csharp
 Point[] a = new Point[100];
 ```
-Initialisiert alle `Point` in das Array, das den Wert ergibt, wenn die `x` und `y` Felder auf 0 (null).
+Initialisiert jede `Point` im-Array mit dem Wert, der erstellt wird, indem die Felder `x` und `y` auf NULL festgelegt werden.
 
-Der Standardwert einer Struktur entspricht dem Wert, der vom Standardkonstruktor der Struktur zurückgegeben ([Standardkonstruktoren](types.md#default-constructors)). Im Gegensatz zu einer Klasse ist eine Struktur nicht zulässig, einen parameterlosen Instanzenkonstruktor deklarieren. Stattdessen enthält jede Struktur implizit einen parameterlosen Instanzenkonstruktor die immer den Wert, die zurückgibt aus alle Werttypfelder auf ihre Standardwerte und alle Verweise auf Felder festlegen. `null`.
+Der Standardwert einer Struktur entspricht dem Wert, der vom Standardkonstruktor der Struktur zurückgegeben wird ([Standardkonstruktoren](types.md#default-constructors)). Anders als bei einer Klasse ist es nicht zulässig, einen Parameter losen Instanzkonstruktor zu deklarieren. Stattdessen verfügt jede Struktur implizit über einen Parameter losen Instanzenkonstruktor, der immer den Wert zurückgibt, der sich aus dem Festlegen aller Werttyp Felder auf ihren Standardwert und alle Verweistyp Felder auf `null` ergibt.
 
-Strukturen sollten so entworfen werden, die Standard-Initialisierungszustand mit einem gültigen Zustand berücksichtigen. Im Beispiel
+Strukturen sollten so entworfen werden, dass der standardmäßige Initialisierungs Zustand einen gültigen Status aufweist. Im Beispiel
 ```csharp
 using System;
 
@@ -199,15 +199,15 @@ struct KeyValuePair
     }
 }
 ```
-der Instanzkonstruktor für eine benutzerdefinierte schützt vor null-Werte nur, wenn es explizit aufgerufen wird. In Fällen, in denen eine `KeyValuePair` Variable unterliegt standardinitialisierung-Wert, der `key` und `value` Felder ist null, und die Struktur muss vorbereitet werden, um diesen Zustand zu behandeln.
+der benutzerdefinierte Instanzkonstruktor schützt nur bei NULL-Werten, wenn er explizit aufgerufen wird. In Fällen, in denen eine `KeyValuePair`-Variable der Standardwert Initialisierung unterliegt, sind die Felder `key` und `value` NULL, und die Struktur muss darauf vorbereitet sein, diesen Zustand zu verarbeiten.
 
 ### <a name="boxing-and-unboxing"></a>Boxing und Unboxing
 
-Der Wert ein Klassentyp konvertiert werden kann, Typ `object` oder in einen Schnittstellentyp, die von der Klasse implementiert wird, indem Sie einfach zum Behandeln des Verweis als einen anderen Typ zum Zeitpunkt der Kompilierung. Ebenso wird ein Wert vom Typ `object` oder ein Wert eines Schnittstellentyps wieder in einen Klassentyp konvertiert werden kann, ohne den Verweis (aber natürlich eine Laufzeittyp-Überprüfung ist erforderlich, in diesem Fall).
+Ein Wert eines Klassen Typs kann in den Typ `object` oder in einen Schnittstellentyp konvertiert werden, der von der-Klasse implementiert wird, indem der Verweis zum Zeitpunkt der Kompilierung als anderer Typ behandelt wird. Ebenso kann ein Wert vom Typ "`object`" oder ein Wert eines Schnittstellen Typs wieder in einen Klassentyp konvertiert werden, ohne den Verweis zu ändern (in diesem Fall ist jedoch eine Lauf Zeittyp Überprüfung erforderlich).
 
-Da Strukturen keine Verweistypen sind, werden diese Vorgänge für Strukturtypen anders implementiert. Wenn der Wert einen Strukturtyp in den Typ konvertiert wird `object` oder in einen Schnittstellentyp, der durch die Struktur implementiert wird, ein Boxing-Vorgang stattfindet. Ebenso, wenn ein Wert vom Typ `object` oder ein Wert eines Schnittstellentyps wieder in einen Strukturtyp konvertiert wird, ein unboxing-Vorgang stattfindet. Ein wichtiger Unterschied zu der gleichen Vorgänge für Klassentypen ist, dass das boxing und unboxing den Strukturwert entweder in oder aus der geschachtelten Instanz kopiert. Daher werden nach einem Boxing- oder unboxing-Vorgang an die nicht geschachtelten Struktur vorgenommenen Änderungen nicht in der geschachtelten Struktur wiedergegeben.
+Da Strukturen keine Verweis Typen sind, werden diese Vorgänge für Strukturtypen unterschiedlich implementiert. Wenn ein Wert eines Strukturtyps in den Typ `object` oder in einen Schnittstellentyp konvertiert wird, der von der Struktur implementiert wird, wird ein Boxing-Vorgang durchgeführt. Wenn ein Wert des Typs `object` oder ein Wert eines Schnittstellen Typs zurück in einen Strukturtyp konvertiert wird, erfolgt auch ein Unboxing-Vorgang. Ein wichtiger Unterschied von denselben Vorgängen für Klassentypen besteht darin, dass Boxing und Unboxing den Struktur Wert entweder in die oder aus der geachtelten Instanz kopieren. Folglich werden Änderungen an der Unboxing-Struktur, die an der Unboxing-Struktur vorgenommen werden, nicht in der Struktur der Struktur spiegele widergespiegelt.
 
-Wenn ein Strukturtyp überschreibt eine virtuelle Methode geerbt von `System.Object` (wie z. B. `Equals`, `GetHashCode`, oder `ToString`), Aufruf der virtuellen Methode durch eine Instanz des Strukturtyps verursacht keine Boxing auftreten. Dies gilt auch, wenn die Struktur, wie ein Typparameter verwendet wird und der Aufruf durch eine Instanz des Type-Parameter erfolgt. Zum Beispiel:
+Wenn ein Strukturtyp eine virtuelle Methode überschreibt, die von `System.Object` geerbt wurde (z. b. `Equals`, `GetHashCode` oder `ToString`), bewirkt der Aufruf der virtuellen Methode über eine Instanz des Struktur Typs nicht, dass Boxing erfolgt. Dies gilt auch, wenn die Struktur als Typparameter verwendet wird und der Aufruf durch eine Instanz des Typparameter Typs erfolgt. Zum Beispiel:
 ```csharp
 using System;
 
@@ -236,16 +236,16 @@ class Program
 }
 ```
 
-Die Ausgabe des Programms lautet:
-```
+Die Ausgabe des Programms lautet wie folgt:
+```console
 1
 2
 3
 ```
 
-Ungültiges Format für zwar `ToString` um Nebeneffekte haben, im Beispiel wird veranschaulicht, dass keine Boxing-Konvertierung für die drei Aufrufe von aufgetreten `x.ToString()`.
+Obwohl es für `ToString` nicht möglich ist, Nebeneffekte zu haben, zeigt das Beispiel, dass kein Boxing für die drei Aufrufe von `x.ToString()` aufgetreten ist.
 
-Auf ähnliche Weise beim boxing nie implizit ein Element in einem eingeschränkten Typparameter zugreifen auf. Nehmen wir beispielsweise an eine Schnittstelle `ICounter` enthält eine Methode `Increment` die können verwendet werden, um einen Wert zu ändern. Wenn `ICounter` dient als eine Einschränkung, die Implementierung der `Increment` Methode wird aufgerufen, mit einem Verweis auf die Variable, `Increment` für noch nie eine geschachtelte Kopie wurde aufgerufen.
+Auf ähnliche Weise tritt beim Zugriff auf ein Element in einem eingeschränkten Typparameter nie implizit ein Boxing auf. Angenommen, eine Schnittstelle `ICounter` enthält eine Methode `Increment`, die zum Ändern eines Werts verwendet werden kann. Wenn `ICounter` als Einschränkung verwendet wird, wird die Implementierung der `Increment`-Methode mit einem Verweis auf die Variable aufgerufen, für die `Increment` aufgerufen wurde, nie eine gepackte Kopie.
 
 ```csharp
 using System;
@@ -285,26 +285,26 @@ class Program
 }
 ```
 
-Der erste Aufruf `Increment` ändert den Wert in der Variablen `x`. Dies entspricht nicht der zweite Aufruf von `Increment`, die geändert, dass des Wert in eine geschachtelte Kopie von `x`. Daher ist die Ausgabe des Programms:
-```
+Beim ersten `Increment`-Aufrufwert wird der Wert in der Variablen `x` geändert. Dies entspricht nicht dem zweiten `Increment`-Aufrufwert, durch den der Wert in einer geboxten Kopie von `x` geändert wird. Folglich lautet die Ausgabe des Programms wie folgt:
+```console
 0
 1
 1
 ```
 
-Weitere Informationen zu Boxing und unboxing zu erhalten, finden Sie unter [Boxing und unboxing](types.md#boxing-and-unboxing).
+Weitere Informationen zu Boxing und Unboxing finden Sie unter [Boxing und Unboxing](types.md#boxing-and-unboxing).
 
-### <a name="meaning-of-this"></a>Bedeutung
+### <a name="meaning-of-this"></a>Bedeutung dieses
 
-Innerhalb eines Instanzkonstruktors oder Funktionsmember der Member einer Klasse, Instanz `this` wird als Wert klassifiziert. Daher zwar `this` kann verwendet werden, verweisen Sie auf der Instanz für das das Funktionselement aufgerufen wurde, ist es nicht möglich, Zuweisen `this` in ein Funktionsmember der Member einer Klasse.
+Innerhalb eines Instanzkonstruktors oder Instanzfunktionsmembers einer Klasse wird `this` als Wert klassifiziert. Wenn `this` verwendet werden kann, um auf die Instanz zu verweisen, für die das Funktionsmember aufgerufen wurde, ist es daher nicht möglich, `this` in einem Funktionsmember einer Klasse zuzuweisen.
 
-In einem Instanzenkonstruktor der eine Struktur `this` entspricht einer `out` Parameter des Strukturtyps und innerhalb einer Instanz Funktionsmember der Member einer Struktur, `this` entspricht einem `ref` Parameter des Strukturtyps. In beiden Fällen `this` wird als Variable klassifiziert, und es ist möglich, die gesamte Struktur ändern, für die das Funktionselement aufgerufen wurde, indem zuweisen `this` oder durch Übergabe als eine `ref` oder `out` Parameter.
+Innerhalb eines Instanzkonstruktors einer Struktur entspricht `this` einem `out`-Parameter des Struktur Typs, und innerhalb eines Instanzfunktionsmembers einer Struktur entspricht `this` einem `ref`-Parameter des Struktur Typs. In beiden Fällen wird `this` als Variable klassifiziert, und es ist möglich, die gesamte Struktur zu ändern, für die der Funktionsmember aufgerufen wurde, indem er `this` zugewiesen wurde oder indem er als `ref`-oder `out`-Parameter übergeben wird.
 
 ### <a name="field-initializers"></a>Feldinitialisierer
 
-Siehe [Standardwerte](structs.md#default-values), der Wert, der ergibt, wenn alle Werttypfelder auf ihre Standardwerte und alle Verweise auf Felder festlegen. der Standardwert einer Struktur besteht aus `null`. Aus diesem Grund lässt eine Struktur nicht Felddeklarationen Variableninitialisierern eingeschlossen wird. Diese Einschränkung gilt nur für Instanzfelder. Statische Felder einer Struktur Variable Initialisierer enthalten dürfen.
+Wie in [Standardwerte](structs.md#default-values)beschrieben, besteht der Standardwert einer Struktur aus dem Wert, der sich aus dem Festlegen aller Werttyp Felder auf den Standardwert und alle Verweistyp Felder auf `null` ergibt. Aus diesem Grund lässt eine Struktur nicht zu, dass Instanzfelddeklarationen Variableninitialisierer einschließen. Diese Einschränkung gilt nur für Instanzfelder. Statische Felder einer Struktur dürfen Variableninitialisierer einschließen.
 
-Im Beispiel
+Das Beispiel
 ```csharp
 struct Point
 {
@@ -312,11 +312,11 @@ struct Point
     public int y = 1;  // Error, initializer not permitted
 }
 ```
-Fehler ist, da die Instanz Felddeklarationen Variableninitialisierern enthalten.
+ist fehlerhaft, da die Instanzen Feld Deklarationen Variableninitialisierer enthalten.
 
 ### <a name="constructors"></a>Konstruktoren
 
-Im Gegensatz zu einer Klasse ist eine Struktur nicht zulässig, einen parameterlosen Instanzenkonstruktor deklarieren. Stattdessen enthält jede Struktur implizit einen parameterlosen Instanzenkonstruktor die immer den Wert, die zurückgibt aus alle Werttypfelder auf ihre Standardwerte und alle Verweise auf null-Feldern festlegen ([Standardkonstruktoren](types.md#default-constructors)). Eine Struktur kann Instanzkonstruktoren Parametern deklarieren. Beispiel:
+Anders als bei einer Klasse ist es nicht zulässig, einen Parameter losen Instanzkonstruktor zu deklarieren. Stattdessen verfügt jede Struktur implizit über einen Parameter losen Instanzenkonstruktor, der immer den Wert zurückgibt, der sich aus dem Festlegen aller Werttyp Felder auf ihren Standardwert und alle Verweistyp Felder auf NULL ([Standardkonstruktoren](types.md#default-constructors)) ergibt. Eine Struktur kann Instanzkonstruktoren mit Parametern deklarieren. Beispiel:
 ```csharp
 struct Point
 {
@@ -329,16 +329,16 @@ struct Point
 }
 ```
 
-Wenn die obige Deklaration, die Anweisungen
+Bei der obigen Deklaration werden die Anweisungen
 ```csharp
 Point p1 = new Point();
 Point p2 = new Point(0, 0);
 ```
-Erstellen einer `Point` mit `x` und `y` auf 0 (null) initialisiert.
+Beide erstellen eine `Point` mit `x` und `y` mit 0 (null) initialisiert.
 
-Ein Strukturkonstruktor-Instanz ist nicht zulässig, einem Konstruktorinitialisierer des Formulars einschließen `base(...)`.
+Ein Strukturinstanzkonstruktor darf keinen Konstruktorinitialisierer in der Form `base(...)` einschließen.
 
-Wenn die Struktur Instanzkonstruktor einem Konstruktorinitialisierer angeben, nicht der `this` Variable entspricht ein `out` -Parameter des Strukturtyps und ähnelt ein `out` Parameter `this` müssen (definitiv zugewiesen werden [Definitive Zuweisung](variables.md#definite-assignment)) an jedem Standort, in den Konstruktor zurück. Wenn der Struktur-Instanzkonstruktor einem Konstruktorinitialisierer gibt an, die `this` Variable entspricht eine `ref` -Parameter des Strukturtyps und ähnelt ein `ref` -Parameter `this` gilt als definitiv zugewiesen, auf der Eintrag in den Text des Konstruktors. Beachten Sie die Instanz Konstruktorimplementierung unten:
+Wenn der Strukturinstanzkonstruktor keinen Konstruktorinitialisierer angibt, entspricht die `this`-Variable einem `out`-Parameter des Struktur Typs. ähnlich wie bei einem `out`-Parameter muss `this` definitiv zugewiesen werden ([definitive Zuweisung). ](variables.md#definite-assignment)) an jedem Speicherort, an dem der Konstruktor zurückgibt. Wenn der Strukturinstanzkonstruktor einen Konstruktorinitialisierer angibt, entspricht die `this`-Variable einem `ref`-Parameter des Struktur Typs. ähnlich wie bei einem `ref`-Parameter wird `this` als definitiv beim Eintrag dem Konstruktortext zugewiesen. . Beachten Sie die folgende instanzkonstruktorimplementierung:
 ```csharp
 struct Point
 {
@@ -359,7 +359,7 @@ struct Point
 }
 ```
 
-Keine Instanz-Member-Funktion (einschließlich der Set-Accessoren für die Eigenschaften `X` und `Y`) aufgerufen werden kann, bis alle Felder der Struktur, die erstellt wird definitiv zugewiesen wurden. Die einzige Ausnahme umfasst automatisch implementierte Eigenschaften ([automatisch implementierten Eigenschaften](classes.md#automatically-implemented-properties)). Die Regeln für definitive Zuweisungen ([Ausdrücke für einfache Zuweisung](variables.md#simple-assignment-expressions)) schließen Sie die Zuweisung zu einer Auto-Eigenschaft eines Strukturtyps innerhalb eines Instanzkonstruktors dieses Strukturtyps speziell: eine solche Zuweisung gilt eine definitive das ausgeblendete dahinter liegende Feld der Auto-Eigenschaft zugeordnet. Daher ist Folgendes zulässig:
+Es kann keine Instanzmember-Funktion (einschließlich der Set-Accessoren für die Eigenschaften `X` und `Y`) aufgerufen werden, bis alle Felder der Struktur, die erstellt wird, definitiv zugewiesen wurden. Die einzige Ausnahme betrifft automatisch implementierte Eigenschaften ([automatisch implementierte Eigenschaften](classes.md#automatically-implemented-properties)). Die konkreten Zuweisungs Regeln ([einfache Zuweisungs Ausdrücke](variables.md#simple-assignment-expressions)) geben explizit die Zuweisung zu einer automatischen Eigenschaft eines Struktur Typs innerhalb eines Instanzkonstruktors dieses Struktur Typs aus: eine solche Zuweisung wird als eindeutige Zuweisung der ausgeblendeten dahinter liegendes Feld der Auto-Eigenschaft. Daher ist Folgendes zulässig:
 
 ```csharp
 struct Point
@@ -375,24 +375,24 @@ struct Point
 
 ### <a name="destructors"></a>Destruktoren
 
-Eine Struktur ist nicht zulässig, einen Destruktor deklarieren.
+Es ist nicht zulässig, einen Dekonstruktor zu deklarieren.
 
 ### <a name="static-constructors"></a>Statische Konstruktoren
 
-Statische Konstruktoren für Strukturen führen Sie die meisten hier dieselben Regeln wie bei Klassen. Die Ausführung eines statischen Konstruktors für einen Strukturtyp wird durch das erste der folgenden Ereignisse innerhalb einer Anwendungsdomäne ausgelöst:
+Statische Konstruktoren für Strukturen folgen den meisten der gleichen Regeln wie für-Klassen. Die Ausführung eines statischen Konstruktors für einen Strukturtyp wird durch das erste der folgenden Ereignisse ausgelöst, die innerhalb einer Anwendungsdomäne auftreten:
 
-*  Ein statischer Member des Strukturtyps ist auf die verwiesen wird.
-*  Ein Konstruktor explizit deklarierter des Strukturtyps wird aufgerufen.
+*  Es wird auf einen statischen Member des Struktur Typs verwiesen.
+*  Ein explizit deklarierter Konstruktor des Struktur Typs wird aufgerufen.
 
-Die Erstellung von Standardwerten ([Standardwerte](structs.md#default-values)) der Struktur löst Typen keinen statischen Konstruktor. (Ein Beispiel hierfür ist der Anfangswert der Elemente in einem Array.)
+Das Erstellen von Standardwerten ([Standardwerte](structs.md#default-values)) von Strukturtypen löst nicht den statischen Konstruktor aus. (Ein Beispiel hierfür ist der Anfangswert von Elementen in einem Array.)
 
-## <a name="struct-examples"></a>Beispiele für Strukturen
+## <a name="struct-examples"></a>Struktur Beispiele
 
-Das folgende Beispiel zeigt zwei wichtige Beispiele für die Verwendung `struct` Typen zum Erstellen von Typen, die auf ähnliche Weise auf die vordefinierten Typen der Sprache, aber mit der geänderten Semantik verwendet werden können.
+Das folgende Beispiel zeigt zwei bedeutende Beispiele für die Verwendung von `struct`-Typen, um Typen zu erstellen, die ähnlich wie die vordefinierten Typen der Sprache verwendet werden können, jedoch mit einer geänderten Semantik.
 
-### <a name="database-integer-type"></a>Datenbank-Integer-Datentyp
+### <a name="database-integer-type"></a>Daten Bank Integertyp
 
-Die `DBInt` -Struktur implementiert, einen ganzzahliger Typ, der den vollständigen Satz von Werten darstellen, kann die `int` -Typ sowie einen zusätzlichen Zustand, der einen unbekannten Wert angibt. Ein Typ mit folgenden Merkmalen wird häufig in Datenbanken verwendet.
+Die folgende `DBInt`-Struktur implementiert einen ganzzahligen Typ, der den gesamten Satz von Werten des `int`-Typs darstellen kann, zuzüglich eines zusätzlichen Zustands, der einen unbekannten Wert angibt. Ein Typ mit diesen Merkmalen wird häufig in Datenbanken verwendet.
 
 ```csharp
 using System;
@@ -508,9 +508,9 @@ public struct DBInt
 }
 ```
 
-### <a name="database-boolean-type"></a>Datenbank-boolean-Typ
+### <a name="database-boolean-type"></a>Boolescher Dateityp
 
-Die `DBBool` folgende Struktur implementiert einen logischen dreiwertige-Typ. Die möglichen Werte dieses Typs sind `DBBool.True`, `DBBool.False`, und `DBBool.Null`, wobei die `Null` Element gibt einen unbekannten Wert an. Diese logischen dreiwertige-Typen werden häufig in Datenbanken verwendet.
+In der folgenden `DBBool`-Struktur ist ein logischer Typ mit drei Werten implementiert. Mögliche Werte dieses Typs sind `DBBool.True`, `DBBool.False` und `DBBool.Null`, wobei der `Null`-Member einen unbekannten Wert angibt. Solche logischen Typen mit drei Werten werden häufig in Datenbanken verwendet.
 
 ```csharp
 using System;

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: adf81842e3c763c7bbdd3f10bb884dc1207b9099
-ms.sourcegitcommit: 0489cb64b7dfb328813d757f4d447a15b85a5851
+ms.openlocfilehash: 2026fc1bf9d3576b967cbc2e9a670aa44b7eab3a
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70912438"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704021"
 ---
 # <a name="documentation-comments"></a>Dokumentationskommentare
 
@@ -28,7 +28,7 @@ delimited_doc_comment
     ;
 ```
 
-Wenn in *einem single_line_doc_comment*ein *leer* Zeichen vorhanden ist, das auf `///` die Zeichen auf jeder der *single_line_doc_comment*s neben dem aktuellen *single_line_doc_comment*folgt, dann  *ein leer* Zeichen ist nicht in der XML-Ausgabe enthalten.
+Wenn in einem *single_line_doc_comment*ein *leer* Zeichen vorhanden ist, das auf die `///`-Zeichen auf jeder der *single_line_doc_comment*s neben dem aktuellen *single_line_doc_comment*folgt, dann wird dieses *Leerraum* das Zeichen ist nicht in der XML-Ausgabe enthalten.
 
 Wenn in einem durch Trennzeichen getrennten doc-Kommentar das erste Zeichen in der zweiten Zeile, das kein Leerzeichen ist, ein Sternchen und das gleiche Muster optionaler leer Raum Zeichen und ein Sternchen am Anfang jeder Zeile innerhalb des durch Trennzeichen getrennten-doc-Kommentars wiederholt wird. dann sind die Zeichen des wiederholten Musters nicht in der XML-Ausgabe enthalten. Das Muster kann Leerzeichen nach und vor das Sternchen Zeichen enthalten.
 
@@ -186,7 +186,7 @@ Dieses Tag ermöglicht das Einschließen von Informationen aus einem XML-Dokumen
 
 __Syntax:__
 
-```
+```xml
 <include file="filename" path="xpath" />
 ```
 
@@ -595,7 +595,7 @@ Beim Generieren der ID-Zeichen folgen werden die folgenden Regeln vom Dokumentat
    | __Zeichen__ | __Beschreibung__                                             |
    |---------------|-------------------------------------------------------------|
    | E             | event                                                       |
-   | F             | Feld                                                       |
+   | V             | Feld                                                       |
    | M             | Methode (einschließlich Konstruktoren, Dekonstruktoren und Operatoren) |
    | N             | Namespace                                                   |
    | P             | Eigenschaft (einschließlich Indexer)                               |
