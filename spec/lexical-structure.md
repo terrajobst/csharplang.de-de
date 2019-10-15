@@ -1,46 +1,46 @@
 ---
-ms.openlocfilehash: e103f6629a363c6cd76607699ff74d69aa73ed57
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 4676bcd3f0a92260b4e5e20a0aa5b5ec00bf204e
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488971"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704072"
 ---
 # <a name="lexical-structure"></a>Lexikalische Struktur
 
 ## <a name="programs"></a>Programs
 
-Eine C#- ***Programm*** besteht aus einem oder mehreren ***Quelldateien***, bekannt als formal ***Kompilierungseinheiten*** ([Kompilierungseinheiten](namespaces.md#compilation-units)). Eine Quelldatei ist eine geordnete Sequenz von Unicode-Zeichen. Quelldateien müssen in der Regel eine 1: 1-Entsprechung mit Dateien in einem Dateisystem, aber diese Zuordnung ist nicht erforderlich. Zur maximalen Portabilität wird empfohlen, die Dateien in einem Dateisystem mit UTF-8 codiert werden Codierung.
+Ein C# ***Programm*** besteht aus mindestens einer ***Quelldatei***, die formal als ***Kompilierungs Einheiten*** ([Kompilierungs Einheiten](namespaces.md#compilation-units)) bekannt ist. Eine Quelldatei ist eine geordnete Sequenz von Unicode-Zeichen. Quelldateien verfügen in der Regel über eine eins-zu-eins-Entsprechung zu Dateien in einem Dateisystem, diese Entsprechung ist jedoch nicht erforderlich. Zur maximalen Portabilität wird empfohlen, dass Dateien in einem Dateisystem mit der UTF-8-Codierung codiert werden.
 
-Konzeptuell gesehen, ist ein Programm kompiliert mit drei Schritten:
+Konzeptionell wird ein Programm mithilfe von drei Schritten kompiliert:
 
-1. Diese Transformation, die eine Datei von einem bestimmten zeichenrepertoire und Codierungsschema in eine Folge von Unicode-Zeichen konvertiert.
-2. Lexikalische Analyse, der einen Stream von Unicode-Zeichen-Eingabe in einen Stream von Token übersetzt.
-3. Syntaktischen Analyse, der den Strom der Token in ausführbaren Code übersetzt.
+1. Transformation, die eine Datei von einem bestimmten Zeichen-und Codierungsschema in eine Unicode-Zeichenfolge konvertiert.
+2. Lexikalische Analyse, die einen Stream von Unicode-Eingabezeichen in einen Datenstrom von Token übersetzt.
+3. Syntaktische Analyse, bei der der Datenstrom von Token in ausführbaren Code übersetzt wird.
 
 ## <a name="grammars"></a>Grammatiken
 
-Diese Spezifikation enthält die Syntax der C#-Programmiersprache mit zwei Grammatiken. Die ***lexikalische Grammatik*** ([lexikalische Grammatik](lexical-structure.md#lexical-grammar)) definiert, wie Unicode-Zeichen kombiniert werden, um das Zeilenabschlusszeichen, Leerzeichen, Kommentare, Token und Präprozessordirektiven. Die ***syntaktischen Grammatik*** ([syntaktischen Grammatik](lexical-structure.md#syntactic-grammar)) definiert, wie die Token, die durch die lexikalische Grammatik auf C#-Programme kombiniert werden.
+Diese Spezifikation zeigt die Syntax der C# Programmiersprache mithilfe von zwei Grammatiken. Die ***lexikalische Grammatik*** ([lexikalische Grammatik](lexical-structure.md#lexical-grammar)) definiert, wie Unicode-Zeichen kombiniert werden, um Zeilen Abschluss Zeichen, Leerzeichen, Kommentare, Token und Vorverarbeitungs Direktiven zu bilden. Die ***syntaktische Grammatik*** ([syntaktische Grammatik](lexical-structure.md#syntactic-grammar)) definiert, wie die aus der lexikalischen Grammatik resultierenden Token in Form C# von Programmen kombiniert werden.
 
-### <a name="grammar-notation"></a>Grammar notation
+### <a name="grammar-notation"></a>Grammatik Notation
 
-Der lexikalischen und syntaktischen Grammatik werden in Backus-Naur-Form, die mithilfe der Notation des ANTLR-Grammatik Tools angezeigt.
+Die lexikalischen und syntaktischen Grammatiken werden im Backus-Naur-Formular mithilfe der Notation des antlr-Grammatik Tools dargestellt.
 
 ### <a name="lexical-grammar"></a>Lexikalische Grammatik
 
-Die lexikalische Grammatik von c# werden im [Lexikalische Analyse](lexical-structure.md#lexical-analysis), [Token](lexical-structure.md#tokens), und [Präprozessordirektiven](lexical-structure.md#pre-processing-directives). Die terminal-Symbole der lexikalische Grammatik sind die Zeichen des Unicode-Zeichensatz aus, und die lexikalische Grammatik gibt an, wie Zeichen kombiniert werden, um Formular-Token ([Token](lexical-structure.md#tokens)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), und Präprozessordirektiven ([Präprozessordirektiven](lexical-structure.md#pre-processing-directives)).
+Die lexikalische Grammatik von C# wird in [lexikalischen Analysen](lexical-structure.md#lexical-analysis), [Token](lexical-structure.md#tokens)und [Vorverarbeitungs Direktiven](lexical-structure.md#pre-processing-directives)dargestellt. Die Terminal Symbole der lexikalischen Grammatik sind die Zeichen des Unicode-Zeichensatzes, und die lexikalische Grammatik gibt an, wie Zeichen kombiniert werden, um Token ([Token](lexical-structure.md#tokens)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)) und Vorverarbeitungs Direktiven ([Vorverarbeitungs Direktiven](lexical-structure.md#pre-processing-directives)).
 
-Jede Quelldatei in einem C#-Programm entsprechen den *Eingabe* Produktion der lexikalische Grammatik ([Lexikalische Analyse](lexical-structure.md#lexical-analysis)).
+Jede Quelldatei in einem C# Programm muss der *Eingabe* Produktion der lexikalischen Grammatik ([lexikalische Analyse](lexical-structure.md#lexical-analysis)) entsprechen.
 
-### <a name="syntactic-grammar"></a>Syntaktischen Grammatik
+### <a name="syntactic-grammar"></a>Syntaktische Grammatik
 
-Die syntaktische Grammatik der C# -Code wird angezeigt, in den Kapiteln und Anhänge, die diesem Kapitel nachvollziehen können. Die terminal-Symbole der syntaktischen Grammatik sind die Token, die durch die lexikalische Grammatik definiert, und die syntaktische Grammatik gibt an, wie Token C#-Programme kombiniert werden.
+Die syntaktische Grammatik von C# wird in den Kapiteln und Anhänge dargestellt, die diesem Kapitel folgen. Die Terminal Symbole der syntaktischen Grammatik sind die von der lexikalischen Grammatik definierten Token, und die syntaktische Grammatik gibt an, wie Token in Form C# von Programmen kombiniert werden.
 
-Jede Quelldatei in einen C# Programm entsprechen den *Compilation_unit* Produktion der syntaktischen Grammatik ([Kompilierungseinheiten](namespaces.md#compilation-units)).
+Jede Quelldatei in einem C# Programm muss der *compilation_unit* -Produktion der syntaktischen Grammatik ([Kompilierungs Einheiten](namespaces.md#compilation-units)) entsprechen.
 
 ## <a name="lexical-analysis"></a>Lexikalische Analyse
 
-Die *Eingabe* Produktion definiert die lexikalische Struktur einer C#-Quelldatei. Jede Quelldatei in einem C#-Programm muss diese Produktion lexikalische Grammatik entsprechen.
+Die *Eingabe* Produktion definiert die lexikalische Struktur einer C# Quelldatei. Jede Quelldatei in einem C# Programm muss mit dieser lexikalischen Grammatik-Produktion übereinstimmen.
 
 ```antlr
 input
@@ -63,17 +63,17 @@ input_element
     ;
 ```
 
-Die lexikalische Struktur besteht aus fünf grundlegenden Elementen eine C# Quelldatei: Zeilenabschlüssen ([Zeilenabschlüssen](lexical-structure.md#line-terminators)), Leerzeichen ([Leerraum](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), Token ([Token](lexical-structure.md#tokens)), und Präprozessordirektiven ([Präprozessordirektiven](lexical-structure.md#pre-processing-directives)). Diese grundlegenden Elementen, nur Token sind von Bedeutung, in der syntaktischen Grammatik eines C#-Programms ([syntaktischen Grammatik](lexical-structure.md#syntactic-grammar)).
+Fünf grundlegende Elemente bilden die lexikalische Struktur einer C# Quelldatei: Zeilen Abschluss Zeichen ([Zeilen](lexical-structure.md#line-terminators)Abschluss Zeichen), Leerraum (leer[Zeichen](lexical-structure.md#white-space)), Kommentare ([Kommentare](lexical-structure.md#comments)), Token ([Token](lexical-structure.md#tokens)) und Vorverarbeitungs Direktiven ([Vorverarbeitungs Direktiven](lexical-structure.md#pre-processing-directives)). Von diesen grundlegenden Elementen sind nur Token in der syntaktischen Grammatik eines C# Programms ([syntaktische Grammatik](lexical-structure.md#syntactic-grammar)) von Bedeutung.
 
-Reduzieren Sie die Datei in eine Folge von Token, die die Eingabe für die syntaktischen Analyse wird, besteht die lexikalische Verarbeitung einer C#-Quelldatei aus. Zeilenabschlusszeichen, Leerzeichen und Kommentare dienen zum Trennen von Tokens, und Präprozessordirektiven können dazu führen, dass Teile der Quelldatei, die übersprungen werden, aber andernfalls diese lexikalischen Elemente haben keine Auswirkung auf die syntaktische Struktur eines C#-Programms.
+Die lexikalische Verarbeitung einer C# Quelldatei besteht darin, die Datei in eine Folge von Token zu reduzieren, die zur Eingabe für die syntaktische Analyse wird. Zeilen Abschluss Zeichen, Leerräume und Kommentare können für separate Token dienen, und Vorverarbeitungs Direktiven können dazu führen, dass Abschnitte der Quelldatei übersprungen werden. andernfalls haben diese lexikalischen Elemente keinerlei Auswirkung auf die syntaktische Struktur eines C# Programms.
 
-Im Fall von interpolierten Zeichenfolgenliterale ([interpolierte Zeichenfolgenliterale](lexical-structure.md#interpolated-string-literals)) ein einzelnes Token wird anfänglich von der lexikalischen Analyse erstellt, aber in mehrere Eingabeelemente, die wiederholt bei der lexikalischen Analyse unterzogen werden unterteilt ist bis alle interpolierte Zeichenfolgenliterale gelöst wurden. Die daraus resultierende Token dienen dann als Eingabe für die syntaktischen Analyse.
+Bei interpoliert-Zeichen folgen Literalen ([interpoliert Zeichen folgen Literale](lexical-structure.md#interpolated-string-literals)) wird zunächst ein einzelnes Token von der lexikalischen Analyse erstellt, aber in mehrere Eingabeelemente unterteilt, die wiederholt der lexikalischen Analyse unterzogen werden, bis alle interpoliert werden. Zeichenfolgenliterale wurden aufgelöst. Die resultierenden Token dienen dann als Eingabe für die syntaktische Analyse.
 
-Wenn mehrere lexikalische Grammatikproduktionen übereinstimmt, der eine Folge von Zeichen in einer Quelldatei, bildet der lexikalischen Verarbeitung immer die am längsten mögliche lexikalische Element angezeigt. Z. B. die Zeichensequenz `//` wird die als Anfang eines einzeiligen Kommentars verarbeitet werden, da dieses lexikalische Element mehr als eine einzelne ist `/` token.
+Wenn mehrere lexikalische Grammatik Produktionen einer Sequenz von Zeichen in einer Quelldatei entsprechen, bildet die lexikalische Verarbeitung immer das längstmögliche lexikalische Element. Beispielsweise wird die Zeichenfolge `//` als Anfang eines einzeiligen Kommentars verarbeitet, da dieses lexikalische Element länger als ein einzelnes `/` Token ist.
 
-### <a name="line-terminators"></a>Zeilenabschlusszeichen
+### <a name="line-terminators"></a>Zeilen Abschluss Zeichen
 
-Zeilenabschlusszeichen unterteilen Sie die Zeichen einer C#-Quelldatei in Zeilen.
+Zeilen Abschluss Zeichen teilen die Zeichen einer C# Quelldatei in Zeilen auf.
 
 ```antlr
 new_line
@@ -86,14 +86,14 @@ new_line
     ;
 ```
 
-Für Kompatibilität mit Source code Bearbeitungstools, die End-of-File-Marker hinzufügen, und zum Aktivieren einer Datenquelle Datei als Sequenz angezeigt werden, ordnungsgemäß Zeilen beendet, werden die folgenden Transformationen angewendet, in der Reihenfolge jede Quelldatei in einem C#-Programm:
+Aus Kompatibilitätsgründen mit Tools zur Quell Code Bearbeitung, die Dateiendemarker hinzufügen und eine Quelldatei als Sequenz von ordnungsgemäß beendeten Zeilen angezeigt werden können, werden die folgenden Transformationen in der entsprechenden Reihenfolge auf jede Quelldatei in einem C# Programm angewendet:
 
-*  Wenn das letzte Zeichen der Quelldatei ein STRG + Z-Zeichen ist (`U+001A`), wird dieses Zeichen gelöscht.
-*  Ein Wagenrücklaufzeichen (`U+000D`) wird am Ende der Quelldatei hinzugefügt, wenn der Quelldatei nicht leer ist und das letzte Zeichen der Quelldatei kein Wagenrücklauf (`U+000D`), ein Zeilenvorschub (`U+000A`), ein Zeilentrennzeichen (`U+2028`), oder einen Absatzseparator (`U+2029`).
+*  Wenn das letzte Zeichen der Quelldatei ein Control-Z-Zeichen (`U+001A`) ist, wird dieses Zeichen gelöscht.
+*  Ein Wagen Rücklauf Zeichen (`U+000D`) wird am Ende der Quelldatei hinzugefügt, wenn diese Quelldatei nicht leer ist, und wenn das letzte Zeichen der Quelldatei kein Wagen Rücklauf Zeichen (`U+000D`)`U+000A`, ein Zeilenvorschub (), ein Zeilen Trennzeichen`U+2028`() oder ein Absatz Trennzeichen (`U+2029`).
 
 ### <a name="comments"></a>Kommentare
 
-Zwei Arten von Kommentaren werden unterstützt: einzeilige Kommentare und Kommentare mit Trennzeichen. ***Einzeilige Kommentare*** beginnen mit den Zeichen `//` und am Ende der Quellzeile erweitern. ***Als Trennzeichen Kommentare*** beginnen mit den Zeichen `/*` und enden mit den Zeichen `*/`. Kommentare mit Trennzeichen können es sich um mehrere Zeilen erstrecken.
+Zwei Arten von Kommentaren werden unterstützt: einzeilige Kommentare und durch Trennzeichen getrennte Kommentare. ***Einzeilige Kommentare*** beginnen mit den Zeichen `//` und werden bis zum Ende der Quellzeile erweitert. Durch Trennzeichen getrennte ***Kommentare*** beginnen mit `/*` den Zeichen und enden mit `*/`den Zeichen. Begrenzungs Kommentare können sich über mehrere Zeilen erstrecken.
 
 ```antlr
 comment
@@ -135,11 +135,11 @@ not_slash_or_asterisk
     ;
 ```
 
-Kommentare schachteln nicht. Die Zeichensequenzen `/*` und `*/` haben keine spezielle Bedeutung in einer `//` Kommentar und die Zeichensequenzen `//` und `/*` haben keine spezielle Bedeutung in einer durch Trennzeichen getrennten Kommentar.
+Kommentare werden nicht geschachtelt. Die Zeichen folgen `/*` und `*/` haben keine besondere Bedeutung innerhalb eines `//` Kommentars, und die Zeichen `//` folgen `/*` und haben keine besondere Bedeutung in einem durch Trennzeichen getrennten Kommentar.
 
-Kommentare werden in Zeichen- und Zeichenfolgenliterale nicht verarbeitet werden.
+Kommentare werden nicht innerhalb von Zeichen-und Zeichen folgen literalen verarbeitet.
 
-Im Beispiel
+Das Beispiel
 ```csharp
 /* Hello, world program
    This program writes "hello, world" to the console
@@ -153,7 +153,7 @@ class Hello
 ```
 enthält einen durch Trennzeichen getrennten Kommentar.
 
-Im Beispiel
+Das Beispiel
 ```csharp
 // Hello, world program
 // This program writes "hello, world" to the console
@@ -165,11 +165,11 @@ class Hello // any name will do for this class
     }
 }
 ```
-Zeigt mehrere einzeilige Kommentare.
+zeigt mehrere einzeilige Kommentare an.
 
 ### <a name="white-space"></a>Leerraum
 
-Leerraum wird definiert, als beliebiges Zeichen mit Unicode-Klasse Zs (einschließlich Leerzeichen) als auch das horizontale Tabulatorzeichen, die vertikales Tabstoppzeichen und das Formular Zeichen Feed.
+Leerraum ist als beliebiges Zeichen mit Unicode-Klassen-ZS (einschließlich Leerzeichen) sowie dem horizontalen Tabstopp Zeichen, dem vertikalen Tabstopp Zeichen und dem Formular Vorschub Zeichen definiert.
 
 ```antlr
 whitespace
@@ -182,7 +182,7 @@ whitespace
 
 ## <a name="tokens"></a>tokens
 
-Es gibt mehrere Arten von Token: Bezeichner, Schlüsselwörter, Literale, Operatoren und Markierungszeichen. Leerzeichen und Kommentare sind nicht-Token, obwohl sie als Trennzeichen für Token verwendet werden.
+Es gibt mehrere Arten von Token: Bezeichner, Schlüsselwörter, Literale, Operatoren und Satzzeichen. Leerzeichen und Kommentare sind keine Token, obwohl Sie als Trennzeichen für Token fungieren.
 
 ```antlr
 token
@@ -197,9 +197,9 @@ token
     ;
 ```
 
-### <a name="unicode-character-escape-sequences"></a>Unicode-Escapesequenzen für Steuerzeichen
+### <a name="unicode-character-escape-sequences"></a>Unicode-Escapesequenzen
 
-Eine Unicode-Zeichen-Escapesequenz stellt ein Unicode-Zeichen dar. Escapesequenzen für Unicode-Zeichen in Bezeichnern verarbeitet werden ([Bezeichner](lexical-structure.md#identifiers)), Zeichenliterale ([Zeichenliterale](lexical-structure.md#character-literals)), und Reguläre Zeichenfolgenliterale ([Zeichenfolgenliterale](lexical-structure.md#string-literals)). Die Escapesequenz für ein Unicode-Zeichen wird nicht in einem anderen Speicherort (z. B. um einen Operator, Markierungszeichen oder Schlüsselwort bilden) verarbeitet.
+Eine Unicode-Escapesequenz stellt ein Unicode-Zeichen dar. Escapesequenzen von Unicode-Zeichen werden in bezeichern ([bezeichern](lexical-structure.md#identifiers)), Zeichen Literalen ([Zeichen literalen](lexical-structure.md#character-literals)) und regulären Zeichen folgen Literalen ([Zeichen folgen Literale](lexical-structure.md#string-literals)) verarbeitet. Eine Unicode-Escapesequenz wird an keinem anderen Speicherort verarbeitet (z. b. zum bilden eines Operators, eines interpunterators oder eines Schlüssel Worts).
 
 ```antlr
 unicode_escape_sequence
@@ -208,11 +208,11 @@ unicode_escape_sequence
     ;
 ```
 
-Eine Unicode-Escape-Sequenz darstellt, das einzelne Unicode-Zeichen gebildet, indem die hexadezimale Zahl nach der "`\u`"oder"`\U`" Zeichen. Da c# eine 16-Bit-Codierung von Unicode-Codepunkte in Zeichen und Zeichenfolgenwerte verwendet, wird ein Unicode-Zeichen im Bereich U + 10000 bis U + 10FFFF ist nicht in einem Zeichenliteral zulässig und wird mithilfe eines Unicode-Ersatzzeichenpaars in einem Zeichenfolgenliteral dargestellt. Mit den Codepunkten oben 0x10FFFF Unicode-Zeichen werden nicht unterstützt.
+Eine Unicode-Escapesequenz stellt das einzelne Unicode-Zeichen dar, das durch die hexadezimal`\U`Zahl nach den Zeichen "`\u`" oder "" gebildet wird. Da C# eine 16-Bit-Codierung von Unicode-Code Punkten in Zeichen und Zeichen folgen Werten verwendet, ist ein Unicode-Zeichen im Bereich u + 10000 bis U + 10FFFF in einem Zeichenliterals nicht zulässig und wird mit einem Unicode-Ersatz Zeichenpaar in einem Zeichenfolgenliteralzeichen dargestellt. Unicode-Zeichen mit Code Punkten oberhalb von 0x10FFFF werden nicht unterstützt.
 
-Mehrere Übersetzungen werden nicht ausgeführt. Z. B. das Zeichenfolgenliteral "`\u005Cu005C`"ist gleich"`\u005C`"statt"`\`". Der Unicode-Wert `\u005C` ist das Zeichen "`\`".
+Es werden nicht mehrere Übersetzungen ausgeführt. Beispielsweise entspricht`\u005Cu005C``\u005C`das Zeichen folgen Literalzeichen "" anstelle von "`\`". Der Unicode- `\u005C` Wert ist das Zeichen`\`"".
 
-Im Beispiel
+Das Beispiel
 ```csharp
 class Class1
 {
@@ -223,7 +223,7 @@ class Class1
     }        
 }
 ```
-zeigt verschiedene Verwendungsmöglichkeiten des `\u0066`, d.h., dass die Escapesequenz für den Buchstaben "`f`". Das Programm ist gleich
+zeigt verschiedene Verwendungen `\u0066`von, d. h. die Escapesequenz für den Buchstaben "`f`". Das Programm entspricht
 ```csharp
 class Class1
 {
@@ -237,7 +237,7 @@ class Class1
 
 ### <a name="identifiers"></a>Bezeichner
 
-Die Regeln für Bezeichner, die in diesem Abschnitt angegebene entsprechen exakt mit den empfohlenen durch den Unicode Standard Annex 31, mit dem Unterschied, dass Unterstrich als erste Zeichen zulässig ist (wie in der Programmiersprache C herkömmliche ist), Unicode-Escapesequenzen, die Sequenzen sind in Bezeichnern zulässig und der "`@`" Zeichen ist zulässig, als Präfix zu Schlüsselwörtern als Bezeichner verwendet werden soll.
+Die Regeln für Bezeichner, die in diesem Abschnitt angegeben sind, entsprechen genau den Regeln, die vom Unicode-Standard Anhang 31 empfohlen werden, mit dem Unterschied, dass Unterstriche als Ausgangs Zeichen zulässig sind (wie es in der C-Programmiersprache üblich ist). zulässig in bezeichlern, und das Zeichen`@`"" ist als Präfix zulässig, damit Schlüsselwörter als Bezeichner verwendet werden können.
 
 ```antlr
 identifier
@@ -292,15 +292,15 @@ formatting_character
     ;
 ```
 
-Informationen auf die oben genannten Unicode-Zeichenklassen finden Sie im Unicode-Standard, Version 3.0, Abschnitt 4.5.
+Informationen zu den oben erwähnten Unicode-Zeichenklassen finden Sie im Unicode-Standard, Version 3,0, Abschnitt 4,5.
 
-Beispiele für gültige Bezeichner sind "`identifier1`","`_identifier2`", und "`@if`".
+Beispiele für gültige Bezeichner sind "`identifier1`", "`_identifier2`" und "`@if`".
 
-Gemäß Unicode Standard Annex 15, muss ein Bezeichner in einem entsprechenden Programm im kanonischen Format durch Unicode-Normalisierungsform C, definiert sein. Das Verhalten, wenn einen Bezeichner nicht in der Normalisierungsform C auftreten wird die Implementierung definiert; eine Diagnose ist jedoch nicht erforderlich.
+Ein Bezeichner in einem übereinstimmenden Programm muss das kanonische Format aufweisen, das durch die Unicode-normalisierungs Form C definiert ist, wie im Unicode-Standard Anhang 15 definiert Das Verhalten beim Auffinden eines Bezeichners, der nicht in der normalisierungs Form C vorliegt, ist Implementierungs definiert. eine Diagnose ist jedoch nicht erforderlich.
 
-Das Präfix "`@`" ermöglicht die Verwendung von Schlüsselwörtern als Bezeichner, was nützlich ist, für die Kommunikation mit anderen Programmiersprachen. Das Zeichen `@` ist nicht Bestandteil des Bezeichners, damit der Bezeichner in anderen Sprachen als normale Bezeichner, ohne das Präfix angezeigt wird. Ein Bezeichner mit einem `@` Präfix wird aufgerufen, eine ***ausführliche Bezeichner***. Verwenden der `@` Präfix für Bezeichner entsprechen, die keine Schlüsselwörter sind zulässig, jedoch nicht empfohlen, als eine Frage des Stils.
+Das-Präfix "`@`" ermöglicht die Verwendung von Schlüsselwörtern als Bezeichner, was bei der Schnittstellen mit anderen Programmiersprachen nützlich ist. Das Zeichen `@` ist nicht Teil des Bezeichners, daher kann der Bezeichner in anderen Sprachen als normaler Bezeichner ohne das Präfix angezeigt werden. Ein Bezeichner mit `@` einem Präfix wird als ***ausführlicher Bezeichner***bezeichnet. Die `@` Verwendung des Präfix für Bezeichner, bei denen es sich nicht um Schlüsselwörter handelt, ist zulässig, aber es wird dringend davon abgeraten.
 
-Beispiel:
+Das Beispiel:
 ```csharp
 class @class
 {
@@ -319,19 +319,19 @@ class Class1
     }
 }
 ```
-definiert eine Klasse namens "`class`"mit einer statischen Methode, die mit dem Namen"`static`", akzeptiert einen Parameter namens"`bool`". Beachten Sie, die seit der Unicode-Escapesequenzen in Schlüsselwörter, die das Token nicht zulässig sind "`cl\u0061ss`"ist ein Bezeichner, und der gleiche Bezeichner wie ist"`@class`".
+definiert eine Klasse`class`mit dem Namen "" mit einer statischen Methode`static`mit dem Namen "", die`bool`einen Parameter mit dem Namen "" annimmt. Beachten Sie, dass das Token "`cl\u0061ss`" ein Bezeichner ist, da Unicode-Escapezeichen in Schlüsselwörtern nicht zulässig sind und denselben Bezeichner wie "`@class`" haben.
 
-Zwei Bezeichner gelten als identisch, wenn sie identisch sind, nachdem Sie die folgenden Transformationen in der Reihenfolge angewendet werden:
+Zwei Bezeichner werden als identisch angesehen, wenn Sie nach dem Anwenden der folgenden Transformationen identisch sind:
 
-*  Das Präfix "`@`", wenn verwendet, wird entfernt.
-*  Jede *Unicode_escape_sequence* wird umgewandelt in das entsprechende Unicode-Zeichen.
-*  Alle *Formatting_character*s werden entfernt.
+*  Wenn Sie verwendet`@`wird, wird das Präfix "" entfernt.
+*  Jede *unicode_escape_sequence* wird in das entsprechende Unicode-Zeichen transformiert.
+*  Alle *formatting_character*s werden entfernt.
 
-Bezeichner mit zwei aufeinander folgende Unterstriche (`U+005F`) für die Verwendung durch die Implementierung reserviert sind. Beispielsweise kann eine Implementierung erweiterter Schlüsselwörter bereitstellen, die mit zwei unterstrichen beginnen.
+Bezeichner, die zwei aufeinander folgende unter`U+005F`Striche () enthalten, sind für die Verwendung durch die-Implementierung reserviert. Beispielsweise kann eine-Implementierung erweiterte Schlüsselwörter bereitstellen, die mit zwei unterstrichen beginnen.
 
-### <a name="keywords"></a>Schlüsselwörter
+### <a name="keywords"></a>Stichwörter
 
-Ein ***Schlüsselwort*** ist eine Bezeichner-ähnliche Folge von Zeichen, das ist reserviert und kann nicht als Bezeichner außer bei vorangestelltem verwendet werden die `@` Zeichen.
+Ein ***Schlüsselwort*** ist eine bezeichnerartige Zeichenfolge, die reserviert ist und nicht als Bezeichner verwendet werden kann, es sei denn, `@` das Zeichen wird vorangestellt.
 
 ```antlr
 keyword
@@ -354,11 +354,11 @@ keyword
     ;
 ```
 
-An einigen Stellen in der Grammatik spezifische Bezeichner haben eine besondere Bedeutung, aber sind keine Schlüsselwörter. Solche Bezeichner werden manchmal als "kontextabhängige Schlüsselwörter" bezeichnet. Z. B. in einer Eigenschaftendeklaration die "`get`"und"`set`" Bezeichner haben eine besondere Bedeutung ([Accessoren](classes.md#accessors)). Andere Bezeichner als `get` oder `set` ist nie in diesen Speicherorten zulässig, sodass diese Verwendung nicht zu Konflikten mit der Verwendung der diese Wörter nicht als Bezeichner. In anderen Fällen, z. B. wie Sie mit der ID "`var`" in Deklarationen von implizit typisierten lokalen Variablen ([lokale Variablendeklarationen](statements.md#local-variable-declarations)), ein kontextbezogenes Schlüsselwort kann es zu Konflikten mit deklarierten Namen. In solchen Fällen hat der deklarierte Name Vorrang vor der Verwendung des Bezeichners als ein kontextbezogenes Schlüsselwort.
+An manchen Stellen in der Grammatik haben bestimmte Bezeichner eine besondere Bedeutung, aber keine Schlüsselwörter. Solche Bezeichner werden manchmal als "kontextabhängige Schlüsselwörter" bezeichnet. In einer Eigenschafts Deklaration haben die Bezeichner`get`"" und`set`"" z. b. eine besondere Bedeutung ([Accessoren](classes.md#accessors)). Ein anderer Bezeichner `get` als `set` oder ist in diesen Speicherorten nie zulässig, sodass diese Verwendung nicht mit der Verwendung dieser Wörter als Bezeichner in Konflikt steht. In anderen Fällen, z. b. mit dem`var`Bezeichner "" in implizit typisierten lokalen Variablen Deklarationen ([lokale Variablen Deklarationen](statements.md#local-variable-declarations)), kann ein Kontext Schlüsselwort mit deklarierten Namen in Konflikt stehen. In solchen Fällen hat der deklarierte Name Vorrang vor der Verwendung des Bezeichners als kontextbezogenes Schlüsselwort.
 
 ### <a name="literals"></a>Literale
 
-Ein ***literal*** ist eine Source-Code-Darstellung eines Werts.
+Ein ***Literalwert*** ist eine Quell Code Darstellung eines Werts.
 
 ```antlr
 literal
@@ -373,7 +373,7 @@ literal
 
 #### <a name="boolean-literals"></a>Boolesche Literale
 
-Es gibt zwei boolesche literale Werte: `true` und `false`.
+Es gibt zwei boolesche Literalwerte `true` : `false`und.
 
 ```antlr
 boolean_literal
@@ -382,11 +382,11 @@ boolean_literal
     ;
 ```
 
-Der Typ des eine *Boolean_literal* ist `bool`.
+Der Typ eines *boolean_literal* ist `bool`.
 
 #### <a name="integer-literals"></a>Ganzzahlenliteral
 
-Integer-Literale werden verwendet, um die Werte der Typen schreiben `int`, `uint`, `long`, und `ulong`. Integer-Literale haben zwei Formen: dezimalen und hexadezimalen.
+Ganzzahlige Literale werden verwendet, um Werte `int`der `uint`Typen `long`,, `ulong`und zu schreiben. Ganzzahlige Literale haben zwei mögliche Formen: decimal und hexadezimal.
 
 ```antlr
 integer_literal
@@ -416,25 +416,25 @@ hex_digit
     | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
 ```
 
-Der Typ, der ein Integer-literal wird wie folgt bestimmt:
+Der Typ eines ganzzahligen Literals wird wie folgt bestimmt:
 
-*  Wenn das Literal kein Suffix besitzt, hat die erste dieser Typen, die in dem sein Wert dargestellt werden kann: `int`, `uint`, `long`, `ulong`.
-*  Wenn das Literal durch angehängt ist. `U` oder `u`, hat die erste dieser Typen, die in dem sein Wert dargestellt werden kann: `uint`, `ulong`.
-*  Wenn das Literal durch angehängt ist. `L` oder `l`, hat die erste dieser Typen, die in dem sein Wert dargestellt werden kann: `long`, `ulong`.
-*  Wenn das Literal durch angehängt ist. `UL`, `Ul`, `uL`, `ul`, `LU`, `Lu`, `lU`, oder `lu`, ist vom Typ `ulong`.
+*  Wenn das Literale kein Suffix aufweist, verfügt es über den ersten dieser Typen, in dem sein Wert dargestellt werden `int`kann `uint`: `long`, `ulong`,,.
+*  `U` Wenn das Literale von oder `u`als Suffix versehen wird, verfügt es über den ersten dieser Typen, in dem sein Wert dargestellt werden `ulong`kann: `uint`,.
+*  `L` Wenn das Literale von oder `l`als Suffix versehen wird, verfügt es über den ersten dieser Typen, in dem sein Wert dargestellt werden `ulong`kann: `long`,.
+*  Wenn das Literale `UL`von, `LU` `ulong`,,,, `Lu` ,`lU`oder suffixtwird,istesvomTyp`lu`. `ul` `uL` `Ul`
 
-Der durch ein Ganzzahlliteral dargestellte Wert liegt außerhalb des Bereichs von der `ulong` eingeben, ein Fehler während der Kompilierung auftritt.
+Wenn der durch ein `ulong` Ganzzahlliteral dargestellte Wert außerhalb des Bereichs des Typs liegt, tritt ein Kompilierzeitfehler auf.
 
-Als eine Frage des Stils, es wird empfohlen, die "`L`"werden verwendet anstelle von"`l`" beim Schreiben von literalen Typs `long`, da sie leicht zu verwechseln Sie den Buchstaben "`l`"mit der Ziffer"`1`".
+Es wird empfohlen, beim Schreiben von literalen des Typs`L` `long`"" anstelle von "`l`" zu verwenden, da es einfach ist, den Buchstaben "`l`" mit der Ziffer "`1`" zu verwechseln.
 
-Um den kleinsten möglichen ermöglichen `int` und `long` Werte geschrieben werden, als ganze Dezimalzahl, die Literale, die folgenden zwei Regeln vorhanden sind:
+Um zuzulassen, dass die `int` kleinsten `long` möglichen Werte und als Dezimale ganzzahlige Literale geschrieben werden, sind die folgenden zwei Regeln vorhanden:
 
-* Wenn eine *Decimal_integer_literal* mit dem Wert 2147483648 (2 ^ 31) und es wird kein *Integer_type_suffix* angezeigt wird, wie das Token, die ein unäres minus Operatortoken unmittelbar nach ([unäres minus Operator](expressions.md#unary-minus-operator)), das Ergebnis ist eine Konstante des Typs `int` mit dem Wert von – 2147483648 (-2 ^ 31). In allen anderen Fällen solche eine *Decimal_integer_literal* ist vom Typ `uint`.
-* Wenn eine *Decimal_integer_literal* mit dem Wert 9223372036854775808 (2 ^ 63) und es wird kein *Integer_type_suffix* oder *Integer_type_suffix* `L` oder `l` angezeigt wird, wie das Token direkt nach der ein unäres minus Operatortoken ([unäre Operator minus](expressions.md#unary-minus-operator)), das Ergebnis ist eine Konstante des Typs `long` mit dem Wert-9223372036854775808 (-2 ^ 63). In allen anderen Fällen solche eine *Decimal_integer_literal* ist vom Typ `ulong`.
+* Wenn ein *decimal_integer_literal* mit dem Wert 2147483648 (2 ^ 31) und No *integer_type_suffix* als Token unmittelbar nach einem unären Minus Operator Token ([unärer Minus Operator](expressions.md#unary-minus-operator)) angezeigt wird, ist das Ergebnis eine Konstante vom Typ `int` mit dem Wert-2147483648 (-2 ^ 31). In allen anderen Fällen ist ein solcher *decimal_integer_literal* vom Typ `uint`.
+* Wenn ein *decimal_integer_literal* mit dem Wert 9.223.372.036.854.775.808 (2 ^ 63) und No *integer_type_suffix* oder *integer_type_suffix* `L` oder `l` als Token unmittelbar nach einem unären Minus Operator Token angezeigt wird ([ Unärer Minus-Operator](expressions.md#unary-minus-operator)), das Ergebnis ist eine Konstante vom Typ `long` mit dem Wert-9.223.372.036.854.775.808 (-2 ^ 63). In allen anderen Fällen ist ein solcher *decimal_integer_literal* vom Typ `ulong`.
 
-#### <a name="real-literals"></a>Real-Literale
+#### <a name="real-literals"></a>Echte Literale
 
-Echte Literale werden verwendet, um die Werte der Typen schreiben `float`, `double`, und `decimal`.
+Echte Literale werden verwendet, um Werte der Typen `float`, `double`und `decimal`zu schreiben.
 
 ```antlr
 real_literal
@@ -459,23 +459,23 @@ real_type_suffix
     ;
 ```
 
-Wenn kein *Real_type_suffix* angegeben wird, wird der Typ des Literals echte `double`. Das Suffix realer Typ bestimmt den Typ des Literals real, andernfalls wie folgt:
+Wenn *real_type_suffix* nicht angegeben wird, ist der Typ des realen Literals `double`. Andernfalls bestimmt das echte Typsuffix den Typ des echten Literals wie folgt:
 
-*  Ein reelles Literal `F` oder `f` ist vom Typ `float`. Z. B. die Literale `1f`, `1.5f`, `1e10f`, und `123.456F` sind "all" des Typs `float`.
-*  Ein reelles Literal `D` oder `d` ist vom Typ `double`. Z. B. die Literale `1d`, `1.5d`, `1e10d`, und `123.456D` sind "all" des Typs `double`.
-*  Ein reelles Literal `M` oder `m` ist vom Typ `decimal`. Z. B. die Literale `1m`, `1.5m`, `1e10m`, und `123.456M` sind "all" des Typs `decimal`. Dieses Literal wird konvertiert, um eine `decimal` Wert durch das der genaue Wert, und bei Bedarf zu runden, auf den nächsten darstellbaren Wert mit Banker rounding ([Dezimaltyps](types.md#the-decimal-type)). Jeder Größe, die aus dem Literal wird beibehalten, es sei denn, der Wert wird gerundet, oder der Wert 0 (null ist) (in diesem zweiten Fall die Anmeldung und die Dezimalstellen gleich 0 ist). Daher das Literal `2.900m` wird analysiert, um die Dezimalzahl mit Vorzeichen bilden `0`, Koeffizient `2900`, und skalieren `3`.
+*  Ein echtes LiteralSuffix, `F` das `f` von oder ist `float`, ist vom Typ. Die `1f` `1.5f`Literale `float`,, und `123.456F` sind z. b. vom Typ. `1e10f`
+*  Ein echtes LiteralSuffix, `D` das `d` von oder ist `double`, ist vom Typ. Die `1d` `1.5d`Literale `double`,, und `123.456D` sind z. b. vom Typ. `1e10d`
+*  Ein echtes LiteralSuffix, `M` das `m` von oder ist `decimal`, ist vom Typ. Die `1m` `1.5m`Literale `decimal`,, und `123.456M` sind z. b. vom Typ. `1e10m` Diese Literale werden in einen `decimal` -Wert konvertiert, indem der genaue Wert verwendet wird, und, falls erforderlich, auf den nächstgelegenen darstellbaren Wert mit der-Rundung ([dem Decimal-Typ](types.md#the-decimal-type)) gerundet. Alle in der Literale sichtbaren Skalierungen bleiben erhalten, es sei denn, der Wert ist gerundet, oder der Wert ist NULL (in letzterem Fall ist das Vorzeichen und die Dezimalstellen 0). Daher wird das Literale `2.900m` analysiert, um das Dezimaltrennzeichen `0`, den Koeffizienten `2900`und die Skala `3`zu bilden.
 
-Wenn das angegebene Literal in den angegebenen Typ dargestellt werden kann, tritt ein Fehler während der Kompilierung.
+Wenn das angegebene Literale nicht im angegebenen Typ dargestellt werden kann, tritt ein Kompilierzeitfehler auf.
 
-Der Wert des ein reales Literal vom Typ `float` oder `double` richtet sich nach der Verwendung des IEEE "auf den nächsten Wert runden" Modus.
+Der Wert eines echten Literals vom Typ `float` oder `double` wird mit dem IEEE-Modus "Round to Next" bestimmt.
 
-Beachten Sie, dass ein reales Literal, die Dezimalstellen müssen immer nach dem Dezimaltrennzeichen an. Z. B. `1.3F` ist eine Literal für reelle Zahlen aber `1.F` nicht.
+Beachten Sie, dass in einem echten Literalzeichen nach dem Dezimaltrennzeichen immer Dezimalstellen erforderlich sind. Beispielsweise ist `1.3F` ein echtes Literalzeichen `1.F` , aber nicht.
 
 #### <a name="character-literals"></a>Zeichenliterale
 
-Ein Zeichenfolgenliteral, ein einzelnes Zeichen darstellt, und in der Regel besteht aus einem Zeichen in Anführungszeichen ein, wie in `'a'`.
+Ein Zeichenliteral stellt ein einzelnes Zeichen dar und besteht normalerweise aus einem Zeichen in Anführungs `'a'`Zeichen, wie in.
 
-Hinweis: Die ANTLR Grammar Notation macht die folgenden verwirrend. Im ANTLR, beim Schreiben von `\'` er steht für ein einfaches Anführungszeichen `'`. Und beim Erstellen von `\\` er steht für ein einzelner umgekehrter Schrägstrich `\`. Aus diesem Grund bedeutet die erste Regel für ein Zeichenliteral an, dass er mit einem einfachen Anführungszeichen und ein einfaches Anführungszeichen, dann ein Zeichen beginnt. Die elf möglich einfache Escapesequenzen sind `\'`, `\"`, `\\`, `\0`, `\a`, `\b`, `\f`, `\n`, `\r`, `\t`, `\v`.
+Hinweis: Die Grammatik-Notation von antlr macht folgendes verwirrend! Wenn Sie in antlr schreiben `\'` , steht es für ein einzelnes Anführungs `'`Zeichen. Und wenn Sie schreiben `\\` , steht ein einzelner umgekehrter schräg `\`Strich. Daher bedeutet die erste Regel für ein Zeichenliteral, dass Sie mit einem einfachen Anführungszeichen, einem Zeichen und einem einfachen Anführungszeichen beginnt. Und die elf möglichen einfachen Escapesequenzen `\"`sind `\\` `\'`, `\0`, `\a`, `\b`, `\f`, `\n`, `\r`, `\t`,, ,`\v`.
 
 ```antlr
 character_literal
@@ -501,23 +501,23 @@ hexadecimal_escape_sequence
     : '\\x' hex_digit hex_digit? hex_digit? hex_digit?;
 ```
 
-Ein Zeichen, das einen umgekehrten Schrägstrich folgt (`\`) in einem *Zeichen* muss eines der folgenden Zeichen: `'`, `"`, `\`, `0`, `a`, `b` , `f`, `n`, `r`, `t`, `u`, `U`, `x`, `v`. Andernfalls tritt ein Kompilierungsfehler auf.
+Ein Zeichen, das einem umgekehrten Schrägstrich (`\`) in einem *Zeichen* folgt, muss eines der folgenden Zeichen sein `'`: `"`, `\`, `0`, `a`, `b`, `f` , , `n`, `r`, `t`, `u`, `U`, `x`, `v`. Andernfalls tritt ein Kompilierungsfehler auf.
 
-Eine hexadezimale Escapesequenz stellt ein einzelnes Unicode-Zeichen dar, mit dem Wert, der durch die hexadezimale Zahl nach gebildet "`\x`".
+Eine hexadezimale Escapesequenz stellt ein einzelnes Unicode-Zeichen dar, wobei der Wert durch die hexadezimale Zahl nach "`\x`" gebildet wird.
 
-Wenn der Wert, der durch ein Zeichenliteral dargestellt größer ist `U+FFFF`, ein Fehler während der Kompilierung auftritt.
+Wenn der Wert, der von einem Zeichenliterals `U+FFFF`dargestellt wird, größer als ist, tritt ein Kompilierzeitfehler auf.
 
-Eine Unicode-Zeichen-Escapesequenz ([Unicode-Escape-Zeichensequenzen](lexical-structure.md#unicode-character-escape-sequences)) in einem Zeichenliteral muss im Bereich von `U+0000` zu `U+FFFF`.
+Eine Unicode-Escapesequenz (Escapesequenzen für[Unicode-Zeichen](lexical-structure.md#unicode-character-escape-sequences)) in einem Zeichenliterals muss im Bereich `U+0000` von `U+FFFF`liegen.
 
-Eine einfache Escapesequenz dar, der eine Unicode-zeichencodierung, in der folgenden Tabelle beschrieben.
+Eine einfache Escapesequenz stellt eine Unicode-Zeichencodierung dar, wie in der folgenden Tabelle beschrieben.
 
 
-| __Escape-Sequenz__ | __Zeichenname__ | __Unicode-Codierung__ |
+| __Escapesequenz__ | __Zeichen Name__ | __Unicode-Codierung__ |
 |---------------------|--------------------|----------------------|
 | `\'`                | Einfaches Anführungszeichen       | `0x0027`             | 
 | `\"`                | Doppeltes Anführungszeichen       | `0x0022`             | 
 | `\\`                | Umgekehrter Schrägstrich          | `0x005C`             | 
-| `\0`                | Null               | `0x0000`             | 
+| `\0`                | NULL               | `0x0000`             | 
 | `\a`                | Warnung              | `0x0007`             | 
 | `\b`                | Rückschritt          | `0x0008`             | 
 | `\f`                | Seitenvorschub          | `0x000C`             | 
@@ -526,15 +526,15 @@ Eine einfache Escapesequenz dar, der eine Unicode-zeichencodierung, in der folge
 | `\t`                | Horizontaler Tabulator     | `0x0009`             | 
 | `\v`                | Vertikaler Tabulator       | `0x000B`             | 
 
-Der Typ des eine *Character_literal* ist `char`.
+Der Typ eines *character_literal* ist `char`.
 
 #### <a name="string-literals"></a>Zeichenfolgenliterale
 
-C# unterstützt zwei Arten von Zeichenfolgenliteralen: ***reguläre zeichenfolgeliterale*** und ***zeichenfolgeliterale***.
+C#unterstützt zwei Formen von Zeichenfolgenliteralen: ***reguläre Zeichen folgen Literale*** und ***ausführliche Zeichen folgen Literale***.
 
-Ein regulären Zeichenfolgenliterals besteht aus null oder mehr Zeichen, die in doppelte Anführungszeichen eingeschlossen werden, wie in `"hello"`, und enthält möglicherweise sowohl einfache Escapesequenzen (wie z. B. `\t` für Tabstopps), und hexadezimaler Schreibweise und im Unicode-Escapesequenzen.
+Ein reguläres Zeichenfolgenliterale besteht aus null oder mehr Zeichen, die `"hello"`in doppelten Anführungszeichen eingeschlossen sind, wie z. b `\t` ., und kann sowohl einfache Escapesequenzen (z. b. für das Tabstopp Zeichen) als auch hexadezimale und
 
-Ein ausführliches Zeichenfolgenliteral besteht aus einem `@` Zeichens, gefolgt von NULL oder mehr Zeichen, ein doppeltes Anführungszeichen und eine schließende Anführungszeichen. Ein einfaches Beispiel ist `@"hello"`. In der ein ausführliches Zeichenfolgenliteral, werden die Zeichen zwischen den Trennzeichen wörtlich interpretiert die einzige Ausnahme werden eine *Quote_escape_sequence*. Insbesondere werden einfache Escapesequenzen und hexadezimal- und Unicode-Escapesequenzen in wörtliche Zeichenfolgenliterale nicht verarbeitet. Ein ausführliches Zeichenfolgenliteral kann mehrere Zeilen erstrecken.
+Ein ausführlichen Zeichenfolgenliterals besteht aus einem `@` Zeichen, gefolgt von einem doppelten Anführungszeichen, NULL oder mehr Zeichen und einem schließenden doppelten Anführungszeichen. Ein einfaches Beispiel ist `@"hello"`. In einem ausführlichen zeichenfolgenliteralliteralen werden die Zeichen zwischen den Trennzeichen wörtlich interpretiert, die einzige Ausnahme ist eine *quote_escape_sequence*. Insbesondere einfache Escapesequenzen und hexadezimale und Unicode-Escapesequenzen werden in ausführlichen Zeichenfolgenliteralen nicht verarbeitet. Ein ausführlicher zeichenfolgenliteralvorgang kann mehrere Zeilen umfassen.
 
 ```antlr
 string_literal
@@ -575,9 +575,9 @@ quote_escape_sequence
     ;
 ```
 
-Ein Zeichen, das einen umgekehrten Schrägstrich folgt (`\`) in einem *Regular_string_literal_character* muss eines der folgenden Zeichen: `'`, `"`, `\`, `0`, `a` , `b`, `f`, `n`, `r`, `t`, `u`, `U`, `x`, `v`. Andernfalls tritt ein Kompilierungsfehler auf.
+Ein Zeichen, das auf einen umgekehrten Schrägstrich (`\`) in einem *regular_string_literal_character* folgt, muss eines der folgenden Zeichen sein: `'`, `"`, `\`, `0`, `a`, `b`, `f`, `n`, 0, 1, @no__ t-12, 3, 4, 5. Andernfalls tritt ein Kompilierungsfehler auf.
 
-Im Beispiel
+Das Beispiel
 ```csharp
 string a = "hello, world";                   // hello, world
 string b = @"hello, world";                  // hello, world
@@ -596,13 +596,13 @@ string j = @"one
 two
 three";
 ```
-Zeigt eine Vielzahl von Zeichenfolgenliteralen. Die letzte Zeichenfolge Zeichenliteral `j`, ist ein ausführliches Zeichenfolgenliteral, die mehrere Zeilen umfasst. Die Zeichen zwischen den Anführungszeichen, einschließlich Leerzeichen, z. B. neue-Zeile-Zeichen werden wörtlich beibehalten.
+zeigt eine Vielzahl von Zeichenfolgenliteralen an. Das letzte Zeichenfolgenliterale, `j`, ist ein ausführlicher Zeichenfolgenliteral, das mehrere Zeilen Die Zeichen zwischen den Anführungszeichen, einschließlich Leerzeichen, z. b. neue Zeilenzeichen, werden wörtlich beibehalten.
 
-Da eine hexadezimale Escapesequenz eine Variable Anzahl von hexadezimalen Ziffern, das Zeichenfolgenliteral aufweisen kann `"\x123"` enthält ein einzelnes Zeichen mit hexadezimaler Wert 123. Um eine Zeichenfolge, enthält das Zeichen mit hexadezimaler Wert 12 gefolgt vom Zeichen 3 zu erstellen, könnten eine `"\x00123"` oder `"\x12" + "3"` stattdessen.
+Da eine hexadezimale Escapesequenz eine Variable Anzahl von hexadezimalen Ziffern `"\x123"` aufweisen kann, enthält das Zeichenfolgenliterale ein einzelnes Zeichen 123 mit dem hexadezi Um eine Zeichenfolge zu erstellen, die das Zeichen mit dem Hexadezimalwert 12 gefolgt vom `"\x00123"` Zeichen `"\x12" + "3"` 3 enthält, könnte ein oder stattdessen geschrieben werden.
 
-Der Typ des eine *String_literal* ist `string`.
+Der Typ eines *string_literal* ist `string`.
 
-Jeder String-literal führt nicht unbedingt in eine neue Zeichenfolgeninstanz. Wenn zwei oder mehr Zeichenfolgenliterale, die entsprechen gemäß den Zeichenfolge-Equality-Operator ([Zeichenfolge Gleichheitsoperatoren](expressions.md#string-equality-operators)) angezeigt werden im selben Programm, und diese Zeichenfolgenliterale verweisen, auf die gleiche Zeichenfolgeninstanz. Z. B. die Ausgabe von
+Jedes Zeichenfolgenliterale führt nicht unbedingt zu einer neuen Zeichen folgen Instanz. Wenn zwei oder mehr Zeichen folgen Literale, die gemäß dem Zeichen folgen Gleichheits Operator ([Zeichen folgen Gleichheits Operatoren](expressions.md#string-equality-operators)) gleichwertig sind, im selben Programm vorkommen, verweisen diese Zeichen folgen Literale auf dieselbe Zeichen folgen Instanz. Beispielsweise die Ausgabe, die von
 ```csharp
 class Test
 {
@@ -613,15 +613,15 @@ class Test
     }
 }
 ```
-ist `True` da die beiden Literale auf die gleiche Zeichenfolgeninstanz verweisen.
+liegt `True` daran, dass die beiden Literale auf dieselbe Zeichen folgen Instanz verweisen.
 
-#### <a name="interpolated-string-literals"></a>Interpolierte Zeichenfolgenliterale
+#### <a name="interpolated-string-literals"></a>Interpoliert Zeichen folgen Literale
 
-Interpolierte Zeichenfolgenliterale sind vergleichbar mit Zeichenfolgenliteralen, aber Löcher aufweisen, getrennt durch `{` und `}`, bei dem Ausdrücke auftreten können. Zur Laufzeit werden die Ausdrücke ausgewertet, Ziel müssen ihre Text-Formate ersetzt, die in der Zeichenfolge an der Stelle, wo die Lücke auftritt. Die Syntax und Semantik der zeichenfolgeninterpolation werden im Abschnitt beschrieben ([interpolierte Zeichenfolgen](expressions.md#interpolated-strings)).
+Interinterpolierte Zeichen folgen Literale ähneln Zeichen folgen Literalen, enthalten jedoch Lücken, die `{` durch `}`und getrennt sind, wobei Ausdrücke auftreten können. Zur Laufzeit werden die Ausdrücke so ausgewertet, dass Ihre Text Formulare in der Zeichenfolge an der Stelle, an der die Lücke auftritt, ersetzt werden. Die Syntax und die Semantik der Zeichen folgen Interpolationen werden im Abschnitt ([interpoliert](expressions.md#interpolated-strings)Zeichen folgen) beschrieben.
 
-Wie Zeichenfolgenliterale können es sich bei interpolierte Zeichenfolgenliterale reguläre oder ausführliche sein. Interpolierte reguläre zeichenfolgeliterale werden gesetzte `$"` und `"`, und durch die interpolierte zeichenfolgeliterale getrennt sind `$@"` und `"`.
+Wie bei Zeichenfolgenliteralen können interpoliert Zeichen folgen Literale entweder regulär oder wörtlich sein. Interpoliert reguläre Zeichenfolgenliterale werden `$"` durch `"`und getrennt, und interpoliert, ausführliche Zeichen folgen Literale `$@"` werden `"`durch und getrennt.
 
-Wie andere Literale führt die lexikalische Analyse einer interpolierten Zeichenfolge literal zunächst in einem einzelnen Token, gemäß der folgenden Grammatik. Allerdings vor der syntaktischen Analyse, die einzelne Token einer interpolierten Zeichenfolge literal wird in mehrere Token für die Teile der Zeichenfolge, die die Löcher einschließenden unterteilt, und der Eingabeelemente, die in die Löcher auftreten werden lexikalisch erneut analysiert. Dies kann wiederum führen mehr interpolierte Zeichenfolgenliterale verarbeitet werden, jedoch, wenn lexikalisch korrigieren, letztendlich dazu führen, dass eine Folge von Token für die syntaktischen Analyse verarbeitet.
+Wie bei anderen literalen ergibt die lexikalische Analyse eines interpoliert für interpoliert zunächst ein einzelnes Token, wie gemäß der Grammatik unten. Vor der syntaktischen Analyse wird jedoch das einzelne Token eines interpoliert-Zeichenfolgenliterals in mehrere Token für die Teile der Zeichenfolge aufgeteilt, die die Löcher einschließen, und die in den Löchern auftretenden Eingabeelemente werden lexikalisch erneut analysiert. Dies kann wiederum dazu führen, dass mehr interinterpolierte Zeichenfolgenliterale verarbeitet werden, die verarbeitet werden können, aber wenn lexikalisch korrekt ist, führt letztendlich zu einer Sequenz von Tokens, damit die syntaktische Analyse verarbeitet wird.
 
 ```antlr
 interpolated_string_literal
@@ -780,17 +780,17 @@ single_verbatim_balanced_text_character
     ;
 ```
 
-Ein *Interpolated_string_literal* Token ist neu interpretiert, als mehrere Token und andere Elemente wie folgt in der Reihenfolge des Auftretens im Eingabe der *Interpolated_string_literal*:
+Ein *interpolated_string_literal* -Token wird wie folgt als mehrere Token und andere Eingabeelemente in der Reihenfolge des Auftretens in *interpolated_string_literal*neu interpretiert:
 
-* Vorkommen der folgenden werden neu interpretiert, als separate einzelner Token: das führende `$` Sign *Interpolated_regular_string_whole*, *Interpolated_regular_string_start*, *Interpolated_regular_string_mid*, *Interpolated_regular_string_end*, *Interpolated_verbatim_string_whole*,  *Interpolated_verbatim_string_start*, *Interpolated_verbatim_string_mid* und *Interpolated_verbatim_string_end*.
-* Vorkommen des *Regular_balanced_text* und *Verbatim_balanced_text* zwischen diesen als verarbeitet eine *Input_section* ([Lexikalische Analyse ](lexical-structure.md#lexical-analysis)) und werden neu interpretiert, als der resultierenden Sequenz von Eingabeelementen. Diesen zählen möglicherweise wiederum die interpolierte Zeichenfolge literaltoken neu interpretiert werden.
+* Vorkommen der folgenden werden als separate einzelne Token neu interpretiert: das führende `$`-Vorzeichen, *interpolated_regular_string_whole*, *interpolated_regular_string_start*, *interpolated_regular_string_mid*,  *interpolated_regular_string_end*, *interpolated_verbatim_string_whole*, *interpolated_verbatim_string_start*, *interpolated_verbatim_string_mid* und *interpolated_verbatim_string_end*.
+* Vorkommen von *regular_balanced_text* und *verbatim_balanced_text* dazwischen werden als *input_section* ([lexikalische Analyse](lexical-structure.md#lexical-analysis)) neu verarbeitet und als resultierende Sequenz von Eingabe Elementen interpretiert. Diese können wiederum interinterpolierte zeichenfolgenliteraltoken enthalten, die neu interpretiert werden.
 
-Syntaktische Analyse werden die Token in zusammenzusetzen ein *Interpolated_string_expression* ([interpolierte Zeichenfolgen](expressions.md#interpolated-strings)).
+Die syntaktische Analyse kombiniert die Token in einer *interpolated_string_expression* ([interpoliert](expressions.md#interpolated-strings)) neu.
 
-TODO-Beispiele
+Beispiele TODO
 
 
-#### <a name="the-null-literal"></a>Das null-literal
+#### <a name="the-null-literal"></a>Das NULL-Literale
 
 ```antlr
 null_literal
@@ -798,11 +798,11 @@ null_literal
     ;
 ```
 
-Die *Null_literal* implizit in einem Referenztyp oder nullable-Typ konvertiert werden kann.
+*Null_literal* kann implizit in einen Verweistyp oder einen Typ konvertiert werden, der NULL-Werte zulässt.
 
-### <a name="operators-and-punctuators"></a>Operatoren und Markierungszeichen
+### <a name="operators-and-punctuators"></a>Operatoren und Satzzeichen
 
-Es gibt verschiedene Arten von Operatoren und Markierungszeichen. Operatoren sind in Ausdrücken verwendet, um Vorgänge im Zusammenhang mit einem oder mehreren Operanden zu beschreiben. Beispiel: der Ausdruck `a + b` verwendet die `+` Operator, um die beiden Operanden hinzufügen `a` und `b`. Markierungszeichen sind für das Gruppieren und zu trennen.
+Es gibt mehrere Arten von Operatoren und Satzzeichen. Operatoren werden in Ausdrücken verwendet, um Vorgänge mit einem oder mehreren Operanden zu beschreiben. Der-Ausdruck `a + b` verwendet beispielsweise den `+` -Operator, um die beiden Operanden `b` `a` und hinzuzufügen. Satzzeichen sind zum Gruppieren und trennen vorgesehen.
 
 ```antlr
 operator_or_punctuator
@@ -822,11 +822,11 @@ right_shift_assignment
     ;
 ```
 
-Der senkrechte Strich in der *Right_shift* und *Right_shift_assignment* Produktionen werden verwendet, um anzugeben, dass, im Gegensatz zu anderen Produktionen in der syntaktischen Grammatik, die keine Zeichen jeglicher Art (nicht einmal Leerzeichen) zwischen den Token zulässig sind. Diese Produktionen werden behandelt, besonders, um die richtige Verarbeitung von aktivieren *Type_parameter_list*s ([Typparameter](classes.md#type-parameters)).
+Der senkrechte Strich in den *right_shift* -und *right_shift_assignment* -Produktionen wird verwendet, um anzugeben, dass im Gegensatz zu anderen Produktionen in der syntaktischen Grammatik keine Zeichen jeglicher Art (nicht sogar Leerzeichen) zwischen den Token zulässig sind. Diese Produktionen werden speziell behandelt, um die korrekte Handhabung von *type_parameter_list*s ([Typparameter](classes.md#type-parameters)) zu ermöglichen.
 
-## <a name="pre-processing-directives"></a>Präprozessordirektiven
+## <a name="pre-processing-directives"></a>Vorverarbeitungs Direktiven
 
-Die Präprozessordirektiven bieten die Möglichkeit, bedingte Abschnitte von Quelldateien, Fehler und Warnungen hin, überspringen und skizziert werden verschiedene Bereiche des Quellcodes. Der Begriff "Präprozessordirektiven" wird nur für Konsistenz mit den Programmiersprachen C und C++ verwendet. In C# geschrieben ist es keine separate vorbearbeitung von; Präprozessordirektiven werden als Teil der lexikalischen Analyse verarbeitet.
+Die Vorverarbeitungs Direktiven bieten die Möglichkeit, Abschnitte von Quelldateien bedingt zu überspringen, Fehler-und Warnungs Bedingungen zu melden und verschiedene Bereiche des Quellcodes zu gliedern. Der Begriff "Vorverarbeitungs Direktiven" wird nur aus Gründen der Konsistenz mit C- C++ und Programmiersprachen verwendet. In C#gibt es keinen separaten Schritt vor der Verarbeitung. Vorverarbeitungs Direktiven werden im Rahmen der lexikalischen Analysephase verarbeitet.
 
 ```antlr
 pp_directive
@@ -839,20 +839,20 @@ pp_directive
     ;
 ```
 
-Die folgenden Anweisungen für die vorverarbeitung sind verfügbar:
+Die folgenden Vorverarbeitungs Direktiven sind verfügbar:
 
-*  `#define` und `#undef`, die werden verwendet, um zu definieren und Symboldefinitionen aufheben, bzw. für die bedingte Kompilierung ([Deklaration Direktiven](lexical-structure.md#declaration-directives)).
-*  `#if`, `#elif`, `#else`, und `#endif`, die werden verwendet, um bedingt Abschnitte des Quellcodes überspringen ([Bedingte Kompilierungsdirektiven](lexical-structure.md#conditional-compilation-directives)).
-*  `#line`, dient zum Steuern von Zeilennummern für Fehler und Warnungen ausgegeben ([Zeile Direktiven](lexical-structure.md#line-directives)).
-*  `#error` und `#warning`, die zum Fehler und Warnungen, geben Sie jeweils verwendet werden ([diagnostische Direktiven](lexical-structure.md#diagnostic-directives)).
-*  `#region` und `#endregion`, die werden verwendet, um Abschnitte des Quellcodes explizit zu kennzeichnen ([Bereichsdirektiven](lexical-structure.md#region-directives)).
-*  `#pragma`, das verwendet, um optionale Kontextinformationen für den Compiler anzugeben ([Pragma-Direktiven](lexical-structure.md#pragma-directives)).
+*  `#define`und `#undef`, die zum definieren bzw. Aufheben der Definition von Symbolen für bedingte Kompilierung ([Deklarations Anweisungen](lexical-structure.md#declaration-directives)) verwendet werden.
+*  `#if`, `#elif`, `#else` und`#endif`, die verwendet werden, um Abschnitte des Quellcodes bedingt zu überspringen ([bedingte Kompilierungs Direktiven](lexical-structure.md#conditional-compilation-directives)).
+*  `#line`, der verwendet wird, um Zeilennummern zu steuern, die für Fehler und Warnungen ausgegeben werden ([Zeilen Anweisungen](lexical-structure.md#line-directives)).
+*  `#error`und `#warning`, die verwendet werden, um Fehler und Warnungen bzw. ([Diagnose Direktiven](lexical-structure.md#diagnostic-directives)) auszugeben.
+*  `#region`und `#endregion`, die verwendet werden, um Abschnitte des Quellcodes ([Regions Direktiven](lexical-structure.md#region-directives)) explizit zu markieren.
+*  `#pragma`, der verwendet wird, um optionale Kontextinformationen für den Compiler anzugeben ([pragma-Direktiven](lexical-structure.md#pragma-directives)).
 
-Eine Präprozessordirektive nimmt immer auf eine separate Zeile des Quellcodes und beginnt immer mit einem `#` Zeichen- und ein vorab verarbeitetes Direktivenname. Leerzeichen vor dem Auftreten der `#` Zeichen und zwischen den `#` Zeichen und den Namen der Standarddirektive.
+Eine Vorverarbeitungs Direktive belegt immer eine separate Zeile des Quellcodes und beginnt immer mit einem `#` Zeichen und einem Vorverarbeitungs-Direktivennamen. Leerräume können vor dem `#` Zeichen und zwischen dem `#` Zeichen und dem Direktivennamen auftreten.
 
-Zeile für eine Datenquelle mit einem `#define`, `#undef`, `#if`, `#elif`, `#else`, `#endif`, `#line`, oder `#endregion` Richtlinie möglicherweise ein einzeiliger Kommentar endet. Kommentare getrennt (die `/* */` Stil von Kommentaren) dürfen nicht auf Quellzeilen, die Präprozessordirektiven enthält.
+Eine Quellzeile `#define` `#elif` `#line` `#endif` `#undef` `#else` ,die`#endregion` eine-,-,-,-,-,-oder-Direktive enthält, kannmiteinemeinzeiligenKommentarenden.`#if` Durch Trennzeichen getrennte Kommentare `/* */` (der Stil von Kommentaren) sind in Quellzeilen mit Vorverarbeitungs Direktiven nicht zulässig.
 
-Präprozessordirektiven sind keine Token und sind nicht Teil der syntaktischen Grammatik von c#. Allerdings Präprozessordirektiven können ein-oder Ausschließen von Sequenzen von Token verwendet werden und können auf diese Weise beeinträchtigen die Bedeutung eines C#-Programms. Beispielsweise wird bei der Kompilierung kann des Programms:
+Vorverarbeitungs Direktiven sind keine Token und sind nicht Teil der syntaktischen Grammatik von C#. Allerdings können Vorverarbeitungs Direktiven verwendet werden, um Sequenzen von Token einzuschließen oder auszuschließen, und sich auf diese Weise auf die C# Bedeutung eines Programms auswirken. Bei der Kompilierung wird das Programm z. b.:
 ```csharp
 #define A
 #undef B
@@ -872,7 +872,7 @@ class C
 #endif
 }
 ```
-die Ergebnisse in genau dieselbe Sequenz von Token wie das Programm:
+ergibt genau dieselbe Sequenz von Token wie das Programm:
 ```csharp
 class C
 {
@@ -881,11 +881,11 @@ class C
 }
 ```
 
-Daher während lexikalisch, die beiden Programme syntaktisch ganz unterschiedlich sind, sind sie identisch.
+Im Gegensatz dazu sind die beiden Programme ganz anders, syntaktisch, Sie sind jedoch identisch.
 
 ### <a name="conditional-compilation-symbols"></a>Symbole für bedingte Kompilierung
 
-Die Funktionalität für die bedingte Kompilierung von der `#if`, `#elif`, `#else`, und `#endif` Direktiven wird über die vorverarbeitung Ausdrücke gesteuert ([Präprozessorausdrücke](lexical-structure.md#pre-processing-expressions)) und Symbole für bedingte Kompilierung.
+Die Funktionen für die bedingte Kompilierung `#if`, die `#else`von den `#endif` Direktiven,, und bereitgestellt werden, `#elif`werden durch Vorverarbeitungs Ausdrücke ([Vorverarbeitungs Ausdrücke](lexical-structure.md#pre-processing-expressions)) und bedingt gesteuert. Kompilierungs Symbole.
 
 ```antlr
 conditional_symbol
@@ -893,15 +893,15 @@ conditional_symbol
     ;
 ```
 
-Ein Symbol für bedingte Kompilierung hat zwei mögliche Zustände: ***definiert*** oder ***undefiniert***. Am Anfang der lexikalischen Verarbeitung einer Quelldatei ist ein Symbol für bedingte Kompilierung nicht definiert, es sei denn, sie durch einen externen Mechanismus (z. B. eine Befehlszeilen-Compiler-Option) explizit definiert wurde. Wenn eine `#define` Richtlinie verarbeitet wird, wird das Symbol für bedingte Kompilierung, die mit dem Namen, die in der Richtlinie wird definiert, in der Quelldatei. Es bleibt das Symbol definiert, bis ein `#undef` die Richtlinie für das gleiche Symbol verarbeitet wird oder bis das Ende der Quelldatei erreicht ist. Eine davon wird `#define` und `#undef` Anweisungen in einer Quelldatei haben keine Auswirkungen auf andere Quelldateien, die im selben Programm.
+Ein Symbol für die bedingte Kompilierung hat zwei mögliche Zustände: ***definiert*** oder nicht ***definiert***. Am Anfang der lexikalischen Verarbeitung einer Quelldatei ist ein Symbol für die bedingte Kompilierung nicht definiert, es sei denn, es wurde explizit durch einen externen Mechanismus definiert (z. b. eine Befehlszeilen-Compileroption). Wenn eine `#define` Direktive verarbeitet wird, wird das in dieser Direktive benannte bedingte Kompilierungs Symbol in dieser Quelldatei definiert. Das Symbol bleibt so lange definiert `#undef` , bis eine-Direktive für das gleiche Symbol verarbeitet wird oder bis das Ende der Quelldatei erreicht wird. Dies bedeutet, dass `#define` die-und- `#undef` Direktiven in einer Quelldatei keine Auswirkung auf andere Quelldateien im gleichen Programm haben.
 
-Wenn in einem vorab verarbeiteten Ausdruck verwiesen wird, ist ein Symbol definiert, für die bedingte Kompilierung den booleschen Wert `true`, und ein Symbol nicht definiert, für die bedingte Kompilierung hat den booleschen Wert `false`. Es ist nicht erforderlich, werden Symbole für bedingte Kompilierung explizit deklariert werden, bevor sie in Ausdrücken für die vorverarbeitung referenziert werden. Stattdessen nicht deklarierte Symbole sind einfach nicht definiert, und daher haben den Wert `false`.
+Wenn in einem Vorverarbeitungs Ausdruck darauf verwiesen wird, hat ein definiertes bedingtes Kompilierungs Symbol den `true`booleschen Wert, und ein nicht definiertes bedingtes Kompilierungs Symbol weist den booleschen Wert `false`auf. Es ist nicht erforderlich, dass bedingte Kompilierungs Symbole explizit deklariert werden, bevor in Vorverarbeitungs Ausdrücken auf Sie verwiesen wird. Stattdessen sind nicht deklarierte Symbole einfach undefiniert und verfügen daher `false`über den Wert.
 
-Der Namespace für die Symbole für bedingte Kompilierung ist verschieden und getrennt von anderen benannten Entitäten in einem C#-Programm. Symbole für bedingte Kompilierung darf nur verwiesen werden, `#define` und `#undef` Anweisungen und Ausdrücke vorab zu verarbeiten.
+Der Namespace für Symbole für die bedingte Kompilierung ist eindeutig und getrennt von allen anderen benannten C# Entitäten in einem Programm. Auf Symbole für die bedingte Kompilierung kann `#define` nur `#undef` in-und-Direktiven und in Vorverarbeitungs Ausdrücken verwiesen werden.
 
-### <a name="pre-processing-expressions"></a>Vorab verarbeitete Ausdrücke
+### <a name="pre-processing-expressions"></a>Vorverarbeiten von Ausdrücken
 
-Ausdrücke für die vorverarbeitung kann in auftreten `#if` und `#elif` Anweisungen. Die Operatoren `!`, `==`, `!=`, `&&` und `||` sind in Ausdrücken für die vorverarbeitung zulässig und Klammern zum Gruppieren verwendet werden können.
+Vorverarbeitungs Ausdrücke können in `#if` -und `#elif` -Direktiven auftreten. `!`Die Operatoren `==`, `!=`, `&&` und sindinVorverarbeitungsAusdrückenzulässig,undfürdieGruppierungkönnenKlammernverwendetwerden.`||`
 
 ```antlr
 pp_expression
@@ -937,13 +937,13 @@ pp_primary_expression
     ;
 ```
 
-Wenn in einem vorab verarbeiteten Ausdruck verwiesen wird, ist ein Symbol definiert, für die bedingte Kompilierung den booleschen Wert `true`, und ein Symbol nicht definiert, für die bedingte Kompilierung hat den booleschen Wert `false`.
+Wenn in einem Vorverarbeitungs Ausdruck darauf verwiesen wird, hat ein definiertes bedingtes Kompilierungs Symbol den `true`booleschen Wert, und ein nicht definiertes bedingtes Kompilierungs Symbol weist den booleschen Wert `false`auf.
 
-Auswertung immer ein vorab verarbeitetes Ausdrucks ergibt einen booleschen Wert. Die Regeln für die Auswertung für einen vorab verarbeitete Ausdruck sind identisch mit denen für einen konstanten Ausdruck ([Konstante Ausdrücke](expressions.md#constant-expressions)), außer dass die einzigen benutzerdefinierte Entitäten, auf die verwiesen werden können, Symbole für bedingte Kompilierung sind .
+Bei der Auswertung eines Vorverarbeitungs Ausdrucks ergibt sich immer ein boolescher Wert. Die Regeln für die Auswertung eines Vorverarbeitungs Ausdrucks sind identisch mit denen für einen konstanten Ausdruck ([Konstante Ausdrücke](expressions.md#constant-expressions)), mit dem Unterschied, dass nur benutzerdefinierte Entitäten, auf die verwiesen werden kann, Symbole für die bedingte Kompilierung sind.
 
-### <a name="declaration-directives"></a>Deklaration-Direktiven
+### <a name="declaration-directives"></a>Deklarations Direktiven
 
-Die Deklaration-Anweisungen werden verwendet, um zu definieren bzw. dessen Definition aufzuheben Symbole für bedingte Kompilierung.
+Die Deklarations Anweisungen werden verwendet, um Symbole für die bedingte Kompilierung zu definieren oder zu deaktivieren.
 
 ```antlr
 pp_declaration
@@ -956,11 +956,11 @@ pp_new_line
     ;
 ```
 
-Die Verarbeitung einer `#define` Richtlinie bewirkt, dass die angegebenen bedingtes Kompilierungssymbol definiert wird, beginnend mit der Quellzeile, die die Direktive folgt. Ebenso wird die Verarbeitung von einer `#undef` Richtlinie bewirkt, dass das angegebene konditionale kompiliersymbol aufgehoben wird, beginnend mit der Quellzeile, die die Direktive folgt.
+Die Verarbeitung einer `#define` -Direktive bewirkt, dass das angegebene bedingte Kompilierungs Symbol definiert wird, beginnend mit der Quellzeile, die auf die-Direktive folgt. Entsprechend bewirkt die Verarbeitung einer- `#undef` Direktive, dass das angegebene bedingte Kompilierungs Symbol undefiniert wird, beginnend mit der Quellzeile, die auf die-Direktive folgt.
 
-Alle `#define` und `#undef` Anweisungen in einer Quelldatei müssen vor dem ersten Auftreten *token* ([Token](lexical-structure.md#tokens)) in der Quelldatei; andernfalls ein Fehler während der Kompilierung auftritt. Intuitiv ausgedrückt `#define` und `#undef` Anweisungen müssen vor jeder Code"real" in der Quelldatei stehen.
+Alle `#define` - `#undef` und-Direktiven in einer Quelldatei müssen vor dem ersten *Token* ([Tokens](lexical-structure.md#tokens)) in der Quelldatei auftreten; andernfalls tritt ein Kompilierzeitfehler auf. In intuitiver Hinsicht `#define` müssen `#undef` -und-Direktiven allen "echten Code" in der Quelldatei vorangestellt sein.
 
-Beispiel:
+Das Beispiel:
 ```csharp
 #define Enterprise
 
@@ -975,9 +975,9 @@ namespace Megacorp.Data
     #endif
 }
 ```
-gültig ist da die `#define` Anweisungen vorausgehen, das erste Token (das `namespace` Schlüsselwort) in der Quelldatei.
+ist gültig, da `#define` die-Anweisungen dem ersten Token (dem `namespace` -Schlüsselwort) in der Quelldatei vorangestellt sind.
 
-Im folgende Beispiel führt zu einem Fehler während der Kompilierung auf, da eine `#define` echten Code folgt:
+Das folgende Beispiel führt zu einem Kompilierzeitfehler, da `#define` ein echter Code befolgt:
 ```csharp
 #define A
 namespace N
@@ -989,22 +989,22 @@ namespace N
 }
 ```
 
-Ein `#define` kann ein Symbol für bedingte Kompilierung, die bereits definiert ist, ohne dass alle dazwischen liegenden vorhanden definieren `#undef` für das Symbol. Das folgende Beispiel definiert ein Symbol für bedingte Kompilierung `A` und definiert es dann noch mal.
+Ein `#define` kann ein Symbol für die bedingte Kompilierung definieren, das bereits definiert ist, ohne `#undef` dass ein Eingreifen für dieses Symbol vorliegt. Im folgenden Beispiel wird ein Symbol `A` für die bedingte Kompilierung definiert und dann wieder definiert.
 ```csharp
 #define A
 #define A
 ```
 
-Ein `#undef` möglicherweise "Symboldefinitionen" für die bedingte Kompilierung, die nicht definiert ist. Das folgende Beispiel definiert ein Symbol für bedingte Kompilierung `A` , und klicken Sie dann auch zweimal Aufhebungen der zweiten `#undef` hat keine Auswirkungen, es ist noch gültig ist.
+Ein `#undef` kann ein bedingtes Kompilierungs Symbol, das nicht definiert ist, nicht definieren. Im folgenden Beispiel wird ein Symbol `A` für die bedingte Kompilierung definiert und dann zweimal wieder definiert. das zweite `#undef` hat jedoch keine Auswirkung, aber es ist noch gültig.
 ```csharp
 #define A
 #undef A
 #undef A
 ```
 
-### <a name="conditional-compilation-directives"></a>Anweisungen für bedingte Kompilierung
+### <a name="conditional-compilation-directives"></a>Bedingte Kompilierungs Direktiven
 
-Anweisungen für die bedingte Kompilierung werden verwendet, um bedingten ein- bzw. Ausschließen von Teilen einer Quelldatei.
+Die Direktiven für die bedingte Kompilierung werden verwendet, um Teile einer Quelldatei bedingt einzuschließen oder auszuschließen.
 
 ```antlr
 pp_conditional
@@ -1050,19 +1050,19 @@ not_number_sign
     ;
 ```
 
-Wie durch die Syntax angegeben wird, müssen Bedingte Kompilierungsdirektiven geschrieben werden, als Sätze aus, in der Reihenfolge, eine `#if` Richtlinie, die NULL oder mehr `#elif` -Anweisungen, 0 (null) oder einen `#else` Richtlinie, und ein `#endif` Richtlinie. Sind Sie zwischen den Anweisungen konditionalen Abschnitte von Quellcode aus. Jeder Abschnitt wird durch die vorhergehende Richtlinie gesteuert. Ein bedingtes Codeabschnitts kann selbst geschachtelte Bedingte Kompilierungsdirektiven enthalten, sofern diese Direktiven auf komplette Sätze bilden.
+Wie durch die-Syntax angegeben, müssen bedingte Kompilierungs Direktiven als Sätze geschrieben werden, die aus, `#if` in Reihenfolge, einer `#elif` -Direktive, NULL `#else` oder mehr-Direktiven, keiner oder einer-Direktive und einer `#endif` -Direktive bestehen Zwischen den Direktiven bestehen bedingte Abschnitte des Quellcodes. Jeder Abschnitt wird von der unmittelbar vorangehenden-Direktive gesteuert. Ein bedingter Abschnitt kann selbst ggf. ggf. ggf
 
-Ein *Pp_conditional* wählt Sie mindestens eine der enthaltenen *Conditional_section*s für die normale lexikalische Verarbeitung:
+Ein *pp_conditional* wählt höchstens eine der enthaltenen *conditional_section*s für die normale lexikalische Verarbeitung aus:
 
-*  Die *Pp_expression*s der `#if` und `#elif` Direktiven werden in der Reihenfolge ausgewertet, bis eine ergibt `true`. Wenn ein Ausdruck ergibt `true`, *Conditional_section* der entsprechenden Richtlinie aktiviert ist.
-*  Wenn alle *Pp_expression*s "yield" `false`, und wenn ein `#else` Richtlinie vorhanden ist, die *Conditional_section* von der `#else` Richtlinie aktiviert ist.
-*  Anderenfalls, Nein *Conditional_section* ausgewählt ist.
+*  Die *pp_expression*s der Anweisungen `#if` und `#elif` werden in der Reihenfolge ausgewertet, bis eine `true` ergibt. Wenn ein Ausdruck `true` ergibt, wird der *conditional_section* der entsprechenden Direktive ausgewählt.
+*  Wenn alle *pp_expression*s `false` ergeben und eine `#else`-Direktive vorhanden ist, wird der *conditional_section* -Wert der `#else`-Direktive ausgewählt.
+*  Andernfalls wird kein *conditional_section* ausgewählt.
 
-Die ausgewählte *Conditional_section*, sofern vorhanden, als ein normaler verarbeitet *Input_section*: die lexikalische Grammatik entsprechen der im Abschnitt enthaltene Quellcode; Token aus der Datenquelle generiert werden Code im Abschnitt und Präprozessordirektiven im Abschnitt über die vorgeschriebenen Auswirkungen.
+Das ausgewählte *conditional_section*(sofern vorhanden) wird als normales *input_section*verarbeitet: der im Abschnitt enthaltene Quellcode muss der lexikalischen Grammatik entsprechen. Token werden aus dem Quellcode im-Abschnitt generiert. und Vorverarbeitungs Direktiven im-Abschnitt haben die vorgeschriebenen Auswirkungen.
 
-Die verbleibenden *Conditional_section*s, sofern vorhanden, werden als verarbeitet *Skipped_section*s: mit Ausnahme von Präprozessordirektiven, der Quellcode im Abschnitt muss nicht einhalten der lexikalische Grammatik; Nein Token werden aus dem Quellcode im Abschnitt generiert. und Präprozessordirektiven im Abschnitt müssen lexikalisch korrekt sein, aber andernfalls nicht verarbeitet werden. Innerhalb einer *Conditional_section* , ist als verarbeitet eine *Skipped_section*, alle geschachtelten *Conditional_section*s (enthalten in geschachtelten `#if`... `#endif` und `#region`... `#endregion` erstellt) werden als auch verarbeitet *Skipped_section*s.
+Die verbleibenden *conditional_section*s werden, sofern vorhanden, als *skipped_section*s verarbeitet: mit Ausnahme von Vorverarbeitungs Direktiven muss der Quellcode im-Abschnitt nicht an die lexikalische Grammatik heran bestehen. aus dem Quellcode im-Abschnitt werden keine Token generiert. und Vorverarbeitungs Direktiven im Abschnitt müssen lexikalisch korrigiert werden, werden jedoch nicht anderweitig verarbeitet. Innerhalb einer *conditional_section* , die als *skipped_section*verarbeitet wird, werden alle geschachtelten *conditional_section*s (die in geschachtelten `#if`... `#endif`-und `#region`... `#endregion`-Konstrukten enthalten sind) ebenfalls als skipped_ verarbeitet.  *Abschnitt*s.
 
-Das folgende Beispiel veranschaulicht die Funktionsweise des bedingten Kompilierungsdirektiven geschachtelt werden können:
+Im folgenden Beispiel wird veranschaulicht, wie bedingte Kompilierungs Direktiven schachteln können:
 ```csharp
 #define Debug       // Debugging on
 #undef Trace        // Tracing off
@@ -1081,7 +1081,7 @@ class PurchaseTransaction
 }
 ```
 
-Mit Ausnahme von Präprozessordirektiven ist die übersprungenen Quellcode nicht unterliegt einer lexikalischen Analyse. Beispielsweise ist Folgendes gültig, trotz der nicht abgeschlossener Kommentar in der `#else` Abschnitt:
+Mit Ausnahme von Vorverarbeitungs Direktiven unterliegt der übersprungene Quellcode nicht der lexikalischen Analyse. Beispielsweise ist Folgendes gültig, obwohl der nicht abgeschlossener Kommentar im `#else` Abschnitt lautet:
 ```csharp
 #define Debug        // Debugging on
 
@@ -1097,9 +1097,9 @@ class PurchaseTransaction
 }
 ```
 
-Beachten Sie jedoch, Präprozessordirektiven sind erforderlich, auch in der übersprungenen Abschnitte des Quellcodes lexikalisch korrekt zu sein.
+Beachten Sie jedoch, dass Vorverarbeitungs Direktiven auch in übersprungenen Abschnitten des Quellcodes lexikalisch korrigiert werden müssen.
 
-Präprozessordirektiven werden nicht verarbeitet werden, wenn sie innerhalb der Eingabeelemente mit mehreren Zeilen angezeigt werden. Um beispielsweise das Programm:
+Vorverarbeitungs Direktiven werden nicht verarbeitet, wenn Sie in mehrzeiligen Eingabe Elementen angezeigt werden. Das Programm lautet z. b.:
 ```csharp
 class Hello
 {
@@ -1114,8 +1114,8 @@ class Hello
     }
 }
 ```
-die Ergebnisse in der Ausgabe:
-```
+Ergebnisse in der Ausgabe:
+```console
 hello,
 #if Debug
         world
@@ -1124,7 +1124,7 @@ hello,
 #endif
 ```
 
-In speziellen Fällen der Satz von Präprozessordirektiven, die verarbeitet wird bei der Auswertung der abhängen kann die *Pp_expression*. Beispiel:
+In besonderen Fällen hängt der Satz der verarbeiteten Vorverarbeitungs Direktiven möglicherweise von der Auswertung des *pp_expression*ab. Das Beispiel:
 ```csharp
 #if X
     /*
@@ -1132,11 +1132,11 @@ In speziellen Fällen der Satz von Präprozessordirektiven, die verarbeitet wird
     /* */ class Q { }
 #endif
 ```
-erzeugt immer den gleiche token-Stream (`class` `Q` `{` `}`), unabhängig davon, ob `X` definiert ist. Wenn `X` wird definiert, die nur verarbeiteten Direktiven sind `#if` und `#endif`, da der mehrzeiligen Kommentar. Wenn `X` ist nicht definiert ist, klicken Sie dann die folgenden drei Anweisungen (`#if`, `#else`, `#endif`) sind Teil der Anweisung.
+erzeugt immer denselben Tokenstream (`class` `}` `Q` `{` ), unabhängig davon, ob definiert `X` ist oder nicht. Wenn `X` definiert ist, sind `#if` die einzigen verarbeiteten Direktiven `#endif`und, aufgrund des mehrzeiligen Kommentars. Wenn `X` nicht definiert ist, sind drei-`#if`Direktiven `#endif`(, `#else`,) Teil der direktivenmenge.
 
-### <a name="diagnostic-directives"></a>Diagnose-Direktiven
+### <a name="diagnostic-directives"></a>Diagnose Direktiven
 
-Die Diagnosen-Anweisungen werden verwendet, um explizit zu generieren, Fehler- und Warnmeldungen, die auf die gleiche Weise wie andere Kompilierungsfehler und Warnungen gemeldet werden.
+Die Diagnose Direktiven werden verwendet, um Fehler-und Warnmeldungen explizit zu generieren, die auf die gleiche Weise wie andere Kompilierzeitfehler und-Warnungen gemeldet werden.
 
 ```antlr
 pp_diagnostic
@@ -1150,7 +1150,7 @@ pp_message
     ;
 ```
 
-Beispiel:
+Das Beispiel:
 ```csharp
 #warning Code review needed before check-in
 
@@ -1160,11 +1160,11 @@ Beispiel:
 
 class Test {...}
 ```
-immer generiert eine Warnung ("codereview erforderlich sind, vor dem Einchecken"), und erzeugt einen Fehler während der Kompilierung ("ein Builds nicht sowohl Debug-als auch im Einzelhandel") Wenn die Symbole für bedingte `Debug` und `Retail` werden beide definiert. Beachten Sie, dass eine *Pp_message* kann beliebigen Text enthalten; insbesondere sie müssen keine wohlgeformte Token, wie durch das einfache Anführungszeichen in das Wort `can't`.
+erzeugt immer eine Warnung ("Code Review ist vor dem Einchecken erforderlich") und erzeugt einen Kompilierzeitfehler ("ein Build kann nicht gleichzeitig Debuggen und Einzelhandel sein") `Debug` , `Retail` wenn die bedingten Symbole und definiert sind. Beachten Sie, dass ein *pp_message* beliebigen Text enthalten kann. insbesondere muss Sie keine wohlgeformten Token enthalten, wie durch das einfache Anführungszeichen im Wort `can't` gezeigt.
 
-### <a name="region-directives"></a>Region-Direktiven
+### <a name="region-directives"></a>Regions Direktiven
 
-Die Regionsdirektiven werden verwendet, um Bereiche des Quellcodes explizit zu markieren.
+Die Regions Direktiven werden verwendet, um Bereiche des Quellcodes explizit zu markieren.
 
 ```antlr
 pp_region
@@ -1180,7 +1180,7 @@ pp_end_region
     ;
 ```
 
-Keine semantische Bedeutung haben, wird in einer Region angefügt; Regionen für die Verwendung durch den Programmierer oder durch automatisierte Tools sollen einen Abschnitt mit dem Quellcode zu markieren. Die angegebene Fehlermeldung eine `#region` oder `#endregion` Richtlinie hat keine semantische Bedeutung, ebenso; es dient lediglich zur Identifizierung der Region. Übereinstimmende `#region` und `#endregion` Anweisungen möglicherweise verschiedene *Pp_message*s.
+An einen Bereich ist keine semantische Bedeutung angefügt. Regionen sind für die Verwendung durch den Programmierer oder automatisierte Tools vorgesehen, um einen Abschnitt des Quellcodes zu markieren. Die in einer `#region` -oder `#endregion` -Direktive angegebene Meldung hat ebenfalls keine semantische Bedeutung; Sie dient lediglich zur Identifizierung der Region. Übereinstimmende `#region`-und `#endregion`-Direktiven haben möglicherweise unterschiedliche *pp_message*s.
 
 Die lexikalische Verarbeitung einer Region:
 ```csharp
@@ -1188,18 +1188,18 @@ Die lexikalische Verarbeitung einer Region:
 ...
 #endregion
 ```
-entspricht genau der lexikalischen Verarbeitung einer Direktive für bedingte Kompilierung des Formulars:
+entspricht genau der lexikalischen Verarbeitung einer Direktive für die bedingte Kompilierung in der Form:
 ```csharp
 #if true
 ...
 #endif
 ```
 
-### <a name="line-directives"></a>Line-Anweisungen
+### <a name="line-directives"></a>Line-Direktiven
 
-Line-Anweisungen können verwendet werden, um die Zeilennummern und den Quelldateinamen, die vom Compiler in der Ausgabe, z. B. Warnungen und Fehler gemeldet werden, und vom Aufrufer-Informationsattribute verwendet werden ([Aufrufer-Informationsattribute](attributes.md#caller-info-attributes)).
+Zeilen Anweisungen können verwendet werden, um die Zeilennummern und Quell Dateinamen zu ändern, die vom Compiler in Ausgabe wie Warnungen und Fehlern gemeldet werden, und die von Aufrufer-Informations Attributen ([aufruferinformationsattribute](attributes.md#caller-info-attributes)) verwendet werden.
 
-Line-Anweisungen werden am häufigsten in Metaprogrammierung Tools verwendet, die C#-Quellcode aus einer anderen Texteingabe generieren.
+Zeilen Direktiven werden am häufigsten in metaprogrammierungs Tools verwendet, C# die Quellcode aus einer anderen Texteingabe generieren.
 
 ```antlr
 pp_line
@@ -1222,17 +1222,17 @@ file_name_character
     ;
 ```
 
-Wenn kein `#line` Anweisungen vorhanden sind, die der Compiler gibt "true" Zeilennummern und Quelldateinamen in die Ausgabe. Bei der Verarbeitung einer `#line` Richtlinie, die enthält eine *Line_indicator* , die sich nicht `default`, behandelt der Compiler die Zeile nach der Richtlinie mit der angegebenen Zeilennummer (und den Dateinamen ein, wenn angegeben).
+Wenn keine `#line` -Direktiven vorhanden sind, meldet der Compiler echte Zeilennummern und Quell Dateinamen in der Ausgabe. Bei der Verarbeitung einer `#line`-Direktive, die eine *line_indicator* enthält, die nicht `default` ist, behandelt der Compiler die Zeile nach der Direktive mit der angegebenen Zeilennummer (und dem Dateinamen, falls angegeben).
 
-Ein `#line default` Anweisung kehrt den Effekt der alle vorherigen #line-Direktiven. Der Compiler gibt "true" Zeileninformationen für nachfolgende Zeilen, genau als ob keine `#line` Anweisungen hatte verarbeitet wurde.
+Eine `#line default` -Direktive kehrt die Auswirkungen aller vorangehenden #line Direktiven um. Der Compiler meldet echte Zeilen Informationen für nachfolgende Zeilen, genau so, `#line` als ob keine Direktiven verarbeitet wurden.
 
-Ein `#line hidden` Richtlinie hat keine Auswirkungen auf die Datei und Zeilennummern gemeldeten Fehler Nachrichten wirkt sich jedoch Debuggen. Beim Debuggen alle Zeilen zwischen einer `#line hidden` Richtlinie und den nachfolgenden `#line` Richtlinie (das ist nicht `#line hidden`) haben keine Informationen zur Zeilennummer. Beim Code im Debugger zu durchlaufen, werden diese Zeilen komplett übersprungen.
+Eine `#line hidden` -Direktive hat keine Auswirkung auf die Datei-und Zeilennummern, die in Fehlermeldungen gemeldet werden, wirkt sich aber auf das Debugging auf Quell Ebene aus Beim Debuggen verfügen alle Zeilen `#line hidden` zwischen einer-Direktive und der nachfolgenden `#line hidden` `#line` Direktive (das nicht) über keine Zeilennummern Informationen. Wenn Sie Code im Debugger schrittweise durchlaufen, werden diese Zeilen vollständig übersprungen.
 
-Beachten Sie, dass eine *File_name* eines regulären Zeichenfolgenliterals besteht darin, dass Escapesequenzen nicht verarbeitet werden; die "`\`" Zeichen bezeichnet einfach einen normalen Schrägstrich innerhalb einer *File_name*.
+Beachten Sie, dass ein *file_name* -Wert von einem regulären Zeichenfolgenliteralwert abweicht, da Escapezeichen das Zeichen "`\`" bezeichnet einfach einen normalen umgekehrten Schrägstrich innerhalb eines *file_name*.
 
-### <a name="pragma-directives"></a>Pragma-Anweisungen
+### <a name="pragma-directives"></a>Pragma-Direktiven
 
-Die `#pragma` -Präprozessordirektive verwendet, um optionale Kontextinformationen für den Compiler anzugeben. Die Informationen bereitgestellt, einem `#pragma` Richtlinie ändert sich nie auf die Semantik der Anwendung.
+Die `#pragma` Vorverarbeitungs Direktive wird verwendet, um dem Compiler optionale Kontextinformationen anzugeben. Die in einer `#pragma` -Direktive angegebenen Informationen ändern die Programm Semantik nie.
 
 ```antlr
 pp_pragma
@@ -1244,11 +1244,11 @@ pragma_body
     ;
 ```
 
-C# bietet `#pragma` Direktiven zum Compiler-Warnungen zu steuern. Zukünftige Versionen der Sprache ist eventuell zusätzliche `#pragma` Anweisungen. Um Interoperabilität mit anderen c#-Compiler zu gewährleisten, stellt Microsoft c#-Compiler keine Kompilierungsfehler für unbekannt aus `#pragma` Anweisungen, während solche Anweisungen führen jedoch Warnungen generiert werden.
+C#stellt `#pragma` Anweisungen zum Steuern von Compilerwarnungen bereit. Zukünftige Versionen der Sprache können zusätzliche `#pragma` Anweisungen enthalten. Um die Interoperabilität mit anderen C# Compilern sicherzustellen, C# gibt der Microsoft-Compiler keine Kompilierungs `#pragma` Fehler für unbekannte Direktiven aus. solche Direktiven generieren jedoch Warnungen.
 
-#### <a name="pragma-warning"></a>Pragma-Warnung
+#### <a name="pragma-warning"></a>pragma-Warnung
 
-Die `#pragma warning` Richtlinie deaktivieren oder Wiederherstellen des gesamten verwendet wird, oder ein bestimmter Satz von Warnung Nachrichten während der Kompilierung des nachfolgenden Programm Texts.
+Die `#pragma warning` -Anweisung wird verwendet, um alle oder einen bestimmten Satz von Warnmeldungen während der Kompilierung des nachfolgenden Programm Texts zu deaktivieren oder wiederherzustellen.
 
 ```antlr
 pragma_warning_body
@@ -1266,13 +1266,13 @@ warning_list
     ;
 ```
 
-Ein `#pragma warning` -Direktive, die die Liste der Warnungen unterdrückt, wirkt sich auf alle Warnungen. Ein `#pragma warning` Richtlinie die enthält eine Liste der Warnungen, wirkt sich auf nur diese Warnungen, die in der Liste angegeben sind.
+Eine `#pragma warning` Anweisung, die die Warnungs Liste auslässt, wirkt sich auf alle Warnungen aus. Eine `#pragma warning` Anweisung, die eine Warnungs Liste enthält, wirkt sich nur auf die Warnungen aus, die in der Liste angegeben sind.
 
-Ein `#pragma warning disable` Anweisung deaktiviert alle oder den angegebenen Satz von Warnungen.
+Eine `#pragma warning disable` -Direktive deaktiviert alle oder den angegebenen Satz von Warnungen.
 
-Ein `#pragma warning restore` -Direktive Wiederherstellungen, die alle oder den angegebenen Satz von Warnungen, um den Status, die am Anfang der Kompilierungseinheit gültig war. Beachten Sie, dass eine bestimmte Warnung extern deaktiviert wurde, wird eine `#pragma warning restore` (angibt, ob für alle oder die betreffende Warnung), dass die Warnung nicht erneut aktiviert wird.
+Eine `#pragma warning restore` -Direktive stellt alle oder den angegebenen Satz von Warnungen in dem Zustand wieder her, der am Anfang der Kompilierungseinheit wirksam war. Beachten Sie Folgendes: Wenn eine bestimmte Warnung extern deaktiviert wurde `#pragma warning restore` , wird diese Warnung von a (ob für alle oder eine bestimmte Warnung) nicht erneut aktiviert.
 
-Das folgende Beispiel zeigt die Verwendung von `#pragma warning` gemeldet, vorübergehend deaktivieren, die Warnung Member verwiesen wird, verwenden die Warnungsnummer aus dem Microsoft C#-Compiler, wenn "ist veraltet.
+Das folgende Beispiel zeigt die Verwendung `#pragma warning` von, um die Warnung, die bei referenzierten Membern verwiesen wird, vorübergehend zu deaktivieren. dabei wird C# die Warnungs Nummer des Microsoft-Compilers verwendet.
 ```csharp
 using System;
 
