@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: d082393a00496b948ad4e3ff9e135d94e89d2448
-ms.sourcegitcommit: 1a46441156b13db6c845f4bbb886284387d73023
+ms.openlocfilehash: 4d6d28a3127bc701867afe157aa5496377a06f69
+ms.sourcegitcommit: 63d276488c9770a565fd787020783ffc1d2af9d6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67047036"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868003"
 ---
 # <a name="conversions"></a>Konvertierungen
 
-Ein ***Konvertierung*** ermöglicht einem Ausdruck als einen bestimmten Typ behandelt werden soll. Eine Konvertierung möglicherweise dazu führen, dass einen Ausdruck eines bestimmten Typs als einen anderen Typ behandelt werden soll, oder es kann dazu führen, dass einen Ausdruck ohne einen Typ um einen Typ zu erhalten. Konvertierungen möglich ***implizite*** oder ***explizite***, dadurch wird bestimmt, ob eine explizite Umwandlung erforderlich ist. Z. B. die Konvertierung von Typ `int` eingeben `long` ist implizit, also Ausdrücke vom Typ `int` kann implizit als Typ behandelt werden `long`. Die umgekehrte Konvertierung von Typ `long` eingeben `int`, explizite und damit eine explizite Umwandlung erforderlich ist.
+Eine ***Konvertierung*** ermöglicht es, einen Ausdruck als einen bestimmten Typ zu behandeln. Eine Konvertierung kann bewirken, dass ein Ausdruck eines bestimmten Typs als einen anderen Typ behandelt wird, oder es kann dazu führen, dass ein Ausdruck ohne einen Typ einen Typ erhält. Konvertierungen können ***implizit*** oder ***explizit***sein. Dadurch wird bestimmt, ob eine explizite Umwandlung erforderlich ist. Beispielsweise ist die Konvertierung von Typ `int` in Typ `long` implizit, sodass Ausdrücke vom Typ `int` implizit als Typ `long`behandelt werden können. Die umgekehrte Konvertierung vom Typ `long` in den Typ `int`ist explizit, sodass eine explizite Umwandlung erforderlich ist.
 
 ```csharp
 int a = 123;
@@ -16,137 +16,138 @@ long b = a;         // implicit conversion from int to long
 int c = (int) b;    // explicit conversion from long to int
 ```
 
-Bei einigen Konvertierungen werden von der Sprache definiert. Programme können auch eigene Konvertierungen definieren ([benutzerdefinierte Konvertierungen](conversions.md#user-defined-conversions)).
+Einige Konvertierungen werden von der Sprache definiert. Programme können auch Ihre eigenen Konvertierungen ([benutzerdefinierte Konvertierungen](conversions.md#user-defined-conversions)) definieren.
 
 ## <a name="implicit-conversions"></a>Implizite Konvertierungen
 
 Die folgenden Konvertierungen werden als implizite Konvertierungen klassifiziert:
 
-*  Identity-Konvertierungen
+*  Identitäts Konvertierungen
 *  Implizite numerische Konvertierungen
-*  Enumeration von impliziten Konvertierungen.
-*  Implizite NULL-Werte zulassen Konvertierungen
-*  NULL-literal-Konvertierungen
-*  Ein impliziter verweiskonvertierungen
-*  Boxing-Konvertierung
+*  Implizite Enumerationskonvertierungen
+*  Implizite interinterpolierte Zeichen folgen Konvertierungen
+*  Implizite Konvertierungen, die NULL zulassen
+*  NULL Literale Konvertierungen
+*  Implizite Verweis Konvertierungen
+*  Boxing-Konvertierungen
 *  Implizite dynamische Konvertierungen
-*  Implizite konstanter Ausdruck-Konvertierungen
+*  Implizite Konstante Ausdrucks Konvertierungen
 *  Benutzerdefinierte implizite Konvertierungen
-*  Anonyme Funktion Konvertierungen
-*  Konvertierungen für Gruppe
+*  Anonyme Funktions Konvertierungen
+*  Methoden Gruppen Konvertierungen
 
-Implizite Konvertierungen können auftreten, in einer Vielzahl von Situationen, einschließlich der Element-Funktionsaufrufe ([Überprüfungen zur Kompilierzeit der dynamischen überladungsauflösung](expressions.md#compile-time-checking-of-dynamic-overload-resolution)), Umwandlungsausdrücke ([Umwandlungsausdrücke](expressions.md#cast-expressions)), und Zuweisungen ([Zuweisungsoperatoren](expressions.md#assignment-operators)).
+Implizite Konvertierungen können in einer Vielzahl von Situationen auftreten, einschließlich Funktionsmember-Aufrufe ([Überprüfung der dynamischen Überladungs Auflösung](expressions.md#compile-time-checking-of-dynamic-overload-resolution)), Umwandlungs Ausdrücke (Umwandlungs[Ausdrücke](expressions.md#cast-expressions)) und Zuweisungen ([Zuweisungs Operatoren](expressions.md#assignment-operators)).
 
-Die vordefinierten implizite Konvertierungen immer erfolgreich, und nie Ausnahmen verursachen. Richtig entworfene benutzerdefinierte implizite Konvertierungen sollte auch diese Merkmale aufweisen.
+Die vordefinierten impliziten Konvertierungen sind immer erfolgreich und bewirken nie, dass Ausnahmen ausgelöst werden. Ordnungsgemäß entworfene benutzerdefinierte implizite Konvertierungen sollten auch diese Merkmale aufweisen.
 
-Im Rahmen der Konvertierung, die Typen `object` und `dynamic` als äquivalent betrachtet werden.
+Zum Zweck der Konvertierung werden die Typen `object` und `dynamic` als gleichwertig betrachtet.
 
-Jedoch dynamische Konvertierungen ([implizite dynamische Konvertierungen](conversions.md#implicit-dynamic-conversions) und [explizite dynamische Konvertierungen](conversions.md#explicit-dynamic-conversions)) gelten nur für Ausdrücke vom Typ `dynamic` ([der dynamische Typ](types.md#the-dynamic-type)).
+Dynamische Konvertierungen ([implizite dynamische Konvertierungen](conversions.md#implicit-dynamic-conversions) und [explizite dynamische Konvertierungen](conversions.md#explicit-dynamic-conversions)) gelten jedoch nur für Ausdrücke vom Typ `dynamic` ([der dynamische Typ](types.md#the-dynamic-type)).
 
-### <a name="identity-conversion"></a>Identitätskonvertierung
+### <a name="identity-conversion"></a>Identitäts Konvertierung
 
-Eine identitätskonvertierung von einem Typ die in denselben Typ konvertiert werden. Diese Konvertierung vorhanden ist, dass eine Entität, die bereits den erforderlichen Typ besitzt bezeichnet werden kann, um auf diesen Typ konvertiert werden können.
+Eine Identitäts Konvertierung konvertiert von einem beliebigen Typ in denselben Typ. Diese Konvertierung besteht darin, dass eine Entität, die bereits über einen erforderlichen Typ verfügt, in diesen Typ konvertiert werden kann.
 
-*  Da `object` und `dynamic` gelten als äquivalent, eine Identität zwischen Konvertierung `object` und `dynamic`, und zwischen konstruierte Typen, die gleich sind, wenn Sie alle Vorkommen von ersetzen `dynamic` mit `object`.
+*  Da `object` und `dynamic` als gleichwertig betrachtet werden, gibt es eine Identitäts Konvertierung zwischen `object` und `dynamic`sowie zwischen konstruierten Typen, die beim Ersetzen aller Vorkommen von `dynamic` durch `object`identisch sind.
 
 ### <a name="implicit-numeric-conversions"></a>Implizite numerische Konvertierungen
 
-Die impliziten numerischen Konvertierungen sind:
+Die impliziten numerischen Konvertierungen lauten:
 
-*  Von `sbyte` zu `short`, `int`, `long`, `float`, `double`, oder `decimal`.
-*  Von `byte` zu `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`, oder `decimal`.
-*  Von `short` zu `int`, `long`, `float`, `double`, oder `decimal`.
-*  Von `ushort` zu `int`, `uint`, `long`, `ulong`, `float`, `double`, oder `decimal`.
-*  Von `int` zu `long`, `float`, `double`, oder `decimal`.
-*  Von `uint` zu `long`, `ulong`, `float`, `double`, oder `decimal`.
-*  Von `long` zu `float`, `double`, oder `decimal`.
-*  Von `ulong` zu `float`, `double`, oder `decimal`.
-*  Von `char` zu `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`, oder `decimal`.
-*  Von `float` zu `double`.
+*  Von `sbyte` bis `short`, `int`, `long`, `float`, `double`oder `decimal`.
+*  Von `byte` bis `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`oder `decimal`.
+*  Von `short` bis `int`, `long`, `float`, `double`oder `decimal`.
+*  Von `ushort` bis `int`, `uint`, `long`, `ulong`, `float`, `double`oder `decimal`.
+*  Von `int` bis `long`, `float`, `double`oder `decimal`.
+*  Von `uint` bis `long`, `ulong`, `float`, `double`oder `decimal`.
+*  Von `long` bis `float`, `double`oder `decimal`.
+*  Von `ulong` bis `float`, `double`oder `decimal`.
+*  Von `char` bis `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`oder `decimal`.
+*  Von `float` in `double`.
 
-Konvertierungen von `int`, `uint`, `long`, oder `ulong` zu `float` und `long` oder `ulong` zu `double` möglicherweise zu einem Genauigkeitsverlust führen, wird aber nie Ursache ein Verlust der Größe. Die anderen impliziten numerischen Konvertierungen verlieren keine Informationen.
+Konvertierungen von `int`, `uint`, `long`oder `ulong` in `float` und aus `long` oder `ulong` zu `double` können zu einem Genauigkeits Verlust führen, aber nie zu einem Verlust der Größe führen. Die anderen impliziten numerischen Konvertierungen verlieren nie Informationen.
 
-Es gibt keine impliziten Konvertierungen für die `char` eingeben, damit die Werte der anderen ganzzahligen Typen nicht automatisch in konvertiert werden die `char` Typ.
+Es gibt keine impliziten Konvertierungen in den `char` Typ, sodass Werte der anderen ganzzahligen Typen nicht automatisch in den `char` Typ konvertiert werden.
 
-### <a name="implicit-enumeration-conversions"></a>Enumeration von impliziten Konvertierungen
+### <a name="implicit-enumeration-conversions"></a>Implizite Enumerationskonvertierungen
 
-Eine Enumeration der impliziten Konvertierung lässt die *Decimal_integer_literal* `0` in eine konvertiert werden *Enum_type* sowie an ggf. *Nullable_type* , deren zugrunde liegende Typ ist ein *Enum_type*. Im letzteren Fall wird die Konvertierung ausgewertet, durch die Konvertierung in den zugrunde liegenden *Enum_type* und das Ergebnis ([auf NULL festlegbare Typen](types.md#nullable-types)).
+Eine implizite Enumerationskonvertierung ermöglicht das Konvertieren des *decimal_integer_literal* `0` in beliebige *enum_type* und in beliebige *nullable_type* , deren zugrunde liegender Typ ein *enum_type*ist. Im letzteren Fall wird die Konvertierung ausgewertet, indem Sie in die zugrunde liegende *enum_type* konvertiert und das Ergebnis umwickelt ([Nullable-Typen](types.md#nullable-types)).
 
-### <a name="implicit-interpolated-string-conversions"></a>Implizite interpolierte zeichenfolgenkonvertierungen
+### <a name="implicit-interpolated-string-conversions"></a>Implizite interinterpolierte Zeichen folgen Konvertierungen
 
-Ein impliziter interpolierte Zeichenfolge Konvertierung lässt eine *Interpolated_string_expression* ([interpolierte Zeichenfolgen](expressions.md#interpolated-strings)) zu konvertierenden `System.IFormattable` oder `System.FormattableString` (implementiert `System.IFormattable`).
+Eine implizite interpolierte Zeichen folgen Konvertierung ermöglicht das Konvertieren eines *interpolated_string_expression* ([interpoliert](expressions.md#interpolated-strings)Zeichen folgen) in `System.IFormattable` oder `System.FormattableString` (das `System.IFormattable`implementiert).
 
-Wenn diese Konvertierung angewendet wird besteht ein String-Wert aus der interpolierten Zeichenfolge nicht. Stattdessen eine Instanz von `System.FormattableString` erstellt, in gemäß Erläuterung unten [interpolierte Zeichenfolgen](expressions.md#interpolated-strings).
+Wenn diese Konvertierung angewendet wird, wird ein Zeichen folgen Wert nicht aus der interinterpolierten Zeichenfolge zusammengesetzt. Stattdessen wird eine Instanz von `System.FormattableString` erstellt, wie in [interpoliert](expressions.md#interpolated-strings)-Zeichen folgen beschrieben.
 
-### <a name="implicit-nullable-conversions"></a>Implizite NULL-Werte zulassen Konvertierungen
+### <a name="implicit-nullable-conversions"></a>Implizite Konvertierungen, die NULL zulassen
 
-Vordefinierte implizite Konvertierungen, die nicht auf NULL festlegbare Werttypen verarbeiten können auch mit NULL-Werte zulassen Forms dieser Typen verwendet werden. Für jede vordefinierte implizite Identitäts- und numerische Konvertierungen, die von einem Typ NULL-Werte konvertieren `S` auf einen NULL-Werttyp `T`, existieren die folgenden Konvertierungen für das implizite NULL-Werte zulassen:
+Vordefinierte implizite Konvertierungen, die nicht auf NULL festleg Bare Werttypen angewendet werden, können auch mit null-fähigen Formularen dieser Typen verwendet werden. Für jede der vordefinierten impliziten Identitäts-und numerischen Konvertierungen, die von einem Werttyp, der keine NULL-Werte zulässt, `S` in einen Werttyp, der nicht auf NULL festgelegt werden kann `T`, sind die folgenden impliziten Konvertierungen vorhanden:
 
-*  Eine implizite Konvertierung von `S?` zu `T?`.
-*  Eine implizite Konvertierung von `S` zu `T?`.
+*  Eine implizite Konvertierung von `S?` in `T?`.
+*  Eine implizite Konvertierung von `S` in `T?`.
 
-Auswertung der eine implizite Konvertierung für die NULL-Werte zulassen basierend auf eine zugrunde liegende Konvertierung von `S` zu `T` wird wie folgt:
+Die Auswertung einer impliziten Konvertierung auf NULL-Werte, die auf einer zugrunde liegenden Konvertierung von `S` in `T` basiert, verläuft wie folgt:
 
-*  Wenn eine auf NULL festlegbare Konvertierung von `S?` zu `T?`:
-    * Wenn der Quellwert null ist (`HasValue` Eigenschaft ist "false"), das Ergebnis ist der null-Wert des Typs `T?`.
-    * Andernfalls wird die Konvertierung ausgewertet, als ein Entpacken von `S?` zu `S`, gefolgt von der zugrunde liegenden Konvertierung von `S` zu `T`, gefolgt von einem Wrapper ([auf NULL festlegbare Typen](types.md#nullable-types)) von `T` zu `T?`.
+*  Wenn die Konvertierung, die NULL-Werte zulässt, von `S?` in `T?`erfolgt:
+    * Wenn der Quellwert NULL ist (`HasValue`-Eigenschaft ist false), ist das Ergebnis der NULL-Wert des Typs `T?`.
+    * Andernfalls wird die Konvertierung als zum Entpacken von `S?` in `S`ausgewertet, gefolgt von der zugrunde liegenden Konvertierung von `S` in `T`, gefolgt von einem Wrapping ([Nullable-Typen](types.md#nullable-types)) von `T` zu `T?`.
 
-*  Wenn eine auf NULL festlegbare Konvertierung von `S` zu `T?`, die Konvertierung wird ausgewertet, als die zugrunde liegenden Konvertierung von `S` zu `T` gefolgt von einem Textumbruch aus `T` zu `T?`.
+*  Wenn die Konvertierung, die NULL-Werte zulässt, von `S` auf `T?`erfolgt, wird die Konvertierung als die zugrunde liegende Konvertierung von `S` in `T` gefolgt von einem Wrapping von `T` zu `T?`ausgewertet.
 
-### <a name="null-literal-conversions"></a>NULL-literal-Konvertierungen
+### <a name="null-literal-conversions"></a>NULL Literale Konvertierungen
 
-Eine implizite Konvertierung vorhanden ist, aus der `null` Zeichenfolgenliteral in einen beliebigen Typ NULL-Werte zulässt. Diese Konvertierung erzeugt, den null-Wert ([auf NULL festlegbare Typen](types.md#nullable-types)) des angegebenen Typs NULL-Werte zulässt.
+Eine implizite Konvertierung ist vom `null` Literaltyp zu einem beliebigen Typ, der NULL-Werte zulässt. Diese Konvertierung erzeugt den NULL-Wert ([Werte zulässt-Typen](types.md#nullable-types)) des angegebenen Typs, der NULL-Werte zulässt.
 
-### <a name="implicit-reference-conversions"></a>Ein impliziter verweiskonvertierungen
+### <a name="implicit-reference-conversions"></a>Implizite Verweis Konvertierungen
 
-Die implizite verweiskonvertierungen sind:
+Die impliziten Verweis Konvertierungen sind:
 
-*  Von jedem *Reference_type* zu `object` und `dynamic`.
-*  Von jedem *Class_type* `S` auf *Class_type* `T`, bereitgestellt wird, `S` ergibt sich aus `T`.
-*  Von jedem *Class_type* `S` auf *Interface_type* `T`aus `S` implementiert `T`.
-*  Von jedem *Interface_type* `S` auf *Interface_type* `T`, bereitgestellt wird, `S` ergibt sich aus `T`.
-*  Aus einer *Array_type* `S` mit einem Elementtyp `SE` auf eine *Array_type* `T` mit einem Elementtyp `TE`, sofern alle der folgenden Bedingungen erfüllt sind:
-    * `S` und `T` unterscheiden sich nur hinsichtlich der Elementtyp. Das heißt, `S` und `T` haben die gleiche Anzahl von Dimensionen.
-    * Beide `SE` und `TE` sind *Reference_type*s.
-    * Implizite verweiskonvertierung vorhanden ist, von `SE` zu `TE`.
-*  Von jedem *Array_type* zu `System.Array` und die Schnittstellen implementiert.
-*  Aus einem eindimensionalen Array-Typ `S[]` zu `System.Collections.Generic.IList<T>` und die Basisschnittstellen, vorausgesetzt, es gibt eine implizite Identitäts- oder verweiskonvertierung aus `S` zu `T`.
-*  Von jedem *Delegate_type* zu `System.Delegate` und die Schnittstellen implementiert.
-*  Von der null-Literal in einem *Reference_type*.
-*  Aus allen *Reference_type* auf eine *Reference_type* `T` verfügt eine implizite Identitäts- oder verweiskonvertierung, einer *Reference_type* `T0` und `T0` verfügt über eine identitätskonvertierung in `T`.
-*  Von jedem *Reference_type* auf einen Typ von Schnittstellen oder Delegate `T` verfügt eine implizite Identitäts- oder verweiskonvertierung auf einen Typ von Schnittstellen oder Delegate `T0` und `T0` ist varianzkonvertierbar ([ Varianzkonvertierungen](interfaces.md#variance-conversion)) zu `T`.
-*  Implizite Konvertierungen, die im Zusammenhang mit Typparametern, die bekannt ist, dass Verweistypen sein. Finden Sie unter [implizite Konvertierungen, die im Zusammenhang mit Typparametern](conversions.md#implicit-conversions-involving-type-parameters) ausführliche Informationen zum impliziten Konvertierungen, die im Zusammenhang mit Typparametern.
+*  Von allen *reference_type* bis `object` und `dynamic`.
+*  Von allen *class_type* `S` zu beliebigen *class_type* `T`wird die angegebene `S` von `T`abgeleitet.
+*  Von allen *class_type* `S` bis hin zu beliebigen *INTERFACE_TYPE* `T`implementiert `S` `T`implementiert.
+*  Von allen *INTERFACE_TYPE* `S` zu beliebigen *INTERFACE_TYPE* `T`wird die angegebene `S` von `T`abgeleitet.
+*  Aus einer *array_type* `S` mit einem Elementtyp `SE` zu einer *array_type* `T` mit einem Elementtyp `TE`, wenn alle folgenden Punkte zutreffen:
+    * `S` und `T` unterscheiden sich nur in Elementtyp. Anders ausgedrückt: `S` und `T` haben die gleiche Anzahl von Dimensionen.
+    * Sowohl `SE` als auch `TE` sind *reference_type*s.
+    * Eine implizite Verweis Konvertierung ist von `SE` in `TE`vorhanden.
+*  Von allen *array_type* bis `System.Array` und den Schnittstellen, die es implementiert.
+*  Von einem eindimensionalen Arraytyp `S[]` zu `System.Collections.Generic.IList<T>` und dessen Basis Schnittstellen, vorausgesetzt, dass es eine implizite Identität oder Verweis Konvertierung von `S` in `T`gibt.
+*  Von allen *delegate_type* bis `System.Delegate` und den Schnittstellen, die es implementiert.
+*  Von der NULL-Literale zu beliebigen *reference_type*.
+*  Von allen *reference_type* zu einem *reference_type* `T`, wenn es eine implizite Identität oder Verweis Konvertierung in einen *reference_type* hat `T0` und `T0` über eine Identitäts Konvertierung in `T`verfügt.
+*  Von einer beliebigen *reference_type* zu einer Schnittstelle oder einem Delegattyp `T`, wenn Sie eine implizite Identität oder Verweis Konvertierung in eine Schnittstelle oder einen Delegattyp aufweist `T0` und `T0` die Varianz konvertierbar ([Varianz Konvertierung](interfaces.md#variance-conversion)) zum `T`ist.
+*  Implizite Konvertierungen mit Typparametern, die als Verweis Typen bekannt sind. Weitere Informationen zu impliziten Konvertierungen, die Typparameter einschließen, finden Sie unter [implizite Konvertierungen mit Typparametern](conversions.md#implicit-conversions-involving-type-parameters) .
 
-Die implizite verweiskonvertierungen sind Konvertierungen zwischen *Reference_type*s, die belegt werden kann, dass Sie immer erfolgreich sein und erfordern daher keine Überprüfungen zur Laufzeit.
+Die impliziten Verweis Konvertierungen sind Konvertierungen zwischen *reference_type*en, die sich als immer erfolgreich erweisen können und daher keine Überprüfungen zur Laufzeit erfordern.
 
-Verweiskonvertierungen, implizite oder explizite, ändern sich nie die referenzielle Identität des Objekts, der konvertiert wird. Das heißt, während referenzkonvertierung den Typ des Verweises ändern kann, ändert es nie den Typ oder Wert des Objekts auf die verwiesen wird.
+Verweis Konvertierungen, implizit oder explizit, ändern niemals die referenzielle Identität des Objekts, das konvertiert wird. Anders ausgedrückt: während eine Verweis Konvertierung den Typ des Verweises ändern kann, ändert Sie niemals den Typ oder Wert des Objekts, auf das verwiesen wird.
 
-### <a name="boxing-conversions"></a>Boxing-Konvertierung
+### <a name="boxing-conversions"></a>Boxing-Konvertierungen
 
-Eine Boxing-Konvertierung, ermöglicht eine *Value_type* implizit in einen Verweistyp konvertiert werden. Eine Boxingkonvertierung vorhanden ist, von jedem *Non_nullable_value_type* zu `object` und `dynamic`zu `System.ValueType` sowie an ggf. *Interface_type* implementiert die *Non_ Nullable_value_type*. Darüber hinaus eine *Enum_type* konvertiert werden kann, in den Typ `System.Enum`.
+Eine Boxing-Konvertierung ermöglicht das implizite Konvertieren eines *value_type* in einen Verweistyp. Eine Boxing-Konvertierung ist von allen *non_nullable_value_type* zu `object` und `dynamic`, `System.ValueType` und in alle *INTERFACE_TYPE* , die vom *non_nullable_value_type*implementiert werden, vorhanden. Außerdem kann eine *enum_type* in den Typ `System.Enum`konvertiert werden.
 
-Eine Boxingkonvertierung vorhanden ist, aus einer *Nullable_type* ein Verweistyp, wenn ein Boxing-Konvertierung vorhanden ist aus der zugrunde liegenden *Non_nullable_value_type* in den Referenztyp.
+Eine Boxing-Konvertierung ist aus einer *nullable_type* in einen Verweistyp vorhanden, und zwar nur dann, wenn eine Boxing-Konvertierung von der zugrunde liegenden *non_nullable_value_type* in den Verweistyp vorhanden ist.
 
-Ein Werttyp ist, eine Boxing-Konvertierung in einen Schnittstellentyp `I` verfügt eine Boxing-Konvertierung in einen Schnittstellentyp `I0` und `I0` verfügt über eine identitätskonvertierung in `I`.
+Ein Werttyp verfügt über eine Boxing-Konvertierung in einen Schnittstellentyp `I` wenn er eine Boxing-Konvertierung in einen Schnittstellentyp `I0` und `I0` über eine Identitäts Konvertierung in `I`verfügt.
 
-Ein Werttyp ist, eine Boxing-Konvertierung in einen Schnittstellentyp `I` verfügt eine Boxing-Konvertierung in einen Typ von Schnittstellen oder Delegate `I0` und `I0` ist varianzkonvertierbar ([varianzkonvertierungen](interfaces.md#variance-conversion)) zu `I`.
+Ein Werttyp verfügt über eine Boxing-Konvertierung in einen Schnittstellentyp `I` wenn er eine Boxing-Konvertierung in eine Schnittstelle oder einen Delegattyp aufweist `I0` und `I0` Varianz konvertierbar ([Varianz Konvertierung](interfaces.md#variance-conversion)) zum `I`ist.
 
-Boxing-Wert eine *Non_nullable_value_type* besteht aus eine Objektinstanz zuordnen und das Kopieren der *Value_type* Wert in dieser Instanz. Eine Struktur kann geschachtelt werden, in den Typ `System.ValueType`, da dies eine Basisklasse für alle Strukturen ist ([Vererbung](structs.md#inheritance)).
+Das Boxing eines Werts einer *non_nullable_value_type* besteht aus der Zuordnung einer Objektinstanz und dem Kopieren des *value_type* Werts in diese Instanz. Eine Struktur kann in den Typ `System.ValueType`gekapselt werden, da dies eine Basisklasse für alle Strukturen ([Vererbung](structs.md#inheritance)) ist.
 
-Boxing-Wert eine *Nullable_type* wird wie folgt:
+Das Boxing eines Werts eines *nullable_type* verläuft wie folgt:
 
-*  Wenn der Quellwert null ist (`HasValue` Eigenschaft ist "false"), das Ergebnis ist ein null-Verweis des Zieltyps.
-*  Das Ergebnis ist, andernfalls ein Verweis auf eine geschachtelte `T` von entpacken und den Wert des boxing erzeugt werden.
+*  Wenn der Quellwert NULL ist (`HasValue`-Eigenschaft ist false), ist das Ergebnis ein NULL-Verweis des Zieltyps.
+*  Andernfalls ist das Ergebnis ein Verweis auf eine `T`, die durch das Entpacken und Boxing des Quell Werts erzeugt wird.
 
-Boxing-Konvertierung werden ausführlich in [Boxingkonvertierungen](types.md#boxing-conversions).
+Boxing-Konvertierungen werden weiter unten in [Boxing-Konvertierungen](types.md#boxing-conversions)beschrieben.
 
 ### <a name="implicit-dynamic-conversions"></a>Implizite dynamische Konvertierungen
 
-Eine implizite Konvertierung für die dynamische vorhanden ist, von einem Ausdruck vom Typ `dynamic` auf einen beliebigen Typ `T`. Die Konvertierung dynamisch gebunden ist ([dynamische Bindung](expressions.md#dynamic-binding)), was bedeutet, dass eine implizite Konvertierung zur Laufzeit von der Runtime-Typ des Ausdrucks, der gesucht werden soll, wird `T`. Wenn keine Konvertierung gefunden wird, wird eine Laufzeitausnahme ausgelöst.
+Eine implizite dynamische Konvertierung ist von einem Ausdruck vom Typ `dynamic` in einen beliebigen Typ `T`vorhanden. Die Konvertierung ist dynamisch gebunden ([dynamische Bindung](expressions.md#dynamic-binding)). Dies bedeutet, dass eine implizite Konvertierung zur Laufzeit vom Lauf Zeittyp des Ausdrucks zum `T`durchgeführt wird. Wenn keine Konvertierung gefunden wird, wird eine Lauf Zeit Ausnahme ausgelöst.
 
-Beachten Sie, dass diese implizite Konvertierung den Rat am Anfang des scheinbar verstößt gegen [implizite Konvertierungen](conversions.md#implicit-conversions) , dass eine implizite Konvertierung niemals eine Ausnahme auslösen soll. Ist es jedoch nicht die Konvertierung selbst, aber die *suchen* der Konvertierung, die die Ausnahme ausgelöst hat. Bei der Verwendung der dynamischen Bindung ist das Risiko von Laufzeitausnahmen. Wenn die dynamische Bindung für die Konvertierung nicht gewünscht ist, der Ausdruck konvertiert werden kann zunächst `object`, und klicken Sie dann den gewünschten Typ.
+Beachten Sie, dass diese implizite Konvertierung scheinbar gegen den Rat am Anfang von [impliziten Konvertierungen](conversions.md#implicit-conversions) verstößt, dass eine implizite Konvertierung nie eine Ausnahme auslösen sollte. Dabei handelt es sich jedoch nicht um die Konvertierung, sondern um die *Suche nach* der Konvertierung, die die Ausnahme verursacht. Das Risiko von Lauf Zeit Ausnahmen ist die Verwendung der dynamischen Bindung. Wenn die dynamische Bindung der Konvertierung nicht erwünscht ist, kann der Ausdruck zuerst in `object`und dann in den gewünschten Typ konvertiert werden.
 
-Das folgende Beispiel veranschaulicht die implizite dynamische Konvertierungen:
+Das folgende Beispiel veranschaulicht implizite dynamische Konvertierungen:
 
 ```csharp
 object o  = "object"
@@ -157,177 +158,177 @@ string s2 = d; // Compiles and succeeds at run-time
 int i     = d; // Compiles but fails at run-time -- no conversion exists
 ```
 
-Die Zuweisungen zu `s2` und `i` sowohl der implizite dynamische Konvertierungen, die Bindung der Vorgänge, bis zur Laufzeit angehalten wird verwenden. Zur Laufzeit, implizite Konvertierungen aus der Run-Time-Typ, der gesucht werden `d`  --  `string` – in den Zieltyp. Eine Konvertierung wird festgestellt, dass `string` aber nicht für `int`.
+Die Zuweisungen zu `s2` und `i` beide verwenden implizite dynamische Konvertierungen, bei denen die Bindung der Vorgänge bis zur Laufzeit angehalten wird. Zur Laufzeit werden implizite Konvertierungen vom Lauf Zeittyp `d` -- `string`-bis zum Zieltyp durchgeführt. Es wurde eine Konvertierung gefunden, um `string`, aber nicht `int`.
 
-### <a name="implicit-constant-expression-conversions"></a>Implizite konstanter Ausdruck-Konvertierungen
+### <a name="implicit-constant-expression-conversions"></a>Implizite Konstante Ausdrucks Konvertierungen
 
-Eine Konvertierung implizit Konstantenausdruck ermöglicht die folgenden Konvertierungen:
+Eine implizite Konstante Ausdrucks Konvertierung ermöglicht die folgenden Konvertierungen:
 
-*  Ein *Constant_expression* ([Konstante Ausdrücke](expressions.md#constant-expressions)) vom Typ `int` Typ konvertiert werden kann `sbyte`, `byte`, `short`, `ushort`, `uint`, oder `ulong`, vorausgesetzt, der Wert, der die *Constant_expression* liegt innerhalb des Bereichs des Zieltyps.
-*  Ein *Constant_expression* des Typs `long` Typ konvertiert werden kann `ulong`, vorausgesetzt, der Wert, der die *Constant_expression* nicht negativ ist.
+*  Eine *constant_expression* ([Konstante Ausdrücke](expressions.md#constant-expressions)) vom Typ `int` kann in den Typ `sbyte`, `byte`, `short`, `ushort`, `uint`oder `ulong`konvertiert werden, sofern der Wert des *constant_expression* innerhalb des Bereichs des Zieltyps liegt.
+*  Eine *constant_expression* vom Typ `long` kann in den Typ `ulong`konvertiert werden, sofern der Wert des *constant_expression* nicht negativ ist.
 
-### <a name="implicit-conversions-involving-type-parameters"></a>Implizite Konvertierungen, die im Zusammenhang mit Typparametern
+### <a name="implicit-conversions-involving-type-parameters"></a>Implizite Konvertierungen mit Typparametern
 
-Die folgenden implizite Konvertierungen für einen Parameter angegebenen Typ vorhanden `T`:
+Die folgenden impliziten Konvertierungen sind für einen angegebenen Typparameter `T`vorhanden:
 
-*  Von `T` zu deren effektiven Basisklasse `C`, von `T` auf einer Basisklasse von `C`, und von `T` für jede Schnittstelle implementiert, indem `C`. AT-Laufzeit-If `T` ist ein Werttyp, einer Boxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als implizite verweiskonvertierung oder identitätskonvertierung ausgeführt.
-*  Aus `T` in einen Schnittstellentyp `I` in `T`effektive Schnittstelle des festgelegt werden und von `T` auf alle Basisschnittstelle `I`. AT-Laufzeit-If `T` ist ein Werttyp, einer Boxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als implizite verweiskonvertierung oder identitätskonvertierung ausgeführt.
-*  Von `T` auf einen Typparameter `U`aus `T` hängt `U` ([Geben Sie die Einschränkungen für Typparameter](classes.md#type-parameter-constraints)). AT-Laufzeit-If `U` ein Werttyp ist, klicken Sie dann `T` und `U` unbedingt den gleichen Typ aufweisen und wird keine Konvertierung durchgeführt. Andernfalls gilt: Wenn `T` ist ein Werttyp, einer Boxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als implizite verweiskonvertierung oder identitätskonvertierung ausgeführt.
-*  Von der null-Literal in `T`aus `T` ist ein Verweistyp ist bekannt.
-*  Von `T` in einen Verweistyp `I` , wenn es sich um eine implizite Konvertierung in einen Verweistyp hat `S0` und `S0` verfügt über eine identitätskonvertierung in `S`. Zur Laufzeit wird die Konvertierung ausgeführt, die gleiche Weise wie die Konvertierung in `S0`.
-*  Von `T` in einen Schnittstellentyp `I` verfügt eine implizite Konvertierung in einen Typ von Schnittstellen oder Delegate `I0` und `I0` ist varianzkonvertierbar zu `I` ([varianzkonvertierungen](interfaces.md#variance-conversion) ). AT-Laufzeit-If `T` ist ein Werttyp, einer Boxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als implizite verweiskonvertierung oder identitätskonvertierung ausgeführt.
+*  Von `T` bis zur effektiven Basisklasse `C`, von `T` zu einer beliebigen Basisklasse `C`und von `T` bis zu einer beliebigen Schnittstelle, die von `C`implementiert wird. Wenn `T` ein Werttyp ist, wird die Konvertierung zur Laufzeit als Boxing-Konvertierung ausgeführt. Andernfalls wird die Konvertierung als implizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
+*  Von `T` bis zu einem Schnittstellentyp `I` in den effektiven Schnittstellen Satz `T`und von `T` auf eine beliebige Basisschnittstelle `I`. Wenn `T` ein Werttyp ist, wird die Konvertierung zur Laufzeit als Boxing-Konvertierung ausgeführt. Andernfalls wird die Konvertierung als implizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
+*  Von `T` bis zu einem Typparameter `U`ist `T` von `U` abhängig ([Typparameter Einschränkungen](classes.md#type-parameter-constraints)). Wenn `U` ein Werttyp ist, sind `T` und `U` bei der Laufzeit notwendigerweise denselben Typ, und es wird keine Konvertierung durchgeführt. Andernfalls, wenn `T` ein Werttyp ist, wird die Konvertierung als Boxing-Konvertierung ausgeführt. Andernfalls wird die Konvertierung als implizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
+*  Von der NULL-Literale bis zu `T`, wird `T` als Verweistyp bezeichnet.
+*  Von `T` bis zu einem Verweistyp `I`, wenn eine implizite Konvertierung in einen Verweistyp `S0` und `S0` über eine Identitäts Konvertierung in `S`verfügt. Zur Laufzeit wird die Konvertierung auf die gleiche Weise ausgeführt wie die Konvertierung in `S0`.
+*  Von `T` bis zu einem Schnittstellentyp `I`, wenn eine implizite Konvertierung in eine Schnittstelle oder einen Delegattyp erfolgt `I0` und `I0` in `I` Varianz konvertierbar ist ([Varianz Konvertierung](interfaces.md#variance-conversion)). Wenn `T` ein Werttyp ist, wird die Konvertierung zur Laufzeit als Boxing-Konvertierung ausgeführt. Andernfalls wird die Konvertierung als implizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
 
-Wenn `T` bekannt ist ein Verweistyp sein ([Geben Sie die Einschränkungen für Typparameter](classes.md#type-parameter-constraints)), die oben genannten Konvertierungen werden als implizite Verweis-klassifiziert ([implizite Verweis-](conversions.md#implicit-reference-conversions)). Wenn `T` ist nicht bekannt ist, ein Verweistyp sein muss, sind die Konvertierungen, die höher als Boxingkonvertierungen klassifiziert ([Boxingkonvertierungen](conversions.md#boxing-conversions)).
+Wenn `T` bekannt ist, dass es sich um einen Verweistyp ([Typparameter Einschränkungen](classes.md#type-parameter-constraints)) handelt, werden die obigen Konvertierungen als implizite Verweis Konvertierungen ([implizite Verweis Konvertierungen](conversions.md#implicit-reference-conversions)) klassifiziert. Wenn `T` nicht bekannt ist, dass es sich um einen Verweistyp handelt, werden die obigen Konvertierungen als boxkonvertierungen ([Boxing-Konvertierungen](conversions.md#boxing-conversions)) klassifiziert.
 
 ### <a name="user-defined-implicit-conversions"></a>Benutzerdefinierte implizite Konvertierungen
 
-Eine implizite Konvertierung von benutzerdefinierten umfasst eine optionale standard implizite Konvertierung, gefolgt von der Ausführung einer benutzerdefinierten implizite Konvertierungsoperator, gefolgt von einem anderen optionalen standard implizite Konvertierung. Die genauen Regeln für Ihre Evaluierung von benutzerdefinierten implizite Konvertierungen werden in beschrieben [von impliziten Konvertierungen eine benutzerdefinierte Verarbeitung](conversions.md#processing-of-user-defined-implicit-conversions).
+Eine benutzerdefinierte implizite Konvertierung besteht aus einer optionalen standardmäßigen impliziten Konvertierung, gefolgt von der Ausführung eines benutzerdefinierten impliziten Konvertierungs Operators, gefolgt von einer anderen optionalen standardmäßigen impliziten Konvertierung. Die genauen Regeln für das Auswerten benutzerdefinierter impliziter Konvertierungen werden bei der [Verarbeitung von benutzerdefinierten impliziten Konvertierungen](conversions.md#processing-of-user-defined-implicit-conversions)beschrieben.
 
-### <a name="anonymous-function-conversions-and-method-group-conversions"></a>Anonyme Funktion Konvertierungen und Konvertierungen für Gruppe
+### <a name="anonymous-function-conversions-and-method-group-conversions"></a>Anonyme Funktions Konvertierungen und Methoden Gruppen Konvertierungen
 
-Anonyme Funktionen und Methodengruppen keine Typen an und für sich allerdings um Typen oder ausdrucksbaumstrukturtypen delegieren implizit konvertiert werden können. Anonyme Funktion Konvertierungen werden ausführlicher beschrieben [anonyme Funktion Konvertierungen](conversions.md#anonymous-function-conversions) und Gruppe Konvertierungen in [Gruppe Konvertierungen](conversions.md#method-group-conversions).
+Anonyme Funktionen und Methoden Gruppen weisen keine Typen in und von sich selbst auf, können aber implizit in Delegattypen oder Ausdrucks Baumstruktur konvertiert werden. Anonyme Funktions Konvertierungen werden ausführlicher in [Anonyme Funktions Konvertierungen](conversions.md#anonymous-function-conversions) und Methoden Gruppen Konvertierungen in [Methoden Gruppen Konvertierungen](conversions.md#method-group-conversions)beschrieben.
 
 ## <a name="explicit-conversions"></a>Explizite Konvertierungen
 
-Die folgenden Konvertierungen werden explizite Konvertierungen klassifiziert:
+Die folgenden Konvertierungen werden als explizite Konvertierungen klassifiziert:
 
 *  Alle impliziten Konvertierungen.
 *  Explizite numerische Konvertierungen.
-*  Konvertierungen von expliziten-Enumeration.
-*  Explizite Konvertierungen für NULL-Werte zulässt.
-*  Explizite Konvertierungen.
-*  Explizite Konvertierungen.
+*  Explizite Enumerationskonvertierungen.
+*  Explizite Konvertierungen, die NULL zulassen.
+*  Explizite Verweis Konvertierungen.
+*  Explizite Schnittstellen Konvertierungen.
 *  Unboxing-Konvertierungen.
 *  Explizite dynamische Konvertierungen
 *  Benutzerdefinierte explizite Konvertierungen.
 
-Explizite Konvertierungen können in der Cast-Ausdrücke auftreten ([Umwandlungsausdrücke](expressions.md#cast-expressions)).
+Explizite Konvertierungen können in Umwandlungs Ausdrücken (Umwandlungs[Ausdrücke](expressions.md#cast-expressions)) auftreten.
 
-Der explizite Konvertierungen enthält alle impliziter Konvertierungen. Dies bedeutet, dass redundante Cast-Ausdrücke zulässig sind.
+Der Satz expliziter Konvertierungen umfasst alle impliziten Konvertierungen. Dies bedeutet, dass redundante Umwandlungs Ausdrücke zulässig sind.
 
-Die explizite Konvertierungen, die keine impliziten Konvertierungen sind sind Konvertierungen, die belegt werden können, dass immer erfolgreich, Konvertierungen, die bekannt ist, dass Sie möglicherweise Informationen verloren gehen und Konvertierungen zwischen Domänen unterscheiden, auch explizite Typen Notation.
+Die expliziten Konvertierungen, bei denen es sich nicht um implizite Konvertierungen handelt, sind Konvertierungen, die sich nicht immer als erfolgreich erweisen können, Konvertierungen, die bekanntermaßen Informationen verlieren, und Konvertierungen zwischen Domänen von Typen ausreichend verschieden sind, Angabe.
 
 ### <a name="explicit-numeric-conversions"></a>Explizite numerische Konvertierungen
 
-Die expliziten numerischen Konvertierungen sind Konvertierungen aus einer *Numeric_type* in ein anderes *Numeric_type* für die eine implizite numerische Konvertierung ([implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions)) ist noch nicht vorhanden:
+Die expliziten numerischen Konvertierungen sind Konvertierungen von einer *numeric_type* in eine andere *numeric_type* , für die eine implizite numerische Konvertierung ([implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions)) nicht bereits vorhanden ist:
 
-*  Von `sbyte` zu `byte`, `ushort`, `uint`, `ulong`, oder `char`.
-*  Von `byte` zu `sbyte` und `char`.
-*  Von `short` zu `sbyte`, `byte`, `ushort`, `uint`, `ulong`, oder `char`.
-*  Von `ushort` zu `sbyte`, `byte`, `short`, oder `char`.
-*  Von `int` zu `sbyte`, `byte`, `short`, `ushort`, `uint`, `ulong`, oder `char`.
-*  Von `uint` zu `sbyte`, `byte`, `short`, `ushort`, `int`, oder `char`.
-*  Von `long` zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `ulong`, oder `char`.
-*  Von `ulong` zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, oder `char`.
-*  Von `char` zu `sbyte`, `byte`, oder `short`.
-*  Von `float` zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, oder `decimal`.
-*  Von `double` zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, oder `decimal`.
-*  Von `decimal` zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, oder `double`.
+*  Von `sbyte` bis `byte`, `ushort`, `uint`, `ulong`oder `char`.
+*  Von `byte` bis `sbyte` und `char`.
+*  Von `short` bis `sbyte`, `byte`, `ushort`, `uint`, `ulong`oder `char`.
+*  Von `ushort` bis `sbyte`, `byte`, `short`oder `char`.
+*  Von `int` bis `sbyte`, `byte`, `short`, `ushort`, `uint`, `ulong`oder `char`.
+*  Von `uint` bis `sbyte`, `byte`, `short`, `ushort`, `int`oder `char`.
+*  Von `long` bis `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `ulong`oder `char`.
+*  Von `ulong` bis `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`oder `char`.
+*  Von `char` bis `sbyte`, `byte`oder `short`.
+*  Von `float` bis `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`oder `decimal`.
+*  Von `double` bis `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`oder `decimal`.
+*  Von `decimal` bis `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`oder `double`.
 
-Da die explizite Konvertierungen alle implizite und explizite numerische Konvertierungen enthalten, ist es immer möglich, die aus einem konvertieren *Numeric_type* auch einer beliebigen anderen *Numeric_type* mithilfe eines Cast-Ausdruck ( [Umwandlungsausdrücke](expressions.md#cast-expressions)).
+Da die expliziten Konvertierungen alle impliziten und expliziten numerischen Konvertierungen einschließen, ist es immer möglich, mithilfe eines Umwandlungs Ausdrucks (Umwandlungs[Ausdrücke](expressions.md#cast-expressions)) von beliebigen *numeric_type* in andere *numeric_type* zu konvertieren.
 
-Die expliziten numerischen Konvertierungen Informationen möglicherweise verloren gehen oder möglicherweise dazu führen, dass Ausnahmen ausgelöst werden. Eine explizite numerische Konvertierung wird wie folgt verarbeitet:
+Die expliziten numerischen Konvertierungen verlieren möglicherweise Informationen oder bewirken möglicherweise, dass Ausnahmen ausgelöst werden. Eine explizite numerische Konvertierung wird wie folgt verarbeitet:
 
-*  Für eine Konvertierung in einen ganzzahligen Typ in einen anderen ganzzahligen Typ hängt von die Verarbeitung Kontext der überlaufprüfung ([checked und unchecked Operatoren](expressions.md#the-checked-and-unchecked-operators)) in der die Konvertierung akzeptiert platzieren:
-    * In einer `checked` Kontext ist die Konvertierung erfolgreich ist, wenn der Wert des Quelloperanden innerhalb des Bereichs des Zieltyps liegt, aber löst einen `System.OverflowException` , wenn der Wert des Quelloperanden liegt außerhalb des Bereichs des Zieltyps ist.
-    * In einer `unchecked` Kontext ist die Konvertierung immer erfolgreich ist, und wird wie folgt.
+*  Für eine Konvertierung eines ganzzahligen Typs in einen anderen ganzzahligen Typ hängt die Verarbeitung vom Kontext der Überlauf Überprüfung (die aktivierten und deaktivierten[Operatoren](expressions.md#the-checked-and-unchecked-operators)) ab, in der die Konvertierung stattfindet:
+    * In einem `checked` Kontext wird die Konvertierung erfolgreich ausgeführt, wenn der Wert des Quell Operanden innerhalb des Bereichs des Zieltyps liegt, aber eine `System.OverflowException` auslöst, wenn der Wert des Quell Operanden außerhalb des Bereichs des Zieltyps liegt.
+    * In einem `unchecked` Kontext ist die Konvertierung immer erfolgreich und wird wie folgt fortgesetzt.
         * Wenn der Quelltyp größer als der Zieltyp ist, wird der Quellwert abgeschnitten, indem die wichtigsten „zusätzlichen“ Teile verworfen werden. Das Ergebnis wird dann als Wert des Zieltyps behandelt.
         * Wenn der Quelltyp kleiner als der Zieltyp ist, wird der Quellwert entweder mit Vorzeichen oder Nullen (0) erweitert, sodass er die gleiche Größe wie der Zieltyp aufweist. Die Vorzeichenerweiterung wird verwendet, wenn der Quelltyp mit einem Vorzeichen versehen ist. Die Erweiterung mit Nullen (0) wird verwendet, wenn der Quelltyp mit keinem Vorzeichen versehen ist. Das Ergebnis wird dann als Wert des Zieltyps behandelt.
         * Wenn der Quelltyp die gleiche Größe wie der Zieltyp aufweist, wird der Quellwert als Wert vom Zieltyp behandelt.
-*  Für eine Konvertierung von `decimal` in einen ganzzahligen Typ, wird der Quellwert in Richtung 0 (null), um den nächsten ganzzahligen Wert gerundet, und dieser ganzzahlige Wert wird das Ergebnis der Konvertierung. Wenn der erzeugte Integralwert sich außerhalb des Bereichs des Zieltyps, ist eine `System.OverflowException` ausgelöst.
-*  Für eine Konvertierung von `float` oder `double` in einen ganzzahligen Typ, hängt die Verarbeitung von Kontext der überlaufprüfung ([checked und unchecked Operatoren](expressions.md#the-checked-and-unchecked-operators)) in der die Konvertierung akzeptiert platzieren:
-    * In einem `checked` Kontext ist die Konvertierung wird wie folgt:
-        * Wenn der Wert des Operanden NaN oder unendlich sein, eine `System.OverflowException` ausgelöst.
-        * Andernfalls wird Quelloperanden gegen 0 (null), um den nächsten ganzzahligen Wert gerundet. Wenn dieser ganzzahlige Wert innerhalb des Bereichs des Zieltyps ist, ist dieser Wert das Ergebnis der Konvertierung.
+*  Bei einer Konvertierung von `decimal` in einen ganzzahligen Typ wird der Quellwert auf 0 (null) bis zum nächstgelegenen ganzzahligen Wert gerundet, und dieser ganzzahlige Wert wird das Ergebnis der Konvertierung. Wenn sich der resultierende ganzzahlige Wert außerhalb des Bereichs des Zieltyps befindet, wird eine `System.OverflowException` ausgelöst.
+*  Bei einer Konvertierung von `float` oder `double` in einen ganzzahligen Typ hängt die Verarbeitung vom Kontext der Überlauf Überprüfung (die aktivierten und deaktivierten[Operatoren](expressions.md#the-checked-and-unchecked-operators)) ab, in der die Konvertierung stattfindet:
+    * In einem `checked` Kontext verläuft die Konvertierung wie folgt:
+        * Wenn der Wert des Operanden NaN oder Infinite ist, wird ein `System.OverflowException` ausgelöst.
+        * Andernfalls wird der Quell Operand auf den nächsten ganzzahligen Wert in Richtung 0 (null) gerundet. Wenn sich dieser ganzzahlige Wert innerhalb des Bereichs des Zieltyps befindet, ist dieser Wert das Ergebnis der Konvertierung.
         * Andernfalls wird eine `System.OverflowException` ausgelöst.
-    * In einer `unchecked` Kontext ist die Konvertierung immer erfolgreich ist, und wird wie folgt.
-        * Wenn der Wert des Operanden NaN oder unendlich ist, ist das Ergebnis der Konvertierung einen nicht angegebenen Wert des Zieltyps.
-        * Andernfalls wird Quelloperanden gegen 0 (null), um den nächsten ganzzahligen Wert gerundet. Wenn dieser ganzzahlige Wert innerhalb des Bereichs des Zieltyps ist, ist dieser Wert das Ergebnis der Konvertierung.
-        * Andernfalls ist das Ergebnis der Konvertierung einen nicht angegebenen Wert des Zieltyps.
-*  Für eine Konvertierung von `double` zu `float`, `double` Wert wird gerundet, um die nächste `float` Wert. Wenn die `double` Wert ist zu klein, um die Darstellung als eine `float`, das Ergebnis positiv oder negativ 0 (null). Wenn die `double` Wert ist zu groß, um die Darstellung als eine `float`, wird das Ergebnis, positive oder negative Unendlichkeit. Wenn die `double` Wert ist NaN, es ist auch das Ergebnis NaN.
-*  Für eine Konvertierung von `float` oder `double` zu `decimal`, wird der Quellwert in konvertiert `decimal` Darstellung und bei Bedarf auf die nächste Zahl nach der 28. Dezimalstelle gerundet ([Dezimaltyps](types.md#the-decimal-type)). Wenn der Quellwert zu klein, um die Darstellung als ist eine `decimal`, wird das Ergebnis 0 (null). Wenn der Quellwert NaN ist, ist unendlich oder zu groß, um die Darstellung als eine `decimal`, eine `System.OverflowException` ausgelöst.
-*  Für eine Konvertierung von `decimal` zu `float` oder `double`, `decimal` Wert wird gerundet, um die nächste `double` oder `float` Wert. Während dieser Konvertierung an Genauigkeit verlieren kann, wird nie eine Ausnahme ausgelöst werden.
+    * In einem `unchecked` Kontext ist die Konvertierung immer erfolgreich und wird wie folgt fortgesetzt.
+        * Wenn der Wert des Operanden NaN oder Infinite ist, ist das Ergebnis der Konvertierung ein nicht spezifizierter Wert des Zieltyps.
+        * Andernfalls wird der Quell Operand auf den nächsten ganzzahligen Wert in Richtung 0 (null) gerundet. Wenn sich dieser ganzzahlige Wert innerhalb des Bereichs des Zieltyps befindet, ist dieser Wert das Ergebnis der Konvertierung.
+        * Andernfalls ist das Ergebnis der Konvertierung ein nicht spezifizierter Wert des Zieltyps.
+*  Bei einer Konvertierung von `double` in `float`wird der `double` Wert auf den nächsten `float` Wert gerundet. Wenn der `double` Wert zu klein ist, um als `float`darzustellen, wird das Ergebnis positiv 0 (null) oder negativ 0 (null). Wenn der `double` Wert zu groß ist, um als `float`darzustellen, wird das Ergebnis positiv unendlich oder minus unendlich. Wenn der `double` Wert NaN ist, ist das Ergebnis ebenfalls NaN.
+*  Bei einer Konvertierung von `float` oder `double` zu `decimal`wird der Quellwert in `decimal` Darstellung konvertiert und bei Bedarf auf die nächste Zahl nach dem 28. Dezimaltrennzeichen gerundet ([der Decimal-Typ](types.md#the-decimal-type)). Wenn der Quellwert zu klein ist, um als `decimal`darzustellen, wird das Ergebnis 0 (null). Wenn der Quellwert Nan, Infinity oder zu groß ist, um als `decimal`darzustellen, wird eine `System.OverflowException` ausgelöst.
+*  Bei einer Konvertierung von `decimal` in `float` oder `double`wird der `decimal` Wert auf den nächstgelegenen `double` oder `float` Wert gerundet. Während diese Konvertierung die Genauigkeit verlieren kann, bewirkt dies nie, dass eine Ausnahme ausgelöst wird.
 
-### <a name="explicit-enumeration-conversions"></a>Enumeration der explizite Konvertierungen
+### <a name="explicit-enumeration-conversions"></a>Explizite Enumerationskonvertierungen
 
-Die Enumeration der explizite Konvertierungen sind:
+Die expliziten Enumerationskonvertierungen sind:
 
-*  Von `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, oder `decimal` auf alle *Enum_type*.
-*  Von jedem *Enum_type* zu `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, oder `decimal`.
-*  Von jedem *Enum_type* auch einer beliebigen anderen *Enum_type*.
+*  Von `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`oder `decimal` zu beliebigen *enum_type*.
+*  Von allen *enum_type* bis `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`oder `decimal`.
+*  Von allen *enum_type* zu anderen *enum_type*.
 
-Eine Enumeration der expliziten Konvertierung zwischen zwei Typen von behandeln alle Teil verarbeitet wird *Enum_type* als den zugrunde liegenden Typ, der *Enum_type*, und klicken Sie dann ausführen, die eine implizite oder explizite numerische Konvertierung zwischen den resultierenden Typen. Angenommen, ein *Enum_type* `E` mit und die zugrunde liegende Standardtyp von `int`, eine Konvertierung von `E` zu `byte` als eine explizite numerische Konvertierung verarbeitet ([Explicit numerische Konvertierungen](conversions.md#explicit-numeric-conversions)) von `int` zu `byte`, und eine Konvertierung von `byte` zu `E` wird als implizite numerische Konvertierung verarbeitet ([implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions)) von `byte` zu `int`.
+Eine explizite Enumerationskonvertierung zwischen zwei Typen wird verarbeitet, indem alle Beteiligten *enum_type* als zugrunde liegender Typ dieser *enum_type*behandelt und dann eine implizite oder explizite numerische Konvertierung zwischen den resultierenden Typen durchgeführt wird. Wenn z. b. eine *enum_type* `E` mit und zugrunde liegender `int`ist, wird eine Konvertierung von `E` in `byte` als explizite numerische Konvertierung ([explizite numerische Konvertierungen](conversions.md#explicit-numeric-conversions)) von `int` in `byte`verarbeitet, und eine Konvertierung von `byte` in `E` wird als implizite numerische Konvertierung ([implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions)) von `byte` in `int`verarbeitet.
 
-### <a name="explicit-nullable-conversions"></a>Explizite NULL-Werte zulassen Konvertierungen
+### <a name="explicit-nullable-conversions"></a>Explizite Konvertierungen, die NULL zulassen
 
-***Explizite NULL-Werte zulassen Konvertierungen*** zulassen vordefinierte explizite Konvertierungen, die Vorgänge an nicht auf NULL festlegbare Werttypen auch mit NULL-Werte zulassen Forms dieser Typen verwendet werden soll. Für jedes der vordefinierten explizite Konvertierungen, die von einem Typ NULL-Werte konvertieren `S` auf einen NULL-Werttyp `T` ([identitätskonvertierung](conversions.md#identity-conversion), [implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions), [Enumeration von impliziten Konvertierungen](conversions.md#implicit-enumeration-conversions), [explizite numerische Konvertierungen](conversions.md#explicit-numeric-conversions), und [explizite Enumeration Konvertierungen](conversions.md#explicit-enumeration-conversions)), die folgenden auf NULL festlegbare Konvertierungen sind vorhanden:
+***Explizite Konvertierungen*** , die NULL-Werte zulassen, ermöglichen vordefinierte explizite Konvertierungen, die für nicht auf NULL festleg Bare Werttypen verwendet werden, auch mit null-fähigen Formen dieser Typen Für jede der vordefinierten expliziten Konvertierungen, die von einem Werttyp, der keine NULL-Werte zulässt, `S` in einen Werttyp, der keine NULL-Werte zulässt `T` ([Identitäts Konvertierung](conversions.md#identity-conversion), [implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions), [Implizite Enumerationskonvertierungen](conversions.md#implicit-enumeration-conversions), [explizite numerische Konvertierungen](conversions.md#explicit-numeric-conversions)und [Explizite Enumerationskonvertierungen](conversions.md#explicit-enumeration-conversions)), sind die folgenden Konvertierungen
 
-*  Eine explizite Konvertierung vom `S?` zu `T?`.
-*  Eine explizite Konvertierung vom `S` zu `T?`.
-*  Eine explizite Konvertierung vom `S?` zu `T`.
+*  Eine explizite Konvertierung von `S?` in `T?`.
+*  Eine explizite Konvertierung von `S` in `T?`.
+*  Eine explizite Konvertierung von `S?` in `T`.
 
-Auswertung von eine auf NULL festlegbare Konvertierung basierend auf eine zugrunde liegende Konvertierung von `S` zu `T` wird wie folgt:
+Die Auswertung einer Konvertierung, die NULL-Werte zulässt, basierend auf einer zugrunde liegenden Konvertierung von `S` in `T` verläuft wie folgt:
 
-*  Wenn eine auf NULL festlegbare Konvertierung von `S?` zu `T?`:
-    * Wenn der Quellwert null ist (`HasValue` Eigenschaft ist "false"), das Ergebnis ist der null-Wert des Typs `T?`.
-    * Andernfalls wird die Konvertierung ausgewertet, als ein Entpacken von `S?` zu `S`, gefolgt von der zugrunde liegenden Konvertierung von `S` zu `T`, gefolgt von einer Wrapping von `T` zu `T?`.
-*  Wenn eine auf NULL festlegbare Konvertierung von `S` zu `T?`, die Konvertierung wird ausgewertet, als die zugrunde liegenden Konvertierung von `S` zu `T` gefolgt von einem Textumbruch aus `T` zu `T?`.
-*  Wenn eine auf NULL festlegbare Konvertierung von `S?` zu `T`, die Konvertierung wird als ein Entpacken von ausgewertet `S?` zu `S` gefolgt von der zugrunde liegenden Konvertierung von `S` zu `T`.
+*  Wenn die Konvertierung, die NULL-Werte zulässt, von `S?` in `T?`erfolgt:
+    * Wenn der Quellwert NULL ist (`HasValue`-Eigenschaft ist false), ist das Ergebnis der NULL-Wert des Typs `T?`.
+    * Andernfalls wird die Konvertierung als ein zum Entpacken von `S?` in `S`ausgewertet, gefolgt von der zugrunde liegenden Konvertierung von `S` in `T`, gefolgt von einer Konvertierung von `T` zu `T?`.
+*  Wenn die Konvertierung, die NULL-Werte zulässt, von `S` auf `T?`erfolgt, wird die Konvertierung als die zugrunde liegende Konvertierung von `S` in `T` gefolgt von einem Wrapping von `T` zu `T?`ausgewertet.
+*  Wenn die Konvertierung, die NULL-Werte zulässt, von `S?` in `T`erfolgt, wird die Konvertierung als ein zum Entpacken von `S?` in `S` gefolgt von der zugrunde liegenden Konvertierung von `S` in `T`ausgewertet.
 
-Beachten Sie, dass der Versuch, einen NULL-Wert zu entpacken eine Ausnahme auslöst, wenn der Wert ist `null`.
+Beachten Sie, dass beim Versuch, einen Werte zulässt-Wert zu entpacken, eine Ausnahme ausgelöst wird, wenn der Wert `null`ist.
 
-### <a name="explicit-reference-conversions"></a>Explizite Konvertierungen
+### <a name="explicit-reference-conversions"></a>Explizite Verweis Konvertierungen
 
-Die explizite Konvertierungen sind:
+Die expliziten Verweis Konvertierungen lauten:
 
-*  Von `object` und `dynamic` auch einer beliebigen anderen *Reference_type*.
-*  Von jedem *Class_type* `S` auf *Class_type* `T`, bereitgestellt wird, `S` ist eine Basisklasse von `T`.
-*  Von jedem *Class_type* `S` auf *Interface_type* `T`, bereitgestellt wird, `S` ist nicht versiegelt ist und `S` implementiert nicht `T`.
-*  Von jedem *Interface_type* `S` auf *Class_type* `T`aus `T` ist nicht versiegelt oder bereitgestellt `T` implementiert `S`.
-*  Von jedem *Interface_type* `S` auf *Interface_type* `T`aus `S` stammt nicht aus `T`.
-*  Aus einer *Array_type* `S` mit einem Elementtyp `SE` auf eine *Array_type* `T` mit einem Elementtyp `TE`, sofern alle der folgenden Bedingungen erfüllt sind:
-    * `S` und `T` unterscheiden sich nur hinsichtlich der Elementtyp. Das heißt, `S` und `T` haben die gleiche Anzahl von Dimensionen.
-    * Beide `SE` und `TE` sind *Reference_type*s.
-    * Eine explizite Konvertierung vorhanden ist, von `SE` zu `TE`.
-*  Von `System.Array` und die Schnittstellen implementiert, alle *Array_type*.
-*  Aus einem eindimensionalen Array-Typ `S[]` zu `System.Collections.Generic.IList<T>` und die Basisschnittstellen, vorausgesetzt, es gibt eine explizite Konvertierung von `S` zu `T`.
-*  Von `System.Collections.Generic.IList<S>` und Basis Schnittstellen verwenden, um einen eindimensionalen Arraytyp `T[]`, vorausgesetzt, es gibt eine explizite Identitäts- oder verweiskonvertierung aus `S` zu `T`.
-*  Von `System.Delegate` und die Schnittstellen implementiert, alle *Delegate_type*.
-*  Von einem Referenztyp in einen Verweistyp `T` , wenn sie eine explizite Konvertierung in einen Verweistyp hat `T0` und `T0` verfügt über eine identitätskonvertierung `T`.
-*  Von einem Referenztyp zu einem Typ von Schnittstellen oder Delegate `T` verfügt eine explizite Konvertierung in einen Typ von Schnittstellen oder Delegate `T0` und entweder `T0` ist varianzkonvertierbar zu `T` oder `T` ist Um varianzkonvertierbar `T0` ([varianzkonvertierungen](interfaces.md#variance-conversion)).
-*  Aus `D<S1...Sn>` zu `D<T1...Tn>` , in denen `D<X1...Xn>` ist ein generischer Delegattyp `D<S1...Sn>` ist nicht kompatibel mit oder identisch mit `D<T1...Tn>`, und für jeden Typparameter `Xi` von `D` in der folgenden enthalten:
-    * Wenn `Xi` nicht Variant, klicken Sie dann `Si` ist identisch mit `Ti`.
-    * Wenn `Xi` kovariant ist, dann gibt es eine implizite oder explizite Identitäts- oder -Konvertierung von `Si` zu `Ti`.
-    * Wenn `Xi` ist kontravariant `Si` und `Ti` sind identisch oder beide Verweistypen.
-*  Explizite Konvertierungen, die im Zusammenhang mit Typparametern, die bekannt ist, dass Verweistypen sein. Weitere Informationen zu expliziten Konvertierungen, die im Zusammenhang mit Typparametern finden Sie unter [explizite Konvertierungen, die im Zusammenhang mit Typparametern](conversions.md#explicit-conversions-involving-type-parameters).
+*  Von `object` und `dynamic` bis hin zu anderen *reference_type*.
+*  Von allen *class_type* `S` bis hin zu beliebigen *class_type* `T`ist die angegebene `S` eine Basisklasse von `T`.
+*  Von allen *class_type* `S` bis hin zu beliebigen *INTERFACE_TYPE* `T`ist die angegebene `S` nicht versiegelt und bereitgestellt `S` implementiert `T`nicht.
+*  Von allen *INTERFACE_TYPE* `S` bis hin zu beliebigen *class_type* `T`ist die angegebene `T` nicht versiegelt oder bereitgestellt `T` implementiert `S`.
+*  Von allen *INTERFACE_TYPE* `S` zu beliebigen *INTERFACE_TYPE* `T`wird die angegebene `S` nicht von `T`abgeleitet.
+*  Aus einer *array_type* `S` mit einem Elementtyp `SE` zu einer *array_type* `T` mit einem Elementtyp `TE`, wenn alle folgenden Punkte zutreffen:
+    * `S` und `T` unterscheiden sich nur in Elementtyp. Anders ausgedrückt: `S` und `T` haben die gleiche Anzahl von Dimensionen.
+    * Sowohl `SE` als auch `TE` sind *reference_type*s.
+    * Eine explizite Verweis Konvertierung ist von `SE` in `TE`vorhanden.
+*  Von `System.Array` und den Schnittstellen, die es für beliebige *array_type*implementiert.
+*  Von einem eindimensionalen Arraytyp `S[]` zu `System.Collections.Generic.IList<T>` und den zugehörigen Basis Schnittstellen, vorausgesetzt, dass es eine explizite Verweis Konvertierung von `S` in `T`gibt.
+*  Von `System.Collections.Generic.IList<S>` und den zugehörigen Basis Schnittstellen bis zu einem eindimensionalen Arraytyp `T[]`, vorausgesetzt, dass es eine explizite Identitäts-oder Verweis Konvertierung von `S` in `T`gibt.
+*  Von `System.Delegate` und den Schnittstellen, die es für beliebige *delegate_type*implementiert.
+*  Von einem Referenztyp zu einem Verweistyp `T`, wenn er eine explizite Verweis Konvertierung in einen Verweistyp aufweist `T0` und `T0` über eine Identitäts Konvertierung `T`verfügt.
+*  Von einem Referenztyp zu einer Schnittstelle oder einem Delegattyp `T`, wenn er eine explizite Verweis Konvertierung in eine Schnittstelle oder einen Delegattyp aufweist `T0` und entweder `T0` Varianz konvertierbar in `T` oder `T` von Varianz konvertierbar in `T0` ([Varianz Konvertierung](interfaces.md#variance-conversion)) ist.
+*  Von `D<S1...Sn>` bis `D<T1...Tn>`, bei dem `D<X1...Xn>` ein generischer Delegattyp ist, ist `D<S1...Sn>` nicht mit `D<T1...Tn>`kompatibel, und für jeden Typparameter `Xi` `D` Folgendes:
+    * Wenn `Xi` invariant ist, ist `Si` identisch mit `Ti`.
+    * Wenn `Xi` kovariant ist, gibt es eine implizite oder explizite Identitäts-oder Verweis Konvertierung von `Si` in `Ti`.
+    * Wenn `Xi` kontra Variant ist, sind `Si` und `Ti` entweder identische oder beide Verweis Typen.
+*  Explizite Konvertierungen mit Typparametern, die als Verweis Typen bekannt sind. Weitere Informationen zu expliziten Konvertierungen, die Typparameter einschließen, finden Sie unter [explizite Konvertierungen mit Typparametern](conversions.md#explicit-conversions-involving-type-parameters).
 
-Die explizite Konvertierungen sind Konvertierungen zwischen Verweistypen, die erfordern, stellen Sie sicher, dass sie korrekt sind Überprüfungen zur Laufzeit.
+Die expliziten Verweis Konvertierungen sind Konvertierungen zwischen Verweis Typen, für die Laufzeitüberprüfungen erforderlich sind, um sicherzustellen, dass Sie korrekt sind.
 
-Für eine explizite Konvertierung zur Laufzeit erfolgreich ist, muss der Wert des Quelloperanden `null`, oder der tatsächliche Typ des Objekts, auf die Quelloperanden verweist, muss ein Typ, der durch einen impliziten Verweis in den Zieltyp konvertiert werden kann Konvertierung ([implizite Verweis-](conversions.md#implicit-reference-conversions)) oder Boxing-Konvertierung ([Boxingkonvertierungen](conversions.md#boxing-conversions)). Wenn eine explizite Konvertierung ein Fehler auftritt, eine `System.InvalidCastException` ausgelöst.
+Damit eine explizite Verweis Konvertierung zur Laufzeit erfolgreich ist, muss der Wert des Quell Operanden `null`werden, oder der tatsächliche Typ des Objekts, auf das vom Quell Operanden verwiesen wird, muss ein Typ sein, der durch eine implizite Verweis Konvertierung ([implizite Verweis Konvertierungen](conversions.md#implicit-reference-conversions)[) oder](conversions.md#boxing-conversions)Boxing-Konvertierung in den Zieltyp konvertiert werden kann. Wenn eine explizite Verweis Konvertierung fehlschlägt, wird eine `System.InvalidCastException` ausgelöst.
 
-Verweiskonvertierungen, implizite oder explizite, ändern sich nie die referenzielle Identität des Objekts, der konvertiert wird. Das heißt, während referenzkonvertierung den Typ des Verweises ändern kann, ändert es nie den Typ oder Wert des Objekts auf die verwiesen wird.
+Verweis Konvertierungen, implizit oder explizit, ändern niemals die referenzielle Identität des Objekts, das konvertiert wird. Anders ausgedrückt: während eine Verweis Konvertierung den Typ des Verweises ändern kann, ändert Sie niemals den Typ oder Wert des Objekts, auf das verwiesen wird.
 
 ### <a name="unboxing-conversions"></a>Unboxing-Konvertierungen
 
-Eine unboxing-Konvertierung ermöglicht einen Verweistyp explizit zu konvertierenden eine *Value_type*. Eine unboxing-Konvertierung vorhanden ist, von den Typen `object`, `dynamic` und `System.ValueType` auf *Non_nullable_value_type*, und von jedem *Interface_type* auf *Non_ Nullable_value_type* , implementiert die *Interface_type*. Geben Sie außerdem `System.Enum` kann nicht auf eine geschachtelte sein *Enum_type*.
+Eine Unboxing-Konvertierung ermöglicht das explizite Konvertieren eines Verweis Typs in einen *value_type*. Eine Unboxing-Konvertierung ist von den Typen `object`, `dynamic` und `System.ValueType` zu beliebigen *non_nullable_value_type*und von allen *INTERFACE_TYPE* zu beliebigen *non_nullable_value_type* , die den *INTERFACE_TYPE*implementieren, vorhanden. Darüber hinaus können Sie `System.Enum` in beliebige *enum_type*entpackt werden.
 
-Eine unboxing-Konvertierung vorhanden ist, von einem Referenztyp zu einem *Nullable_type* Falls von den Verweistyp eine unboxing-Konvertierung vorhanden, auf die zugrunde liegende ist *Non_nullable_value_type* von der  *Nullable_type*.
+Eine Unboxing-Konvertierung ist von einem Referenztyp zu einem *nullable_type* vorhanden, wenn eine Unboxing-Konvertierung vom Verweistyp in den zugrunde liegenden *non_nullable_value_type* der *nullable_type*vorhanden ist.
 
-Ein Werttyp `S` eine unboxing-Konvertierung eines Schnittstellentyps hat `I` , wenn sie eine unboxing-Konvertierung eines Schnittstellentyps hat `I0` und `I0` verfügt über eine identitätskonvertierung in `I`.
+Ein Werttyp `S` hat eine Unboxing-Konvertierung von einem Schnittstellentyp `I`, wenn er eine Unboxing-Konvertierung von einem Schnittstellentyp hat `I0` und `I0` über eine Identitäts Konvertierung in `I`verfügt.
 
-Ein Werttyp `S` eine unboxing-Konvertierung eines Schnittstellentyps hat `I` verfügt eine unboxing-Konvertierung von einem Typ von Schnittstellen oder Delegate `I0` und entweder `I0` ist varianzkonvertierbar zu `I` oder `I`ist varianzkonvertierbar zu `I0` ([varianzkonvertierungen](interfaces.md#variance-conversion)).
+Ein Werttyp `S` hat eine Unboxing-Konvertierung von einem Schnittstellentyp `I`, wenn er eine Unboxing-Konvertierung von einer Schnittstelle oder einem Delegattyp aufweist `I0` und entweder `I0` von Varianz konvertierbar in `I` oder `I` ist Varianz konvertierbar in `I0` ([Varianz Konvertierung](interfaces.md#variance-conversion)).
 
-Zunächst geprüft wird, die einen geschachtelten Wert eines der Objekttyp ist ein unboxing-Vorgang besteht aus den angegebenen *Value_type*, und klicken Sie dann kopieren den Wert aus der Instanz. Unboxing einen null-Verweis auf eine *Nullable_type* erzeugt den null-Wert von der *Nullable_type*. Eine Struktur kann nicht vom Typ geschachtelte sein `System.ValueType`, da dies eine Basisklasse für alle Strukturen ist ([Vererbung](structs.md#inheritance)).
+Ein Unboxing-Vorgang besteht darin, zuerst zu überprüfen, ob die Objektinstanz ein geachtelter Wert der angegebenen *value_type*ist, und dann den Wert aus der-Instanz zu kopieren. Beim Unboxing eines NULL-Verweises auf einen *nullable_type* wird der NULL-Wert des *nullable_type*erzeugt. Eine Struktur kann vom Typ `System.ValueType`entpackt werden, da dies eine Basisklasse für alle Strukturen ([Vererbung](structs.md#inheritance)) ist.
 
-Unboxing-Konvertierungen werden ausführlich in [Unboxing-Konvertierungen](types.md#unboxing-conversions).
+Unboxing-Konvertierungen werden weiter unten in [Unboxing-Konvertierungen](types.md#unboxing-conversions)beschrieben.
 
 ### <a name="explicit-dynamic-conversions"></a>Explizite dynamische Konvertierungen
 
-Eine explizite Konvertierung für die dynamische vorhanden ist, von einem Ausdruck vom Typ `dynamic` auf einen beliebigen Typ `T`. Die Konvertierung dynamisch gebunden ist ([dynamische Bindung](expressions.md#dynamic-binding)), was bedeutet, dass eine explizite Konvertierung zur Laufzeit von der Runtime-Typ des Ausdrucks, der gesucht werden soll, wird `T`. Wenn keine Konvertierung gefunden wird, wird eine Laufzeitausnahme ausgelöst.
+Eine explizite dynamische Konvertierung ist von einem Ausdruck vom Typ `dynamic` in einen beliebigen Typ `T`vorhanden. Die Konvertierung ist dynamisch gebunden ([dynamische Bindung](expressions.md#dynamic-binding)), was bedeutet, dass zur Laufzeit eine explizite Konvertierung vom Lauf Zeittyp des Ausdrucks zum `T`durchgeführt wird. Wenn keine Konvertierung gefunden wird, wird eine Lauf Zeit Ausnahme ausgelöst.
 
-Wenn die dynamische Bindung für die Konvertierung nicht gewünscht ist, der Ausdruck konvertiert werden kann zunächst `object`, und klicken Sie dann den gewünschten Typ.
+Wenn die dynamische Bindung der Konvertierung nicht erwünscht ist, kann der Ausdruck zuerst in `object`und dann in den gewünschten Typ konvertiert werden.
 
-Angenommen Sie, die folgende Klasse definiert ist:
+Nehmen Sie an, dass die folgende Klasse definiert ist:
 ```csharp
 class C
 {
@@ -342,7 +343,7 @@ class C
 }
 ```
 
-Das folgende Beispiel veranschaulicht die explizite dynamische Konvertierungen:
+Das folgende Beispiel veranschaulicht explizite dynamische Konvertierungen:
 ```csharp
 object o  = "1";
 dynamic d = "2";
@@ -351,20 +352,20 @@ var c1 = (C)o; // Compiles, but explicit reference conversion fails
 var c2 = (C)d; // Compiles and user defined conversion succeeds
 ```
 
-Die beste Konvertierung `o` zu `C` befindet sich zum Zeitpunkt der Kompilierung einer expliziten verweiskonvertierung sein. Zur Laufzeit, nicht, da `"1"` ist nicht in der Tat ein `C`. Die Konvertierung von `d` zu `C` jedoch als eine explizite Konvertierung dynamische wird angehalten, Laufzeit, in denen ein Konvertierung von der Laufzeit-Typinformationen von benutzerdefinierter `d`  --  `string` – zu `C` gefunden wird, und was nicht.
+Die beste Konvertierung von `o` in `C` wird zur Kompilierzeit als explizite Verweis Konvertierung gefunden. Dies schlägt zur Laufzeit fehl, da `"1"` nicht tatsächlich eine `C`ist. Die Konvertierung von `d` in `C` wird jedoch als explizite dynamische Konvertierung zur Laufzeit angehalten, bei der eine benutzerdefinierte Konvertierung vom Lauf Zeittyp `d` -- `string` `C` gefunden wird und erfolgreich ist.
 
-### <a name="explicit-conversions-involving-type-parameters"></a>Explizite Konvertierungen, die im Zusammenhang mit Typparametern
+### <a name="explicit-conversions-involving-type-parameters"></a>Explizite Konvertierungen mit Typparametern
 
-Die folgenden expliziten Konvertierungen für einen Parameter angegebenen Typ vorhanden `T`:
+Die folgenden expliziten Konvertierungen sind für einen angegebenen Typparameter `T`vorhanden:
 
-*  Der effektive Basisklasse `C` von `T` zu `T` und von einer Basisklasse von `C` zu `T`. AT-Laufzeit-If `T` ein Werttyp ist, als einer unboxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als explizite Konvertierung oder identitätskonvertierung ausgeführt.
-*  Über einen beliebigen anderen Schnittstellentyp, `T`. AT-Laufzeit-If `T` ein Werttyp ist, als einer unboxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als explizite Konvertierung oder identitätskonvertierung ausgeführt.
-*  Von `T` auf *Interface_type* `I` vorausgesetzt, es ist nicht bereits eine implizite Konvertierung von `T` zu `I`. AT-Laufzeit-If `T` ein Werttyp handelt, wird die Konvertierung wird als ein Boxing-Konvertierung, gefolgt von einer expliziten verweiskonvertierung ausgeführt. Andernfalls wird die Konvertierung als explizite Konvertierung oder identitätskonvertierung ausgeführt.
-*  Von einem Typparameter `U` zu `T`aus `T` hängt `U` ([Geben Sie die Einschränkungen für Typparameter](classes.md#type-parameter-constraints)). AT-Laufzeit-If `U` ein Werttyp ist, klicken Sie dann `T` und `U` unbedingt den gleichen Typ aufweisen und wird keine Konvertierung durchgeführt. Andernfalls gilt: Wenn `T` ein Werttyp ist, als einer unboxing-Konvertierung die Konvertierung ausgeführt wird. Andernfalls wird die Konvertierung als explizite Konvertierung oder identitätskonvertierung ausgeführt.
+*  Von der effektiven Basisklasse `C` `T` bis `T` und von jeder Basisklasse `C` bis `T`. Wenn `T` ein Werttyp ist, wird die Konvertierung zur Laufzeit als Unboxing-Konvertierung ausgeführt. Andernfalls wird die Konvertierung als explizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
+*  Von einem beliebigen Schnittstellentyp zu `T`. Wenn `T` ein Werttyp ist, wird die Konvertierung zur Laufzeit als Unboxing-Konvertierung ausgeführt. Andernfalls wird die Konvertierung als explizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
+*  Von `T` bis zu allen *INTERFACE_TYPE* `I` gibt es keine implizite Konvertierung von `T` in `I`. Wenn `T` ein Werttyp ist, wird die Konvertierung zur Laufzeit als Boxing-Konvertierung gefolgt von einer expliziten Verweis Konvertierung ausgeführt. Andernfalls wird die Konvertierung als explizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
+*  Von einem Typparameter `U` zum `T`, sofern `T` von `U` abhängig sind ([Typparameter Einschränkungen](classes.md#type-parameter-constraints)). Wenn `U` ein Werttyp ist, sind `T` und `U` bei der Laufzeit notwendigerweise denselben Typ, und es wird keine Konvertierung durchgeführt. Andernfalls wird die Konvertierung als Unboxing-Konvertierung ausgeführt, wenn `T` ein Werttyp ist. Andernfalls wird die Konvertierung als explizite Verweis Konvertierung oder Identitäts Konvertierung ausgeführt.
 
-Wenn `T` ist bekannt, die ein Verweistyp sein muss, die oben genannten Konvertierungen sind alle klassifiziert als explizite Konvertierungen ([explizite Konvertierungen](conversions.md#explicit-reference-conversions)). Wenn `T` ist nicht bekannt ist, ein Verweistyp sein muss, sind die Konvertierungen, die höher als unboxing-Konvertierungen klassifiziert ([Unboxing-Konvertierungen](conversions.md#unboxing-conversions)).
+Wenn `T` bekannt ist, dass es sich um einen Verweistyp handelt, werden die obigen Konvertierungen als explizite Verweis Konvertierungen klassifiziert ([explizite Verweis Konvertierungen](conversions.md#explicit-reference-conversions)). Wenn `T` nicht bekannt ist, dass es sich um einen Verweistyp handelt, werden die obigen Konvertierungen als Unboxing-Konvertierungen ([Unboxing-Konvertierungen](conversions.md#unboxing-conversions)) klassifiziert.
 
-Die oben genannten Regeln lassen keine direkte explizite Konvertierung von einer nicht eingeschränkten Typparameter auf einen Typ Nichtschnittstellen-überraschend sein kann. Der Grund für diese Regel ist Verwechslungen und die Semantik der solche Konvertierungen deaktivieren. Betrachten Sie beispielsweise die folgende Deklaration:
+Die obigen Regeln erlauben keine direkte explizite Konvertierung von einem uneingeschränkten Typparameter in einen nicht-Schnittstellentyp, was möglicherweise überraschend ist. Der Grund für diese Regel besteht darin, Verwirrung zu vermeiden und die Semantik solcher Konvertierungen zu löschen. Betrachten Sie beispielsweise die folgende Deklaration:
 ```csharp
 class X<T>
 {
@@ -374,7 +375,7 @@ class X<T>
 }
 ```
 
-Wenn die direkte explizite Konvertierung `t` zu `int` erteilt wurden, wird einfach erwartet, `X<int>.F(7)` zurück `7L`. Es wäre jedoch nicht der Fall, da die standardmäßigen numerischen Konvertierungen nur gelten, wenn die Typen bekannt ist, dass zum Zeitpunkt der Bindung numerisch sein. Um die Semantik machen muss klare und im obige Beispiel stattdessen geschrieben werden:
+Wenn die direkte explizite Konvertierung von `t` in `int` zulässig wäre, kann man leicht davon ausgehen, dass `X<int>.F(7)` `7L`zurückgeben würde. Dies würde jedoch nicht der Fall sein, da die standardmäßigen numerischen Konvertierungen nur berücksichtigt werden, wenn die Typen bekannt sind, dass Sie zur Bindungs Zeit numerisch sind. Damit die Semantik eindeutig ist, muss das obige Beispiel stattdessen geschrieben werden:
 ```csharp
 class X<T>
 {
@@ -384,155 +385,155 @@ class X<T>
 }
 ```
 
-Dieser Code kompiliert aber ausgeführten `X<int>.F(7)` würde dann eine Ausnahme zur Laufzeit, da eine geschachtelte `int` kann nicht direkt konvertiert werden eine `long`.
+Dieser Code wird jetzt kompiliert, aber das Ausführen von `X<int>.F(7)` würde zur Laufzeit eine Ausnahme auslösen, da ein geachtelter `int` nicht direkt in eine `long`konvertiert werden kann.
 
 ### <a name="user-defined-explicit-conversions"></a>Benutzerdefinierte explizite Konvertierungen
 
-Eine explizite Konvertierung von benutzerdefinierten umfasst eine optionale standard explizite Konvertierung, gefolgt von der Ausführung eines benutzerdefinierten impliziten oder expliziten Konvertierungsoperators, gefolgt von einem anderen optionalen standard explizite Konvertierung. Die genauen Regeln für Ihre Evaluierung von benutzerdefinierten explizite Konvertierungen werden in beschrieben [expliziter Konvertierungen eine benutzerdefinierte Verarbeitung](conversions.md#processing-of-user-defined-explicit-conversions).
+Eine benutzerdefinierte explizite Konvertierung besteht aus einer optionalen expliziten Standard Konvertierung, gefolgt von der Ausführung eines benutzerdefinierten impliziten oder expliziten Konvertierungs Operators, gefolgt von einer anderen optionalen expliziten Standard Konvertierung. Die genauen Regeln für das Auswerten benutzerdefinierter expliziter Konvertierungen werden bei der [Verarbeitung benutzerdefinierter expliziter Konvertierungen](conversions.md#processing-of-user-defined-explicit-conversions)beschrieben.
 
 ## <a name="standard-conversions"></a>Standardkonvertierungen
 
-Die standard-Konvertierungen sind Konvertierungen vorab definierten, die als Teil einer benutzerdefinierten Konvertierung auftreten können.
+Bei den Standard Konvertierungen handelt es sich um vordefinierte Konvertierungen, die als Teil einer benutzerdefinierten Konvertierung auftreten können.
 
-### <a name="standard-implicit-conversions"></a>Standard implizite Konvertierungen
+### <a name="standard-implicit-conversions"></a>Implizite Standard Konvertierungen
 
-Die folgenden implizite Konvertierungen werden als implizite standardkonvertierungen klassifiziert:
+Die folgenden impliziten Konvertierungen werden als implizite Standard Konvertierungen klassifiziert:
 
-*  Identity-Konvertierungen ([identitätskonvertierung](conversions.md#identity-conversion))
+*  Identitäts Konvertierungen ([Identitäts Konvertierung](conversions.md#identity-conversion))
 *  Implizite numerische Konvertierungen ([implizite numerische Konvertierungen](conversions.md#implicit-numeric-conversions))
-*  Konvertierungen für implizite NULL-Werte zulässt ([implizite NULL-Werte zulassen Konvertierungen](conversions.md#implicit-nullable-conversions))
-*  Implizite verweiskonvertierungen ([implizite Verweis-](conversions.md#implicit-reference-conversions))
-*  Boxing-Konvertierung ([Boxingkonvertierungen](conversions.md#boxing-conversions))
-*  Implizite konstanter Ausdruck-Konvertierungen ([implizite dynamische Konvertierungen](conversions.md#implicit-dynamic-conversions))
-*  Implizite Konvertierungen, die im Zusammenhang mit Typparametern ([implizite Konvertierungen, die im Zusammenhang mit Typparametern](conversions.md#implicit-conversions-involving-type-parameters))
+*  Implizite Konvertierungen, die NULL-Werte zulassen ([implizite Konvertierungen auf NULL](conversions.md#implicit-nullable-conversions)
+*  Implizite Verweis Konvertierungen ([implizite Verweis Konvertierungen](conversions.md#implicit-reference-conversions))
+*  Boxing-Konvertierungen ([Boxing-Konvertierungen](conversions.md#boxing-conversions))
+*  Implizite Konstante Ausdrucks Konvertierungen ([implizite dynamische Konvertierungen](conversions.md#implicit-dynamic-conversions))
+*  Implizite Konvertierungen mit Typparametern ([implizite Konvertierungen mit Typparametern](conversions.md#implicit-conversions-involving-type-parameters))
 
-Die implizite standardkonvertierungen schließen insbesondere benutzerdefinierte implizite Konvertierungen aus.
+Die standardmäßigen impliziten Konvertierungen schließen speziell benutzerdefinierte implizite Konvertierungen aus.
 
-### <a name="standard-explicit-conversions"></a>Standard explizite Konvertierungen
+### <a name="standard-explicit-conversions"></a>Explizite Standard Konvertierungen
 
-Die standardmäßige explizite Konvertierungen sind alle standardmäßigen implizite Konvertierungen sowie die Teilmenge der explizite Konvertierungen für die eine umgekehrte standard implizite Konvertierung vorhanden ist. Das heißt, wenn ein Standard, die implizite Konvertierung vorhanden ist aus einem Typ `A` auf einen Typ `B`, und klicken Sie dann eine standard explizite Konvertierung von Typ vorhanden ist `A` eingeben `B` und vom Typ `B` eingeben `A`.
+Die expliziten Standard Konvertierungen sind alle standardmäßigen impliziten Konvertierungen und die Teilmenge der expliziten Konvertierungen, für die eine gegenteilige standardmäßige implizite Konvertierung vorhanden ist. Anders ausgedrückt: Wenn eine implizite Standard Konvertierung von einem Typ `A` in einen Typ `B`vorhanden ist, ist eine explizite Standard Konvertierung vom Typ `A` in den Typ `B` und vom Typ `B` zum Typ `A`vorhanden.
 
 ## <a name="user-defined-conversions"></a>Benutzerdefinierte Konvertierungen
 
-In c# können Sie die vordefinierten impliziten und expliziten Konvertierungen von ergänzt werden ***benutzerdefinierte Konvertierungen***. Benutzerdefinierte Konvertierungen werden eingeführt, durch das Deklarieren von Konvertierungsoperatoren ([Konvertierungsoperatoren](classes.md#conversion-operators)) in der Klasse und Strukturtypen.
+C#ermöglicht das Erweitern der vordefinierten und expliziten Konvertierungen durch ***benutzerdefinierte Konvertierungen***. Benutzerdefinierte Konvertierungen werden durch das Deklarieren von Konvertierungs Operatoren ([Konvertierungs Operatoren](classes.md#conversion-operators)) in Klassen-und Strukturtypen eingeführt.
 
-### <a name="permitted-user-defined-conversions"></a>Benutzerdefinierte Konvertierungen zulässig
+### <a name="permitted-user-defined-conversions"></a>Zulässige benutzerdefinierte Konvertierungen
 
-C# lässt nur bestimmte benutzerdefinierte Konvertierungen deklariert werden. Insbesondere ist es nicht möglich, eine bereits vorhandene implizite oder explizite Konvertierung neu definieren.
+C#gestattet, dass nur bestimmte benutzerdefinierte Konvertierungen deklariert werden. Insbesondere ist es nicht möglich, eine bereits vorhandene implizite oder explizite Konvertierung neu zu definieren.
 
-Für einen bestimmten Quell- `S` und einen Zieltyp `T`, wenn `S` oder `T` werden auf NULL festlegbare Typen können `S0` und `T0` finden Sie in die zugrunde liegende Typen, andernfalls `S0` und `T0` sind gleich `S` und `T` bzw. Eine Klasse oder Struktur ist zulässig, deklarieren Sie eine Konvertierung aus einer Datenquelle `S` in einen Zieltyp `T` nur dann, wenn alle der folgenden Bedingungen erfüllt sind:
+Verwenden Sie für einen angegebenen Quelltyp `S` und einen Zieltyp `T`, wenn `S` oder `T` Typen sind, die NULL-Werte zulassen, `S0` und `T0` auf ihre zugrunde liegenden Typen. andernfalls sind `S0` und `T0` gleich `S` bzw. `T`. Eine Klasse oder Struktur darf eine Konvertierung von einem Quelltyp `S` in einen Zieltyp deklarieren `T` nur dann, wenn Folgendes zutrifft:
 
-*  `S0` und `T0` gibt verschiedene Typen.
-*  Entweder `S0` oder `T0` ist der Typ Klasse oder Struktur, die in der die Operatordeklaration erfolgt.
-*  Weder `S0` noch `T0` ist ein *Interface_type*.
-*  Mit Ausnahme von benutzerdefinierten Konvertierungen, eine Konvertierung ist nicht vom `S` zu `T` oder `T` zu `S`.
+*  `S0` und `T0` sind unterschiedliche Typen.
+*  Entweder `S0` oder `T0` ist der Klassen-oder Strukturtyp, in dem die Operator Deklaration stattfindet.
+*  Weder `S0` noch `T0` ist ein *INTERFACE_TYPE*.
+*  Das Ausschließen von benutzerdefinierten Konvertierungen ist nicht von `S` zu `T` oder von `T` zum `S`vorhanden.
 
-Die Einschränkungen für benutzerdefinierte Konvertierungen werden erläutert. im weiteren [Konvertierungsoperatoren](classes.md#conversion-operators).
+Die Einschränkungen, die für benutzerdefinierte Konvertierungen gelten, werden in den [Konvertierungs Operatoren](classes.md#conversion-operators)weiter erläutert.
 
-### <a name="lifted-conversion-operators"></a>Transformierten Konvertierungsoperatoren
+### <a name="lifted-conversion-operators"></a>Operator für gesteigerte Konvertierung
 
-Erhalten einen benutzerdefinierten Konvertierungsoperator, der von einem Typ NULL-Werte konvertiert `S` auf einen NULL-Werttyp `T`, ***angehoben Konvertierungsoperator*** vorhanden ist, konvertiert in `S?` zu `T?`. Dieser transformierten Konvertierungsoperator führt eine Entpacken von `S?` zu `S` gefolgt von der eine benutzerdefinierte Konvertierung von `S` zu `T` gefolgt von einer Wrapping von `T` zu `T?`, außer dass ein NULL-Wert Valued `S?` wandelt den Wert Null direkt `T?`.
+Bei einem benutzerdefinierten Konvertierungs Operator, der von einem Werttyp, der keine NULL-Werte zulässt, `S` in einen Werttyp, der keine NULL-Werte zulässt `T`, ist ein ***Operator mit erhöhten Konvertierungen*** vorhanden, der von `S?` in `T?`konvertiert Dieser Operator mit erhöhten Konvertierungen führt einen zum Entpacken von `S?` auf `S` gefolgt von der benutzerdefinierten Konvertierung von `S` in `T` gefolgt von einem Umbrüchen von `T` zu `T?`, mit dem Unterschied, dass ein NULL-Wert `S?` direkt in eine `T?`mit NULL-Wert konvertiert.
 
-Ein Konvertierungsoperator für die transformierten hat die gleiche implizite oder explizite-Klassifizierung als die zugrunde liegenden benutzerdefinierten Konvertierungsoperator. Der Begriff, die die Verwendung von "benutzerdefinierte Konvertierung" gilt eine benutzerdefinierte und Konvertierungsoperatoren aufgehoben.
+Ein Operator mit erhöhten Konvertierungen hat dieselbe implizite oder explizite Klassifizierung wie der zugrunde liegende benutzerdefinierte Konvertierungs Operator. Der Begriff "benutzerdefinierte Konvertierung" gilt für die Verwendung von benutzerdefinierten und erhöhten Konvertierungs Operatoren.
 
 ### <a name="evaluation-of-user-defined-conversions"></a>Auswertung von benutzerdefinierten Konvertierungen
 
-Eine benutzerdefinierte Konvertierung konvertiert einen Wert als der Typ, dem Namen der ***Quelltyp***, einen anderen Typ, mit dem Namen der ***Zieltyp***. Auswertung von einer benutzerdefinierten Konvertierung konzentriert sich auf Suchen der ***spezifischste*** benutzerdefinierten Konvertierungsoperator für die bestimmten Typen von Quelle und Ziel. Diese Ermittlung ist in mehrere Schritte unterteilt:
+Eine benutzerdefinierte Konvertierung konvertiert einen Wert vom Typ, der als ***Quelltyp***bezeichnet wird, in einen anderen Typ, der als ***Zieltyp***bezeichnet wird. Bei der Auswertung einer benutzerdefinierten Konvertierung wird das Auffinden des ***spezifischsten*** benutzerdefinierten Konvertierungs Operators für bestimmte Quell-und Zieltypen ermittelt. Diese Bestimmung ist in mehrere Schritte unterteilt:
 
-*  Suchen den Satz von Klassen und Strukturen, die von denen benutzerdefinierten Konvertierungsoperatoren betrachtet werden. Dieser Satz besteht aus den Quelltyp und ihre Basisklassen und den Zieltyp und ihre Basisklassen (mit implizit vorausgesetzt, dass benutzerdefinierte Operatoren nur Klassen und Strukturen deklarieren und nichtklassentypen keine Basisklassen aufweisen). Im Rahmen dieser Schritt, wenn entweder die Quell-oder Zieltyp ist eine *Nullable_type*, deren zugrunde liegender Typ wird stattdessen verwendet.
-*  Aus diesem Satz von Typen bestimmen die benutzerdefinierten und Konvertierungsoperatoren aufgehoben gelten. Für einen Konvertierungsoperator, angewendet werden, es muss möglich sein, eine standardkonvertierung ausführen ([standardkonvertierungen](conversions.md#standard-conversions)) aus einer Datenquelle mit dem Operanden Typ des Operators an, und es muss möglich sein, eine standardkonvertierung ausführen von der Ergebnistyp des Operators, der den Zieltyp.
-*  Aus der Gruppe der entsprechenden benutzerdefinierten Operatoren bestimmt der Operator eindeutig am spezifischsten ist. Allgemein gesagt ist der am genauesten Operator den Operator aus, deren Operandentyp "nächstgelegene" in den Quelltyp und, dessen Ergebnistyp "nächstgelegene" in den Zieltyp ist. Eine benutzerdefinierte Konvertierungsoperatoren werden gegenüber transformierten Konvertierungsoperatoren bevorzugt. Die genauen Regeln für die Einrichtung des spezifischsten benutzerdefinierten Konvertierungsoperator werden in den folgenden Abschnitten definiert.
+*  Suchen des Satzes von Klassen und Strukturen, von denen benutzerdefinierte Konvertierungs Operatoren berücksichtigt werden. Diese Gruppe besteht aus dem Quelltyp und den zugehörigen Basisklassen sowie dem Zieltyp und den zugehörigen Basisklassen (mit den impliziten Annahmen, dass nur Klassen und Strukturen benutzerdefinierte Operatoren deklarieren können, und dass nicht Klassentypen keine Basisklassen aufweisen). Wenn entweder der Quell-oder Zieltyp ein nullable_type ist, wird stattdessen der zugrunde liegende Typ verwendet, wenn der Quell-oder Zieltyp einist.
+*  Aus diesem Satz von Typen, um zu bestimmen, welche benutzerdefinierten und erhöhten Konvertierungs Operatoren anwendbar sind. Damit ein Konvertierungs Operator anwendbar ist, muss es möglich sein, eine Standard Konvertierung ([Standard Konvertierungen](conversions.md#standard-conversions)) vom Quelltyp in den Operanden des Operators auszuführen. Außerdem muss es möglich sein, eine Standard Konvertierung vom Ergebnistyp des Operators in den Zieltyp auszuführen.
+*  Aus dem Satz der anwendbaren benutzerdefinierten Operatoren, wobei festgelegt wird, welcher Operator eindeutig der spezifischsten ist. In der Regel ist der spezifischere Operator der Operator, dessen Operanden dem Quelltyp "am nächsten" und dessen Ergebnistyp "am nächsten" dem Zieltyp entspricht. Benutzerdefinierte Konvertierungs Operatoren werden für gesteigerte Konvertierungs Operatoren bevorzugt. Die genauen Regeln zum Einrichten des spezifischsten benutzerdefinierten Konvertierungs Operators werden in den folgenden Abschnitten definiert.
 
-Nachdem ein spezifischste benutzerdefinierten Konvertierungsoperator identifiziert wurde, umfasst die eigentliche Ausführung der benutzerdefinierten Konvertierung bis zu drei Schritte aus:
+Nachdem ein spezifiziererer benutzerdefinierter Konvertierungs Operator identifiziert wurde, umfasst die tatsächliche Ausführung der benutzerdefinierten Konvertierung bis zu drei Schritte:
 
-*  Zuerst bei Bedarf ausführen eine standardkonvertierung von den Quelltyp in der Operandentyp der benutzerdefinierten oder transformierten Konvertierungsoperator.
-*  Als Nächstes das Aufrufen des benutzerdefinierten oder transformierten Konvertierungsoperators, um die Konvertierung auszuführen.
-*  Bei Bedarf ausführen schließlich eine standardkonvertierung von der Ergebnistyp des Operators oder transformierten, eine benutzerdefinierte Konvertierung in den Zieltyp auf.
+*  Wenn dies erforderlich ist, wird eine Standard Konvertierung vom Quelltyp in den Operanden des benutzerdefinierten oder des aufzurufenden Konvertierungs Operators durchgeführt.
+*  Im nächsten Schritt wird der benutzerdefinierte oder der Operator für die Aufhebung der Konvertierung aufgerufen, um die Konvertierung auszuführen.
+*  Wenn dies erforderlich ist, wird eine Standard Konvertierung vom Ergebnistyp des benutzerdefinierten oder des Operators für die gesteigerte Konvertierung in den Zieltyp durchgeführt.
 
-Auswertung von nie eine benutzerdefinierte Konvertierung umfasst mehr als eine benutzerdefinierte oder transformierten Konvertierungsoperator. Das heißt, eine Konvertierung von Typ `S` eingeben `T` führt niemals zuerst eine benutzerdefinierte Konvertierung von `S` zu `X` und führen Sie dann eine benutzerdefinierte Konvertierung von `X` zu `T`.
+Die Auswertung einer benutzerdefinierten Konvertierung umfasst nie mehr als einen benutzerdefinierten oder einen Operator mit erhöhten Konvertierungen. Anders ausgedrückt: bei einer Konvertierung vom Typ `S` in den Typ `T` wird nie zuerst eine benutzerdefinierte Konvertierung von `S` in `X` ausgeführt und dann eine benutzerdefinierte Konvertierung von `X` in `T`ausgeführt.
 
-Genaue Definitionen der Auswertung des benutzerdefinierten impliziten oder expliziten Konvertierungen sind in den folgenden Abschnitten enthalten. Die Definitionen stellen die folgenden Begriffe verwendet:
+Die genauen Definitionen der Auswertung benutzerdefinierter impliziter oder expliziter Konvertierungen werden in den folgenden Abschnitten angegeben. In den Definitionen werden die folgenden Begriffe verwendet:
 
-*  Wenn eine implizite standardkonvertierung ([Standard implizite Konvertierungen](conversions.md#standard-implicit-conversions)) vorhanden ist, von einem Typ `A` auf einen Typ `B`, und wenn weder `A` noch `B` sind *Interface_type*s, klicken Sie dann `A` gilt als ***von darin enthaltenen*** `B`, und `B` gilt als ***umfassen*** `A`.
-*  Die ***umfassendste Typ*** in einen Satz von Typen wird der eine Typ, der alle anderen Typen in der Menge umfasst. Wenn kein Typ auf alle anderen Typen umfasst, hat dann die Gruppe keine umfassendste. Intuitiver ausgedrückt, ist der umfassendste Typ "größten"-Typs in der Gruppe, der eine Typ, der alle anderen Typen implizit konvertiert werden kann.
-*  Die ***die darin enthaltenen Typ*** in einen Satz von Typen wird der eine Typ, der von allen anderen Typen in der Gruppe Datenbankprotokolls enthalten ist. Wenn kein Typ von allen anderen Typen Datenbankprotokolls enthalten ist, hat die Gruppe nicht am häufigsten Typ einschließt. Intuitiver ausgedrückt, ist die am stärksten umfasste Typ den "kleinsten" Datentyp in der Gruppe, der eine Typ, der implizit in jeder der anderen Typen konvertiert werden kann.
+*  Wenn eine standardmäßige implizite Konvertierung ([standardmäßige implizite Konvertierungen](conversions.md#standard-implicit-conversions)) von einem Typ vorhanden ist, der `A` in einen Typ `B`ist, und wenn weder `A` noch `B` *INTERFACE_TYPE*s sind, wird `A` als ***mit `B`umschlossen*** bezeichnet, und `B` ***wird als "`A`"*** bezeichnet.
+*  Der ***umfassendste Typ*** in einer Reihe von Typen ist der einzige Typ, der alle anderen Typen im Satz umfasst. Wenn kein einzelner Typ alle anderen Typen umfasst, hat der Satz keinen ganz umfassenden Typ. In intuitiver Hinsicht ist der umfassendste Typ der "größte" Typ im Satz – der einzige Typ, in den jeder der anderen Typen implizit konvertiert werden kann.
+*  Der ***am häufigsten*** in einem Satz von Typen eingeschlossenen Typ ist ein Typ, der von allen anderen Typen im Satz eingeschlossen wird. Wenn kein einzelner Typ von allen anderen Typen eingeschlossen wird, hat der Satz nicht den meisten Typ. In intuitiver Hinsicht ist der Typ, der am häufigsten in der Menge enthalten ist, der "kleinste" Typ im Satz – ein Typ, der implizit in jeden der anderen Typen konvertiert werden kann.
 
-### <a name="processing-of-user-defined-implicit-conversions"></a>Verarbeitung von benutzerdefinierten implizite Konvertierungen
+### <a name="processing-of-user-defined-implicit-conversions"></a>Verarbeiten von benutzerdefinierten impliziten Konvertierungen
 
-Eine implizite Konvertierung von Typ `S` eingeben `T` wird wie folgt verarbeitet:
+Eine benutzerdefinierte implizite Konvertierung vom Typ `S` in den Typ `T` wird wie folgt verarbeitet:
 
-*  Geben Sie die Typen `S0` und `T0`. Wenn `S` oder `T` nullable-Typen sind `S0` und `T0` ihre zugrunde liegende Typen sind, andernfalls `S0` und `T0` gleich `S` und `T` bzw.
-*  Suchen Sie den Satz von Typen, `D`, über die benutzerdefinierte Konvertierung Operatoren betrachtet werden. Dieser Satz besteht aus `S0` (Wenn `S0` ist eine Klasse oder Struktur), die Basisklassen `S0` (Wenn `S0` ist eine Klasse), und `T0` (Wenn `T0` ist eine Klasse oder Struktur).
-*  Suchen Sie den Satz von entsprechenden benutzerdefinierten und transformierten Konvertierungsoperatoren, `U`. Dieser Satz besteht aus den benutzerdefinierten und transformierten Implizite Konvertierungsoperatoren deklariert, indem Sie die Klassen oder Strukturen in `D` , konvertiert in einen Typ umfasst `S` auf einen Typ von darin enthaltenen `T`. Wenn `U` leer ist, die Konvertierung ist nicht definiert ist, und ein Fehler während der Kompilierung auftritt.
-*  Suchen Sie einen möglichst spezifischen Quelltyp, `SX`, der Operatoren in `U`:
-    * Wenn einer der Operatoren in `U` Konvertieren von `S`, klicken Sie dann `SX` ist `S`.
-    * Andernfalls `SX` ist der am stärksten umfasste Typ in der kombinierten Gruppe von Typen von Operatoren in `U`. Wenn genau ein die darin enthaltenen Typ nicht gefunden werden, und klicken Sie dann die Konvertierung mehrdeutig ist, und ein Fehler während der Kompilierung auftritt.
-*  Suchen Sie einen möglichst spezifischen Zieltyp, `TX`, der Operatoren in `U`:
-    * Wenn einer der Operatoren in `U` konvertieren in `T`, klicken Sie dann `TX` ist `T`.
-    * Andernfalls `TX` ist der umfassendste Typ in der kombinierten Gruppe von Zieltypen von Operatoren in `U`. Wenn genau ein umfassendste-Typ nicht gefunden wird, klicken Sie dann die Konvertierung mehrdeutig ist, und ein Fehler während der Kompilierung auftritt.
-*  Suchen Sie den spezifischsten Konvertierungsoperator:
-    * Wenn `U` enthält genau eine benutzerdefinierte Konvertierung-Operator, der von konvertiert `SX` zu `TX`, ist dies die spezifischste Konvertierungsoperator.
-    * Andernfalls gilt: Wenn `U` enthält genau eine angehobene Konvertierungsoperator, der von konvertiert `SX` zu `TX`, ist dies die spezifischste Konvertierungsoperator.
-    * Andernfalls die Konvertierung mehrdeutig ist, und ein Fehler während der Kompilierung auftritt.
-*  Wenden Sie schließlich die Konvertierung:
-    * Wenn `S` nicht `SX`, klicken Sie dann eine standard implizite Konvertierung von `S` zu `SX` erfolgt.
-    * Die spezifischste Konvertierungsoperator wird aufgerufen, für die Konvertierung von `SX` zu `TX`.
-    * Wenn `TX` nicht `T`, klicken Sie dann eine standard implizite Konvertierung von `TX` zu `T` erfolgt.
+*  Bestimmen Sie die Typen `S0` und `T0`. Wenn `S` oder `T` Typen NULL-Werte zulassen, sind `S0` und `T0` ihre zugrunde liegenden Typen. andernfalls sind `S0` und `T0` gleich `S` bzw. `T`.
+*  Suchen Sie den Satz von Typen, `D`, von dem benutzerdefinierte Konvertierungs Operatoren berücksichtigt werden. Dieser Satz besteht aus `S0` (wenn `S0` eine Klasse oder Struktur ist), den Basisklassen von `S0` (wenn `S0` eine Klasse ist) und `T0` (wenn `T0` eine Klasse oder Struktur ist).
+*  Suchen Sie den Satz der anwendbaren benutzerdefinierten und erhöhten Konvertierungs Operatoren, `U`. Dieser Satz besteht aus den benutzerdefinierten und angehobenen impliziten Konvertierungs Operatoren, die von den Klassen oder Strukturen in `D` deklariert werden, die von einem Typ konvertieren, der `S` in einen von `T`umschlossen Typ konvertiert. Wenn `U` leer ist, ist die Konvertierung nicht definiert, und es tritt ein Kompilierzeitfehler auf.
+*  Suchen Sie den spezifischsten Quelltyp (`SX`) der Operatoren in `U`:
+    * Wenn einer der Operatoren in `U` aus `S`konvertieren, wird `SX` `S`.
+    * Andernfalls ist `SX` der in der kombinierten Gruppe von Quell Typen der Operatoren in `U`der Typ, der am häufigsten eingeschlossen ist. Wenn nicht genau ein Typ gefunden werden kann, der in der zwischen Version enthalten ist, ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+*  Suchen Sie den spezifischsten Zieltyp (`TX`) der Operatoren in `U`:
+    * Wenn einer der Operatoren in `U` in `T`konvertiert wird, wird `TX` `T`.
+    * Andernfalls ist `TX` der umfassendste Typ in der kombinierten Gruppe von Zieltypen der Operatoren in `U`. Wenn genau ein Typ mit der höchsten Verfügbarkeit nicht gefunden werden kann, ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+*  Suchen Sie den spezifischsten Konvertierungs Operator:
+    * Wenn `U` genau einen benutzerdefinierten Konvertierungs Operator enthält, der von `SX` in `TX`konvertiert, ist dies der spezifischere Konvertierungs Operator.
+    * Andernfalls, wenn `U` genau einen Operator mit erhöhten Umwandlungen enthält, der von `SX` in `TX`konvertiert, ist dies der spezifischere Konvertierungs Operator.
+    * Andernfalls ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+*  Übernehmen Sie schließlich die Konvertierung:
+    * Wenn `S` nicht `SX`ist, wird eine standardmäßige implizite Konvertierung von `S` in `SX` ausgeführt.
+    * Der spezifischere Konvertierungs Operator wird aufgerufen, um von `SX` in `TX`zu konvertieren.
+    * Wenn `TX` nicht `T`ist, wird eine standardmäßige implizite Konvertierung von `TX` in `T` ausgeführt.
 
-### <a name="processing-of-user-defined-explicit-conversions"></a>Verarbeitung von benutzerdefinierten explizite Konvertierungen
+### <a name="processing-of-user-defined-explicit-conversions"></a>Verarbeiten benutzerdefinierter expliziter Konvertierungen
 
-Eine benutzerdefinierte, explizite Konvertierung von Typ `S` eingeben `T` wird wie folgt verarbeitet:
+Eine benutzerdefinierte explizite Konvertierung vom Typ `S` in den Typ `T` wird wie folgt verarbeitet:
 
-*  Geben Sie die Typen `S0` und `T0`. Wenn `S` oder `T` nullable-Typen sind `S0` und `T0` ihre zugrunde liegende Typen sind, andernfalls `S0` und `T0` gleich `S` und `T` bzw.
-*  Suchen Sie den Satz von Typen, `D`, über die benutzerdefinierte Konvertierung Operatoren betrachtet werden. Dieser Satz besteht aus `S0` (Wenn `S0` ist eine Klasse oder Struktur), die Basisklassen `S0` (Wenn `S0` ist eine Klasse), `T0` (Wenn `T0` ist eine Klasse oder Struktur), und die Basisklassen `T0` (Wenn `T0`ist eine Klasse).
-*  Suchen Sie den Satz von entsprechenden benutzerdefinierten und transformierten Konvertierungsoperatoren, `U`. Dieser Satz besteht aus den benutzerdefinierten und transformierten implizite oder explizite Konvertierungsoperatoren deklariert, von den Klassen oder Strukturen in `D` , Konvertierung von einem Typ umfasst oder von darin enthaltenen `S` auf einen Typ umfasst oder durch einschließt`T`. Wenn `U` leer ist, die Konvertierung ist nicht definiert ist, und ein Fehler während der Kompilierung auftritt.
-*  Suchen Sie einen möglichst spezifischen Quelltyp, `SX`, der Operatoren in `U`:
-    * Wenn einer der Operatoren in `U` Konvertieren von `S`, klicken Sie dann `SX` ist `S`.
-    * Andernfalls, wenn einer der Operatoren in `U` Konvertieren von Typen, die umfassen `S`, klicken Sie dann `SX` ist der am stärksten umfasste Typ in der kombinierten Gruppe von Quelltypen diese Operatoren. Wenn kein am darin enthaltenen Typ gefunden werden kann, und klicken Sie dann die Konvertierung mehrdeutig ist, und ein Kompilierungsfehler tritt auf.
-    * Andernfalls `SX` ist der umfassendste Typ in der kombinierten Gruppe von Typen von Operatoren in `U`. Wenn genau ein umfassendste-Typ nicht gefunden wird, klicken Sie dann die Konvertierung mehrdeutig ist, und ein Fehler während der Kompilierung auftritt.
-*  Suchen Sie einen möglichst spezifischen Zieltyp, `TX`, der Operatoren in `U`:
-    * Wenn einer der Operatoren in `U` konvertieren in `T`, klicken Sie dann `TX` ist `T`.
-    * Andernfalls, wenn einer der Operatoren in `U` konvertieren in Typen, die vom enthalten sind `T`, klicken Sie dann `TX` ist der umfassendste Typ in der kombinierten Gruppe von Zieltypen diese Operatoren. Wenn genau ein umfassendste-Typ nicht gefunden wird, klicken Sie dann die Konvertierung mehrdeutig ist, und ein Fehler während der Kompilierung auftritt.
-    * Andernfalls `TX` ist der am stärksten umfasste Typ in der kombinierten Gruppe von Zieltypen von Operatoren in `U`. Wenn kein am darin enthaltenen Typ gefunden werden kann, und klicken Sie dann die Konvertierung mehrdeutig ist, und ein Kompilierungsfehler tritt auf.
-*  Suchen Sie den spezifischsten Konvertierungsoperator:
-    * Wenn `U` enthält genau eine benutzerdefinierte Konvertierung-Operator, der von konvertiert `SX` zu `TX`, ist dies die spezifischste Konvertierungsoperator.
-    * Andernfalls gilt: Wenn `U` enthält genau eine angehobene Konvertierungsoperator, der von konvertiert `SX` zu `TX`, ist dies die spezifischste Konvertierungsoperator.
-    * Andernfalls die Konvertierung mehrdeutig ist, und ein Fehler während der Kompilierung auftritt.
-*  Wenden Sie schließlich die Konvertierung:
-    * Wenn `S` nicht `SX`, klicken Sie dann eine explizite standardkonvertierung von `S` zu `SX` erfolgt.
-    * Die spezifischste benutzerdefinierten Konvertierungsoperator wird aufgerufen, für die Konvertierung von `SX` zu `TX`.
-    * Wenn `TX` nicht `T`, klicken Sie dann eine explizite standardkonvertierung von `TX` zu `T` erfolgt.
+*  Bestimmen Sie die Typen `S0` und `T0`. Wenn `S` oder `T` Typen NULL-Werte zulassen, sind `S0` und `T0` ihre zugrunde liegenden Typen. andernfalls sind `S0` und `T0` gleich `S` bzw. `T`.
+*  Suchen Sie den Satz von Typen, `D`, von dem benutzerdefinierte Konvertierungs Operatoren berücksichtigt werden. Dieser Satz besteht aus `S0` (wenn `S0` eine Klasse oder Struktur ist), den Basisklassen von `S0` (wenn `S0` eine Klasse ist), `T0` (wenn `T0` eine Klasse oder Struktur ist) und den Basisklassen von `T0` (wenn `T0` eine Klasse ist).
+*  Suchen Sie den Satz der anwendbaren benutzerdefinierten und erhöhten Konvertierungs Operatoren, `U`. Dieser Satz besteht aus den benutzerdefinierten, impliziten oder expliziten Konvertierungs Operatoren, die von den Klassen oder Strukturen in `D` deklariert werden, die von einem Typ konvertieren, der durch `S` in einen Typ konvertiert wird, der durch `T`eingeschlossen oder eingeschlossen wird. Wenn `U` leer ist, ist die Konvertierung nicht definiert, und es tritt ein Kompilierzeitfehler auf.
+*  Suchen Sie den spezifischsten Quelltyp (`SX`) der Operatoren in `U`:
+    * Wenn einer der Operatoren in `U` aus `S`konvertieren, wird `SX` `S`.
+    * Andernfalls ist `SX`, wenn einer der Operatoren in `U` von Typen konvertiert, die `S`umfassen, der am häufigsten in der kombinierten Gruppe von Quell Typen dieser Operatoren enthaltenen Typ. Wenn kein Typ gefunden werden kann, ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+    * Andernfalls ist `SX` der umfassendste Typ in der kombinierten Gruppe von Quell Typen der Operatoren in `U`. Wenn genau ein Typ mit der höchsten Verfügbarkeit nicht gefunden werden kann, ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+*  Suchen Sie den spezifischsten Zieltyp (`TX`) der Operatoren in `U`:
+    * Wenn einer der Operatoren in `U` in `T`konvertiert wird, wird `TX` `T`.
+    * Wenn einer der Operatoren in `U` in Typen konvertiert werden soll, die von `T`eingeschlossen werden, dann ist `TX` der umfassendste Typ in der kombinierten Gruppe von Zieltypen dieser Operatoren. Wenn genau ein Typ mit der höchsten Verfügbarkeit nicht gefunden werden kann, ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+    * Andernfalls ist `TX` der kombinierte Typ in der kombinierten Menge von Zieltypen der Operatoren in `U`. Wenn kein Typ gefunden werden kann, ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+*  Suchen Sie den spezifischsten Konvertierungs Operator:
+    * Wenn `U` genau einen benutzerdefinierten Konvertierungs Operator enthält, der von `SX` in `TX`konvertiert, ist dies der spezifischere Konvertierungs Operator.
+    * Andernfalls, wenn `U` genau einen Operator mit erhöhten Umwandlungen enthält, der von `SX` in `TX`konvertiert, ist dies der spezifischere Konvertierungs Operator.
+    * Andernfalls ist die Konvertierung mehrdeutig, und es tritt ein Kompilierzeitfehler auf.
+*  Übernehmen Sie schließlich die Konvertierung:
+    * Wenn `S` nicht `SX`ist, wird eine explizite Standard Konvertierung von `S` in `SX` ausgeführt.
+    * Der spezifischere benutzerdefinierte Konvertierungs Operator wird aufgerufen, um von `SX` in `TX`zu konvertieren.
+    * Wenn `TX` nicht `T`ist, wird eine explizite Standard Konvertierung von `TX` in `T` ausgeführt.
 
-## <a name="anonymous-function-conversions"></a>Anonyme Funktion Konvertierungen
+## <a name="anonymous-function-conversions"></a>Anonyme Funktions Konvertierungen
 
-Ein *Anonymous_method_expression* oder *Lambda_expression* wird eine anonyme Funktion klassifiziert ([anonyme Funktionsausdrücke](expressions.md#anonymous-function-expressions)). Der Ausdruck nicht über einen Datentyp verfügt jedoch implizit in einen kompatiblen Delegattyp bzw. den Typ für die Ausdrucksbaumstruktur konvertiert werden kann. Insbesondere eine anonyme Funktion `F` ist kompatibel mit einem Delegattypen `D` bereitgestellt:
+Eine *anonymous_method_expression* oder *lambda_expression* wird als anonyme Funktion ([Anonyme Funktions Ausdrücke](expressions.md#anonymous-function-expressions)) klassifiziert. Der Ausdruck weist keinen Typ auf, kann aber implizit in einen kompatiblen Delegattyp oder Ausdrucks Strukturtyp konvertiert werden. Ein anonymer Funktions `F` ist insbesondere mit einem `D` bereitgestellten Delegattyp kompatibel:
 
-*  Wenn `F` enthält ein *Anonymous_function_signature*, klicken Sie dann `D` und `F` die gleiche Anzahl von Parametern aufweisen.
-*  Wenn `F` enthält kein *Anonymous_function_signature*, klicken Sie dann `D` möglicherweise NULL oder mehr Parameter eines beliebigen Typs, solange kein Parameter der `D` hat die `out` Modifizierer für Parameter.
-*  Wenn `F` verfügt über eine explizit typisierte Parameterliste, jeden Parameter in `D` hat den gleichen Typ und -Modifizierern als der entsprechende Parameter im `F`.
-*  Wenn `F` verfügt über eine implizit typisierte Parameterliste `D` hat keine `ref` oder `out` Parameter.
-*  Wenn der Text der `F` ist ein Ausdruck, und entweder `D` verfügt über eine `void` Rückgabetyp oder `F` Async ist und `D` weist den Rückgabetyp `Task`, daraufhin beim jeder Parameter des `F` erhält den Typ des der entsprechende Parameter im `D`, den Text der `F` ein gültiger Ausdruck (wrt- [Ausdrücke](expressions.md)), würde als berechtigt sein, eine *Statement_expression* ([Ausdrucksanweisungen](statements.md#expression-statements)).
-*  Wenn der Text der `F` einen Anweisungsblock ein, und entweder `D` verfügt über eine `void` Rückgabetyp oder `F` Async ist und `D` weist den Rückgabetyp `Task`, daraufhin beim jeder Parameter des `F` erhält den Typ des der entsprechende Parameter im `D`, den Text der `F` ist ein gültiger Anweisungsblock (wrt- [Blöcke](statements.md#blocks)) das keine `return` Anweisung gibt einen Ausdruck an.
-*  Wenn der Text der `F` ist ein Ausdruck, und *entweder* `F` ist nicht asynchronen und `D` hat einen nicht-Void-Rückgabetyp `T`, *oder* `F` ist asynchron und `D` hat einen Rückgabetyp `Task<T>`, und wenn jeder Parameter des `F` erhält den Typ des entsprechenden Parameters in `D`, den Text der `F` ein gültiger Ausdruck (wrt- [ Ausdrücke](expressions.md)), die implizit konvertierbar ist `T`.
-*  Wenn der Text der `F` ist ein Anweisungsblock und *entweder* `F` ist nicht asynchronen und `D` hat einen nicht-Void-Rückgabetyp `T`, *oder* `F` ist asynchron und `D` hat einen Rückgabetyp `Task<T>`, und wenn jeder Parameter des `F` erhält den Typ des entsprechenden Parameters in `D`, den Text der `F` ist ein gültiger Anweisungsblock (wrt- [Blöcke ](statements.md#blocks)) mit einem nicht erreichbaren Endpunkt in der jedes `return` -Anweisung gibt einen Ausdruck, der implizit in `T`.
+*  Wenn `F` eine *anonymous_function_signature*enthält, verfügen `D` und `F` über die gleiche Anzahl von Parametern.
+*  Wenn `F` keinen *anonymous_function_signature*enthält, haben `D` möglicherweise NULL oder mehr Parameter eines beliebigen Typs, solange kein Parameter von `D` den `out` Parametermodifizierer aufweist.
+*  Wenn `F` über eine explizit typisierte Parameterliste verfügt, weist jeder Parameter in `D` den gleichen Typ und die gleichen Modifizierer wie der entsprechende Parameter in `F`auf.
+*  Wenn `F` eine implizit typisierte Parameterliste aufweist, hat `D` keine `ref` oder `out` Parameter.
+*  Wenn der Text des `F` ein Ausdruck ist und entweder `D` einen `void` Rückgabetyp hat oder `F` Async ist und `D` den Rückgabetyp `Task`hat, dann ist der Text des `F` ein gültiger Ausdruck (WRT [Expressions](expressions.md)), der als *`D`* ([Ausdrucks Anweisungen](statements.md#expression-statements)) zulässig ist.
+*  Wenn der Hauptteil des `F` ein Anweisungsblock ist und entweder `D` einen `void` Rückgabetyp hat oder `F` Async und `D` den Rückgabetyp `Task`hat, ist der Text des `F` ein gültiger Anweisungsblock (WRT- [Blöcke](statements.md#blocks)), in dem keine `D`Anweisung einen Ausdruck angibt.
+*  Wenn der Text des `F` ein Ausdruck ist und *entweder* `F` nicht Async ist und `D` einen nicht leeren Rückgabetyp `T`hat, *oder* `F` asynchron ist und `D` einen Rückgabetyp `Task<T>`hat, ist der Text des `F` ein gültiger Ausdruck (WRT [Expressions](expressions.md)), der implizit in `D`konvertiert werden kann.
+*  Wenn der Hauptteil des `F` ein Anweisungsblock ist und *entweder* `F` nicht Async ist und `D` einen nicht leeren Rückgabetyp `T`hat, *oder* `F` ist async, und `D` hat einen Rückgabetyp `Task<T>`. Wenn jedem Parameter `F` der Typ des entsprechenden Parameters in `D`zugewiesen wird, ist der Text des `F` ein gültiger Anweisungsblock (WRT- [Blöcke](statements.md#blocks)) mit einem nicht erreichbaren Endpunkt, bei dem jede `return` Anweisung einen Ausdruck angibt, der implizit in `T`konvertiert werden kann.
 
-Im Rahmen der Kürze halber wird in diesem Abschnitt die Kurzform für die Tasktypen `Task` und `Task<T>` ([asynchrone Funktionen](classes.md#async-functions)).
+Aus Gründen der Kürze verwendet dieser Abschnitt die Kurzform für die Aufgaben Typen `Task` und `Task<T>` ([Async-Funktionen](classes.md#async-functions)).
 
-Ein Lambda-Ausdruck `F` ist kompatibel mit einem Typ für die Ausdrucksbaumstruktur `Expression<D>` Wenn `F` ist kompatibel mit dem Delegattyp `D`. Beachten Sie, dass dies nicht für anonyme Methoden, Lambda-Ausdrücke gelten.
+Ein Lambda-Ausdruck `F` ist mit einem Ausdrucks bauentyp kompatibel `Expression<D>` wenn `F` mit dem Delegattyp `D`kompatibel ist. Beachten Sie, dass dies nicht für anonyme Methoden gilt, sondern nur für Lambda-Ausdrücke.
 
-Bestimmte Lambda-Ausdrücke können nicht in ausdrucksbaumstrukturtypen konvertiert werden: Auch wenn die Konvertierung *vorhanden*, zum Zeitpunkt der Kompilierung ein Fehler auftritt. Dies ist der Fall, wenn der Lambda-Ausdruck:
+Bestimmte Lambda-Ausdrücke können nicht in Ausdrucks Baumstruktur Typen konvertiert werden: Obwohl die Konvertierung *vorhanden*ist, schlägt Sie zur Kompilierzeit fehl. Dies ist der Fall, wenn der Lambda-Ausdruck:
 
-*  Verfügt über eine *Block* Text
-*  Enthält einfache oder zusammengesetzte Zuweisungsoperatoren
-*  Enthält einen dynamisch gebundenen Ausdruck
-*  Async ist
+*  Weist einen *Block* Text auf.
+*  Enthält einfache oder Verbund Zuweisungs Operatoren.
+*  Enthält einen dynamisch gebundenen Ausdruck.
+*  Ist Async
 
-Verwenden Sie die folgenden Beispielen einen generischer Delegattyp `Func<A,R>` steht für eine Funktion, die ein des Typs Argument `A` und gibt einen Wert vom Typ `R`:
+In den folgenden Beispielen wird ein generischer Delegattyp `Func<A,R>` verwendet, der eine Funktion darstellt, die ein Argument vom Typ `A` annimmt und einen Wert vom Typ `R`zurückgibt:
 ```csharp
 delegate R Func<A,R>(A arg);
 ```
 
-In der Zuweisungen
+In den Zuweisungen
 ```csharp
 Func<int,int> f1 = x => x + 1;                 // Ok
 
@@ -542,25 +543,25 @@ Func<double,int> f3 = x => x + 1;              // Error
 
 Func<int, Task<int>> f4 = async x => x + 1;    // Ok
 ```
-die Typen für Parameter und Rückgabetypen für jede anonyme Funktion werden aus dem Typ der Variablen bestimmt, die die anonyme Funktion zugewiesen wird.
+der Parameter und die Rückgabe Typen der einzelnen anonymen Funktionen werden vom Typ der Variablen bestimmt, der die anonyme Funktion zugewiesen wird.
 
-Die erste Zuweisung konvertiert die anonyme Funktion wurde erfolgreich in den Delegattyp `Func<int,int>` da Wenn `x` erhält den Typ `int`, `x+1` ist ein gültiger Ausdruck, der implizit in den Typ `int`.
+Bei der ersten Zuweisung wird die anonyme Funktion erfolgreich in den Delegattyp konvertiert `Func<int,int>` weil `x` den Typ `int`erhält, `x+1` ein gültiger Ausdruck ist, der implizit in den Typ `int`konvertiert werden kann.
 
-Entsprechend die zweite Zuweisung erfolgreich konvertiert die anonyme Funktion in den Delegattyp `Func<int,double>` da das Ergebnis des `x+1` (des Typs `int`) wird implizit in den Typ `double`.
+Entsprechend konvertiert die zweite Zuweisung die anonyme Funktion erfolgreich in den Delegattyp `Func<int,double>`, da das Ergebnis `x+1` (vom Typ `int`) implizit in den Typ `double`konvertiert werden kann.
 
-Die dritte Zuweisung ist jedoch ein Fehler während der Kompilierung, da bei `x` erhält den Typ `double`, das Ergebnis des `x+1` (des Typs `double`) kann nicht implizit in den Typ in `int`.
+Die dritte Zuweisung ist jedoch ein Kompilierzeitfehler, da das Ergebnis von `x+1` (vom Typ `double`) nicht implizit in den Typ `int`konvertiert werden kann, wenn `x` den Typ `double`erhält.
 
-Die vierte Zuweisung erfolgreich konvertiert die anonymen Async-Funktion in den Delegattyp `Func<int, Task<int>>` da das Ergebnis des `x+1` (des Typs `int`) wird implizit in den Ergebnistyp `int` der Vorgangsart `Task<int>`.
+Mit der vierten Zuweisung wird die anonyme Async-Funktion erfolgreich in den Delegattyp konvertiert `Func<int, Task<int>>` da das Ergebnis `x+1` (vom Typ `int`) implizit in den Ergebnistyp `int` des Aufgabentyp `Task<int>`konvertiert werden kann.
 
-Anonyme Funktionen möglicherweise Auflösung von funktionsüberladungen beeinflussen und Typrückschluss teilnehmen. Finden Sie unter [Funktionsmember](expressions.md#function-members) Weitere Details.
+Anonyme Funktionen können die Überladungs Auflösung beeinflussen und an einem Typrückschluss teilnehmen. Weitere Informationen finden Sie unter [Funktionsmember](expressions.md#function-members) .
 
-### <a name="evaluation-of-anonymous-function-conversions-to-delegate-types"></a>Auswertung der anonymen Funktion-Konvertierungen in Delegattypen
+### <a name="evaluation-of-anonymous-function-conversions-to-delegate-types"></a>Auswertung anonymer Funktions Konvertierungen in Delegattypen
 
-Konvertierung von einer anonymen Funktion in einen Delegattyp erstellt eine Delegatinstanz, die ein Verweis auf die anonyme Funktion und der (möglicherweise leeren) Satz von erfassten äußeren Variablen, die zum Zeitpunkt der Auswertung aktiv sind. Wenn der Delegat aufgerufen wird, wird der Text der anonymen Funktion ausgeführt. Der Code im Funktionstext wird ausgeführt, mithilfe der erfassten äußere Variablen, die der Delegat verweist.
+Die Konvertierung einer anonymen Funktion in einen Delegattyp erzeugt eine Delegatinstanz, die auf die anonyme Funktion und den (möglicherweise leeren) Satz erfasster äußerer Variablen verweist, die zum Zeitpunkt der Auswertung aktiv sind. Wenn der Delegat aufgerufen wird, wird der Text der anonymen Funktion ausgeführt. Der Code im Text wird mit dem Satz erfasster äußerer Variablen ausgeführt, auf die der Delegat verweist.
 
-Die Aufrufliste eines Delegaten, die aus einer anonymen Funktion enthält einen einzelnen Eintrag. Die genaue Zielobjekt und die Zielmethode des Delegaten sind nicht angegeben. Insbesondere ist nicht angegeben, ob das Zielobjekt des Delegaten ist `null`, `this` Wert der einschließenden Funktionsmember oder ein anderes Objekt.
+Die Aufruf Liste eines Delegaten, der aus einer anonymen Funktion erstellt wurde, enthält einen einzelnen Eintrag. Das genaue Zielobjekt und die Ziel Methode des Delegaten sind nicht angegeben. Insbesondere ist nicht angegeben, ob das Zielobjekt des Delegaten `null`, der `this` Wert des einschließenden Funktionsmembers oder ein anderes Objekt ist.
 
-Konvertierungen von semantisch identisch anonyme Funktionen mit denselben (möglicherweise leere) erfassten äußere Variable-Instanzen, den gleichen Delegattypen sind zulässig (jedoch nicht erforderlich) auf die gleiche Delegatinstanz zurückgeben. Der Begriff, die semantisch identisch wird hier verwendet, bedeutet, dass die gleichen Auswirkungen, die die gleichen Argumenten angegeben wird, Ausführung von anonymen Funktionen in allen Fällen erzeugt. Diese Regel erlaubt, Code wie den folgenden optimiert werden soll.
+Konvertierungen von semantisch identischen anonymen Funktionen mit dem gleichen (möglicherweise leeren) Satz erfasster externer Variablen Instanzen in dieselben Delegattypen sind zulässig (jedoch nicht erforderlich), um dieselbe Delegatinstanz zurückzugeben. Der Begriff semantisch identisch wird hier verwendet, um zu bedeuten, dass die Ausführung der anonymen Funktionen in allen Fällen dieselben Effekte mit denselben Argumenten erzeugt. Diese Regel ermöglicht es, Code wie den folgenden zu optimieren.
 
 ```csharp
 delegate double Function(double x);
@@ -581,22 +582,22 @@ class Test
 }
 ```
 
-Da die beiden anonyme Funktionsdelegaten demselben (leeren haben) Satz von erfassten äußeren Variablen, und da die anonyme Funktionen semantisch identisch sind, wird der Compiler zulässig die Delegaten, der auf die gleiche Zielmethode zu verweisen. Tatsächlich ist der Compiler zulässig, die dieselbe Delegatinstanz aus sowohl anonyme Funktionsausdrücke zurückgegeben.
+Da die beiden anonymen Funktions Delegaten denselben (leeren) Satz erfasster äußerer Variablen aufweisen und die anonymen Funktionen semantisch identisch sind, ist es dem Compiler gestattet, dass die Delegaten auf dieselbe Ziel Methode verweisen. Tatsächlich ist es dem Compiler gestattet, dieselbe Delegatinstanz aus beiden anonymen Funktions Ausdrücken zurückzugeben.
 
-### <a name="evaluation-of-anonymous-function-conversions-to-expression-tree-types"></a>Auswertung von Konvertierungen ausdrucksbaumstrukturtypen anonyme Funktion
+### <a name="evaluation-of-anonymous-function-conversions-to-expression-tree-types"></a>Auswertung anonymer Funktions Konvertierungen in Ausdrucks Baumstruktur Typen
 
-Konvertierung von einer anonymen Funktion in einen Typ für die Ausdrucksbaumstruktur erzeugt eine Ausdrucksbaumstruktur ([ausdrucksbaumstrukturtypen](types.md#expression-tree-types)). Genauer gesagt, führt die Auswertung der Konvertierung des anonymen Funktion für die Entwicklung von einem Objektstruktur, die die Struktur der anonymen Funktion selbst darstellt. Die genaue Struktur der Ausdrucksbaumstruktur als auch die genauen Schritte zum Erstellen, sind die Implementierung definiert.
+Die Konvertierung einer anonymen Funktion in einen Ausdrucks bauentyp erzeugt eine Ausdrucks Baumstruktur ([Ausdrucks Baumstruktur Typen](types.md#expression-tree-types)). Genauer bedeutet, dass die Auswertung der anonymen Funktions Konvertierung zur Erstellung einer Objektstruktur führt, die die Struktur der anonymen Funktion darstellt. Die genaue Struktur der Ausdrucks Baumstruktur sowie der genaue Prozess für die Erstellung werden implementiert.
 
 ### <a name="implementation-example"></a>Beispiel für die Implementierung
 
-Dieser Abschnitt beschreibt eine mögliche Implementierung der anonymen Funktion Konvertierungen in Bezug auf andere Konstrukte in c#. Die hier beschriebene Implementierung basiert darauf, dass die gleichen Prinzipien, die vom Microsoft C#-Compiler verwendet, aber es ist keine beauftragten-Implementierung, noch ist es das einzig mögliche. Konvertierungen in Ausdrucksbaumstrukturen, wird nur kurz erwähnt, wie die genaue Semantik außerhalb des Bereichs dieser Spezifikation.
+In diesem Abschnitt wird eine mögliche Implementierung anonymer Funktions Konvertierungen in Bezug C# auf andere Konstrukte beschrieben. Die hier beschriebene Implementierung basiert auf denselben Prinzipien, die vom Microsoft C# -Compiler verwendet werden, aber es handelt sich nicht um eine obligatorische Implementierung, und es handelt sich nicht um die einzige Möglichkeit. Die Konvertierung in Ausdrucks Baumstrukturen wird nur kurz erwähnt, da die genaue Semantik außerhalb des Gültigkeits Bereichs dieser Spezifikation liegt.
 
-Der übrige Teil dieses Abschnitts enthält mehrere Beispiele für Code, der anonyme Funktionen mit unterschiedlichen Eigenschaften enthält. Für jedes Beispiel erfolgt eine entsprechende Übersetzung in Code, der nur anderen C#-Konstrukten verwendet. In den Beispielen wird der Bezeichner `D` davon stellen den folgenden Delegattyp:
+Der Rest dieses Abschnitts enthält mehrere Beispiele für Code, der anonyme Funktionen mit unterschiedlichen Merkmalen enthält. Für jedes Beispiel wird eine entsprechende Übersetzung in Code bereitgestellt, C# der nur andere Konstrukte verwendet. In den Beispielen wird davon ausgegangen, dass der Bezeichner `D` von den folgenden Delegattyp repräsentiert:
 ```csharp
 public delegate void D();
 ```
 
-Die einfachste Form einer anonymen Funktion ist eine, die keine äußeren Variablen erfasst:
+Die einfachste Form einer anonymen Funktion ist eine, die keine äußeren Variablen aufzeichnet:
 ```csharp
 class Test
 {
@@ -606,7 +607,7 @@ class Test
 }
 ```
 
-Dies kann in eine Instanziierung von Delegaten übersetzt werden, die vom Compiler generierte statische Methode verweist, in dem der Code der anonymen Funktion platziert wird:
+Dies kann in eine Delegatinstanziierung übersetzt werden, die auf eine vom Compiler generierte statische Methode verweist, in der der Code der anonymen Funktion platziert wird:
 ```csharp
 class Test
 {
@@ -620,7 +621,7 @@ class Test
 }
 ```
 
-Im folgenden Beispiel verweist die anonyme Funktion Instanzmember `this`:
+Im folgenden Beispiel verweist die anonyme Funktion auf Instanzmember von `this`:
 ```csharp
 class Test
 {
@@ -632,7 +633,7 @@ class Test
 }
 ```
 
-Dies kann auf eine vom Compiler generierten Instanz-Methode, die den Code der anonymen Funktion übersetzt werden:
+Dies kann in eine vom Compiler generierte Instanzmethode übersetzt werden, die den Code der anonymen Funktion enthält:
 ```csharp
 class Test
 {
@@ -648,7 +649,7 @@ class Test
 }
 ```
 
-In diesem Beispiel werden die anonyme Funktion eine lokale Variable erfasst:
+In diesem Beispiel erfasst die anonyme Funktion eine lokale Variable:
 ```csharp
 class Test
 {
@@ -659,7 +660,7 @@ class Test
 }
 ```
 
-Die Lebensdauer der lokalen Variablen muss jetzt auf mindestens die Lebensdauer des Delegaten anonyme Funktion erweitert werden. Dies kann erreicht werden, indem "anheben" die lokale Variable in einem Feld einer vom Compiler generierten Klasse. Instanziierung der lokalen Variablen ([Instanziierung von lokalen Variablen](expressions.md#instantiation-of-local-variables)) klicken Sie dann zum Erstellen einer Instanz von der vom Compiler generierten Klasse und den Zugriff auf die lokale Variable entspricht, für den Zugriff auf ein Feld in der Instanz von entspricht. die vom Compiler generierten Klasse. Darüber hinaus wird die anonyme Funktion eine Instanzmethode der vom Compiler generierten Klasse:
+Die Lebensdauer der lokalen Variablen muss nun mindestens zur Lebensdauer des anonymen Funktions Delegaten verlängert werden. Dies kann erreicht werden, indem Sie die lokale Variable in ein Feld einer vom Compiler generierten Klasse einbinden. Die Instanziierung der lokalen Variablen ([Instanziierung lokaler Variablen](expressions.md#instantiation-of-local-variables)) entspricht dann dem Erstellen einer Instanz der vom Compiler generierten Klasse, und der Zugriff auf die lokale Variable entspricht dem Zugriff auf ein Feld in der Instanz der vom Compiler generierten Klasse. Außerdem wird die anonyme Funktion zu einer Instanzmethode der vom Compiler generierten Klasse:
 ```csharp
 class Test
 {
@@ -680,7 +681,7 @@ class Test
 }
 ```
 
-Zum Schluss die folgenden anonymen Funktion erfasst `this` und zweier lokaler Variablen mit verschiedenen Lebensdauer:
+Zum Schluss erfasst die folgende anonyme Funktion `this` und zwei lokale Variablen mit unterschiedlichen Lebens dauern:
 ```csharp
 class Test
 {
@@ -696,7 +697,7 @@ class Test
 }
 ```
 
-Hier wird eine vom Compiler generierten Klasse erstellt, für jede Anweisung-block in der lokalen Variablen erfasst werden, so, dass die lokalen Variablen in anderen Blöcken unabhängige Lebensdauer aufweisen können. Eine Instanz von `__Locals2`, die vom Compiler generierten-Klasse für den Block inner-Anweisung enthält, die lokale Variable `z` und ein Feld, das eine Instanz des verweist `__Locals1`.  Eine Instanz von `__Locals1`, die vom Compiler generierten-Klasse für den äußeren Anweisungsblock enthält die lokale Variable `y` und ein Feld, das Verweise `this` der einschließenden Funktion-Elements. Erfasst alle mit diese Datenstrukturen zu erreichen, kann das äußere Variablen durch eine Instanz der `__Local2`, und der Code der anonymen Funktion kann daher als eine Instanzmethode dieser Klasse implementiert werden.
+Hier wird eine vom Compiler generierte Klasse für jeden Anweisungsblock erstellt, in dem lokale Variablen aufgezeichnet werden, sodass die lokalen Variablen in den verschiedenen Blöcken eine unabhängige Lebensdauer aufweisen können. Eine Instanz von `__Locals2`, die vom Compiler generierte-Klasse für den inneren Anweisungsblock, enthält die lokale Variable `z` und ein Feld, das auf eine Instanz von `__Locals1`verweist.  Eine Instanz von `__Locals1`, die vom Compiler generierte-Klasse für den äußeren Anweisungsblock, enthält die lokale Variable `y` und ein Feld, das auf `this` des einschließenden Funktionsmembers verweist. Mit diesen Datenstrukturen ist es möglich, alle aufgezeichneten äußeren Variablen über eine Instanz von `__Local2`zu erreichen, und der Code der anonymen Funktion kann daher als Instanzmethode dieser Klasse implementiert werden.
 
 ```csharp
 class Test
@@ -731,25 +732,25 @@ class Test
 }
 ```
 
-Das gleiche Verfahren, die hier angewendet werden, um die lokale Variablen erfassen kann auch verwendet werden, wenn anonyme Funktionen in Ausdrucksbaumstrukturen konvertiert: Verweise auf die vom Compiler generierten Objekte können in der Ausdrucksbaumstruktur gespeichert werden, und den Zugriff auf die lokalen Variablen dargestellt werden kann, wie das Feld für die folgenden Objekte zugreift. Der Vorteil dieses Ansatzes ist, dass die "transformierten" lokalen Variablen von Delegaten und Ausdrucksbaumstrukturen gemeinsam genutzt werden können.
+Dieselbe Technik, die hier zum Erfassen von lokalen Variablen angewendet wird, kann auch beim Umrechnen anonymer Funktionen in Ausdrucks Baumstrukturen verwendet werden: Verweise auf die vom Compiler generierten Objekte können in der Ausdrucks Baumstruktur gespeichert werden, und der Zugriff auf die lokalen Variablen kann wird als Feld Zugriffen für diese Objekte dargestellt. Der Vorteil dieses Ansatzes besteht darin, dass die "angehobenen" lokalen Variablen für Delegaten und Ausdrucks Baumstrukturen freigegeben werden können.
 
-## <a name="method-group-conversions"></a>Konvertierungen für Gruppe
+## <a name="method-group-conversions"></a>Methoden Gruppen Konvertierungen
 
-Eine implizite Konvertierung ([implizite Konvertierungen](conversions.md#implicit-conversions)) aus einer Methodengruppe vorhanden ist ([ausdrucksklassifizierungen](expressions.md#expression-classifications)) in einen kompatiblen Delegattyp. Erhalten einen Delegattyp `D` und einen Ausdruck `E` , die als eine Methodengruppe klassifiziert ist, ist eine implizite Konvertierung von vorhanden `E` zu `D` Wenn `E` enthält mindestens eine Methode, die in sein (Normalform angewendet wird [Anwendbarer Funktionsmember](expressions.md#applicable-function-member)) auf eine Argumentliste erstellt, durch Nutzung der Parametertypen und Modifizierern von `D`, wie im folgenden beschrieben.
+Eine implizite Konvertierung ([implizite Konvertierungen](conversions.md#implicit-conversions)) ist in einer Methoden Gruppe ([Ausdrucks Klassifizierungen](expressions.md#expression-classifications)) zu einem kompatiblen Delegattyp vorhanden. Bei einem Delegattyp `D` und einem Ausdrucks `E`, der als Methoden Gruppe klassifiziert ist, gibt es eine implizite Konvertierung von `E` in `D`, wenn `E` mindestens eine Methode enthält, die in ihrer normalen Form ([anwendbares Funktionsmember](expressions.md#applicable-function-member)) auf eine Argumentliste anwendbar ist, die mithilfe der Parametertypen und Modifizierer von `D`erstellt wurde, wie im folgenden beschrieben.
 
-Die Anwendung während der Kompilierung einer Konvertierung von einer Methodengruppe `E` in einen Delegattyp `D` wird im folgenden beschrieben. Beachten Sie, dass das Vorhandensein eine implizite Konvertierung von `E` zu `D` garantiert nicht, dass die Anwendung während der Kompilierung der Konvertierung ohne Fehler durchgeführt werden.
+Die Kompilierzeit Anwendung einer Konvertierung von einer Methoden Gruppe `E` in einen Delegattyp `D` wird im folgenden beschrieben. Beachten Sie, dass das vorhanden sein einer impliziten Konvertierung von `E` in `D` nicht sicherstellt, dass die Kompilierzeit Anwendung der Konvertierung ohne Fehler erfolgreich ausgeführt wird.
 
-*  Eine einzelne Methode `M` ausgewählt ist, den Aufruf einer Methode entsprechen ([Methodenaufrufe](expressions.md#method-invocations)) des Formulars `E(A)`, mit der folgenden Änderungen:
-    * Die Argumentliste `A` ist eine Liste von Ausdrücken, jede klassifizierte, wie eine Variable und mit dem Typ und die Modifizierer (`ref` oder `out`) des entsprechenden Parameters in der *Formal_parameter_list* von `D`.
-    * Die Candidate-Methoden, die berücksichtigt werden nur die Methoden, die in ihren Normalform angewendet werden ([Anwendbarer Funktionsmember](expressions.md#applicable-function-member)), nicht auf die nur in ihre erweiterte Form angewendet.
-*  Wenn der Algorithmus des [Methodenaufrufe](expressions.md#method-invocations) einen Fehler erzeugt, und klicken Sie dann ein Fehler während der Kompilierung auftritt. Andernfalls erzeugt der Algorithmus eine einzelne bewährte Methode `M` müssen die gleiche Anzahl von Parametern wie `D` und die Konvertierung wird als vorhanden angesehen.
-*  Die ausgewählte Methode `M` kompatibel sein muss ([delegieren Kompatibilität](delegates.md#delegate-compatibility)) mit dem Delegattyp `D`, oder andernfalls ein Kompilierungsfehler tritt auf.
-*  Wenn die ausgewählte Methode `M` ist eine Instanzmethode, die zugeordneten Instanzausdruck `E` bestimmt das Zielobjekt des Delegaten.
-*  Wenn die ausgewählte Methode M eine Erweiterungsmethode die durch einen Elementzugriff auf ein Instanzenausdruck gekennzeichnet ist ist, bestimmt dieser Instanzausdruck das Zielobjekt des Delegaten.
-*  Das Ergebnis der Konvertierung ist ein Wert vom Typ `D`, d. h. ein neu erstellter Delegat, der auf dem ausgewählten Methode und die Ziel-Objekt verweist.
-*  Beachten Sie, die diesen Prozess für die Erstellung eines Delegaten an eine Erweiterungsmethode führen können, wenn der Algorithmus des [Methodenaufrufe](expressions.md#method-invocations) finden Sie eine Instanzmethode jedoch erfolgreich ausgeführt wird, bei der Verarbeitung des Aufrufs `E(A)` als Erweiterung Methodenaufruf ([Erweiterung Methodenaufrufe](expressions.md#extension-method-invocations)). Ein Delegat, die so erstellte erfasst die Erweiterungsmethode als auch als erstes Argument.
+*  Es wird eine einzelne Methode `M` ausgewählt, die einem Methodenaufruf ([Methodenaufrufe](expressions.md#method-invocations)) der Form `E(A)`entspricht, mit den folgenden Änderungen:
+    * Bei der Argumentliste `A` handelt es sich um eine Liste von Ausdrücken, die jeweils als Variable und mit dem Typ und Modifizierer (`ref` oder `out`) des entsprechenden Parameters in der *formal_parameter_list* von `D`klassifiziert sind.
+    * Bei den Kandidaten Methoden handelt es sich nur um die Methoden, die in ihrer normalen Form ([anwendbares Funktionsmember](expressions.md#applicable-function-member)) anwendbar sind, nicht die, die nur in der erweiterten Form anwendbar sind.
+*  Wenn der Algorithmus von [Methoden](expressions.md#method-invocations) aufrufen einen Fehler erzeugt, tritt ein Kompilierzeitfehler auf. Andernfalls erzeugt der Algorithmus eine einzige beste Methode `M` die gleiche Anzahl von Parametern wie `D` haben, und die Konvertierung wird als vorhanden betrachtet.
+*  Die ausgewählte Methode `M` muss kompatibel sein ([delegatkompatibilität](delegates.md#delegate-compatibility)) mit dem Delegattyp `D`, oder andernfalls tritt ein Kompilierzeitfehler auf.
+*  Wenn die ausgewählte Methode `M` eine Instanzmethode ist, bestimmt der Instanzausdruck, der `E` zugeordnet ist, das Zielobjekt des Delegaten.
+*  Wenn die ausgewählte Methode M eine Erweiterungsmethode ist, die mithilfe eines Element Zugriffs auf einen Instanzausdruck bezeichnet wird, bestimmt dieser Instanzausdruck das Zielobjekt des Delegaten.
+*  Das Ergebnis der Konvertierung ist ein Wert vom Typ `D`, nämlich ein neu erstellter Delegat, der auf die ausgewählte Methode und das ausgewählte Zielobjekt verweist.
+*  Beachten Sie, dass dieser Prozess zur Erstellung eines Delegaten zu einer Erweiterungsmethode führen kann, wenn der Algorithmus von [Methoden](expressions.md#method-invocations) aufrufen keine Instanzmethode findet, sondern den Aufruf von `E(A)` als Erweiterungs Methodenaufruf ([Erweiterungs Methodenaufrufe](expressions.md#extension-method-invocations)) erfolgreich verarbeitet. Ein Delegat, der auf diese Weise erstellt wurde, erfasst sowohl die Erweiterungsmethode als auch das erste Argument.
 
-Das folgende Beispiel zeigt die Gruppe Konvertierungen:
+Im folgenden Beispiel werden Methoden Gruppen Konvertierungen veranschaulicht:
 ```csharp
 delegate string D1(object o);
 
@@ -776,33 +777,33 @@ class Test
 }
 ```
 
-Die Zuweisung zu `d1` implizit konvertiert die Methodengruppe `F` auf einen Wert vom Typ `D1`.
+Durch die Zuweisung zu `d1` wird die `F` der Methoden Gruppe implizit in einen Wert vom Typ `D1`konvertiert.
 
-Die Zuweisung zu `d2` zeigt, wie es ist möglich, einen Delegaten an eine Methode erstellen, die über weniger abgeleitete (Contravariant) Typen verfügt und eine abgeleitete (covariant)-Rückgabetyp.
+Die Zuweisung zu `d2` zeigt, wie es möglich ist, einen Delegaten für eine Methode zu erstellen, die weniger abgeleitete Parametertypen (kontra Variant) und einen stärker abgeleiteten (kovarianten) Rückgabetyp aufweist.
 
-Die Zuweisung zu `d3` zeigt wie keine Konvertierung möglich ist, wenn die Methode nicht anwendbar ist.
+Die Zuweisung zu `d3` zeigt, wie keine Konvertierung vorhanden ist, wenn die Methode nicht anwendbar ist.
 
-Die Zuweisung zu `d4` zeigt, wie die Methode in der Normalform angewendet werden muss.
+Die Zuweisung zu `d4` zeigt, wie die Methode in ihrer normalen Form anwendbar sein muss.
 
-Die Zuweisung zu `d5` zeigt, wie Parameter und Rückgabetypen Typen des Delegaten und der Methode unterscheidet nur für Verweistypen zulässig sind.
+Die Zuweisung zu `d5` zeigt, wie Parameter und Rückgabe Typen des Delegaten und der Methode nur für Verweis Typen unterschiedlich sein dürfen.
 
-Wie bei allen anderen implizite und explizite Konvertierungen kann der Cast-Operator verwendet werden, um explizit eine Methode gruppenkonvertierung auszuführen. Das Beispiel
+Wie bei allen anderen impliziten und expliziten Konvertierungen kann der Cast-Operator verwendet werden, um eine Konvertierung der Methoden Gruppe explizit auszuführen. Das Beispiel
 ```csharp
 object obj = new EventHandler(myDialog.OkClick);
 ```
-könnte stattdessen geschrieben werden
+Stattdessen können Sie schreiben.
 ```csharp
 object obj = (EventHandler)myDialog.OkClick;
 ```
 
-Methodengruppen möglicherweise Auflösung von funktionsüberladungen beeinflussen und Typrückschluss teilnehmen. Finden Sie unter [Funktionsmember](expressions.md#function-members) Weitere Details.
+Methoden Gruppen können die Überladungs Auflösung beeinflussen und am Typrückschluss teilnehmen. Weitere Informationen finden Sie unter [Funktionsmember](expressions.md#function-members) .
 
-Die Laufzeit-Auswertung von einer Methode die gruppenkonvertierung wird wie folgt aus:
+Die Lauf Zeit Auswertung einer Methoden Gruppen Konvertierung verläuft wie folgt:
 
-*  Wenn die Methode, die zum Zeitpunkt der Kompilierung ausgewählt, eine Instanzmethode ist, oder es ist eine Erweiterungsmethode, die als eine Instanzmethode zugegriffen wird, richtet sich das Zielobjekt des Delegaten aus der zugeordneten Instanzausdruck `E`:
-    * Die Instanzausdruck wird ausgewertet. Wenn diese Evaluierungsversion auf eine Ausnahme auslöst, werden keine weiteren Schritte ausgeführt.
-    * Wenn der Instanzausdruck ist eine *Reference_type*, der Wert, der durch den Instanzausdruck berechnet wird, das Zielobjekt. Wenn die ausgewählte Methode eine Instanzmethode ist und das Zielobjekt ist `null`, `System.NullReferenceException` wird ausgelöst, und keine weiteren Schritte ausgeführt werden.
-    * Wenn der Instanzausdruck ist eine *Value_type*, ein Boxing-Vorgang ([Boxing-Konvertierung](types.md#boxing-conversions)) wird ausgeführt, um den Wert auf ein Objekt zu konvertieren und dieses Objekt wird das Zielobjekt.
-*  Andernfalls wird die ausgewählte Methode Teil eines Aufrufs der statischen Methode aus, und das Zielobjekt des Delegaten ist `null`.
-*  Eine neue Instanz des Delegattyps `D` zugeordnet ist. Wenn nicht genügend Arbeitsspeicher verfügbar, um die neue Instanz einer `System.OutOfMemoryException` wird ausgelöst, und keine weiteren Schritte ausgeführt werden.
-*  Die neue Delegatinstanz wird mit einem Verweis auf die Methode, die zum Zeitpunkt der Kompilierung bestimmt wurde initialisiert, und ein Verweis auf das Zielobjekt oben berechnete.
+*  Wenn die zur Kompilierzeit ausgewählte Methode eine Instanzmethode ist oder es sich um eine Erweiterungsmethode handelt, auf die als Instanzmethode zugegriffen wird, wird das Zielobjekt des Delegaten aus dem Instanzausdruck bestimmt, der `E`zugeordnet ist:
+    * Der Instanzausdruck wird ausgewertet. Wenn diese Auswertung eine Ausnahme verursacht, werden keine weiteren Schritte ausgeführt.
+    * Wenn der Instanzausdruck eine *reference_type*ist, wird der durch den Instanzausdruck berechnete Wert zum Zielobjekt. Wenn die ausgewählte Methode eine Instanzmethode ist und das Zielobjekt `null`ist, wird eine `System.NullReferenceException` ausgelöst, und es werden keine weiteren Schritte ausgeführt.
+    * Wenn der Instanzausdruck eine *value_type*ist, wird ein Boxing-Vorgang ([Boxing-Konvertierungen](types.md#boxing-conversions)) ausgeführt, um den Wert in ein Objekt zu konvertieren, und dieses Objekt wird zum Zielobjekt.
+*  Andernfalls ist die ausgewählte Methode Teil eines statischen Methoden Aufrufes, und das Zielobjekt des Delegaten wird `null`.
+*  Eine neue Instanz des Delegattyps `D` zugeordnet wird. Wenn nicht genügend Arbeitsspeicher zum Zuordnen der neuen Instanz verfügbar ist, wird ein `System.OutOfMemoryException` ausgelöst, und es werden keine weiteren Schritte ausgeführt.
+*  Die neue Delegatinstanz wird mit einem Verweis auf die Methode initialisiert, die zur Kompilierzeit bestimmt wurde, und ein Verweis auf das oben berechnete Zielobjekt.
