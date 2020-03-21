@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4e2a536bab00859b003e8d967cb1927a99a9fa21
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 38740069a2e105f920fa275c443f4560055e2901
+ms.sourcegitcommit: 9aa177443b83116fe1be2ab28e2c7291947fe32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "79483529"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80108368"
 ---
 
 # <a name="target-typed-new-expressions"></a>`new` Ausdrücke mit Ziel Typisierung
@@ -28,14 +28,17 @@ Dictionary<string, List<int>> field = new() {
     { "item1", new() { 1, 2, 3 } }
 };
 ```
+
 Lassen Sie den Typ weglassen aus, wenn er von der Verwendung abgeleitet werden kann.
 ```cs
 XmlReader.Create(reader, new() { IgnoreWhitespace = true });
 ```
+
 Instanziieren Sie ein-Objekt, ohne den Typ zu benennen.
 ```cs
 private readonly static object s_syncObj = new();
 ```
+
 ## <a name="detailed-design"></a>Detaillierter Entwurf
 [design]: #detailed-design
 
@@ -46,14 +49,15 @@ object_creation_expression
     | 'new' type object_or_collection_initializer
     ;
 ```
+
 Ein mit dem Ziel typisiertes `new` kann in einen beliebigen Typ konvertiert werden. Dies hat zur Folge, dass Sie nicht zur Überladungs Auflösung beiträgt. Dies dient vor allem dazu, unvorhersehbare wichtige Änderungen zu vermeiden.
 
 Die Argumentliste und die initialisiererausdrücke werden gebunden, nachdem der Typ bestimmt wurde.
 
 Der Typ des Ausdrucks wird vom Zieltyp abgeleitet, der einen der folgenden Werte benötigen würde:
 
-- **Beliebiger Strukturtyp**
-- **Beliebiger Verweistyp**
+- **Beliebiger Strukturtyp** (einschließlich Tupeltypen)
+- **Beliebiger Verweistyp** (einschließlich Delegattypen)
 - Ein **beliebiger Typparameter** mit einem Konstruktor oder einer `struct`-Einschränkung
 
 mit den folgenden Ausnahmen:
@@ -61,9 +65,11 @@ mit den folgenden Ausnahmen:
 - **Enumerationstypen:** nicht alle Enumerationstypen enthalten die Konstante NULL. Daher sollte es wünschenswert sein, den expliziten Enumerationsmember zu verwenden.
 - **Schnittstellentypen:** Dies ist eine Nische Funktion, und es sollte besser sein, den Typ explizit zu erwähnen.
 - **Array Typen:** Arrays benötigen eine spezielle Syntax, um die Länge bereitzustellen.
-- **Strukturstandardkonstruktor**: Hierdurch werden alle primitiven Typen und die meisten Werttypen Regeln. Wenn Sie den Standardwert dieser Typen verwenden möchten, können Sie stattdessen `default` schreiben.
+- **dynamisch:** wir lassen `new dynamic()`nicht zu, daher lassen wir `new()` mit `dynamic` nicht als Zieltyp zu.
 
 Alle anderen Typen, die in der *object_creation_expression* nicht zulässig sind, werden ebenfalls ausgeschlossen, z.b. Zeiger Typen.
+
+Wenn der Zieltyp ein auf NULL festleg barer Werttyp ist, wird der `new` vom Typ Target in den zugrunde liegenden Typ und nicht in den Typ konvertiert, der NULL-Werte zulässt.
 
 > **Open Issue:** sollten wir Delegaten und Tupel als Zieltyp zulassen?
 
@@ -75,35 +81,37 @@ Action a = new(() => {}); // "new" is redundant
 (int a, int b) t = new(); // ruled out by "use of struct default constructor"
 Action a = new(); // no constructor found
 
-var x = new() == (1, 2); // ruled out by "use of struct default constructor"
-var x = new(1, 2) == (1, 2) // "new" is redundant
-```
+### Miscellaneous
 
+`throw new()` is disallowed.
 
-> **Open Issue:** sollten wir `throw new()` mit `Exception` als Zieltyp zulassen?
+Target-typed `new` is not allowed with binary operators.
 
-Wir haben heute `throw null`, aber nicht `throw default` (obwohl dies die gleiche Wirkung haben würde). Auf der anderen Seite könnten `throw new()` als Kurzform für `throw new Exception(...)`nützlich sein. Beachten Sie, dass Sie bereits von der aktuellen Spezifikation zugelassen wird. `Exception` ist ein Referenztyp, und die Spezifikation für die throw-Anweisung besagt, dass der Ausdruck in `Exception`konvertiert wird.
+It is disallowed when there is no type to target: unary operators, collection of a `foreach`, in a `using`, in a deconstruction, in an `await` expression, as an anonymous type property (`new { Prop = new() }`), in a `lock` statement, in a `sizeof`, in a `fixed` statement, in a member access (`new().field`), in a dynamically dispatched operation (`someDynamic.Method(new())`), in a LINQ query, as the operand of the `is` operator, as the left operand of the `??` operator,  ...
 
-> **Open Issue:** sollten wir die Verwendung einer Ziel typisierten `new` mit benutzerdefinierten Vergleichs-und arithmetischen Operatoren zulassen?
+It is also disallowed as a `ref`.
 
-Zum Vergleich unterstützt `default` nur Gleichheits Operatoren (benutzerdefinierte und integrierte). Wäre es sinnvoll, auch andere Operatoren für die `new()` zu unterstützen?
-
-## <a name="drawbacks"></a>Nachteile
+## Drawbacks
 [drawbacks]: #drawbacks
 
-None.
+There were some concerns with target-typed `new` creating new categories of breaking changes, but we already have that with `null` and `default`, and that has not been a significant problem.
 
-## <a name="alternatives"></a>Alternativen
+## Alternatives
 [alternatives]: #alternatives
 
-Die meisten Beschwerden über Typen, die zu lang sind, um bei der Feld Initialisierung duplizieren zu können, sind *Typargumente* , die nicht den Typ selbst aufweisen. wir könnten nur Typargumente wie `new Dictionary(...)` (oder ähnliches) ableiten und Typargumente lokal von Argumenten oder dem auflistungsiniti
+Most of complaints about types being too long to duplicate in field initialization is about *type arguments* not the type itself, we could infer only type arguments like `new Dictionary(...)` (or similar) and infer type arguments locally from arguments or the collection initializer.
 
-## <a name="questions"></a>Fragen
+## Questions
 [questions]: #questions
 
-- Sollten wir die Verwendung von Ausdrücken in Ausdrucks Baumstrukturen verbieten? gar
-- Wie wird das Feature mit `dynamic` Argumenten interagiert? (keine besondere Behandlung)
-- Wie funktioniert IntelliSense mit `new()`? (nur bei einem einzelnen Zieltyp)
-## <a name="design-meetings"></a>Treffen von Besprechungen
+- Should we forbid usages in expression trees? (no)
+- How the feature interacts with `dynamic` arguments? (no special treatment)
+- How IntelliSense should work with `new()`? (only when there is a single target-type)
+
+## Design meetings
 
 - [LDM-2017-10-18](https://github.com/dotnet/csharplang/blob/master/meetings/2017/LDM-2017-10-18.md#100)
+- [LDM-2018-05-21](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-05-21.md)
+- [LDM-2018-06-25](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-06-25.md)
+- [LDM-2018-08-22](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-08-22.md#target-typed-new)
+- [LDM-2018-10-17](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-10-17.md)

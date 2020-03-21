@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d9080202f9413f8beb80db222d47f5fc082ae641
-ms.sourcegitcommit: f3170512e7a3193efbcea52ec330648375e36915
+ms.openlocfilehash: 8bf3a18dc42e225e64bd3ccda2106aed89b421ed
+ms.sourcegitcommit: 9aa177443b83116fe1be2ab28e2c7291947fe32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79484357"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80108388"
 ---
 # <a name="function-pointers"></a>Funktionszeiger
 
@@ -174,7 +174,8 @@ In einem unsicheren Kontext ist eine Methode `M` mit einem Funktions Zeigertyp k
 In einem unsicheren Kontext gibt es eine implizite Konvertierung von einem address-of-Ausdruck, dessen Ziel eine Methoden Gruppe ist `E` zu einem kompatiblen Funktions Zeigertyp `F`, wenn `E` mindestens eine Methode enthält, die in der normalen Form auf eine Argumentliste anwendbar ist, die durch die Verwendung der Parametertypen und Modifizierer von `F`erstellt wurde, wie im folgenden beschrieben.
 - Es wird eine einzelne Methode `M` ausgewählt, die einem Methodenaufruf des Formulars entspricht, `E(A)` mit den folgenden Änderungen:
    - Bei der Argumentliste `A` handelt es sich um eine Liste von Ausdrücken, die jeweils als Variable und Typ und Modifizierer (`ref`, `out`oder `in`) des entsprechenden _formalen\_-Parameters\_Liste_ der `D`klassifiziert sind.
-   - Bei den Kandidaten Methoden handelt es sich nur um Methoden, bei denen es sich nur um die Methoden handelt, die in ihrer normalen Form anwendbar sind.
+   - Bei den Kandidaten Methoden handelt es sich nur um die Methoden, die in ihrer normalen Form anwendbar sind, nicht um die Methoden, die im erweiterten Formular anwendbar sind.
+   - Bei den Kandidaten Methoden handelt es sich nur um statische Methoden.
 - Wenn der Algorithmus von Methoden aufrufen einen Fehler erzeugt, tritt ein Kompilierzeitfehler auf. Andernfalls erzeugt der Algorithmus eine einzige beste Methode `M` die gleiche Anzahl von Parametern wie `F` haben, und die Konvertierung wird als vorhanden betrachtet.
 - Die ausgewählte Methode `M` muss (wie oben definiert) mit dem Funktions Zeigertyp `F`kompatibel sein. Andernfalls tritt ein Kompilierungsfehler auf.
 - Das Ergebnis der Konvertierung ist ein Funktionszeiger vom Typ `F`.
@@ -293,7 +294,7 @@ Anstatt `unsafe` bei jeder Verwendung eines `delegate*`zu benötigen, benötigen
 
 Auf diese Weise wurde der Entwurf ursprünglich beabsichtigt. Die sich ergebenden Sprachregeln waren jedoch sehr umständlich. Es ist nicht möglich, die Tatsache auszublenden, dass es sich um einen Zeiger Wert handelt, und auch ohne das Schlüsselwort "`unsafe`". Beispielsweise kann die Konvertierung in `object` nicht zulässig sein, Sie kann nicht Mitglied einer `class`sein usw... Der C# Entwurf besteht darin, `unsafe` für alle Zeiger Verwendungen anzufordern, weshalb dieses Design darauf folgt.
 
-Entwickler können weiterhin einen _sicheren_ Wrapper zusätzlich zu `delegate*` Werten auf die gleiche Weise wie für normale Zeiger Typen darstellen. Bedenken Sie:
+Entwickler können weiterhin einen _sicheren_ Wrapper zusätzlich zu `delegate*` Werten auf die gleiche Weise wie für normale Zeiger Typen darstellen. Berücksichtigen Sie dabei Folgendes:
 
 ``` csharp
 unsafe struct Action {
