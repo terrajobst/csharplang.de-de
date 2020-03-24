@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d6519ff57b4a98c4eec8ccbf310303432ac3255e
-ms.sourcegitcommit: 65ea1e6dc02853e37e7f2088e2b6cc08d01d1044
+ms.openlocfilehash: 50f2bd2d0a84064cfe35fe65b9e5c59c052d19ac
+ms.sourcegitcommit: 1dbb8e82bed5012a58a3a035bf2c3737ed570d07
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "79483949"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80122948"
 ---
 # <a name="ranges"></a>Ranges
 
@@ -100,7 +100,7 @@ C#hat keine syntaktische Methode, um auf Bereiche oder Slices von Sammlungen zuz
 
 In der Sprache wird ein neuer Bereichs Operator `x..y`eingeführt. Dabei handelt es sich um einen binären Infix-Operator, der zwei Ausdrücke akzeptiert. Beide Operanden können ausgelassen werden (Beispiele unten) und müssen in `System.Index`konvertiert werden. Der Vorgang wird auf den entsprechenden `System.Range` Factory-Methoden aufrufsvorgang herabgesetzt.
 
--Wir ersetzen die C# Grammatikregeln für *multiplicative_expression* durch Folgendes (um eine neue Rang folgen Ebene einzuführen):
+Wir ersetzen die C# Grammatikregeln für *multiplicative_expression* durch Folgendes (um eine neue Rang folgen Ebene einzuführen):
 
 ```antlr
 range_expression
@@ -149,9 +149,9 @@ Die Sprache stellt einen instanzindexer-Member mit einem einzelnen Parameter vom
 
 Ein Typ ist " ***zählbar*** ", wenn er über eine Eigenschaft mit dem Namen `Length` oder `Count` mit einem zugänglichen Getter und einem Rückgabetyp von `int`verfügt. Die Sprache kann diese Eigenschaft verwenden, um einen Ausdruck vom Typ `Index` in eine `int` an der Stelle des Ausdrucks zu konvertieren, ohne dass der Typ `Index` verwendet werden muss. Wenn sowohl `Length` als auch `Count` vorhanden sind, werden `Length` bevorzugt. Der Einfachheit halber wird in diesem Vorschlag der Name `Length` verwendet, um `Count` oder `Length`darzustellen.
 
-Bei solchen Typen verhält sich die Sprache so, als ob es einen Indexmember in der Form gibt `T this[Index index]` wobei `T` der Rückgabetyp des `int` basierten Indexers ist, einschließlich aller `ref`-Stil Anmerkungen. Das neue Element hat denselben `get` und `set` Member mit überein stimmendem Zugriff als `int` Indexer. 
+Bei solchen Typen verhält sich die Sprache so, als ob ein Indexer-Member der Form `T this[Index index]` ist, wobei `T` der Rückgabetyp des `int` basierten Indexers ist, einschließlich aller `ref`-Stil Anmerkungen. Das neue Element hat denselben `get` und `set` Member mit überein stimmendem Zugriff als `int` Indexer. 
 
-Der neue Indexer wird implementiert, indem das Argument vom Typ `Index` in eine `int` umgewandelt und ein Aufruf an den `int` basierten Indexer ausgegeben wird. Zu Diskussions Zwecken verwenden Sie das Beispiel `receiver[expr]`. Die Konvertierung von `expr` in `int` erfolgt wie folgt:
+Der neue Indexer wird implementiert, indem das Argument vom Typ `Index` in eine `int` umgewandelt und ein Aufruf an den `int` basierten Indexer ausgegeben wird. Zu Diskussions Zwecken verwenden wir das Beispiel `receiver[expr]`. Die Konvertierung von `expr` in `int` erfolgt wie folgt:
 
 - Wenn das-Argument das Formular `^expr2` und der Typ der `expr2` `int`ist, wird es in `receiver.Length - expr2`übersetzt.
 - Andernfalls wird Sie als `expr.GetOffset(receiver.Length)`übersetzt.
@@ -205,11 +205,11 @@ Die Sprache stellt einen instanzindexer-Member mit einem einzelnen Parameter vom
 - Der-Typ verfügt über einen zugänglichen Member mit dem Namen `Slice`, der zwei Parameter vom Typ `int`hat.
 - Der-Typ verfügt über keinen instanzindexer, der einen einzelnen `Range` als ersten Parameter annimmt. Der `Range` muss der einzige Parameter sein, oder die restlichen Parameter müssen optional sein.
 
-Bei solchen Typen wird die Sprache so gebunden, als ob es einen Indexmember in der Form gibt `T this[Range range]` wobei `T` der Rückgabetyp der `Slice` Methode ist, einschließlich aller `ref`-Stil Anmerkungen. Der neue Member verfügt auch über übereinstimmende Barrierefreiheit mit `Slice`. 
+Bei solchen Typen wird die Sprache so gebunden, als ob es einen Indexer-Member in der Form gibt `T this[Range range]` wobei `T` der Rückgabetyp der `Slice` Methode ist, einschließlich aller `ref`-Stil Anmerkungen. Der neue Member verfügt auch über übereinstimmende Barrierefreiheit mit `Slice`. 
 
-Wenn der `Range` basierte Indexer an einen Ausdruck mit dem Namen `receiver`gebunden ist, wird er verringert, indem der `Range` Ausdruck in zwei Werte umgewandelt wird, die dann an die `Slice`-Methode weitergegeben werden. Zu Diskussions Zwecken verwenden Sie das Beispiel `receiver[expr]`.
+Wenn der `Range` basierte Indexer an einen Ausdruck mit dem Namen `receiver`gebunden ist, wird er verringert, indem der `Range` Ausdruck in zwei Werte umgewandelt wird, die dann an die `Slice`-Methode weitergegeben werden. Zu Diskussions Zwecken verwenden wir das Beispiel `receiver[expr]`.
 
-Das erste Argument `Slice` wird durch die folgende Typumwandlung des typisierten Ausdrucks abgerufen:
+Das erste Argument `Slice` wird durch das Umrechnen des typisierten Bereichs Ausdrucks in folgender Weise erreicht:
 
 - Wenn `expr` die Form `expr1..expr2` (wo `expr2` ausgelassen werden kann) und `expr1` den Typ `int`hat, wird es als `expr1`ausgegeben.
 - Wenn `expr` das Formular `^expr1..expr2` (wobei `expr2` ausgelassen werden kann), wird es als `receiver.Length - expr1`ausgegeben.
@@ -223,7 +223,7 @@ Dieser Wert wird bei der Berechnung des zweiten `Slice` Arguments wieder verwend
 - Wenn `expr` das Formular `expr1..` (wobei `expr1` ausgelassen werden kann), wird es als `receiver.Length - start`ausgegeben.
 - Andernfalls wird Sie als `expr.End.GetOffset(receiver.Length) - start`ausgegeben.
 
-Die `receiver`, `Length` und `expr` Ausdrücke werden nach Bedarf überlaufen, um sicherzustellen, dass alle Nebeneffekte nur einmal ausgeführt werden. Beispiel:
+Die `receiver`-, `Length`-und `expr`-Ausdrücke werden nach Bedarf überlaufen, um sicherzustellen, dass Nebeneffekte nur einmal ausgeführt werden. Beispiel:
 
 ``` csharp
 class Collection {
