@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b9697fc1d772ba59ed3b1de339a5a3d4eb24b1bd
-ms.sourcegitcommit: 36b028f4d6e88bd7d4a843c6d384d1b63cc73334
+ms.openlocfilehash: 54ae4ffabde6dca49b7e6bfb626d65837eabc8f5
+ms.sourcegitcommit: 1e1c7c72b156e2fbc54d6d6ac8d21bca9934d8d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "79484117"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80281943"
 ---
 # <a name="simple-programs"></a>Einfache Programme
 
@@ -50,18 +50,16 @@ compilation_unit
     ;
 ```
 
-In allen bis auf einen *compilation_unit* die *Anweisung*s alle lokale Funktions Deklarationen sein. 
+Nur ein *compilation_unit* darf *Anweisung*s enthalten. 
 
 Beispiel:
 
 ``` c#
-// File 1 - any statements
-if (args.Length == 0
-    || !int.TryParse(args[0], out int n)
+if (System.Environment.CommandLine.Length == 0
+    || !int.TryParse(System.Environment.CommandLine, out int n)
     || n < 0) return;
 Console.WriteLine(Fib(n).curr);
 
-// File 2 - only local functions
 (int curr, int prev) Fib(int i)
 {
     if (i == 0) return (1, 0);
@@ -79,18 +77,14 @@ static class Program
 {
     static async Task Main()
     {
-        // File 1 statements
-        // File 2 local functions
-        // ...
+        // statements
     }
 }
 ```
 
 Beachten Sie, dass die Namen "Program" und "Main" nur zu Illustrations Zwecken verwendet werden, dass die vom Compiler verwendeten Namen von der Implementierung abhängen und weder der Typ noch die Methode anhand des Namens aus dem Quellcode referenziert werden kann.
 
-Die-Methode wird als Einstiegspunkt des Programms bezeichnet. Explizit deklarierte Methoden, die gemäß der Konvention als Einstiegspunkt Kandidaten angesehen werden können, werden ignoriert. Wenn dies der Fall ist, wird eine Warnung ausgegeben. Es ist ein Fehler, `-main:<type>` Compilerschalter anzugeben.
-
-Wenn eine Kompilierungseinheit andere Anweisungen als lokale Funktions Deklarationen enthält, werden zuerst Anweisungen aus dieser Kompilierungseinheit ausgeführt. Dies bewirkt, dass es für lokale Funktionen in einer Datei zulässig ist, auf lokale Variablen in einer anderen Datei zu verweisen. Die Reihenfolge der Anweisungs Beiträge (bei denen es sich um lokale Funktionen handelt) aus anderen Kompilierungs Einheiten ist nicht definiert.
+Die-Methode wird als Einstiegspunkt des Programms bezeichnet. Explizit deklarierte Methoden, die gemäß der Konvention als Einstiegspunkt Kandidaten angesehen werden können, werden ignoriert. Wenn dies der Fall ist, wird eine Warnung ausgegeben. Es ist ein Fehler, `-main:<type>` Compilerschalter anzugeben, wenn die Anweisungen der obersten Ebene vorhanden sind.
 
 Asynchrone Vorgänge sind in den Anweisungen der obersten Ebene zulässig, bis zu dem Grad, den Sie in-Anweisungen innerhalb einer regulären Methode für asynchrone Einstiegspunkte haben. Sie sind jedoch nicht erforderlich. wenn `await` Ausdrücke und andere asynchrone Vorgänge ausgelassen werden, wird keine Warnung erzeugt. Stattdessen entspricht die Signatur der generierten Einstiegspunkt Methode 
 ``` c#
@@ -104,13 +98,11 @@ static class $Program
 {
     static void $Main()
     {
-        // Statements from File 1
-        if (args.Length == 0
-            || !int.TryParse(args[0], out int n)
+        if (System.Environment.CommandLine.Length == 0
+            || !int.TryParse(System.Environment.CommandLine, out int n)
             || n < 0) return;
         Console.WriteLine(Fib(n).curr);
         
-        // Local functions from File 2
         (int curr, int prev) Fib(int i)
         {
             if (i == 0) return (1, 0);
@@ -123,7 +115,6 @@ static class $Program
 
 Gleichzeitig ein Beispiel wie das folgende:
 ``` c#
-// File 1
 await System.Threading.Tasks.Task.Delay(1000);
 System.Console.WriteLine("Hi!");
 ```
@@ -134,7 +125,6 @@ static class $Program
 {
     static async Task $Main()
     {
-        // Statements from File 1
         await System.Threading.Tasks.Task.Delay(1000);
         System.Console.WriteLine("Hi!");
     }
@@ -143,7 +133,7 @@ static class $Program
 
 ### <a name="scope-of-top-level-local-variables-and-local-functions"></a>Bereich von lokalen Variablen der obersten Ebene und lokalen Funktionen
 
-Obwohl lokale Variablen und Funktionen der obersten Ebene in der generierten Einstiegspunkt Methode "umfänden" sind, sollten Sie im gesamten Programm weiterhin im Gültigkeitsbereich sein.
+Obwohl lokale Variablen und Funktionen der obersten Ebene in der generierten Einstiegspunkt Methode "umfänden" sind, sollten Sie im gesamten Programm in jeder Kompilierungseinheit weiterhin im Gültigkeitsbereich sein.
 Für den Zweck der Auswertung mit einfachem Namen wird der globale Namespace erreicht:
 - Zuerst wird versucht, den Namen innerhalb der generierten Einstiegspunkt Methode auszuwerten, und zwar nur, wenn dieser Versuch fehlschlägt. 
 - Die "reguläre" Auswertung innerhalb der globalen Namespace Deklaration wird ausgeführt. 

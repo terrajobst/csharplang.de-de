@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 25756c1811d5e6dc97512ce70f99ab7fefa91c4a
-ms.sourcegitcommit: 2a6dffb60718065ece95df75e1cc7eb509e48a8d
+ms.openlocfilehash: 258ae6865c5b2c3103a0cdf7e1e5a2cdee11e740
+ms.sourcegitcommit: 1e1c7c72b156e2fbc54d6d6ac8d21bca9934d8d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "79484129"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80281956"
 ---
 # <a name="records-work-in-progress"></a>Datensätze werden in Bearbeitung aufgezeichnet
 
@@ -78,3 +78,31 @@ Daten Satz Typen führen zu synthetisierten Implementierungen für die folgenden
 ```C#
 override Equals(object o) => Equals(o as T);
 ```
+
+## <a name="with-expression"></a>`with`-Ausdruck
+
+Ein `with` Ausdruck ist ein neuer Ausdruck, der die folgende Syntax verwendet.
+
+```antlr
+with_expression
+    : switch_expression
+    | switch_expression 'with' anonymous_object_initializer
+```
+
+Ein `with` Ausdruck ermöglicht die "nicht zerstörerische Mutation", die eine Kopie des Empfänger Ausdrucks mit Änderungen an den Eigenschaften erzeugt, die im `anonymous_object_initializer`aufgelistet sind.
+
+Ein gültiger `with` Ausdruck hat einen Empfänger mit einem nicht-void-Typ. Der Empfängertyp muss eine barrierefreie Instanzmethode mit dem Namen `With` mit den entsprechenden Parametern und dem Rückgabetyp enthalten. Wenn mehrere `With` Methoden ohne außer Kraft Setzung vorhanden sind, ist ein Fehler aufgetreten. Wenn mehrere `With` außer Kraft setzungen vorhanden sind, muss eine nicht über schreibende `With` Methode vorhanden sein, die die Ziel Methode ist. Andernfalls muss genau eine `With`-Methode vorhanden sein.
+
+Auf der rechten Seite des `with` Ausdrucks handelt es sich um eine `anonymous_object_initializer` mit einer Sequenz von Zuweisungen mit einem Feld oder einer Eigenschaft des Empfängers auf der linken Seite der Zuweisung und einem willkürlichen Ausdruck auf der rechten Seite, der implizit in den Typ der linken Seite konvertiert werden kann.
+
+Bei Angabe einer Ziel `With` Methode muss der Rückgabetyp der Typ des Empfänger Ausdrucks Typs oder ein Basistyp sein. Für jeden Parameter der `With`-Methode muss ein barrierefreies entsprechendes Instanzfeld oder eine lesbare Eigenschaft für den Empfängertyp mit demselben Namen und demselben Typ vorhanden sein. Jede Eigenschaft oder jedes Feld auf der rechten Seite des with-Ausdrucks muss auch einem Parameter desselben Namens in der `With`-Methode entsprechen.
+
+Wenn eine gültige `With`-Methode vorhanden ist, entspricht die Auswertung eines `with` Ausdrucks dem Aufrufen der `With`-Methode mit den Ausdrücken im `anonymous_object_initializer` die den Parameter mit dem gleichen Namen wie die Eigenschaft auf der linken Seite ersetzt. Wenn keine übereinstimmende Eigenschaft für einen angegebenen Parameter in der `anonymous_object_initializer`vorhanden ist, ist das Argument die Auswertung des Felds oder der Eigenschaft mit demselben Namen auf dem Empfänger.
+
+Die Reihenfolge der Auswertung von Nebeneffekten sieht wie folgt aus, wobei jeder Ausdruck genau einmal ausgewertet wird:
+
+1. Empfänger Ausdruck
+
+2. Ausdrücke im `anonymous_object_initializer`in lexikalischer Reihenfolge
+
+3. Die Auswertung von Eigenschaften, die mit den Parametern der `With` Methode übereinstimmen, in der Reihenfolge der Definition der Parameter der `With` Methode.
